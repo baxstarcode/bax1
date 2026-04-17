@@ -1,49 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Baxstar Fishing — Premium Guided Fishing | Detroit Lakes, MN</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+<!-- SECTION 1: HERO (UPDATED) -->
+<section class="hero">
+  <div class="hero__veil"></div>
+  <div class="hero__grid"></div>
+  <div class="hero__scan"></div>
+  <div class="hero__rule"></div>
 
-:root {
-  --black: #08080a;
-  --charcoal: #111114;
-  --dark: #18181c;
-  --mid-dark: #222228;
-  --red: #c1272d;
-  --red-bright: #e63946;
-  --red-deep: #8b1a1f;
-  --cream: #f0ece4;
-  --warm-white: #faf8f4;
-  --gold: #c9a84c;
-  --gold-dim: #9a7d3a;
-  --slate: #6b6b78;
-  --light-slate: #9a9aaa;
-  --font-display: 'Bebas Neue', sans-serif;
-  --font-body: 'Barlow', sans-serif;
-  --font-accent: 'Cormorant Garamond', serif;
-  --max-w: 1320px;
-  --section-pad: clamp(80px, 10vw, 140px);
-}
+  <div class="bracket bracket--tl"></div>
+  <div class="bracket bracket--tr"></div>
+  <div class="bracket bracket--bl"></div>
+  <div class="bracket bracket--br"></div>
 
-html { scroll-behavior: smooth; }
+  <div class="hud hud--tl">SYS.ONLINE // GPS LOCK</div>
+  <div class="hud hud--tr">BAXSTAR // ELITE GUIDE</div>
+  <div class="hud hud--bl">LAT 44.9537° N / LON 93.0900° W</div>
+  <div class="hud hud--br">SEASON ACTIVE // BOOK NOW</div>
 
-body {
-  font-family: var(--font-body);
-  background: var(--black);
-  color: var(--cream);
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
+  <div class="hero__inner">
+    <img
+      src="https://static.wixstatic.com/media/a30e59_413146f7cd6a496a823309aefc67e66c~mv2.png"
+      alt="Baxstar Fishing — Detroit Lakes MN Guided Fishing"
+      class="hero__logo"
+    />
 
-a { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
+    <h1 class="hero__h1">Detroit Lakes Guided Fishing Trips</h1>
 
-.container { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
+    <div class="hero__headline">
+      <span class="line-ghost">Elite</span>
+      <span class="line-red">On the Water.</span>
+      Every Time.
+    </div>
 
+    <div class="hero__divider">
+      <div class="hero__divider-line"></div>
+      <div class="hero__divider-diamond"></div>
+    </div>
+
+    <h2 class="hero__h2">
+      The Detroit Lakes Area's Premier Private Guided Fishing Experience — local knowledge, premium equipment, and personal attention that separates a good day from an unforgettable one.
+    </h2>
+
+    <div class="hero__cta">
+      <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/"
+         target="_top"
+         class="btn btn--primary"
+         onclick="try{window.parent.dataLayer=window.parent.dataLayer||[];window.parent.dataLayer.push({'event':'book_now_click','page_location':window.parent.location.href});}catch(e){}">
+        Book Your Trip
+        <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="https://www.baxstarfishing.com/detroit-lakes-pontoon-rentals"
+         target="_top"
+         class="btn btn--ghost">
+        View Pontoon Rentals
+      </a>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat">
+        <div class="stat__num">7<span>+</span></div>
+        <div class="stat__lbl">Years Experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">800<span>+</span></div>
+        <div class="stat__lbl">Guided Trips</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">5<span>★</span></div>
+        <div class="stat__lbl">Client Rated</div>
+      </div>
+    </div>
+  </div>
+</section>
 /* ═══════════════════════════════════════
    SECTION 1: HERO
    ═══════════════════════════════════════ */
