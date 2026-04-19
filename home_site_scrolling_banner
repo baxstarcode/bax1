@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: transparent; overflow: hidden; }
+
+.proof-bar {
+  background: #c1272d;
+  padding: 14px 0;
+  overflow: hidden;
+}
+
+.proof-bar__track {
+  display: flex;
+  gap: 60px;
+  animation: tickerScroll 35s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.proof-bar__item {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.proof-bar__item::after {
+  content: '◆';
+  font-size: 6px;
+  opacity: 0.5;
+}
+
+@keyframes tickerScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+</style>
+</head>
+<body>
+<div class="proof-bar">
+  <div class="proof-bar__track">
+    <span class="proof-bar__item">4.9★ — 100+ Five-Star Reviews</span>
+    <span class="proof-bar__item">5x Master Angler Award Winner</span>
+    <span class="proof-bar__item">Fish "Lake Pelican, Detroit Lake, Lake Sallie, The Cormorant lakes, Lida, or any other lake</span>
+    <span class="proof-bar__item">Featured in Forbes</span>
+    <span class="proof-bar__item">Author, Detroit Lakes Fishing Report</span>
+    <span class="proof-bar__item">30+ Years on Detroit Lakes</span>
+    <span class="proof-bar__item">7 Years Guiding</span>
+    <span class="proof-bar__item">7 Years Guiding</span>
+    <span class="proof-bar__item">Every Trip is Private</span>
+    <span class="proof-bar__item">Ultra Premium Vexus Fiberglass Boat</span>
+    <span class="proof-bar__item">4.9★ — 100+ Five-Star Reviews</span>
+    <span class="proof-bar__item">5x Master Angler Award Winner</span>
+    <span class="proof-bar__item">Featured in Forbes</span>
+    <span class="proof-bar__item">30+ Years Fishing The Detroit Lakes Area</span>
+    <span class="proof-bar__item">7 Years Guiding</span>
+    <span class="proof-bar__item">Every Trip is Private</span>
+    <span class="proof-bar__item">World Class Vexus Fiberglass Boat</span>
+  </div>
+</div>
+</body>
+</html>
