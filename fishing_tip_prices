@@ -190,7 +190,7 @@
 
     .badge-title {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12.5px;        /* +15% from 11px */
+      font-size: 16px;
       font-weight: 700;
       letter-spacing: 0.18em;
       color: var(--white);
@@ -199,7 +199,7 @@
     }
 
     .badge-desc {
-      font-size: 12.5px;        /* +15% from 11px */
+      font-size: 16px;
       font-weight: 400;
       color: var(--gray-mid);
       line-height: 1.45;
@@ -226,7 +226,7 @@
 
     thead th {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12.5px;        /* +15% from 11px */
+      font-size: 16px;
       font-weight: 700;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -316,7 +316,7 @@
 
     .trust-title {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12.5px;        /* +15% from 11px */
+      font-size: 16px;
       font-weight: 700;
       letter-spacing: 0.16em;
       color: var(--white);
@@ -325,7 +325,7 @@
     }
 
     .trust-desc {
-      font-size: 12.5px;        /* +15% from 11px */
+      font-size: 16px;
       color: var(--gray-mid);
       line-height: 1.45;
     }
