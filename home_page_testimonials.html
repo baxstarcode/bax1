@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --charcoal: #111114; --dark: #18181c; --mid-dark: #222228;
+  --red: #c1272d; --red-bright: #e63946;
+  --cream: #f0ece4; --warm-white: #faf8f4;
+  --gold: #c9a84c; --slate: #6b6b78;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+  --font-accent: 'Cormorant Garamond', serif;
+  --section-pad: clamp(80px, 10vw, 140px);
+}
+body { font-family: var(--font-body); background: var(--charcoal); color: var(--cream); -webkit-font-smoothing: antialiased; }
+.container { max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
+
+.testimonials { padding: var(--section-pad) 0; background: var(--charcoal); }
+.testimonials__header { text-align: center; margin-bottom: clamp(50px, 6vw, 80px); }
+.testimonials__rating { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px; }
+.testimonials__stars { color: var(--gold); font-size: 22px; letter-spacing: 3px; }
+.testimonials__count { font-size: 14px; color: var(--slate); }
+.testimonials__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+
+.section-tag { font-family: var(--font-body); font-weight: 500; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--red-bright); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+.section-tag::before { content: ''; width: 24px; height: 1px; background: var(--red); }
+.section-title { font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px); line-height: 1; letter-spacing: 1px; text-transform: uppercase; color: var(--warm-white); margin-bottom: 28px; }
+.section-title span { color: var(--red-bright); }
+
+.test-card { padding: clamp(28px, 3vw, 44px); background: var(--dark); border: 1px solid rgba(240,236,228,0.04); display: flex; flex-direction: column; justify-content: space-between; transition: border-color 0.3s, background 0.3s; }
+.test-card:hover { border-color: rgba(193,39,45,0.2); background: var(--mid-dark); }
+.test-card__stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 20px; }
+.test-card__quote { font-family: var(--font-accent); font-size: clamp(17px, 1.6vw, 20px); font-style: italic; line-height: 1.65; color: var(--cream); margin-bottom: 28px; flex-grow: 1; }
+.test-card__author { font-size: 13px; font-weight: 600; color: var(--warm-white); }
+.test-card__location { font-size: 12px; color: var(--slate); font-weight: 400; margin-top: 2px; }
+.test-card__trip { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--red); margin-top: 8px; font-weight: 500; }
+
+@media (max-width: 1024px) { .testimonials__grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials__header">
+      <div class="testimonials__rating">
+        <span class="testimonials__stars">★★★★★</span>
+        <span class="testimonials__count">4.9 from 100+ reviews</span>
+      </div>
+      <div class="section-tag" style="justify-content:center;">Guest Reviews</div>
+      <h2 class="section-title">THEY COME BACK <span>EVERY YEAR.</span></h2>
+    </div>
+    <div class="testimonials__grid">
+      <div class="test-card">
+        <div class="test-card__stars">★★★★★</div>
+        <div class="test-card__quote">"Brady put us on fish all day — the kids are already asking when we can come back. Best fishing experience we've ever had. Every detail was covered."</div>
+        <div>
+          <div class="test-card__author">The Andersons</div>
+          <div class="test-card__location">Seattle, WA</div>
+          <div class="test-card__trip">Guided Full Day — Walleye</div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-card__stars">★★★★★</div>
+        <div class="test-card__quote">"Flew in from Denver for a corporate retreat. Brady handled three boats, kept everyone catching fish, and made it feel effortless. Already booked for next summer."</div>
+        <div>
+          <div class="test-card__author">Mike R.</div>
+          <div class="test-card__location">Denver, CO</div>
+          <div class="test-card__trip">Corporate Group — Multi-Day</div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-card__stars">★★★★★</div>
+        <div class="test-card__quote">"I've fished with guides across the Midwest. Nobody reads conditions like Brady. He adjusted mid-morning when the bite shifted and we limited out before noon."</div>
+        <div>
+          <div class="test-card__author">Tom H.</div>
+          <div class="test-card__location">Minneapolis, MN</div>
+          <div class="test-card__trip">Guided Half Day — Bass & Walleye</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
