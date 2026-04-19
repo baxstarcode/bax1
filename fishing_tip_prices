@@ -1,6 +1,606 @@
-<style>
-    /* Other styles... */
-    .fishing-tips {
-        font-size: 16px; /* Changed from 12.5px to 16px */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Baxstar Fishing guided trip pricing — 100% private walleye and bass charters on Detroit Lakes, Minnesota. Transparent seasonal rates, 4 to 8-hour trips. Book with confidence.">
+  <title>Guided Fishing Trip Rates | Baxstar Fishing — Detroit Lakes, MN</title>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Baxstar Fishing",
+    "description": "Premium private guided fishing charters on Detroit Lakes, Minnesota. 30+ years experience, 5x Master Angler, 4.9-star rated. 100% private trips.",
+    "url": "https://www.baxstarfishing.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Detroit Lakes",
+      "addressRegion": "MN",
+      "addressCountry": "US"
+    },
+    "priceRange": "$$$",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "100"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Private Guided Fishing Trip Packages",
+      "itemListElement": [
+        { "@type": "Offer", "name": "4-Hour Private Guided Fishing Trip", "price": "430", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "5-Hour Private Guided Fishing Trip", "price": "573", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "6-Hour Private Guided Fishing Trip", "price": "668", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "8-Hour Private Guided Fishing Trip", "price": "907", "priceCurrency": "USD" }
+      ]
     }
-</style>
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black:      #08080a;
+      --red:        #c1272d;
+      --red-bright: #e63946;
+      --cream:      #f0ece4;
+      --white:      #ffffff;
+      --gray-light: #d4d0c9;   /* lightened ~10% from original #c8c4bc */
+      --gray-mid:   #8f8f9a;   /* lightened ~10% from original #7a7a88 */
+      --table-bg:   rgba(10, 8, 8, 0.94);
+      --row-alt:    rgba(255,255,255,0.035);
+      --divider:    rgba(255,255,255,0.08);
+    }
+
+    body {
+      background: var(--black);
+      font-family: 'Barlow', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* ── SECTION SHELL ── */
+    .pricing-section {
+      position: relative;
+      width: 100%;
+      min-height: 520px;
+      background: var(--black);
+      overflow: hidden;
+    }
+
+    /*
+      BACKGROUND — cinematic dark-red gradient.
+      To use your real photo, replace the gradient lines with:
+        background-image: url('YOUR_WIX_HOSTED_URL');
+        background-size: cover; background-position: center right;
+      Keep the first gradient layer for left-side readability.
+    */
+    .pricing-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        linear-gradient(to right,
+          rgba(8,8,10,1)    0%,
+          rgba(8,8,10,0.96) 38%,
+          rgba(8,8,10,0.60) 58%,
+          rgba(8,8,10,0.15) 75%,
+          rgba(8,8,10,0)    100%
+        ),
+        radial-gradient(ellipse at 90% 40%,
+          #7a1808 0%, #4a0d05 28%, #1f0604 58%, #08080a 80%
+        );
+    }
+
+    .pricing-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    .pricing-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 52px 48px 44px;
+    }
+
+    /* ── HEADER ── */
+    .pricing-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: start;
+      margin-bottom: 30px;
+    }
+
+    .pricing-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.26em;
+      color: var(--red-bright);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .pricing-headline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(56px, 7.5vw, 92px);
+      line-height: 0.9;
+      color: var(--white);
+      letter-spacing: 0.01em;
+      margin-bottom: 18px;
+    }
+
+    .pricing-headline span { color: var(--red); display: block; }
+
+    .pricing-subhead {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--gray-light);
+      line-height: 1.65;
+      max-width: 340px;
+    }
+
+    /* ── Feature badges ── */
+    .pricing-badges {
+      display: flex;
+      align-items: flex-start;
+      padding-top: 6px;
+    }
+
+    .badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 26px;
+      border-right: 1px solid rgba(255,255,255,0.11);
+    }
+
+    .badge:last-child { border-right: none; padding-right: 0; }
+    .badge:first-child { padding-left: 0; }
+
+    .badge-icon {
+      width: 46px; height: 46px;
+      border: 1.5px solid var(--red);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 10px;
+      color: var(--red);
+    }
+
+    .badge-icon svg { width: 19px; height: 19px; }
+
+    .badge-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12.5px;        /* +15% from 11px */
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .badge-desc {
+      font-size: 12.5px;        /* +15% from 11px */
+      font-weight: 400;
+      color: var(--gray-mid);
+      line-height: 1.45;
+    }
+
+    /* ── PRICING TABLE ── */
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: 2px;
+      border: 1px solid rgba(193,39,45,0.22);
+      margin-bottom: 10px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 560px;
+      background: var(--table-bg);
+    }
+
+    thead tr { background: var(--red); }
+
+    thead th {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12.5px;        /* +15% from 11px */
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      padding: 14px 18px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    thead th:first-child,
+    thead th:nth-child(2) { text-align: left; }
+
+    tbody tr {
+      border-bottom: 1px solid var(--divider);
+      transition: background 0.15s ease;
+    }
+
+    tbody tr:nth-child(even) { background: var(--row-alt); }
+    tbody tr:hover { background: rgba(193,39,45,0.07); }
+
+    tbody td {
+      font-size: 14.5px;        /* +10% from 13.5px */
+      font-weight: 400;
+      color: var(--cream);
+      padding: 13px 18px;
+      text-align: center;
+    }
+
+    tbody td:first-child {
+      text-align: left;
+      font-weight: 500;
+      color: var(--white);
+      font-size: 14px;          /* +10% from 13px */
+    }
+
+    tbody td:nth-child(2) {
+      text-align: left;
+      color: var(--gray-light);
+      font-size: 13.5px;        /* +10% from 12.5px */
+    }
+
+    /* ── Mobile scroll hint ── */
+    .scroll-hint {
+      display: none; /* hidden on desktop */
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-style: italic;
+      color: var(--gray-mid);
+      padding: 7px 2px 0;
+      line-height: 1;
+    }
+
+    @media (max-width: 700px) {
+      .scroll-hint { display: flex; }
+    }
+
+    /* ── 3HR note beneath table ── */
+    .table-note {
+      font-size: 12px;
+      font-style: italic;
+      color: var(--gray-mid);
+      padding: 8px 2px 22px;
+      line-height: 1.5;
+    }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr auto;
+      align-items: center;
+      border-top: 1px solid var(--divider);
+      padding-top: 24px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-right: 28px;
+      margin-right: 28px;
+      border-right: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .trust-icon { color: var(--red); flex-shrink: 0; }
+    .trust-icon svg { width: 26px; height: 26px; }
+
+    .trust-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12.5px;        /* +15% from 11px */
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .trust-desc {
+      font-size: 12.5px;        /* +15% from 11px */
+      color: var(--gray-mid);
+      line-height: 1.45;
+    }
+
+    /* ── CTA Button — matches hero .btn-primary exactly ── */
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      background: var(--red);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .cta-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .cta-btn:hover {
+      background: var(--red-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(193, 39, 45, 0.4);
+    }
+
+    .cta-btn:hover::after { opacity: 1; }
+    .cta-btn:active { transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .pricing-content { padding: 44px 32px 36px; }
+    }
+
+    @media (max-width: 860px) {
+      .pricing-header { grid-template-columns: 1fr; gap: 28px; }
+
+      .trust-strip { grid-template-columns: 1fr 1fr; gap: 20px; }
+
+      .trust-item {
+        border-right: none;
+        margin-right: 0;
+        padding-right: 0;
+      }
+
+      .cta-btn {
+        grid-column: 1 / -1;
+        justify-content: center;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .pricing-content { padding: 36px 20px 28px; }
+      .badge { padding: 0 16px; }
+      .badge:first-child { padding-left: 0; }
+      .trust-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="pricing-section" aria-labelledby="pricing-heading">
+
+  <div class="pricing-bg" role="presentation" aria-hidden="true"></div>
+
+  <div class="pricing-content">
+
+    <!-- HEADER -->
+    <header class="pricing-header">
+
+      <div>
+        <p class="pricing-eyebrow">Private Guided Charters · Detroit Lakes, Minnesota</p>
+        <h2 class="pricing-headline" id="pricing-heading">
+          PRICING THAT
+          <span>PERFORMS.</span>
+        </h2>
+        <p class="pricing-subhead">
+          Private guided rates, clearly stated.<br>
+          Seasonal tiers reflect peak demand —<br>
+          no hidden fees, no surprises. Ever.
+        </p>
+      </div>
+
+      <div class="pricing-badges" role="list" aria-label="Trip highlights">
+
+        <div class="badge" role="listitem">
+          <div class="badge-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <p class="badge-title">Transparent</p>
+          <p class="badge-desc">No hidden fees.<br>Ever.</p>
+        </div>
+
+        <div class="badge" role="listitem">
+          <div class="badge-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3v9"/><path d="M9 9l3 3 3-3"/>
+              <path d="M8 17c0 2.5 8 2.5 8 0"/><path d="M6 17h12"/>
+            </svg>
+          </div>
+          <p class="badge-title">Flexible</p>
+          <p class="badge-desc">4 to 8-hour<br>private trips.</p>
+        </div>
+
+        <div class="badge" role="listitem">
+          <div class="badge-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <p class="badge-title">Premium</p>
+          <p class="badge-desc">Elite lakes.<br>Proven results.</p>
+        </div>
+
+      </div>
+
+    </header>
+
+    <!-- PRICING TABLE -->
+    <div class="table-wrapper" role="region" aria-label="Seasonal trip pricing">
+<!-- Mobile scroll hint -->
+    <p class="scroll-hint" aria-hidden="true" style="margin-bottom: 10px;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      Scroll right to see all trip durations
+    </p>
+      <table>
+        <caption class="sr-only">
+          Baxstar Fishing private guided trip rates by season and duration.
+          All trips are 100% private. Rates include guide, boat, and equipment.
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Date Range</th>
+            <th scope="col">Day</th>
+            <th scope="col">4 HR Trip</th>
+            <th scope="col">5 HR Trip</th>
+            <th scope="col">6 HR Trip</th>
+            <th scope="col">8 HR Trip</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Apr 1–May 31, Sep 10–Oct 31</td>
+            <td>All days</td>
+            <td>$430</td><td>$573</td><td>$668</td><td>$907</td>
+          </tr>
+          <tr>
+            <td>Jun 1–12, Aug 21–Sep 9</td>
+            <td>All days</td>
+            <td>$449</td><td>$598</td><td>$698</td><td>$947</td>
+          </tr>
+          <tr>
+            <td>Jun 1–12, Aug 21–Sep 9</td>
+            <td>Fri, Sat, Sun</td>
+            <td>$458</td><td>$611</td><td>$713</td><td>$967</td>
+          </tr>
+          <tr>
+            <td>Jun 13–Jun 30, Jul 26–Aug 20</td>
+            <td>All days</td>
+            <td>$497</td><td>$662</td><td>$772</td><td>$1,048</td>
+          </tr>
+          <tr>
+            <td>Jun 13–Jun 30, Jul 26–Aug 20</td>
+            <td>Fri, Sat, Sun</td>
+            <td>$506</td><td>$675</td><td>$787</td><td>$1,068</td>
+          </tr>
+          <tr>
+            <td>Jul 1–Jul 25</td>
+            <td>M, T, W, Th</td>
+            <td>$530</td><td>$706</td><td>$824</td><td>$1,118</td>
+          </tr>
+          <tr>
+            <td>Jul 1–Jul 25</td>
+            <td>Fri, Sun</td>
+            <td>$549</td><td>$732</td><td>$854</td><td>$1,159</td>
+          </tr>
+          <tr>
+            <td>Jul 1–Jul 25</td>
+            <td>Saturday</td>
+            <td>$573</td><td>$764</td><td>$891</td><td>$1,209</td>
+          </tr>
+          <tr>
+            <td>May 22–25, Jul 2–5, Sep 4–7</td>
+            <td>All days</td>
+            <td>$597</td><td>$795</td><td>$928</td><td>$1,259</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    
+
+    <!-- 3HR availability note -->
+    <p class="table-note">
+      * 3-hour trips available Monday–Thursday, April–May &amp; September–October, starting at $382.
+    </p>
+
+    <!-- TRUST STRIP + CTA -->
+    <div class="trust-strip">
+
+      <div class="trust-item">
+        <div class="trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <polyline points="9 12 11 14 15 10"/>
+          </svg>
+        </div>
+        <div>
+          <p class="trust-title">Trusted Guide</p>
+          <p class="trust-desc">30+ years. 5× Master Angler.<br>4.9★ Google rated.</p>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <div>
+          <p class="trust-title">Top Equipment</p>
+          <p class="trust-desc">Vexus DVX20S tournament boat.<br>Elite electronics and gear.</p>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div>
+          <p class="trust-title">Premier Locations</p>
+          <p class="trust-desc">Detroit Lakes' best walleye water.<br>100% private — always.</p>
+        </div>
+      </div>
+
+      <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/&flow=576827"
+         class="cta-btn"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Book your private guided fishing trip with Baxstar Fishing">
+        Book Your Trip
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
