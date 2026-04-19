@@ -82,7 +82,7 @@ img { display: block; max-width: 100%; }
       </div>
       <div class="intro__right">
         <div class="intro__image-wrap">
-          <img src="https://static.wixstatic.com/media/YOUR_IMG_URL_HERE" alt="Brady Baxter with trophy walleye on Detroit Lakes">
+          <img src="https://static.wixstatic.com/media/a30e59_a9167752e0154968b2bf6c8b8d076bef~mv2.jpg" alt="Brady Baxter with trophy walleye on Detroit Lakes">
         </div>
         <div class="intro__badge">
           <div class="intro__badge-number">30+</div>
