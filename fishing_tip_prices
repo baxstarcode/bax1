@@ -468,6 +468,11 @@
 
     <!-- PRICING TABLE -->
     <div class="table-wrapper" role="region" aria-label="Seasonal trip pricing">
+<!-- Mobile scroll hint -->
+    <p class="scroll-hint" aria-hidden="true">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      Scroll right to see all trip durations
+    </p>
       <table>
         <caption class="sr-only">
           Baxstar Fishing private guided trip rates by season and duration.
@@ -533,11 +538,7 @@
       </table>
     </div>
 
-    <!-- Mobile scroll hint -->
-    <p class="scroll-hint" aria-hidden="true">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      Scroll right to see all trip durations
-    </p>
+    
 
     <!-- 3HR availability note -->
     <p class="table-note">
