@@ -151,7 +151,7 @@
     .pricing-headline span { color: var(--red); display: block; }
 
     .pricing-subhead {
-      font-size: 13.5px;
+      font-size: 16px;
       font-weight: 400;
       color: var(--gray-light);
       line-height: 1.65;
@@ -265,7 +265,7 @@
     tbody td:nth-child(2) {
       text-align: left;
       color: var(--gray-light);
-      font-size: 13.5px;        /* +10% from 12.5px */
+      font-size: 16px;        /* +10% from 12.5px */
     }
 
     /* ── Mobile scroll hint ── */
