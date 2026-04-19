@@ -1,46 +1,3 @@
-
-Baxstar Website HTML
-/
-Detroit Lakes Fishing Guide  Private Charters & Pontoon Rentals.png
-Detroit Lakes Fishing Guide  Private Charters & Pontoon Rentals 2.png
-baxstarcode/bax1
-main
-
-GITHUB
-
-reference the baxstar fishing file baxtar_pricing  via github.  1st pic - need to tighten up icon.  2nd pic - shows that 4 hour price are not viewable without scrolling. Reduce   3rd- there is a text error in small grey writing.  remove unnecessary wording, bur keep instructions and arrow. Redo section
-
-4:17 AM
-
-Diagnosed three UI issues: badge spacing, hidden table columns, and leaked CSS text
-Diagnosed three UI issues: badge spacing, hidden table columns, and leaked CSS text
-I'll rebuild the pricing section fixing all three issues: the cramped badge icons, the hidden 4-HR prices on mobile, and the leaked CSS text in the scroll hint.
-
-
-Ran 2 commands, created a file, read a file
-Ran 2 commands, created a file, read a file
-Three fixes applied:
-
-1. Badge icons tightened — Smaller icons (42px → 38px on mobile), reduced letter-spacing from 0.18em to 0.14em, and on screens under 580px the badges switch to a locked 3-column grid so "Premium" no longer gets clipped off the right edge.
-
-2. Mobile table — 4 HR prices now visible — Dropped the min-width: 540px on small screens and explicitly sized the first two columns (92px date range, 68px day) with tighter padding. Also shortened header labels from "4 HR Trip" to just "4 HR" to reclaim horizontal space. At 380px and under, columns tighten further. Result: at least through the 4 HR price column is visible without scrolling on a standard mobile viewport.
-
-3. Scroll hint fixed — Removed the leaked CSS (th:nth-child(1)...width: 100px;) that was showing as grey text. The hint now renders cleanly as just an animated arrow + "Scroll right to see all trip durations" and only shows on screens where scrolling is actually needed (≤860px).
-
-Paste this into your Wix Custom Embed for the pricing section as a direct replacement.
-
-
-Baxstar pricing
-Code · HTML 
-
-
-
-
-
-Claude is AI and can make mistakes. Please double-check responses.
-Baxstar pricing · HTML
-Copy
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +5,7 @@ Copy
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Baxstar Fishing guided trip pricing — 100% private walleye and bass charters on Detroit Lakes, Minnesota. Transparent seasonal rates, 4 to 8-hour trips. Book with confidence.">
   <title>Guided Fishing Trip Rates | Baxstar Fishing — Detroit Lakes, MN</title>
- 
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -80,14 +37,14 @@ Copy
     }
   }
   </script>
- 
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
- 
+
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
- 
+
     :root {
       --black:      #08080a;
       --red:        #c1272d;
@@ -100,19 +57,19 @@ Copy
       --row-alt:    rgba(255,255,255,0.035);
       --divider:    rgba(255,255,255,0.08);
     }
- 
+
     body {
       background: var(--black);
       font-family: 'Barlow', sans-serif;
       -webkit-font-smoothing: antialiased;
     }
- 
+
     .sr-only {
       position: absolute; width: 1px; height: 1px;
       padding: 0; margin: -1px; overflow: hidden;
       clip: rect(0,0,0,0); white-space: nowrap; border: 0;
     }
- 
+
     /* ── SECTION SHELL ── */
     .pricing-section {
       position: relative;
@@ -121,7 +78,7 @@ Copy
       background: var(--black);
       overflow: hidden;
     }
- 
+
     .pricing-bg {
       position: absolute;
       inset: 0;
@@ -138,7 +95,7 @@ Copy
           #7a1808 0%, #4a0d05 28%, #1f0604 58%, #08080a 80%
         );
     }
- 
+
     .pricing-bg::after {
       content: '';
       position: absolute;
@@ -147,7 +104,7 @@ Copy
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
       background-size: 200px 200px;
     }
- 
+
     .pricing-content {
       position: relative;
       z-index: 2;
@@ -155,7 +112,7 @@ Copy
       margin: 0 auto;
       padding: 52px 48px 44px;
     }
- 
+
     /* ── HEADER ── */
     .pricing-header {
       display: grid;
@@ -164,7 +121,7 @@ Copy
       align-items: start;
       margin-bottom: 30px;
     }
- 
+
     .pricing-eyebrow {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 11px;
@@ -174,7 +131,7 @@ Copy
       text-transform: uppercase;
       margin-bottom: 10px;
     }
- 
+
     .pricing-headline {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(56px, 7.5vw, 92px);
@@ -183,9 +140,9 @@ Copy
       letter-spacing: 0.01em;
       margin-bottom: 18px;
     }
- 
+
     .pricing-headline span { color: var(--red); display: block; }
- 
+
     .pricing-subhead {
       font-size: 16px;
       font-weight: 400;
@@ -193,7 +150,7 @@ Copy
       line-height: 1.65;
       max-width: 340px;
     }
- 
+
     /* ── BADGES — tightened ── */
     .pricing-badges {
       display: flex;
@@ -201,7 +158,7 @@ Copy
       padding-top: 6px;
       gap: 0;
     }
- 
+
     .badge {
       display: flex;
       flex-direction: column;
@@ -211,10 +168,10 @@ Copy
       border-right: 1px solid rgba(255,255,255,0.11);
       min-width: 0;
     }
- 
+
     .badge:last-child { border-right: none; padding-right: 0; }
     .badge:first-child { padding-left: 0; }
- 
+
     .badge-icon {
       width: 42px; height: 42px;
       border: 1.5px solid var(--red);
@@ -224,9 +181,9 @@ Copy
       color: var(--red);
       flex-shrink: 0;
     }
- 
+
     .badge-icon svg { width: 17px; height: 17px; }
- 
+
     .badge-title {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 13px;
@@ -237,14 +194,14 @@ Copy
       margin-bottom: 4px;
       white-space: nowrap;
     }
- 
+
     .badge-desc {
       font-size: 12.5px;
       font-weight: 400;
       color: var(--gray-mid);
       line-height: 1.4;
     }
- 
+
     /* ── PRICING TABLE ── */
     .table-wrapper {
       width: 100%;
@@ -254,16 +211,16 @@ Copy
       margin-bottom: 10px;
       -webkit-overflow-scrolling: touch;
     }
- 
+
     table {
       width: 100%;
       border-collapse: collapse;
       min-width: 540px;
       background: var(--table-bg);
     }
- 
+
     thead tr { background: var(--red); }
- 
+
     thead th {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 13px;
@@ -275,18 +232,18 @@ Copy
       text-align: center;
       white-space: nowrap;
     }
- 
+
     thead th:first-child,
     thead th:nth-child(2) { text-align: left; }
- 
+
     tbody tr {
       border-bottom: 1px solid var(--divider);
       transition: background 0.15s ease;
     }
- 
+
     tbody tr:nth-child(even) { background: var(--row-alt); }
     tbody tr:hover { background: rgba(193,39,45,0.07); }
- 
+
     tbody td {
       font-size: 14px;
       font-weight: 400;
@@ -294,20 +251,20 @@ Copy
       padding: 13px 14px;
       text-align: center;
     }
- 
+
     tbody td:first-child {
       text-align: left;
       font-weight: 500;
       color: var(--white);
       font-size: 13px;
     }
- 
+
     tbody td:nth-child(2) {
       text-align: left;
       color: var(--gray-light);
       font-size: 13px;
     }
- 
+
     /* ── Scroll hint — clean, arrow + text only ── */
     .scroll-hint {
       display: none;
@@ -319,17 +276,17 @@ Copy
       padding: 10px 2px 6px;
       line-height: 1;
     }
- 
+
     .scroll-hint svg {
       flex-shrink: 0;
       animation: nudge 1.8s ease-in-out infinite;
     }
- 
+
     @keyframes nudge {
       0%, 100% { transform: translateX(0); }
       50%      { transform: translateX(4px); }
     }
- 
+
     /* ── 3HR note ── */
     .table-note {
       font-size: 12px;
@@ -338,7 +295,7 @@ Copy
       padding: 8px 2px 22px;
       line-height: 1.5;
     }
- 
+
     /* ── TRUST STRIP ── */
     .trust-strip {
       display: grid;
@@ -347,7 +304,7 @@ Copy
       border-top: 1px solid var(--divider);
       padding-top: 24px;
     }
- 
+
     .trust-item {
       display: flex;
       align-items: center;
@@ -356,10 +313,10 @@ Copy
       margin-right: 28px;
       border-right: 1px solid rgba(255,255,255,0.09);
     }
- 
+
     .trust-icon { color: var(--red); flex-shrink: 0; }
     .trust-icon svg { width: 26px; height: 26px; }
- 
+
     .trust-title {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 14px;
@@ -369,13 +326,13 @@ Copy
       text-transform: uppercase;
       margin-bottom: 3px;
     }
- 
+
     .trust-desc {
       font-size: 13px;
       color: var(--gray-mid);
       line-height: 1.45;
     }
- 
+
     /* ── CTA Button ── */
     .cta-btn {
       display: inline-flex;
@@ -399,13 +356,13 @@ Copy
       white-space: nowrap;
       transform: skewX(-12deg);
     }
- 
+
     .cta-btn > * {
       display: inline-flex;
       align-items: center;
       transform: skewX(12deg);
     }
- 
+
     .cta-btn::after {
       content: '';
       position: absolute;
@@ -414,50 +371,50 @@ Copy
       opacity: 0;
       transition: opacity 0.3s;
     }
- 
+
     .cta-btn:hover {
       background: var(--red-bright);
       transform: skewX(-12deg) translateY(-2px);
       box-shadow: 0 8px 30px rgba(193, 39, 45, 0.4);
     }
- 
+
     .cta-btn:hover::after { opacity: 1; }
     .cta-btn:active { transform: skewX(-12deg) translateY(0); }
- 
+
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       .pricing-content { padding: 44px 32px 36px; }
     }
- 
+
     @media (max-width: 860px) {
       .pricing-header { grid-template-columns: 1fr; gap: 28px; }
- 
+
       .pricing-badges {
         justify-content: flex-start;
         flex-wrap: wrap;
         gap: 0;
       }
- 
+
       .trust-strip { grid-template-columns: 1fr 1fr; gap: 20px; }
- 
+
       .trust-item {
         border-right: none;
         margin-right: 0;
         padding-right: 0;
       }
- 
+
       .cta-btn {
         grid-column: 1 / -1;
         justify-content: center;
         width: 100%;
       }
- 
+
       .scroll-hint { display: inline-flex; }
     }
- 
+
     @media (max-width: 580px) {
       .pricing-content { padding: 36px 18px 28px; }
- 
+
       /* Tighter badges on mobile */
       .pricing-badges {
         display: grid;
@@ -465,42 +422,42 @@ Copy
         gap: 0;
         width: 100%;
       }
- 
+
       .badge {
         padding: 0 8px;
       }
- 
+
       .badge-icon {
         width: 38px; height: 38px;
       }
- 
+
       .badge-icon svg { width: 15px; height: 15px; }
- 
+
       .badge-title {
         font-size: 12px;
         letter-spacing: 0.1em;
       }
- 
+
       .badge-desc {
         font-size: 11.5px;
       }
- 
+
       /* Tight mobile table so 4-HR column is visible at a glance */
       table {
         min-width: 0;
       }
- 
+
       thead th,
       tbody td {
         padding: 11px 8px;
         font-size: 12.5px;
       }
- 
+
       thead th {
         font-size: 11px;
         letter-spacing: 0.1em;
       }
- 
+
       thead th:first-child,
       tbody td:first-child {
         width: 92px;
@@ -508,7 +465,7 @@ Copy
         font-size: 11.5px;
         line-height: 1.3;
       }
- 
+
       thead th:nth-child(2),
       tbody td:nth-child(2) {
         width: 68px;
@@ -516,24 +473,24 @@ Copy
         font-size: 11.5px;
         line-height: 1.3;
       }
- 
+
       tbody td:nth-child(n+3) {
         min-width: 62px;
       }
- 
+
       .trust-strip { grid-template-columns: 1fr; }
     }
- 
+
     @media (max-width: 380px) {
       thead th,
       tbody td { padding: 10px 6px; }
- 
+
       thead th:first-child,
       tbody td:first-child {
         width: 84px;
         min-width: 84px;
       }
- 
+
       thead th:nth-child(2),
       tbody td:nth-child(2) {
         width: 60px;
@@ -543,16 +500,16 @@ Copy
   </style>
 </head>
 <body>
- 
+
 <section class="pricing-section" aria-labelledby="pricing-heading">
- 
+
   <div class="pricing-bg" role="presentation" aria-hidden="true"></div>
- 
+
   <div class="pricing-content">
- 
+
     <!-- HEADER -->
     <header class="pricing-header">
- 
+
       <div>
         <p class="pricing-eyebrow">Private Guided Charters · Detroit Lakes, Minnesota</p>
         <h2 class="pricing-headline" id="pricing-heading">
@@ -565,9 +522,9 @@ Copy
           no hidden fees, no surprises. Ever.
         </p>
       </div>
- 
+
       <div class="pricing-badges" role="list" aria-label="Trip highlights">
- 
+
         <div class="badge" role="listitem">
           <div class="badge-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -577,7 +534,7 @@ Copy
           <p class="badge-title">Transparent</p>
           <p class="badge-desc">No hidden fees.<br>Ever.</p>
         </div>
- 
+
         <div class="badge" role="listitem">
           <div class="badge-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -588,7 +545,7 @@ Copy
           <p class="badge-title">Flexible</p>
           <p class="badge-desc">4 to 8-hour<br>private trips.</p>
         </div>
- 
+
         <div class="badge" role="listitem">
           <div class="badge-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -601,11 +558,11 @@ Copy
           <p class="badge-title">Premium</p>
           <p class="badge-desc">Elite lakes.<br>Proven results.</p>
         </div>
- 
+
       </div>
- 
+
     </header>
- 
+
     <!-- Scroll hint: appears above table on mobile, arrow + clean text only -->
     <p class="scroll-hint" aria-hidden="true">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -613,7 +570,7 @@ Copy
       </svg>
       Scroll right to see all trip durations
     </p>
- 
+
     <!-- PRICING TABLE -->
     <div class="table-wrapper" role="region" aria-label="Seasonal trip pricing">
       <table>
@@ -680,15 +637,15 @@ Copy
         </tbody>
       </table>
     </div>
- 
+
     <!-- 3HR availability note -->
     <p class="table-note">
       * 3-hour trips available Monday–Thursday, April–May &amp; September–October, starting at $382.
     </p>
- 
+
     <!-- TRUST STRIP + CTA -->
     <div class="trust-strip">
- 
+
       <div class="trust-item">
         <div class="trust-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -701,7 +658,7 @@ Copy
           <p class="trust-desc">30+ years. 5× Master Angler.<br>4.9★ Google rated.</p>
         </div>
       </div>
- 
+
       <div class="trust-item">
         <div class="trust-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -713,7 +670,7 @@ Copy
           <p class="trust-desc">Vexus DVX20S boat.<br>Elite electronics and gear.</p>
         </div>
       </div>
- 
+
       <div class="trust-item">
         <div class="trust-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -726,7 +683,7 @@ Copy
           <p class="trust-desc">Detroit Lakes' hottest lakes.<br>100% private — always.</p>
         </div>
       </div>
- 
+
       <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/&flow=576827"
          class="cta-btn"
          target="_blank"
@@ -737,19 +694,11 @@ Copy
           <path d="M5 12h14M12 5l7 7-7 7"/>
         </svg>
       </a>
- 
+
     </div>
- 
+
   </div>
 </section>
- 
+
 </body>
 </html>
- 
-
-
-
-
-
-
-
