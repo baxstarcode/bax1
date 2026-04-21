@@ -62,8 +62,8 @@ a { color: inherit; text-decoration: none; }
     <div class="seasonal-cta__inner">
       <div class="seasonal-cta__bg-text">BOOK NOW</div>
       <div class="section-tag" style="justify-content:center;">Summer 2026</div>
-      <h2 class="section-title">PRIME DATES ARE <span>FILLING FAST.</span></h2>
-      <p class="seasonal-cta__sub">July and August weekends book out months in advance. Lock in your preferred dates now and skip the waitlist.</p>
+      <h2 class="section-title">KNOW WHEN TO <span>BOOK.</span></h2>
+      <p class="seasonal-cta__sub">Around half of trips are booked within 10 days—but prime times don’t last that long. Check availability now and plan accordingly.</p>
       <div class="seasonal-cta__actions">
         <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" target="_top" class="btn-primary">
           Check Availability
