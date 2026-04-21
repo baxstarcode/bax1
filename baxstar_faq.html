@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — Baxstar Fishing</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #08080a;
+  --charcoal: #111114;
+  --dark: #18181c;
+  --mid-dark: #222228;
+  --red: #c1272d;
+  --red-bright: #e63946;
+  --red-deep: #8b1a1f;
+  --cream: #f0ece4;
+  --warm-white: #faf8f4;
+  --gold: #c9a84c;
+  --gold-dim: #9a7d3a;
+  --slate: #6b6b78;
+  --light-slate: #9a9aaa;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+  --font-accent: 'Cormorant Garamond', serif;
+  --max-w: 1320px;
+  --section-pad: clamp(80px, 10vw, 140px);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
+
+/* Shared buttons */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 17px 38px;
+  background: var(--red); color: white;
+  font-family: var(--font-body); font-weight: 600; font-size: 13px;
+  letter-spacing: 2px; text-transform: uppercase;
+  border: none; cursor: pointer;
+  transition: all 0.3s ease; position: relative; overflow: hidden;
+}
+.btn-primary::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.btn-primary:hover {
+  background: var(--red-bright); transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(193, 39, 45, 0.45);
+}
+.btn-primary:hover::after { opacity: 1; }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 17px 32px;
+  background: transparent; color: var(--cream);
+  font-family: var(--font-body); font-weight: 500; font-size: 13px;
+  letter-spacing: 2px; text-transform: uppercase;
+  border: 1px solid rgba(240,236,228,0.2);
+  cursor: pointer; transition: all 0.3s ease;
+}
+.btn-ghost:hover {
+  border-color: rgba(240,236,228,0.55);
+  background: rgba(240,236,228,0.05);
+}
+
+/* Shared section elements */
+.section-tag {
+  font-family: var(--font-body); font-weight: 500;
+  font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--red-bright); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-tag::before {
+  content: ''; width: 24px; height: 1px; background: var(--red);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1; letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--warm-white);
+  margin-bottom: 28px;
+}
+.section-title span { color: var(--red-bright); }
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+
+.faq {
+  padding: var(--section-pad) 0;
+  background: var(--charcoal); position: relative;
+}
+.faq::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(240,236,228,0.07), transparent);
+}
+.faq__grid {
+  display: grid; grid-template-columns: 1fr 1.5fr;
+  gap: clamp(40px, 6vw, 100px); align-items: start;
+}
+.faq__left { position: sticky; top: 100px; }
+.faq__left-text {
+  font-size: 15px; color: var(--slate);
+  line-height: 1.75; margin-top: 18px; font-weight: 300;
+}
+.faq__contact {
+  margin-top: 32px; padding: 24px;
+  border: 1px solid rgba(240,236,228,0.07);
+  background: rgba(8,8,10,0.4);
+}
+.faq__contact-label {
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--slate); margin-bottom: 8px;
+}
+.faq__contact-name {
+  font-family: var(--font-display); font-size: 22px;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--warm-white); margin-bottom: 4px;
+}
+.faq__contact-detail {
+  font-size: 13px; color: var(--red-bright); font-weight: 500;
+}
+.faq__items { display: flex; flex-direction: column; }
+.faq-item { border-bottom: 1px solid rgba(240,236,228,0.06); }
+.faq-item:first-child { border-top: 1px solid rgba(240,236,228,0.06); }
+.faq-item__q {
+  padding: 24px 0;
+  display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer; font-weight: 500; font-size: 16px;
+  color: var(--cream); transition: color 0.3s;
+  user-select: none; gap: 16px;
+}
+.faq-item__q:hover { color: var(--red-bright); }
+.faq-item__toggle {
+  width: 28px; height: 28px;
+  border: 1px solid rgba(240,236,228,0.12); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; color: var(--slate);
+  flex-shrink: 0; transition: all 0.3s;
+}
+.faq-item.active .faq-item__toggle {
+  background: var(--red); border-color: var(--red);
+  color: white; transform: rotate(45deg);
+}
+.faq-item__a {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.42s ease, padding 0.42s ease;
+}
+.faq-item.active .faq-item__a {
+  max-height: 400px; padding-bottom: 24px;
+}
+.faq-item__a p {
+  font-size: 15px; line-height: 1.75;
+  color: var(--light-slate); font-weight: 300;
+}
+@media (max-width: 1024px) {
+  .faq__grid { grid-template-columns: 1fr; gap: 48px; }
+  .faq__left { position: static; }
+}
+
+</style>
+</head>
+<body>
+
+
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq__grid">
+
+      <div class="faq__left reveal">
+        <div class="section-tag">Questions</div>
+        <h2 class="section-title">BEFORE YOU <span>BOOK.</span></h2>
+        <p class="faq__left-text">
+          Everything you need to know before your trip. 
+          Still have questions? Brady responds to every inquiry personally.
+        </p>
+        <div class="faq__contact">
+          <div class="faq__contact-label">Talk to Your Guide Directly</div>
+          <div class="faq__contact-name">Brady Baxter</div>
+          <div class="faq__contact-detail">Call or text anytime</div>
+        </div>
+      </div>
+
+      <div class="faq__items reveal">
+
+        <div class="faq-item active">
+          <div class="faq-item__q" onclick="this.parentElement.classList.toggle('active')">
+            What makes Baxstar different from other guides?
+            <span class="faq-item__toggle">+</span>
+          </div>
+          <div class="faq-item__a">
+            <p>
+              Three things: every trip is private (your group only, never shared boats), 
+              Brady runs tournament-grade equipment on every trip — not as an upgrade, 
+              and 30 years of local pattern knowledge means he's not guessing where the 
+              fish are. Most guides have one of these. Baxstar has all three.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-item__q" onclick="this.parentElement.classList.toggle('active')">
+            What should I bring?
+            <span class="faq-item__toggle">+</span>
+          </div>
+          <div class="faq-item__a">
+            <p>
+              Weather-appropriate clothing, sunscreen, a cooler for beverages, and your 
+              Minnesota fishing license. That's it. All fishing equipment, bait, tackle, 
+              and safety gear is provided. Brady runs a fully outfitted operation — 
+              you don't need a single piece of fishing gear.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-item__q" onclick="this.parentElement.classList.toggle('active')">
+            Do I need a fishing license?
+            <span class="faq-item__toggle">+</span>
+          </div>
+          <div class="faq-item__a">
+            <p>
+              Yes — Minnesota requires a valid fishing license for anyone 16 and older. 
+              You can purchase one online at the Minnesota DNR website in about two minutes. 
+              Brady can walk you through the process if needed.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-item__q" onclick="this.parentElement.classList.toggle('active')">
+            How many people can fish per boat?
+            <span class="faq-item__toggle">+</span>
+          </div>
+          <div class="faq-item__a">
+            <p>
+              Up to 4 guests per boat, comfortably. For larger groups — corporate retreats, 
+              family reunions, bachelor parties — Brady coordinates multiple boats with 
+              additional guides so every guest gets the full Baxstar experience. 
+              Group inquiries are welcome.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-item__q" onclick="this.parentElement.classList.toggle('active')">
+            What if the weather is bad?
+            <span class="faq-item__toggle">+</span>
+          </div>
+          <div class="faq-item__a">
+            <p>
+              Light rain produces some of the best fishing days of the season. Dangerous 
+              conditions — lightning, high winds, severe storms — Brady will contact you 
+              to reschedule at no charge. Safety is never compromised.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-item__q" onclick="this.parentElement.classList.toggle('active')">
+            Is this the right experience for beginners?
+            <span class="faq-item__toggle">+</span>
+          </div>
+          <div class="faq-item__a">
+            <p>
+              Completely. Brady calibrates every trip to your experience level. 
+              First-timers receive hands-on coaching and patient instruction throughout 
+              the day. Experienced anglers get pushed to new water and more advanced 
+              techniques. The goal is the same: everyone catches fish.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

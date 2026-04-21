@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Guide — Baxstar Fishing</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #08080a;
+  --charcoal: #111114;
+  --dark: #18181c;
+  --mid-dark: #222228;
+  --red: #c1272d;
+  --red-bright: #e63946;
+  --red-deep: #8b1a1f;
+  --cream: #f0ece4;
+  --warm-white: #faf8f4;
+  --gold: #c9a84c;
+  --gold-dim: #9a7d3a;
+  --slate: #6b6b78;
+  --light-slate: #9a9aaa;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+  --font-accent: 'Cormorant Garamond', serif;
+  --max-w: 1320px;
+  --section-pad: clamp(80px, 10vw, 140px);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
+
+/* Shared buttons */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 17px 38px;
+  background: var(--red); color: white;
+  font-family: var(--font-body); font-weight: 600; font-size: 13px;
+  letter-spacing: 2px; text-transform: uppercase;
+  border: none; cursor: pointer;
+  transition: all 0.3s ease; position: relative; overflow: hidden;
+}
+.btn-primary::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.btn-primary:hover {
+  background: var(--red-bright); transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(193, 39, 45, 0.45);
+}
+.btn-primary:hover::after { opacity: 1; }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 17px 32px;
+  background: transparent; color: var(--cream);
+  font-family: var(--font-body); font-weight: 500; font-size: 13px;
+  letter-spacing: 2px; text-transform: uppercase;
+  border: 1px solid rgba(240,236,228,0.2);
+  cursor: pointer; transition: all 0.3s ease;
+}
+.btn-ghost:hover {
+  border-color: rgba(240,236,228,0.55);
+  background: rgba(240,236,228,0.05);
+}
+
+/* Shared section elements */
+.section-tag {
+  font-family: var(--font-body); font-weight: 500;
+  font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--red-bright); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-tag::before {
+  content: ''; width: 24px; height: 1px; background: var(--red);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1; letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--warm-white);
+  margin-bottom: 28px;
+}
+.section-title span { color: var(--red-bright); }
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+
+.guide {
+  padding: var(--section-pad) 0;
+  background: var(--charcoal);
+  position: relative; overflow: hidden;
+}
+.guide::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(240,236,228,0.07), transparent);
+}
+.guide__grid {
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  gap: clamp(40px, 6vw, 100px); align-items: center;
+}
+.guide__photo-stack { position: relative; }
+.guide__photo-main {
+  position: relative; aspect-ratio: 3/4; overflow: hidden;
+}
+.guide__photo-main img {
+  width: 100%; height: 100%; object-fit: cover; filter: contrast(1.05);
+}
+.guide__photo-accent {
+  position: absolute; bottom: -30px; right: -30px;
+  width: 55%; aspect-ratio: 1;
+  border: 3px solid var(--charcoal);
+  overflow: hidden; z-index: 2;
+}
+.guide__photo-accent img { width: 100%; height: 100%; object-fit: cover; }
+.guide__name {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 5.5vw, 64px);
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--warm-white); line-height: 1; margin-bottom: 8px;
+}
+.guide__role {
+  font-family: var(--font-accent);
+  font-size: 19px; font-style: italic;
+  color: var(--red-bright); margin-bottom: 32px;
+}
+.guide__bio {
+  font-size: 16px; line-height: 1.88;
+  color: var(--light-slate); font-weight: 300; margin-bottom: 36px;
+}
+.guide__bio p + p { margin-top: 18px; }
+.guide__credentials {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; margin-bottom: 40px;
+}
+.cred {
+  padding: 20px;
+  border: 1px solid rgba(240,236,228,0.06);
+  background: rgba(8,8,10,0.4);
+  transition: border-color 0.3s;
+}
+.cred:hover { border-color: rgba(193,39,45,0.25); }
+.cred__value {
+  font-family: var(--font-display);
+  font-size: 30px; color: var(--red-bright);
+  line-height: 1; margin-bottom: 6px;
+}
+.cred__label {
+  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--slate);
+}
+.guide__media {
+  display: flex; align-items: center; gap: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(240,236,228,0.06);
+}
+.guide__media-label {
+  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--slate); white-space: nowrap;
+}
+.guide__media-logos { display: flex; gap: 28px; align-items: center; }
+.media-logo {
+  font-family: var(--font-body); font-weight: 700;
+  font-size: 15px; color: rgba(240,236,228,0.2);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  transition: color 0.35s;
+}
+.media-logo:hover { color: rgba(240,236,228,0.6); }
+@media (max-width: 1024px) {
+  .guide__grid { grid-template-columns: 1fr; gap: 48px; }
+  .guide__photo-accent { right: 0; bottom: -20px; }
+}
+@media (max-width: 640px) {
+  .guide__credentials { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+
+<section class="guide" id="guide">
+  <div class="container">
+    <div class="guide__grid">
+      <div class="guide__photo-stack reveal">
+        <div class="guide__photo-main">
+          <img src="Baxstar_Fishing_Faces_of_Fargo.jpg" alt="Brady Baxter – Baxstar Fishing guide">
+        </div>
+        <div class="guide__photo-accent">
+          <img src="IMG_5671.JPG" alt="Brady Baxter with trophy catch">
+        </div>
+      </div>
+      <div class="guide__content reveal">
+        <div class="section-tag">Your Guide</div>
+        <h2 class="guide__name">Brady Baxter</h2>
+        <div class="guide__role">Owner & Head Guide — Baxstar Fishing</div>
+        <div class="guide__bio">
+          <p>
+            Brady Baxter doesn't need to introduce himself on these waters. 
+            The 5x Master Angler award. The Forbes feature. The KARE 11 appearance. 
+            The clients who rebook before they leave the dock. Thirty years on the 
+            Detroit Lakes region have made Brady something rarer than a skilled guide — 
+            he's the definitive authority on these waters.
+          </p>
+          <p>
+            He doesn't rely on one lake or one technique. With access to 100+ bodies 
+            of water and pattern knowledge built across every season and condition, 
+            Brady reads the water the way most people read a room — instantly, 
+            accurately, and with a clear plan.
+          </p>
+        </div>
+
+        <div class="guide__credentials">
+          <div class="cred"><div class="cred__value">5x</div><div class="cred__label">Master Angler</div></div>
+          <div class="cred"><div class="cred__value">30+</div><div class="cred__label">Years Experience</div></div>
+          <div class="cred"><div class="cred__value">100+</div><div class="cred__label">Lakes Access</div></div>
+          <div class="cred"><div class="cred__value">4.9★</div><div class="cred__label">Google Rating</div></div>
+        </div>
+
+        <div class="guide__media">
+          <div class="guide__media-label">As Featured In</div>
+          <div class="guide__media-logos">
+            <span class="media-logo">Forbes</span>
+            <span class="media-logo">KARE 11</span>
+            <span class="media-logo">Faces of Fargo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

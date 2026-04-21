@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's Included — Baxstar Fishing</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #08080a;
+  --charcoal: #111114;
+  --dark: #18181c;
+  --mid-dark: #222228;
+  --red: #c1272d;
+  --red-bright: #e63946;
+  --red-deep: #8b1a1f;
+  --cream: #f0ece4;
+  --warm-white: #faf8f4;
+  --gold: #c9a84c;
+  --gold-dim: #9a7d3a;
+  --slate: #6b6b78;
+  --light-slate: #9a9aaa;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+  --font-accent: 'Cormorant Garamond', serif;
+  --max-w: 1320px;
+  --section-pad: clamp(80px, 10vw, 140px);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
+
+/* Shared buttons */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 17px 38px;
+  background: var(--red); color: white;
+  font-family: var(--font-body); font-weight: 600; font-size: 13px;
+  letter-spacing: 2px; text-transform: uppercase;
+  border: none; cursor: pointer;
+  transition: all 0.3s ease; position: relative; overflow: hidden;
+}
+.btn-primary::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.btn-primary:hover {
+  background: var(--red-bright); transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(193, 39, 45, 0.45);
+}
+.btn-primary:hover::after { opacity: 1; }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 17px 32px;
+  background: transparent; color: var(--cream);
+  font-family: var(--font-body); font-weight: 500; font-size: 13px;
+  letter-spacing: 2px; text-transform: uppercase;
+  border: 1px solid rgba(240,236,228,0.2);
+  cursor: pointer; transition: all 0.3s ease;
+}
+.btn-ghost:hover {
+  border-color: rgba(240,236,228,0.55);
+  background: rgba(240,236,228,0.05);
+}
+
+/* Shared section elements */
+.section-tag {
+  font-family: var(--font-body); font-weight: 500;
+  font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--red-bright); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-tag::before {
+  content: ''; width: 24px; height: 1px; background: var(--red);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1; letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--warm-white);
+  margin-bottom: 28px;
+}
+.section-title span { color: var(--red-bright); }
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+
+.included { padding: var(--section-pad) 0; position: relative; }
+.included__grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 100px); align-items: start;
+}
+.included__list { display: flex; flex-direction: column; gap: 0; }
+.incl-item {
+  padding: 26px 0;
+  border-bottom: 1px solid rgba(240,236,228,0.06);
+  display: grid; grid-template-columns: 44px 1fr;
+  gap: 20px; align-items: start;
+  transition: padding-left 0.3s;
+}
+.incl-item:first-child { border-top: 1px solid rgba(240,236,228,0.06); }
+.incl-item:hover { padding-left: 6px; }
+.incl-item__icon {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--red-bright); font-size: 18px; margin-top: 2px;
+}
+.incl-item__title {
+  font-family: var(--font-body); font-weight: 600;
+  font-size: 16px; color: var(--warm-white);
+  margin-bottom: 6px; letter-spacing: 0.3px;
+}
+.incl-item__desc {
+  font-size: 14px; line-height: 1.65;
+  color: var(--slate); font-weight: 300;
+}
+.included__right { position: relative; }
+.included__image { aspect-ratio: 3/4; overflow: hidden; }
+.included__image img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.included__caption {
+  margin-top: 20px;
+  font-family: var(--font-accent);
+  font-style: italic; font-size: 16px;
+  color: var(--slate); line-height: 1.6;
+  padding-left: 16px;
+  border-left: 1px solid rgba(193,39,45,0.3);
+}
+@media (max-width: 1024px) { .included__grid { grid-template-columns: 1fr; gap: 48px; } }
+
+</style>
+</head>
+<body>
+
+
+<section class="included" id="included">
+  <div class="container">
+    <div class="included__grid">
+      <div class="reveal">
+        <div class="section-tag">What's Included</div>
+        <h2 class="section-title" style="margin-bottom: 40px;">EVERYTHING <span>HANDLED.</span></h2>
+
+        <div class="included__list">
+          <div class="incl-item">
+            <div class="incl-item__icon">⬥</div>
+            <div>
+              <div class="incl-item__title">Vexus DVX20S Tournament Boat</div>
+              <div class="incl-item__desc">
+                The same hull Brady runs in competition. Humminbird MEGA Live sonar, 
+                Minn Kota trolling motor, and a setup built to find fish others miss.
+              </div>
+            </div>
+          </div>
+          <div class="incl-item">
+            <div class="incl-item__icon">⬥</div>
+            <div>
+              <div class="incl-item__title">Pro-Grade Rods, Reels & Tackle</div>
+              <div class="incl-item__desc">
+                Name-brand equipment, precision-rigged before every trip. 
+                You don't bring a single piece of gear. We have it.
+              </div>
+            </div>
+          </div>
+          <div class="incl-item">
+            <div class="incl-item__icon">⬥</div>
+            <div>
+              <div class="incl-item__title">Fresh Live Bait & Custom Presentations</div>
+              <div class="incl-item__desc">
+                Live leeches, crawlers, and shiners sourced fresh daily. 
+                Custom-rigged artificials matched to species, depth, and conditions.
+              </div>
+            </div>
+          </div>
+          <div class="incl-item">
+            <div class="incl-item__icon">⬥</div>
+            <div>
+              <div class="incl-item__title">Fish Cleaning & Vacuum Packaging</div>
+              <div class="incl-item__desc">
+                Keeping fish? Brady fillets and vacuum-packs your catch so it's 
+                travel-ready the moment you leave the dock.
+              </div>
+            </div>
+          </div>
+          <div class="incl-item">
+            <div class="incl-item__icon">⬥</div>
+            <div>
+              <div class="incl-item__title">Same-Day Photo Package</div>
+              <div class="incl-item__desc">
+                Professional quality photos of your catches — delivered same day. 
+                The best fish story always comes with proof.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="included__right reveal">
+        <div class="included__image">
+          <img src="1C5A3483_SP_Baxstar_Fishing__HR.jpg" alt="Baxstar Fishing — Vexus DVX20S on Detroit Lakes">
+        </div>
+        <div class="included__caption">
+          The Vexus DVX20S — tournament-grade equipment on every trip, 
+          not as an upgrade.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
