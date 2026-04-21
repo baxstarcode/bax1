@@ -1,72 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: transparent; overflow: hidden; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.proof-bar {
-  background: #c1272d;
-  padding: 14px 0;
-  overflow: hidden;
-}
+  <!-- Primary SEO -->
+  <title>Baxstar Fishing Proof Ticker — 4.9★ Detroit Lakes Guided Fishing</title>
+  <meta name="description" content="Baxstar Fishing credentials at a glance: 4.9★ Google rating, 5x Master Angler, featured in Forbes, 30+ years on Detroit Lakes waters, tournament-grade Vexus boat, 100% private trips.">
+  <meta name="keywords" content="Baxstar Fishing credentials, Detroit Lakes fishing trust, 5x Master Angler, Forbes fishing guide, Vexus boat Minnesota">
+  <meta name="robots" content="index, follow">
+  <meta name="geo.region" content="US-MN">
+  <meta name="geo.placename" content="Detroit Lakes, Minnesota">
+  <link rel="canonical" href="https://www.baxstarfishing.com/#proof">
 
-.proof-bar__track {
-  display: flex;
-  gap: 60px;
-  animation: tickerScroll 35s linear infinite;
-  white-space: nowrap;
-  width: max-content;
-}
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Baxstar Fishing">
+  <meta property="og:title" content="Baxstar Fishing — Credentials at a Glance">
+  <meta property="og:description" content="4.9★ rating, 5x Master Angler, Forbes-featured, 30+ years on Detroit Lakes waters, 100% private trips.">
+  <meta property="og:url" content="https://www.baxstarfishing.com/#proof">
 
-.proof-bar__item {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-shrink: 0;
-}
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Baxstar Fishing Proof">
+  <meta name="twitter:description" content="4.9★. 5x Master Angler. Forbes-featured. 100% private.">
 
-.proof-bar__item::after {
-  content: '◆';
-  font-size: 6px;
-  opacity: 0.5;
-}
+  <!-- JSON-LD: Credential highlights -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Baxstar Fishing Trust Indicators",
+    "description": "Credential highlights displayed in the Baxstar Fishing proof ticker.",
+    "about": {
+      "@type": "LocalBusiness",
+      "name": "Baxstar Fishing",
+      "url": "https://www.baxstarfishing.com/",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Detroit Lakes",
+        "addressRegion": "MN",
+        "addressCountry": "US"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "100"
+      }
+    },
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "4.9★ — 100+ Five-Star Reviews" },
+      { "@type": "ListItem", "position": 2, "name": "5x Master Angler Award Winner" },
+      { "@type": "ListItem", "position": 3, "name": "Fishes Pelican, Detroit, Sallie, Lida, Cormorant and more" },
+      { "@type": "ListItem", "position": 4, "name": "Featured in Forbes" },
+      { "@type": "ListItem", "position": 5, "name": "Author, Detroit Lakes Fishing Report" },
+      { "@type": "ListItem", "position": 6, "name": "30+ Years on Detroit Lakes Area Waters" },
+      { "@type": "ListItem", "position": 7, "name": "7 Years Guiding" },
+      { "@type": "ListItem", "position": 8, "name": "Every Trip is Private" },
+      { "@type": "ListItem", "position": 9, "name": "Ultra-Premium Vexus Fiberglass Boat" }
+    ]
+  }
+  </script>
 
-@keyframes tickerScroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: transparent; overflow: hidden; }
+
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+  .proof-bar { background: #c1272d; padding: 14px 0; overflow: hidden; }
+  .proof-bar__track { display: flex; gap: 60px; animation: tickerScroll 35s linear infinite; white-space: nowrap; width: max-content; list-style: none; margin: 0; padding: 0; }
+  .proof-bar__item { font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: white; display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+  .proof-bar__item::after { content: '◆'; font-size: 6px; opacity: 0.5; }
+
+  @keyframes tickerScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce){ .proof-bar__track{ animation: none; } }
+
+  .proof-bar:focus-within .proof-bar__track,
+  .proof-bar:hover .proof-bar__track { animation-play-state: paused; }
+  </style>
 </head>
 <body>
-<div class="proof-bar">
-  <div class="proof-bar__track">
-    <span class="proof-bar__item">4.9★ — 100+ Five-Star Reviews</span>
-    <span class="proof-bar__item">5x Master Angler Award Winner</span>
-    <span class="proof-bar__item">Lake Pelican Lake · Detroit Lake · Lake Sallie · The Cormorant lakes area · Lida, or any other lake</span>
-    <span class="proof-bar__item">Featured in Forbes</span>
-    <span class="proof-bar__item">Author, Detroit Lakes Fishing Report</span>
-    <span class="proof-bar__item">30+ Years on Area Lakes/span>
-    <span class="proof-bar__item">7 Years Guiding</span>
-    <span class="proof-bar__item">Every Trip is Private</span>
-    <span class="proof-bar__item">Ultra Premium Vexus Fiberglass Boat</span>
-    <span class="proof-bar__item">4.9★ — 100+ Five-Star Reviews</span>
-    <span class="proof-bar__item">5x Master Angler Award Winner</span>
-    <span class="proof-bar__item">Featured in Forbes</span>
-    <span class="proof-bar__item">30+ Years Fishing The Detroit Lakes Area</span>
-    <span class="proof-bar__item">7 Years Guiding</span>
-    <span class="proof-bar__item">Every Trip is Private</span>
-    <span class="proof-bar__item">World Class Vexus Fiberglass Boat</span>
-  </div>
-</div>
+<section class="proof-bar" id="proof" aria-labelledby="proof-h1">
+  <h1 class="sr-only" id="proof-h1">Baxstar Fishing Credentials — 4.9-star rating, 5x Master Angler, 30+ years on Detroit Lakes waters, 100% private guided trips.</h1>
+  <ul class="proof-bar__track" role="marquee" aria-label="Baxstar Fishing credential highlights">
+    <li class="proof-bar__item">4.9★ — 100+ Five-Star Reviews</li>
+    <li class="proof-bar__item">5x Master Angler Award Winner</li>
+    <li class="proof-bar__item">Pelican, Detroit, Sallie, Cormorant, Lida &amp; more</li>
+    <li class="proof-bar__item">Featured in Forbes</li>
+    <li class="proof-bar__item">Author, Detroit Lakes Fishing Report</li>
+    <li class="proof-bar__item">30+ Years on Area Lakes</li>
+    <li class="proof-bar__item">7 Years Guiding</li>
+    <li class="proof-bar__item">Every Trip is Private</li>
+    <li class="proof-bar__item">Ultra-Premium Vexus Fiberglass Boat</li>
+    <!-- Duplicated set for seamless loop -->
+    <li class="proof-bar__item" aria-hidden="true">4.9★ — 100+ Five-Star Reviews</li>
+    <li class="proof-bar__item" aria-hidden="true">5x Master Angler Award Winner</li>
+    <li class="proof-bar__item" aria-hidden="true">Featured in Forbes</li>
+    <li class="proof-bar__item" aria-hidden="true">30+ Years Fishing the Detroit Lakes Area</li>
+    <li class="proof-bar__item" aria-hidden="true">7 Years Guiding</li>
+    <li class="proof-bar__item" aria-hidden="true">Every Trip is Private</li>
+    <li class="proof-bar__item" aria-hidden="true">World-Class Vexus Fiberglass Boat</li>
+  </ul>
+</section>
 </body>
 </html>
