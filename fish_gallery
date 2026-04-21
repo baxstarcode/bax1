@@ -152,11 +152,12 @@ img { display: block; max-width: 100%; }
     </div>
   </div>
   <div class="gallery__grid reveal">
-    <div class="gallery__item"><https://drive.google.com/open?id=1pVePo6zCzPTLwRw2BFIfHmRQ_lowKxJi&usp=drive_fs" alt="Trophy bass catch on Detroit Lakes"></div>
-    <div class="gallery__item"><img src="IMG_9106.JPG" alt="Northern pike catch with Baxstar Fishing"></div>
-    <div class="gallery__item"><img src="IMG_3070.jpeg" alt="Walleye fishing trip Detroit Lakes"></div>
-    <div class="gallery__item"><img src="IMG_0282.jpeg" alt="Baxstar Fishing client with catch"></div>
-    <div class="gallery__item"><img src="IMG_5826.jpeg" alt="Sunset on Detroit Lakes"></div>
+    <div class="gallery__item">
+    <img src="https://static.wixstatic.com/media/a30e59_a3a4b9d0de1c4f05919838fbb4df0fcd~mv2.jpg" alt="Walleye catche with Baxstar Fishing">></div>
+    <div class="gallery__item"><img src="https://static.wixstatic.com/media/a30e59_6a1013a90bd345e5a39f0a783f7be307~mv2.jpeg" alt="Smallmouth catch with Baxstar Fishing"></div>
+    <div class="gallery__item"><img src="https://static.wixstatic.com/media/a30e59_5c80c966234f4b1d8cb404f6db00b571~mv2.jpeg" alt="Big Northern Pike trip Detroit Lakes"></div>
+    <div class="gallery__item"><img src="https://static.wixstatic.com/media/a30e59_45467c5f7f824b839f6a5a46274c4693~mv2.jpeg" alt="Baxstar Fishing clients with nice largemouth bass."></div>
+    <div class="gallery__item"><img src="https://static.wixstatic.com/media/a30e59_180632eb48564cc49b3c7f19b081a69e~mv2.jpg" alt="Sunset on Detroit Lakes"></div>
   </div>
 </section>
 
