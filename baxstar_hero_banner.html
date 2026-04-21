@@ -1,513 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Baxstar Fishing</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;height:100%;overflow-x:hidden;background:transparent}
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-.hero{
-  position:relative;
-  width:100%;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  overflow:hidden;
-  background:url('https://static.wixstatic.com/media/a30e59_93bafbb18e744ad199419475a66fe62a~mv2.jpg') center center/cover no-repeat;
-}
+  <!-- Primary SEO -->
+  <title>Detroit Lakes Guided Fishing Trips | Baxstar Fishing — Private Charters in Minnesota</title>
+  <meta name="description" content="Premier private guided fishing charters in Detroit Lakes, Minnesota. 5x Master Angler, 4.9-star rated, tournament-grade Vexus boat. Walleye, bass, and multi-species trips across 100+ lakes. Book your private trip."/>
+  <meta name="keywords" content="Detroit Lakes fishing guide, Minnesota fishing charter, private guided fishing, walleye guide, bass fishing Minnesota, Detroit Lakes walleye, Pelican Lake guide, Lake Sallie fishing, Cormorant Lake guide, Baxstar Fishing"/>
+  <meta name="author" content="Brady Baxter — Baxstar Fishing"/>
+  <meta name="robots" content="index, follow, max-image-preview:large"/>
+  <meta name="geo.region" content="US-MN"/>
+  <meta name="geo.placename" content="Detroit Lakes, Minnesota"/>
+  <meta name="geo.position" content="46.6519;-95.8453"/>
+  <meta name="ICBM" content="46.6519, -95.8453"/>
+  <link rel="canonical" href="https://www.baxstarfishing.com/"/>
 
-.hero__veil{
-  position:absolute;inset:0;
-  background:linear-gradient(100deg,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0.72) 40%,rgba(0,0,0,0.30) 70%,rgba(0,0,0,0.10) 100%);
-  z-index:1;
-}
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Baxstar Fishing"/>
+  <meta property="og:title" content="Detroit Lakes Private Guided Fishing — Baxstar Fishing"/>
+  <meta property="og:description" content="Elite private fishing charters in Detroit Lakes, MN. 30+ years of local water knowledge, tournament-grade equipment, 4.9★ rated. Book your trip."/>
+  <meta property="og:url" content="https://www.baxstarfishing.com/"/>
+  <meta property="og:image" content="https://static.wixstatic.com/media/a30e59_93bafbb18e744ad199419475a66fe62a~mv2.jpg"/>
+  <meta property="og:image:alt" content="Baxstar Fishing Vexus boat on Detroit Lakes, Minnesota"/>
+  <meta property="og:locale" content="en_US"/>
 
-.hero__grid{
-  position:absolute;inset:0;
-  background-image:linear-gradient(rgba(212,18,26,0.055) 1px,transparent 1px),linear-gradient(90deg,rgba(212,18,26,0.055) 1px,transparent 1px);
-  background-size:65px 65px;
-  z-index:2;pointer-events:none;
-}
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Detroit Lakes Private Guided Fishing — Baxstar Fishing"/>
+  <meta name="twitter:description" content="Elite private fishing charters in Detroit Lakes, MN. 5x Master Angler. Book your private trip."/>
+  <meta name="twitter:image" content="https://static.wixstatic.com/media/a30e59_93bafbb18e744ad199419475a66fe62a~mv2.jpg"/>
+  <meta name="twitter:image:alt" content="Baxstar Fishing on Detroit Lakes, Minnesota"/>
 
-.hero__scan{
-  position:absolute;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent 0%,transparent 15%,rgba(212,18,26,0.85) 50%,transparent 85%,transparent 100%);
-  z-index:3;animation:scan 6s linear infinite;pointer-events:none;
-}
-@keyframes scan{
-  0%{top:-2px;opacity:0}4%{opacity:1}96%{opacity:1}100%{top:100%;opacity:0}
-}
+  <!-- Theme -->
+  <meta name="theme-color" content="#08080a"/>
 
-.bracket{position:absolute;width:56px;height:56px;z-index:6;pointer-events:none}
-.bracket--tl{top:28px;left:28px;border-top:2px solid #D4121A;border-left:2px solid #D4121A}
-.bracket--tr{top:28px;right:28px;border-top:2px solid #D4121A;border-right:2px solid #D4121A}
-.bracket--bl{bottom:28px;left:28px;border-bottom:2px solid #D4121A;border-left:2px solid #D4121A}
-.bracket--br{bottom:28px;right:28px;border-bottom:2px solid #D4121A;border-right:2px solid #D4121A}
+  <!-- JSON-LD: LocalBusiness + TouristTrip -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["LocalBusiness", "TouristAttraction"],
+        "@id": "https://www.baxstarfishing.com/#business",
+        "name": "Baxstar Fishing",
+        "alternateName": "Baxstar Guided Fishing",
+        "description": "Premier private guided fishing charters in Detroit Lakes, Minnesota. Walleye, bass, and multi-species trips across 100+ lakes.",
+        "url": "https://www.baxstarfishing.com/",
+        "logo": "https://static.wixstatic.com/media/a30e59_413146f7cd6a496a823309aefc67e66c~mv2.png",
+        "image": "https://static.wixstatic.com/media/a30e59_93bafbb18e744ad199419475a66fe62a~mv2.jpg",
+        "priceRange": "$$$",
+        "areaServed": [
+          { "@type": "City", "name": "Detroit Lakes", "containedInPlace": "Minnesota" },
+          { "@type": "AdministrativeArea", "name": "Becker County, Minnesota" }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Detroit Lakes",
+          "addressRegion": "MN",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 46.6519,
+          "longitude": -95.8453
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "100",
+          "bestRating": "5"
+        },
+        "sameAs": [
+          "https://www.baxstarfishing.com/"
+        ]
+      },
+      {
+        "@type": "TouristTrip",
+        "name": "Private Guided Fishing Trip — Detroit Lakes, MN",
+        "description": "Private guided fishing charter on Detroit Lakes area waters with Master Angler Brady Baxter. 4-8 hour trips aboard a Vexus DVX20S.",
+        "provider": { "@id": "https://www.baxstarfishing.com/#business" },
+        "touristType": "Anglers, families, corporate groups",
+        "itinerary": {
+          "@type": "ItemList",
+          "itemListElement": [
+            { "@type": "Place", "name": "Pelican Lake, MN" },
+            { "@type": "Place", "name": "Detroit Lake, MN" },
+            { "@type": "Place", "name": "Lake Sallie, MN" },
+            { "@type": "Place", "name": "Lake Lida, MN" },
+            { "@type": "Place", "name": "Cormorant Lake, MN" }
+          ]
+        }
+      }
+    ]
+  }
+  </script>
 
-.bracket::after{
-  content:'';position:absolute;width:6px;height:6px;
-  background:#D4121A;border-radius:50%;
-  box-shadow:0 0 10px 4px rgba(212,18,26,0.6);
-  animation:pulse 2.8s ease-in-out infinite;
-}
-.bracket--tl::after{top:-3px;left:-3px}
-.bracket--tr::after{top:-3px;right:-3px}
-.bracket--bl::after{bottom:-3px;left:-3px}
-.bracket--br::after{bottom:-3px;right:-3px}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.2;transform:scale(0.7)}}
+  <!-- Performance hygiene -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preconnect" href="https://static.wixstatic.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
 
-.hud{
-  position:absolute;font-family:'Barlow Condensed',monospace;
-  font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;
-  color:rgba(255,255,255,0.22);z-index:6;pointer-events:none;
-}
-.hud--tl{top:40px;left:96px}
-.hud--tr{top:40px;right:96px;text-align:right}
-.hud--bl{bottom:40px;left:96px}
-.hud--br{bottom:40px;right:96px;text-align:right}
+  <style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:100%;height:100%;overflow-x:hidden;background:transparent}
 
-.hero__rule{
-  position:absolute;left:50%;top:8%;bottom:8%;width:1px;
-  background:linear-gradient(180deg,transparent 0%,rgba(212,18,26,0.25) 30%,rgba(212,18,26,0.25) 70%,transparent 100%);
-  z-index:4;pointer-events:none;
-}
+  .hero{
+    position:relative;width:100%;min-height:100vh;
+    display:flex;align-items:center;overflow:hidden;
+    background:url('https://static.wixstatic.com/media/a30e59_93bafbb18e744ad199419475a66fe62a~mv2.jpg') center center/cover no-repeat;
+  }
+  .hero__veil{position:absolute;inset:0;background:linear-gradient(100deg,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0.72) 40%,rgba(0,0,0,0.30) 70%,rgba(0,0,0,0.10) 100%);z-index:1}
+  .hero__grid{position:absolute;inset:0;background-image:linear-gradient(rgba(212,18,26,0.055) 1px,transparent 1px),linear-gradient(90deg,rgba(212,18,26,0.055) 1px,transparent 1px);background-size:65px 65px;z-index:2;pointer-events:none}
+  .hero__scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 0%,transparent 15%,rgba(212,18,26,0.85) 50%,transparent 85%,transparent 100%);z-index:3;animation:scan 6s linear infinite;pointer-events:none}
+  @keyframes scan{0%{top:-2px;opacity:0}4%{opacity:1}96%{opacity:1}100%{top:100%;opacity:0}}
+  @media (prefers-reduced-motion: reduce){.hero__scan{animation:none;display:none}.bracket::after{animation:none}}
 
-.hero__inner{
-  position:relative;z-index:10;width:100%;max-width:760px;
-  margin:0 auto;padding:80px 60px;
-  display:flex;flex-direction:column;
-  align-items:flex-start;
-}
+  .bracket{position:absolute;width:56px;height:56px;z-index:6;pointer-events:none}
+  .bracket--tl{top:28px;left:28px;border-top:2px solid #D4121A;border-left:2px solid #D4121A}
+  .bracket--tr{top:28px;right:28px;border-top:2px solid #D4121A;border-right:2px solid #D4121A}
+  .bracket--bl{bottom:28px;left:28px;border-bottom:2px solid #D4121A;border-left:2px solid #D4121A}
+  .bracket--br{bottom:28px;right:28px;border-bottom:2px solid #D4121A;border-right:2px solid #D4121A}
+  .bracket::after{content:'';position:absolute;width:6px;height:6px;background:#D4121A;border-radius:50%;box-shadow:0 0 10px 4px rgba(212,18,26,0.6);animation:pulse 2.8s ease-in-out infinite}
+  .bracket--tl::after{top:-3px;left:-3px}.bracket--tr::after{top:-3px;right:-3px}.bracket--bl::after{bottom:-3px;left:-3px}.bracket--br::after{bottom:-3px;right:-3px}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.2;transform:scale(0.7)}}
 
-.hero__logo{
-  width:clamp(160px,22vw,260px);margin-bottom:36px;
-  filter:drop-shadow(0 0 18px rgba(212,18,26,0.35));
-}
+  .hud{position:absolute;font-family:'Barlow Condensed',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.22);z-index:6;pointer-events:none}
+  .hud--tl{top:40px;left:96px}.hud--tr{top:40px;right:96px;text-align:right}
+  .hud--bl{bottom:40px;left:96px}.hud--br{bottom:40px;right:96px;text-align:right}
 
-.hero__h1{
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:11px;font-weight:600;letter-spacing:0.38em;
-  text-transform:uppercase;color:#D4121A;
-  margin-bottom:18px;
-}
-.hero__h1::before{content:'';display:block;width:26px;height:1px;background:#D4121A}
+  .hero__rule{position:absolute;left:50%;top:8%;bottom:8%;width:1px;background:linear-gradient(180deg,transparent 0%,rgba(212,18,26,0.25) 30%,rgba(212,18,26,0.25) 70%,transparent 100%);z-index:4;pointer-events:none}
 
-.hero__headline{
-  font-family:'Barlow Condensed',sans-serif;font-weight:900;
-  font-size:clamp(52px,6.5vw,96px);line-height:0.88;
-  letter-spacing:-0.01em;text-transform:uppercase;color:#fff;margin-bottom:6px;
-}
-.hero__headline .line-red{color:#D4121A;display:block}
-.hero__headline .line-ghost{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,0.28);display:block}
+  .hero__inner{position:relative;z-index:10;width:100%;max-width:760px;margin:0 auto;padding:80px 60px;display:flex;flex-direction:column;align-items:flex-start}
 
-.hero__divider{display:flex;align-items:center;gap:12px;margin:26px 0}
-.hero__divider-line{height:1px;width:70px;background:linear-gradient(90deg,rgba(255,255,255,0.35),transparent)}
-.hero__divider-diamond{width:7px;height:7px;background:#D4121A;transform:rotate(45deg);box-shadow:0 0 10px 3px rgba(212,18,26,0.55)}
+  .hero__logo{width:clamp(160px,22vw,260px);height:auto;margin-bottom:36px;filter:drop-shadow(0 0 18px rgba(212,18,26,0.35))}
 
-.hero__h2{
-  font-family:'Barlow',sans-serif;font-weight:300;
-  font-size:clamp(15px,1.6vw,18px);line-height:1.65;
-  color:rgba(255,255,255,0.65);max-width:520px;
-  margin-bottom:38px;letter-spacing:0.02em;
-}
+  .hero__eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.38em;text-transform:uppercase;color:#D4121A;margin-bottom:18px}
+  .hero__eyebrow::before{content:'';display:block;width:26px;height:1px;background:#D4121A}
 
-.hero__cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
+  .hero__headline{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(52px,6.5vw,96px);line-height:0.88;letter-spacing:-0.01em;text-transform:uppercase;color:#fff;margin:0 0 6px}
+  .hero__headline .line-red{color:#D4121A;display:block}
+  .hero__headline .line-ghost{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,0.28);display:block}
+  .hero__headline .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-.btn{
-  font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;
-  letter-spacing:0.24em;text-transform:uppercase;text-decoration:none;
-  padding:15px 36px;display:inline-flex;align-items:center;gap:10px;
-  cursor:pointer;border:none;transition:all 0.25s ease;
-  position:relative;overflow:hidden;
-}
-.btn svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;flex-shrink:0}
+  .hero__divider{display:flex;align-items:center;gap:12px;margin:26px 0}
+  .hero__divider-line{height:1px;width:70px;background:linear-gradient(90deg,rgba(255,255,255,0.35),transparent)}
+  .hero__divider-diamond{width:7px;height:7px;background:#D4121A;transform:rotate(45deg);box-shadow:0 0 10px 3px rgba(212,18,26,0.55)}
 
-.btn--primary{
-  background:#D4121A;color:#fff;
-  clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
-}
-.btn--primary::before{
-  content:'';position:absolute;inset:0;
-  background:rgba(255,255,255,0.1);
-  transform:translateX(-100%);transition:transform 0.28s ease;
-}
-.btn--primary:hover::before{transform:translateX(0)}
-.btn--primary:hover{box-shadow:0 0 28px rgba(212,18,26,0.6)}
+  .hero__sub{font-family:'Barlow',sans-serif;font-weight:300;font-size:clamp(15px,1.6vw,18px);line-height:1.65;color:rgba(255,255,255,0.65);max-width:520px;margin:0 0 38px;letter-spacing:0.02em}
 
-.btn--ghost{
-  background:transparent;color:#fff;
-  border:1px solid rgba(255,255,255,0.32);
-  clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
-}
-.btn--ghost:hover{border-color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.06)}
+  .hero__cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
 
-.stat-strip{display:flex;align-items:center}
-.stat{display:flex;flex-direction:column;padding:0 28px;position:relative}
-.stat:first-child{padding-left:0}
-.stat+.stat::before{
-  content:'';position:absolute;left:0;top:15%;bottom:15%;
-  width:1px;background:rgba(255,255,255,0.14);
-}
-.stat__num{
-  font-family:'Barlow Condensed',sans-serif;font-weight:800;
-  font-size:clamp(26px,3vw,38px);line-height:1;color:#fff;
-}
-.stat__num span{color:#D4121A}
-.stat__lbl{
-  font-family:'Barlow',sans-serif;font-size:9.5px;font-weight:500;
-  letter-spacing:0.18em;text-transform:uppercase;
-  color:rgba(255,255,255,0.38);margin-top:5px;
-}
+  .btn{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;text-decoration:none;padding:15px 36px;display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:none;transition:all 0.25s ease;position:relative;overflow:hidden}
+  .btn svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;flex-shrink:0}
+  .btn--primary{background:#D4121A;color:#fff;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
+  .btn--primary::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,0.1);transform:translateX(-100%);transition:transform 0.28s ease}
+  .btn--primary:hover::before{transform:translateX(0)}
+  .btn--primary:hover{box-shadow:0 0 28px rgba(212,18,26,0.6)}
+  .btn--ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.32);clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
+  .btn--ghost:hover{border-color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.06)}
+  .btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
 
-@media(max-width:768px){
-  .hero__inner{padding:100px 28px 60px;align-items:center;text-align:center}
-  .hero__h1::before{display:none}
-  .hud{display:none}
-  .bracket{width:36px;height:36px}
-  .bracket--tl,.bracket--tr{top:14px}
-  .bracket--bl,.bracket--br{bottom:14px}
-  .bracket--tl,.bracket--bl{left:14px}
-  .bracket--tr,.bracket--br{right:14px}
-  .hero__rule{display:none}
-  .hero__h2{max-width:100%}
-  .stat-strip{justify-content:center}
-}
-</style>
+  .stat-strip{display:flex;align-items:center}
+  .stat{display:flex;flex-direction:column;padding:0 28px;position:relative}
+  .stat:first-child{padding-left:0}
+  .stat+.stat::before{content:'';position:absolute;left:0;top:15%;bottom:15%;width:1px;background:rgba(255,255,255,0.14)}
+  .stat__num{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(26px,3vw,38px);line-height:1;color:#fff}
+  .stat__num span{color:#D4121A}
+  .stat__lbl{font-family:'Barlow',sans-serif;font-size:9.5px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-top:5px}
+
+  @media(max-width:768px){
+    .hero__inner{padding:100px 28px 60px;align-items:center;text-align:center}
+    .hero__eyebrow::before{display:none}
+    .hud{display:none}
+    .bracket{width:36px;height:36px}
+    .bracket--tl,.bracket--tr{top:14px}.bracket--bl,.bracket--br{bottom:14px}
+    .bracket--tl,.bracket--bl{left:14px}.bracket--tr,.bracket--br{right:14px}
+    .hero__rule{display:none}
+    .hero__sub{max-width:100%}
+    .stat-strip{justify-content:center}
+  }
+  </style>
 </head>
 <body>
-<section class="hero">
-  <div class="hero__veil"></div>
-  <div class="hero__grid"></div>
-  <div class="hero__scan"></div>
-  <div class="hero__rule"></div>
+<header class="hero" role="banner" aria-labelledby="hero-h1">
+  <div class="hero__veil" aria-hidden="true"></div>
+  <div class="hero__grid" aria-hidden="true"></div>
+  <div class="hero__scan" aria-hidden="true"></div>
+  <div class="hero__rule" aria-hidden="true"></div>
 
-  <div class="bracket bracket--tl"></div>
-  <div class="bracket bracket--tr"></div>
-  <div class="bracket bracket--bl"></div>
-  <div class="bracket bracket--br"></div>
+  <div class="bracket bracket--tl" aria-hidden="true"></div>
+  <div class="bracket bracket--tr" aria-hidden="true"></div>
+  <div class="bracket bracket--bl" aria-hidden="true"></div>
+  <div class="bracket bracket--br" aria-hidden="true"></div>
 
-  <div class="hud hud--tl">SYS.ONLINE // GPS LOCK</div>
-  <div class="hud hud--tr">BAXSTAR // ELITE GUIDE</div>
-  <div class="hud hud--bl">LAT 44.9537° N / LON 93.0900° W</div>
-  <div class="hud hud--br">SEASON ACTIVE // BOOK NOW</div>
+  <div class="hud hud--tl" aria-hidden="true">SYS.ONLINE // GPS LOCK</div>
+  <div class="hud hud--tr" aria-hidden="true">BAXSTAR // ELITE GUIDE</div>
+  <div class="hud hud--bl" aria-hidden="true">LAT 46.6519° N / LON 95.8453° W</div>
+  <div class="hud hud--br" aria-hidden="true">SEASON ACTIVE // BOOK NOW</div>
 
   <div class="hero__inner">
 
     <img
       src="https://static.wixstatic.com/media/a30e59_413146f7cd6a496a823309aefc67e66c~mv2.png"
-      alt="Baxstar Fishing — Detroit Lakes MN Guided Fishing"
+      alt="Baxstar Fishing logo — Detroit Lakes, Minnesota private guided fishing"
       class="hero__logo"
+      width="260"
+      height="90"
+      fetchpriority="high"
     />
 
-    <h1 class="hero__h1">Detroit Lakes Guided Fishing Trips</h1>
+    <p class="hero__eyebrow">Detroit Lakes Private Guided Fishing</p>
 
-    <div class="hero__headline">
-      <span class="line-ghost">Elite</span>
-      <span class="line-red">On the Water.</span>
-      Every Time.
-    </div>
+    <h1 class="hero__headline" id="hero-h1">
+      <span class="line-ghost" aria-hidden="true">Elite</span>
+      <span class="line-red" aria-hidden="true">On the Water.</span>
+      <span aria-hidden="true">Every Time.</span>
+      <span class="sr-only">Elite On the Water. Every Time. Private Guided Fishing in Detroit Lakes, Minnesota.</span>
+    </h1>
 
-    <div class="hero__divider">
+    <div class="hero__divider" aria-hidden="true">
       <div class="hero__divider-line"></div>
       <div class="hero__divider-diamond"></div>
     </div>
 
-    <h2 class="hero__h2">
-      The Detroit Lakes Area's Premier Private Guided Fishing Experience — local knowledge, premium equipment, and personal attention that separates a good day from an unforgettable one.
-    </h2>
+    <p class="hero__sub">
+      The Detroit Lakes area's premier private guided fishing experience — 30+ years of local water knowledge, tournament-grade Vexus equipment, and personal attention across 100+ Minnesota lakes. Walleye, bass, pike, and multi-species trips handled end-to-end.
+    </p>
 
-    <div class="hero__cta">
-      <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/"
+    <nav class="hero__cta" aria-label="Primary calls to action">
+      <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&amp;back=https://www.baxstarfishing.com/"
          target="_top"
          class="btn btn--primary"
-         onclick="try{window.parent.dataLayer=window.parent.dataLayer||[];window.parent.dataLayer.push({'event':'book_now_click','page_location':window.parent.location.href});}catch(e){}">
+         aria-label="Book your private guided fishing trip with Baxstar Fishing"
+         rel="noopener"
+         onclick="try{window.parent.dataLayer=window.parent.dataLayer||[];window.parent.dataLayer.push({'event':'book_now_click','location':'hero','page_location':window.parent.location.href});}catch(e){}">
         Book Your Trip
-        <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
       <a href="https://www.baxstarfishing.com/detroit-lakes-pontoon-rentals"
          target="_top"
-         class="btn btn--ghost">
+         class="btn btn--ghost"
+         aria-label="View Detroit Lakes pontoon rentals from Baxstar Fishing">
         View Pontoon Rentals
       </a>
-    </div>
+    </nav>
 
-    <div class="stat-strip">
+    <dl class="stat-strip" aria-label="Baxstar Fishing trust metrics">
       <div class="stat">
-        <div class="stat__num">7<span>+</span></div>
-        <div class="stat__lbl">Years Experience</div>
+        <dt class="stat__lbl" style="order:2">Years Experience</dt>
+        <dd class="stat__num" style="order:1;margin:0">7<span>+</span></dd>
       </div>
       <div class="stat">
-        <div class="stat__num">800<span>+</span></div>
-        <div class="stat__lbl">Guided Trips</div>
+        <dt class="stat__lbl" style="order:2">Guided Trips</dt>
+        <dd class="stat__num" style="order:1;margin:0">800<span>+</span></dd>
       </div>
       <div class="stat">
-        <div class="stat__num">5<span>★</span></div>
-        <div class="stat__lbl">Client Rated</div>
+        <dt class="stat__lbl" style="order:2">Client Rated</dt>
+        <dd class="stat__num" style="order:1;margin:0">5<span>★</span></dd>
       </div>
-    </div>
+    </dl>
 
   </div>
-</section>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Baxstar Fishing</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;height:100%;overflow-x:hidden;background:transparent}
-
-.hero{
-  position:relative;
-  width:100%;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  overflow:hidden;
-  background:url('https://static.wixstatic.com/media/a30e59_93bafbb18e744ad199419475a66fe62a~mv2.jpg') center center/cover no-repeat;
-}
-
-.hero__veil{
-  position:absolute;inset:0;
-  background:linear-gradient(100deg,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0.72) 40%,rgba(0,0,0,0.30) 70%,rgba(0,0,0,0.10) 100%);
-  z-index:1;
-}
-
-.hero__grid{
-  position:absolute;inset:0;
-  background-image:linear-gradient(rgba(212,18,26,0.055) 1px,transparent 1px),linear-gradient(90deg,rgba(212,18,26,0.055) 1px,transparent 1px);
-  background-size:65px 65px;
-  z-index:2;pointer-events:none;
-}
-
-.hero__scan{
-  position:absolute;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent 0%,transparent 15%,rgba(212,18,26,0.85) 50%,transparent 85%,transparent 100%);
-  z-index:3;animation:scan 6s linear infinite;pointer-events:none;
-}
-@keyframes scan{
-  0%{top:-2px;opacity:0}4%{opacity:1}96%{opacity:1}100%{top:100%;opacity:0}
-}
-
-.bracket{position:absolute;width:56px;height:56px;z-index:6;pointer-events:none}
-.bracket--tl{top:28px;left:28px;border-top:2px solid #D4121A;border-left:2px solid #D4121A}
-.bracket--tr{top:28px;right:28px;border-top:2px solid #D4121A;border-right:2px solid #D4121A}
-.bracket--bl{bottom:28px;left:28px;border-bottom:2px solid #D4121A;border-left:2px solid #D4121A}
-.bracket--br{bottom:28px;right:28px;border-bottom:2px solid #D4121A;border-right:2px solid #D4121A}
-
-.bracket::after{
-  content:'';position:absolute;width:6px;height:6px;
-  background:#D4121A;border-radius:50%;
-  box-shadow:0 0 10px 4px rgba(212,18,26,0.6);
-  animation:pulse 2.8s ease-in-out infinite;
-}
-.bracket--tl::after{top:-3px;left:-3px}
-.bracket--tr::after{top:-3px;right:-3px}
-.bracket--bl::after{bottom:-3px;left:-3px}
-.bracket--br::after{bottom:-3px;right:-3px}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.2;transform:scale(0.7)}}
-
-.hud{
-  position:absolute;font-family:'Barlow Condensed',monospace;
-  font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;
-  color:rgba(255,255,255,0.22);z-index:6;pointer-events:none;
-}
-.hud--tl{top:40px;left:96px}
-.hud--tr{top:40px;right:96px;text-align:right}
-.hud--bl{bottom:40px;left:96px}
-.hud--br{bottom:40px;right:96px;text-align:right}
-
-.hero__rule{
-  position:absolute;left:50%;top:8%;bottom:8%;width:1px;
-  background:linear-gradient(180deg,transparent 0%,rgba(212,18,26,0.25) 30%,rgba(212,18,26,0.25) 70%,transparent 100%);
-  z-index:4;pointer-events:none;
-}
-
-.hero__inner{
-  position:relative;z-index:10;width:100%;max-width:760px;
-  margin:0 auto;padding:80px 60px;
-  display:flex;flex-direction:column;
-  align-items:flex-start;
-}
-
-.hero__logo{
-  width:clamp(160px,22vw,260px);margin-bottom:36px;
-  filter:drop-shadow(0 0 18px rgba(212,18,26,0.35));
-}
-
-.hero__h1{
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:11px;font-weight:600;letter-spacing:0.38em;
-  text-transform:uppercase;color:#D4121A;
-  margin-bottom:18px;
-}
-.hero__h1::before{content:'';display:block;width:26px;height:1px;background:#D4121A}
-
-.hero__headline{
-  font-family:'Barlow Condensed',sans-serif;font-weight:900;
-  font-size:clamp(52px,6.5vw,96px);line-height:0.88;
-  letter-spacing:-0.01em;text-transform:uppercase;color:#fff;margin-bottom:6px;
-}
-.hero__headline .line-red{color:#D4121A;display:block}
-.hero__headline .line-ghost{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,0.28);display:block}
-
-.hero__divider{display:flex;align-items:center;gap:12px;margin:26px 0}
-.hero__divider-line{height:1px;width:70px;background:linear-gradient(90deg,rgba(255,255,255,0.35),transparent)}
-.hero__divider-diamond{width:7px;height:7px;background:#D4121A;transform:rotate(45deg);box-shadow:0 0 10px 3px rgba(212,18,26,0.55)}
-
-.hero__h2{
-  font-family:'Barlow',sans-serif;font-weight:300;
-  font-size:clamp(15px,1.6vw,18px);line-height:1.65;
-  color:rgba(255,255,255,0.65);max-width:520px;
-  margin-bottom:38px;letter-spacing:0.02em;
-}
-
-.hero__cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
-
-.btn{
-  font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;
-  letter-spacing:0.24em;text-transform:uppercase;text-decoration:none;
-  padding:15px 36px;display:inline-flex;align-items:center;gap:10px;
-  cursor:pointer;border:none;transition:all 0.25s ease;
-  position:relative;overflow:hidden;
-}
-.btn svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;flex-shrink:0}
-
-.btn--primary{
-  background:#D4121A;color:#fff;
-  clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
-}
-.btn--primary::before{
-  content:'';position:absolute;inset:0;
-  background:rgba(255,255,255,0.1);
-  transform:translateX(-100%);transition:transform 0.28s ease;
-}
-.btn--primary:hover::before{transform:translateX(0)}
-.btn--primary:hover{box-shadow:0 0 28px rgba(212,18,26,0.6)}
-
-.btn--ghost{
-  background:transparent;color:#fff;
-  border:1px solid rgba(255,255,255,0.32);
-  clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
-}
-.btn--ghost:hover{border-color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.06)}
-
-.stat-strip{display:flex;align-items:center}
-.stat{display:flex;flex-direction:column;padding:0 28px;position:relative}
-.stat:first-child{padding-left:0}
-.stat+.stat::before{
-  content:'';position:absolute;left:0;top:15%;bottom:15%;
-  width:1px;background:rgba(255,255,255,0.14);
-}
-.stat__num{
-  font-family:'Barlow Condensed',sans-serif;font-weight:800;
-  font-size:clamp(26px,3vw,38px);line-height:1;color:#fff;
-}
-.stat__num span{color:#D4121A}
-.stat__lbl{
-  font-family:'Barlow',sans-serif;font-size:9.5px;font-weight:500;
-  letter-spacing:0.18em;text-transform:uppercase;
-  color:rgba(255,255,255,0.38);margin-top:5px;
-}
-
-@media(max-width:768px){
-  .hero__inner{padding:100px 28px 60px;align-items:center;text-align:center}
-  .hero__h1::before{display:none}
-  .hud{display:none}
-  .bracket{width:36px;height:36px}
-  .bracket--tl,.bracket--tr{top:14px}
-  .bracket--bl,.bracket--br{bottom:14px}
-  .bracket--tl,.bracket--bl{left:14px}
-  .bracket--tr,.bracket--br{right:14px}
-  .hero__rule{display:none}
-  .hero__h2{max-width:100%}
-  .stat-strip{justify-content:center}
-}
-</style>
-</head>
-<body>
-<section class="hero">
-  <div class="hero__veil"></div>
-  <div class="hero__grid"></div>
-  <div class="hero__scan"></div>
-  <div class="hero__rule"></div>
-
-  <div class="bracket bracket--tl"></div>
-  <div class="bracket bracket--tr"></div>
-  <div class="bracket bracket--bl"></div>
-  <div class="bracket bracket--br"></div>
-
-  <div class="hud hud--tl">SYS.ONLINE // GPS LOCK</div>
-  <div class="hud hud--tr">BAXSTAR // ELITE GUIDE</div>
-  <div class="hud hud--bl">LAT 44.9537° N / LON 93.0900° W</div>
-  <div class="hud hud--br">SEASON ACTIVE // BOOK NOW</div>
-
-  <div class="hero__inner">
-
-    <img
-      src="https://static.wixstatic.com/media/a30e59_413146f7cd6a496a823309aefc67e66c~mv2.png"
-      alt="Baxstar Fishing — Detroit Lakes MN Guided Fishing"
-      class="hero__logo"
-    />
-
-    <h1 class="hero__h1">Detroit Lakes Guided Fishing Trips</h1>
-
-    <div class="hero__headline">
-      <span class="line-ghost">Elite</span>
-      <span class="line-red">On the Water.</span>
-      Every Time.
-    </div>
-
-    <div class="hero__divider">
-      <div class="hero__divider-line"></div>
-      <div class="hero__divider-diamond"></div>
-    </div>
-
-    <h2 class="hero__h2">
-      The Detroit Lakes Area's Premier Private Guided Fishing Experience — local knowledge, premium equipment, and personal attention that separates a good day from an unforgettable one.
-    </h2>
-
-    <div class="hero__cta">
-      <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/"
-         target="_top"
-         class="btn btn--primary"
-         onclick="try{window.parent.dataLayer=window.parent.dataLayer||[];window.parent.dataLayer.push({'event':'book_now_click','page_location':window.parent.location.href});}catch(e){}">
-        Book Your Trip
-        <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="https://www.baxstarfishing.com/detroit-lakes-pontoon-rentals"
-         target="_top"
-         class="btn btn--ghost">
-        View Pontoon Rentals
-      </a>
-    </div>
-
-    <div class="stat-strip">
-      <div class="stat">
-        <div class="stat__num">7<span>+</span></div>
-        <div class="stat__lbl">Years Experience</div>
-      </div>
-      <div class="stat">
-        <div class="stat__num">800<span>+</span></div>
-        <div class="stat__lbl">Guided Trips</div>
-      </div>
-      <div class="stat">
-        <div class="stat__num">5<span>★</span></div>
-        <div class="stat__lbl">Client Rated</div>
-      </div>
-    </div>
-
-  </div>
-</section>
+</header>
 </body>
 </html>
