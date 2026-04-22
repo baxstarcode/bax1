@@ -114,8 +114,8 @@
   }
   .hero__veil{position:absolute;inset:0;background:linear-gradient(100deg,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0.72) 40%,rgba(0,0,0,0.30) 70%,rgba(0,0,0,0.10) 100%);z-index:1}
   .hero__grid{position:absolute;inset:0;background-image:linear-gradient(rgba(212,18,26,0.055) 1px,transparent 1px),linear-gradient(90deg,rgba(212,18,26,0.055) 1px,transparent 1px);background-size:65px 65px;z-index:2;pointer-events:none}
-  .hero__scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 0%,transparent 15%,rgba(212,18,26,0.85) 50%,transparent 85%,transparent 100%);z-index:3;animation:scan 6s linear infinite;pointer-events:none}
-  @keyframes scan{0%{top:-2px;opacity:0}4%{opacity:1}96%{opacity:1}100%{top:100%;opacity:0}}
+  .hero__scan{position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent 0%,transparent 15%,rgba(212,18,26,0.85) 50%,transparent 85%,transparent 100%);z-index:3;animation:scan 9s linear infinite;pointer-events:none;will-change:transform,opacity;transform:translateZ(0)}
+  @keyframes scan{0%{transform:translate3d(0,0,0);opacity:0}4%{opacity:1}96%{opacity:1}100%{transform:translate3d(0,100vh,0);opacity:0}}
   @media (prefers-reduced-motion: reduce){.hero__scan{animation:none;display:none}.bracket::after{animation:none}}
 
   .bracket{position:absolute;width:56px;height:56px;z-index:6;pointer-events:none}
@@ -123,7 +123,7 @@
   .bracket--tr{top:28px;right:28px;border-top:2px solid #D4121A;border-right:2px solid #D4121A}
   .bracket--bl{bottom:28px;left:28px;border-bottom:2px solid #D4121A;border-left:2px solid #D4121A}
   .bracket--br{bottom:28px;right:28px;border-bottom:2px solid #D4121A;border-right:2px solid #D4121A}
-  .bracket::after{content:'';position:absolute;width:6px;height:6px;background:#D4121A;border-radius:50%;box-shadow:0 0 10px 4px rgba(212,18,26,0.6);animation:pulse 2.8s ease-in-out infinite}
+  .bracket::after{content:'';position:absolute;width:6px;height:6px;background:#D4121A;border-radius:50%;box-shadow:0 0 10px 4px rgba(212,18,26,0.6);animation:pulse 3.6s ease-in-out infinite;will-change:transform,opacity;transform:translateZ(0)}
   .bracket--tl::after{top:-3px;left:-3px}.bracket--tr::after{top:-3px;right:-3px}.bracket--bl::after{bottom:-3px;left:-3px}.bracket--br::after{bottom:-3px;right:-3px}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.2;transform:scale(0.7)}}
 
@@ -137,8 +137,10 @@
 
   .hero__logo{width:clamp(160px,22vw,260px);height:auto;margin-bottom:36px;filter:drop-shadow(0 0 18px rgba(212,18,26,0.35))}
 
-  .hero__eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.38em;text-transform:uppercase;color:#D4121A;margin-bottom:18px}
-  .hero__eyebrow::before{content:'';display:block;width:26px;height:1px;background:#D4121A}
+  /* Eyebrow group — two lines that sit side-by-side on desktop, stack on mobile */
+  .hero__eyebrow-group{display:flex;align-items:center;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+  .hero__eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.38em;text-transform:uppercase;color:#D4121A;margin:0}
+  .hero__eyebrow--first::before{content:'';display:block;width:26px;height:1px;background:#D4121A}
 
   .hero__headline{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(52px,6.5vw,96px);line-height:0.88;letter-spacing:-0.01em;text-transform:uppercase;color:#fff;margin:0 0 6px}
   .hero__headline .line-red{color:#D4121A;display:block}
@@ -171,16 +173,43 @@
   .stat__num span{color:#D4121A}
   .stat__lbl{font-family:'Barlow',sans-serif;font-size:9.5px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-top:5px}
 
+  /* Keep long phrases unbroken */
+  .nowrap{white-space:nowrap}
+
   @media(max-width:768px){
-    .hero__inner{padding:100px 28px 60px;align-items:center;text-align:center}
-    .hero__eyebrow::before{display:none}
+    /* Layout: centered content, tighter side padding so the body text has more room */
+    .hero__inner{padding:60px 16px 60px;align-items:center;text-align:center}
+
+    /* Baxstar logo — 30% larger on mobile, with equidistant spacing top/bottom */
+    .hero__logo{width:clamp(208px,52vw,300px);margin:0 0 60px;display:block}
+
+    /* Eyebrow — stack to two lines, subtle white glow */
+    .hero__eyebrow-group{flex-direction:column;align-items:center;gap:6px}
+    .hero__eyebrow{text-shadow:0 0 10px rgba(255,255,255,0.45),0 0 3px rgba(255,255,255,0.65)}
+    .hero__eyebrow--first::before{display:none}
+
+    /* Subheadline — widen so "end-to-end" stays on the previous line */
+    .hero__sub{max-width:100%;padding:0 4px}
+
+    /* CTA row — center both buttons, narrower ghost button so the top/bottom edges are shorter */
+    .hero__cta{justify-content:center;width:100%}
+    .btn{padding:14px 26px}
+    .btn--ghost{padding:12px 20px;font-size:11px;letter-spacing:0.2em}
+
+    /* Decorative HUD / frame chrome — hide on mobile for performance + cleaner look */
     .hud{display:none}
     .bracket{width:36px;height:36px}
     .bracket--tl,.bracket--tr{top:14px}.bracket--bl,.bracket--br{bottom:14px}
     .bracket--tl,.bracket--bl{left:14px}.bracket--tr,.bracket--br{right:14px}
     .hero__rule{display:none}
-    .hero__sub{max-width:100%}
+
+    /* Stat strip — keep centered */
     .stat-strip{justify-content:center}
+
+    /* Performance — kill the continuous scan line + bracket pulse on mobile,
+       they force the compositor to repaint every frame and can cause jank. */
+    .hero__scan{display:none;animation:none}
+    .bracket::after{animation:none}
   }
   </style>
 </head>
@@ -212,7 +241,10 @@
       fetchpriority="high"
     />
 
-    <p class="hero__eyebrow">Detroit Lakes Private Guided Fishing</p>
+    <div class="hero__eyebrow-group">
+      <p class="hero__eyebrow hero__eyebrow--first">Detroit Lakes Private</p>
+      <p class="hero__eyebrow hero__eyebrow--second">Guided Fishing</p>
+    </div>
 
     <h1 class="hero__headline" id="hero-h1">
       <span class="line-ghost" aria-hidden="true">Elite</span>
@@ -227,7 +259,7 @@
     </div>
 
     <p class="hero__sub">
-      The Detroit Lakes area's premier private guided fishing experience — 30+ years of local water knowledge, tournament-grade Vexus equipment, and personal attention across 100+ Minnesota lakes. Walleye, bass, pike, and multi-species trips handled end-to-end.
+      The Detroit Lakes area's premier private guided fishing experience — 30+ years of local water knowledge, tournament-grade Vexus equipment, and personal attention across 100+ Minnesota lakes. Walleye, bass, pike, and multi-species trips handled <span class="nowrap">end-to-end</span>.
     </p>
 
     <nav class="hero__cta" aria-label="Primary calls to action">
