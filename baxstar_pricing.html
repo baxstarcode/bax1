@@ -512,6 +512,232 @@
         min-width: 60px;
       }
     }
+
+    /* ── 1–2 guests callout line above table ── */
+    .table-guide {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--gray-light);
+      margin: 4px 0 12px;
+      letter-spacing: 0.01em;
+      line-height: 1.45;
+    }
+
+    .table-guide strong {
+      color: var(--white);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .table-guide::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 580px) {
+      .table-guide {
+        font-size: 12px;
+        align-items: flex-start;
+        line-height: 1.5;
+      }
+      .table-guide::before { margin-top: 7px; }
+    }
+
+    /* ── Clickable price cells ── */
+    tbody td.price-cell {
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease;
+      position: relative;
+    }
+
+    tbody td.price-cell:hover {
+      background: rgba(193, 39, 45, 0.28);
+      color: var(--white);
+    }
+
+    tbody td.price-cell:focus { outline: none; }
+
+    tbody td.price-cell:focus-visible {
+      background: rgba(193, 39, 45, 0.28);
+      outline: 2px solid var(--red-bright);
+      outline-offset: -2px;
+    }
+
+    /* ── PRICE CALCULATOR MODAL ── */
+    .calc-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .calc-modal.is-open { display: flex; }
+
+    .calc-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 8, 10, 0.72);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+    }
+
+    .calc-card {
+      position: relative;
+      background: #ffffff;
+      color: #08080a;
+      width: 100%;
+      max-width: 480px;
+      padding: 32px 32px 24px;
+      border-radius: 3px;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.55);
+      border-top: 3px solid var(--red);
+      animation: calcIn 0.2s ease-out;
+      font-family: 'Barlow', sans-serif;
+    }
+
+    @keyframes calcIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .calc-close {
+      position: absolute;
+      top: 6px;
+      right: 8px;
+      background: none;
+      border: none;
+      font-size: 26px;
+      line-height: 1;
+      color: #8f8f9a;
+      cursor: pointer;
+      padding: 8px 12px;
+      transition: color 0.15s;
+    }
+
+    .calc-close:hover { color: var(--red); }
+
+    .calc-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.26em;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .calc-trip {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 30px;
+      line-height: 1.05;
+      color: #08080a;
+      letter-spacing: 0.01em;
+      margin-bottom: 4px;
+    }
+
+    .calc-meta {
+      font-size: 13px;
+      color: #8f8f9a;
+      margin-bottom: 20px;
+      line-height: 1.45;
+    }
+
+    .calc-controls {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 20px;
+      border: 1px solid rgba(0,0,0,0.1);
+      background: #fbfaf7;
+      margin-bottom: 14px;
+    }
+
+    .calc-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .calc-field label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #8f8f9a;
+    }
+
+    .calc-field select {
+      font-family: 'Barlow', sans-serif;
+      font-size: 17px;
+      font-weight: 500;
+      padding: 10px 36px 10px 14px;
+      border: 1px solid rgba(0,0,0,0.2);
+      background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c1272d' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") right 10px center/14px no-repeat;
+      min-width: 84px;
+      cursor: pointer;
+      color: #08080a;
+      appearance: none;
+      -webkit-appearance: none;
+      border-radius: 2px;
+    }
+
+    .calc-field select:focus {
+      outline: 2px solid var(--red);
+      outline-offset: 1px;
+    }
+
+    .calc-result {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-align: right;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .calc-result-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #8f8f9a;
+    }
+
+    .calc-result-amount {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 38px;
+      line-height: 1;
+      color: var(--red);
+      letter-spacing: 0.01em;
+    }
+
+    .calc-note {
+      font-size: 11.5px;
+      font-style: italic;
+      color: #8f8f9a;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 480px) {
+      .calc-card { padding: 26px 22px 20px; }
+      .calc-trip { font-size: 26px; }
+      .calc-result-amount { font-size: 32px; }
+      .calc-controls { padding: 14px 16px; gap: 14px; }
+      .calc-field select { font-size: 16px; min-width: 72px; padding: 9px 32px 9px 12px; }
+    }
   </style>
 </head>
 <body>
@@ -533,7 +759,8 @@
         </h2>
         <p class="pricing-subhead">
           Private guided rates, clearly stated.<br>
-          Seasonal tiers reflect peak demand —<br>
+          Seasonal tiers reflect peak demand.<br>
+          Tax is added at checkout —<br>
           no hidden fees, no surprises. Ever.
         </p>
       </div>
@@ -586,6 +813,12 @@
       Scroll right to see all trip durations
     </p>
 
+    <!-- 1–2 guests callout + calculator hint -->
+    <p class="table-guide">
+      <strong>Rates shown for 1–2 guests.</strong>
+      Tap any price to add more guests and see your total with tax.
+    </p>
+
     <!-- PRICING TABLE -->
     <div class="table-wrapper" role="region" aria-label="Seasonal trip pricing">
       <table>
@@ -604,50 +837,77 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr data-tier="off-peak-all">
             <td>Apr 1–May 31, Sep 10–Oct 31</td>
             <td>All days</td>
-            <td>$432</td><td>$611</td><td>$712</td><td>$967</td>
+            <td class="price-cell" data-duration="4">$432</td>
+            <td class="price-cell" data-duration="5">$611</td>
+            <td class="price-cell" data-duration="6">$712</td>
+            <td class="price-cell" data-duration="8">$967</td>
           </tr>
-          <tr>
+          <tr data-tier="shoulder-mth">
             <td>Jun 1–12, Aug 21–Sep 9</td>
             <td>Mon–Thu</td>
-            <td>$451</td><td>$636</td><td>$742</td><td>$1,007</td>
+            <td class="price-cell" data-duration="4">$451</td>
+            <td class="price-cell" data-duration="5">$636</td>
+            <td class="price-cell" data-duration="6">$742</td>
+            <td class="price-cell" data-duration="8">$1,007</td>
           </tr>
-          <tr>
+          <tr data-tier="shoulder-fss">
             <td>Jun 1–12, Aug 21–Sep 9</td>
             <td>Fri, Sat, Sun</td>
-            <td>$464</td><td>$655</td><td>$764</td><td>$1,037</td>
+            <td class="price-cell" data-duration="4">$464</td>
+            <td class="price-cell" data-duration="5">$655</td>
+            <td class="price-cell" data-duration="6">$764</td>
+            <td class="price-cell" data-duration="8">$1,037</td>
           </tr>
-          <tr>
+          <tr data-tier="high-mth">
             <td>Jun 13–Jun 30, Jul 26–Aug 20</td>
             <td>Mon–Thu</td>
-            <td>$469</td><td>$661</td><td>$772</td><td>$1,047</td>
+            <td class="price-cell" data-duration="4">$469</td>
+            <td class="price-cell" data-duration="5">$661</td>
+            <td class="price-cell" data-duration="6">$772</td>
+            <td class="price-cell" data-duration="8">$1,047</td>
           </tr>
-          <tr>
+          <tr data-tier="high-fss">
             <td>Jun 13–Jun 30, Jul 26–Aug 20</td>
             <td>Fri, Sat, Sun</td>
-            <td>$478</td><td>$674</td><td>$787</td><td>$1,067</td>
+            <td class="price-cell" data-duration="4">$478</td>
+            <td class="price-cell" data-duration="5">$674</td>
+            <td class="price-cell" data-duration="6">$787</td>
+            <td class="price-cell" data-duration="8">$1,067</td>
           </tr>
-          <tr>
+          <tr data-tier="peak-mth">
             <td>Jul 1–Jul 25</td>
             <td>Mon–Thu</td>
-            <td>$487</td><td>$687</td><td>$801</td><td>$1,088</td>
+            <td class="price-cell" data-duration="4">$487</td>
+            <td class="price-cell" data-duration="5">$687</td>
+            <td class="price-cell" data-duration="6">$801</td>
+            <td class="price-cell" data-duration="8">$1,088</td>
           </tr>
-          <tr>
+          <tr data-tier="peak-fs">
             <td>Jul 1–Jul 25</td>
             <td>Fri, Sun</td>
-            <td>$505</td><td>$712</td><td>$831</td><td>$1,128</td>
+            <td class="price-cell" data-duration="4">$505</td>
+            <td class="price-cell" data-duration="5">$712</td>
+            <td class="price-cell" data-duration="6">$831</td>
+            <td class="price-cell" data-duration="8">$1,128</td>
           </tr>
-          <tr>
+          <tr data-tier="peak-sat">
             <td>Jul 1–Jul 25</td>
             <td>Saturday</td>
-            <td>$518</td><td>$731</td><td>$853</td><td>$1,158</td>
+            <td class="price-cell" data-duration="4">$518</td>
+            <td class="price-cell" data-duration="5">$731</td>
+            <td class="price-cell" data-duration="6">$853</td>
+            <td class="price-cell" data-duration="8">$1,158</td>
           </tr>
-          <tr>
+          <tr data-tier="holiday">
             <td>May 22–25, Jul 2–5, Sep 4–7</td>
             <td>All days</td>
-            <td>$532</td><td>$750</td><td>$876</td><td>$1,188</td>
+            <td class="price-cell" data-duration="4">$532</td>
+            <td class="price-cell" data-duration="5">$750</td>
+            <td class="price-cell" data-duration="6">$876</td>
+            <td class="price-cell" data-duration="8">$1,188</td>
           </tr>
         </tbody>
       </table>
@@ -714,6 +974,156 @@
 
   </div>
 </section>
+
+<!-- ── PRICE CALCULATOR MODAL ── -->
+<div id="calc-modal" class="calc-modal" role="dialog" aria-modal="true" aria-labelledby="calc-title" aria-hidden="true">
+  <div class="calc-backdrop" data-calc-close></div>
+  <div class="calc-card" role="document">
+    <button type="button" class="calc-close" data-calc-close aria-label="Close calculator">&times;</button>
+    <p class="calc-eyebrow" id="calc-title">Trip Total Calculator</p>
+    <p class="calc-trip" id="calc-trip">—</p>
+    <p class="calc-meta" id="calc-meta">—</p>
+    <div class="calc-controls">
+      <div class="calc-field">
+        <label for="calc-guests">Guests</label>
+        <select id="calc-guests" aria-describedby="calc-amount">
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="calc-result">
+        <span class="calc-result-label">Total w/ Tax</span>
+        <span class="calc-result-amount" id="calc-amount" aria-live="polite">$—</span>
+      </div>
+    </div>
+    <p class="calc-note">
+      Total includes FareHarbor booking fee and 7.375% MN sales tax. 1–2 guests included in the base rate; 3rd and 4th guest fees apply, with a larger add-on for a 5th guest.
+    </p>
+  </div>
+</div>
+
+<script>
+(function() {
+  // Exact customer-facing base prices (pre-tax, FareHarbor fee included) from Baxstar Pricing Engine 2026 v2
+  var basePrices = {
+    '4:off-peak-all':  432.48, '4:shoulder-mth':  450.50, '4:shoulder-fss':  464.02,
+    '4:high-mth':      468.52, '4:high-fss':      477.53, '4:peak-mth':      486.54,
+    '4:peak-fs':       504.56, '4:peak-sat':      518.08, '4:holiday':       531.59,
+    '5:off-peak-all':  610.56, '5:shoulder-mth':  636.00, '5:shoulder-fss':  655.08,
+    '5:high-mth':      661.44, '5:high-fss':      674.16, '5:peak-mth':      686.88,
+    '5:peak-fs':       712.32, '5:peak-sat':      731.40, '5:holiday':       750.48,
+    '6:off-peak-all':  712.32, '6:shoulder-mth':  742.00, '6:shoulder-fss':  764.26,
+    '6:high-mth':      771.68, '6:high-fss':      786.52, '6:peak-mth':      801.36,
+    '6:peak-fs':       831.04, '6:peak-sat':      853.30, '6:holiday':       875.56,
+    '8:off-peak-all':  966.72, '8:shoulder-mth': 1007.00, '8:shoulder-fss': 1037.21,
+    '8:high-mth':     1047.28, '8:high-fss':     1067.42, '8:peak-mth':     1087.56,
+    '8:peak-fs':      1127.84, '8:peak-sat':     1158.05, '8:holiday':      1188.26
+  };
+
+  // Customer-facing per-additional-guest fees (net × 1.06 FareHarbor fee). Pre-tax.
+  var perPerson = {
+    4: { 3:  53.00, 4:  53.00, 5: 106.00 },
+    5: { 3:  66.25, 4:  66.25, 5: 106.00 },
+    6: { 3:  79.50, 4:  79.50, 5: 132.50 },
+    8: { 3: 106.00, 4: 106.00, 5: 185.50 }
+  };
+
+  var tierLabels = {
+    'off-peak-all': 'Off Peak',
+    'shoulder-mth': 'Shoulder',
+    'shoulder-fss': 'Shoulder Weekend',
+    'high-mth':     'High Season',
+    'high-fss':     'High Season Weekend',
+    'peak-mth':     'Peak',
+    'peak-fs':      'Peak Fri / Sun',
+    'peak-sat':     'Peak Saturday',
+    'holiday':      'Holiday'
+  };
+
+  var TAX = 0.07375;
+
+  var modal    = document.getElementById('calc-modal');
+  var tripEl   = document.getElementById('calc-trip');
+  var metaEl   = document.getElementById('calc-meta');
+  var guestsEl = document.getElementById('calc-guests');
+  var amountEl = document.getElementById('calc-amount');
+
+  var current = { duration: 4, tier: 'off-peak-all' };
+
+  function fmt(n) {
+    return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function calc() {
+    var g = parseInt(guestsEl.value, 10);
+    var key = current.duration + ':' + current.tier;
+    var base = basePrices[key];
+    if (base == null) { amountEl.textContent = '$—'; return; }
+    var pp = perPerson[current.duration];
+    if (pp) {
+      if (g >= 3) base += pp[3];
+      if (g >= 4) base += pp[4];
+      if (g >= 5) base += pp[5];
+    }
+    amountEl.textContent = fmt(base * (1 + TAX));
+  }
+
+  function openCalc(cell) {
+    var row = cell.closest('tr');
+    if (!row) return;
+    current.duration = parseInt(cell.getAttribute('data-duration'), 10);
+    current.tier     = row.getAttribute('data-tier');
+    var dates = row.children[0].textContent.trim();
+    var days  = row.children[1].textContent.trim();
+    tripEl.textContent = current.duration + '-Hour Trip · ' + (tierLabels[current.tier] || '');
+    metaEl.textContent = dates + ' · ' + days;
+    calc();
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() { guestsEl.focus(); }, 30);
+  }
+
+  function closeCalc() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  var cells = document.querySelectorAll('tbody td.price-cell');
+  for (var i = 0; i < cells.length; i++) {
+    (function(cell) {
+      cell.setAttribute('tabindex', '0');
+      cell.setAttribute('role', 'button');
+      cell.setAttribute('aria-label', 'Calculate total for ' + cell.textContent.trim() + ' trip with tax and guests');
+      cell.addEventListener('click', function() { openCalc(cell); });
+      cell.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.keyCode === 13 || e.keyCode === 32) {
+          e.preventDefault();
+          openCalc(cell);
+        }
+      });
+    })(cells[i]);
+  }
+
+  var closers = document.querySelectorAll('[data-calc-close]');
+  for (var j = 0; j < closers.length; j++) {
+    closers[j].addEventListener('click', closeCalc);
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if ((e.key === 'Escape' || e.keyCode === 27) && modal.classList.contains('is-open')) {
+      closeCalc();
+    }
+  });
+
+  guestsEl.addEventListener('change', calc);
+  guestsEl.addEventListener('input', calc);
+})();
+</script>
 
 </body>
 </html>
