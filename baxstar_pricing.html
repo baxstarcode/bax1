@@ -410,7 +410,7 @@
         width: 100%;
       }
 
-      .scroll-hint { display: inline-flex; }
+      .scroll-hint { display: inline-flex;.table-guide .rates-desktop { display: none; } }
     }
 
     @media (max-width: 580px) {
@@ -807,16 +807,17 @@
 
     <!-- Scroll hint: appears above table on mobile, arrow + clean text only -->
     <p class="scroll-hint" aria-hidden="true">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M5 12h14M12 5l7 7-7 7"/>
       </svg>
-      Scroll right to see all trip durations
+      Scroll right to see all trip durations <span class="scroll-rates">· Rates shown for 1–2 guests</span>
     </p>
 
     <!-- 1–2 guests callout + calculator hint -->
     <p class="table-guide">
-      <strong>Rates shown for 1–2 guests.</strong>
-      Tap any price to add more guests and see your total with tax.
+      <span class="rates-desktop">Rates shown for 1–2 guests.</span>
+      <strong>Tap any price to see the price for your group, after tax.</strong>
     </p>
 
     <!-- PRICING TABLE -->
