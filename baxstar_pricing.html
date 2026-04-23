@@ -410,7 +410,7 @@
         width: 100%;
       }
 
-      .scroll-hint { display: inline-flex;.table-guide .rates-desktop { display: none; } }
+      .scroll-hint { display: inline-flex; }
     }
 
     @media (max-width: 580px) {
@@ -759,8 +759,7 @@
         </h2>
         <p class="pricing-subhead">
           Private guided rates, clearly stated.<br>
-          Seasonal tiers reflect peak demand.<br>
-          Tax is added at checkout —<br>
+          Seasonal tiers reflect peak demand —<br>
           no hidden fees, no surprises. Ever.
         </p>
       </div>
@@ -807,17 +806,16 @@
 
     <!-- Scroll hint: appears above table on mobile, arrow + clean text only -->
     <p class="scroll-hint" aria-hidden="true">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M5 12h14M12 5l7 7-7 7"/>
       </svg>
-      Scroll right to see all trip durations <span class="scroll-rates">· Rates shown for 1–2 guests</span>
+      Scroll right to see all trip durations
     </p>
 
     <!-- 1–2 guests callout + calculator hint -->
     <p class="table-guide">
       <span class="rates-desktop">Rates shown for 1–2 guests.</span>
-      <strong>Tap any price to see the price for your group, after tax.</strong>
+      <strong>Tap any price to see the price for your group.</strong>
     </p>
 
     <!-- PRICING TABLE -->
@@ -996,19 +994,19 @@
         </select>
       </div>
       <div class="calc-result">
-        <span class="calc-result-label">Total w/ Tax</span>
+        <span class="calc-result-label">Trip Total</span>
         <span class="calc-result-amount" id="calc-amount" aria-live="polite">$—</span>
       </div>
     </div>
     <p class="calc-note">
-      Total includes FareHarbor booking fee and 7.375% MN sales tax. 1–2 guests included in the base rate; 3rd and 4th guest fees apply, with a larger add-on for a 5th guest.
+      Total includes FareHarbor's 6% booking fee. 1–2 guests covered by the base rate; 3rd and 4th guest fees apply, with a larger add-on for a 5th guest. Guided fishing is not taxed in Minnesota.
     </p>
   </div>
 </div>
 
 <script>
 (function() {
-  // Exact customer-facing base prices (pre-tax, FareHarbor fee included) from Baxstar Pricing Engine 2026 v2
+  // Exact customer-facing base prices (FareHarbor 6% fee included) from Baxstar Pricing Engine 2026 v2
   var basePrices = {
     '4:off-peak-all':  432.48, '4:shoulder-mth':  450.50, '4:shoulder-fss':  464.02,
     '4:high-mth':      468.52, '4:high-fss':      477.53, '4:peak-mth':      486.54,
@@ -1024,7 +1022,7 @@
     '8:peak-fs':      1127.84, '8:peak-sat':     1158.05, '8:holiday':      1188.26
   };
 
-  // Customer-facing per-additional-guest fees (net × 1.06 FareHarbor fee). Pre-tax.
+  // Customer-facing per-additional-guest fees (net × 1.06 FareHarbor fee).
   var perPerson = {
     4: { 3:  53.00, 4:  53.00, 5: 106.00 },
     5: { 3:  66.25, 4:  66.25, 5: 106.00 },
@@ -1043,8 +1041,6 @@
     'peak-sat':     'Peak Saturday',
     'holiday':      'Holiday'
   };
-
-  var TAX = 0.07375;
 
   var modal    = document.getElementById('calc-modal');
   var tripEl   = document.getElementById('calc-trip');
@@ -1069,7 +1065,7 @@
       if (g >= 4) base += pp[4];
       if (g >= 5) base += pp[5];
     }
-    amountEl.textContent = fmt(base * (1 + TAX));
+    amountEl.textContent = fmt(base);
   }
 
   function openCalc(cell) {
@@ -1099,7 +1095,7 @@
     (function(cell) {
       cell.setAttribute('tabindex', '0');
       cell.setAttribute('role', 'button');
-      cell.setAttribute('aria-label', 'Calculate total for ' + cell.textContent.trim() + ' trip with tax and guests');
+      cell.setAttribute('aria-label', 'Calculate total for ' + cell.textContent.trim() + ' trip by group size');
       cell.addEventListener('click', function() { openCalc(cell); });
       cell.addEventListener('keydown', function(e) {
         if (e.key === 'Enter' || e.key === ' ' || e.keyCode === 13 || e.keyCode === 32) {
