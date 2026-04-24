@@ -62,6 +62,7 @@
       background: var(--black);
       font-family: 'Barlow', sans-serif;
       -webkit-font-smoothing: antialiased;
+      overscroll-behavior-y: contain;
     }
 
     .sr-only {
@@ -210,6 +211,8 @@
       border: 1px solid rgba(193,39,45,0.22);
       margin-bottom: 10px;
       -webkit-overflow-scrolling: touch;
+      touch-action: pan-x pan-y;
+      overscroll-behavior-x: contain;
     }
 
     table {
@@ -1204,6 +1207,32 @@
 
   guestsEl.addEventListener('change', calc);
   guestsEl.addEventListener('input', calc);
+})();
+</script>
+
+<!-- Iframe height reporter — fixes Wix embed "stuck scroll" by telling the parent how tall this content actually is -->
+<script>
+(function() {
+  if (window.parent === window) return; // not in an iframe, skip
+  var lastH = 0;
+  function report() {
+    var h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body ? document.body.scrollHeight : 0
+    );
+    if (h && h !== lastH) {
+      lastH = h;
+      try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch (e) {}
+      try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch (e) {}
+      try { window.parent.postMessage('height:' + h, '*'); } catch (e) {}
+    }
+  }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  if (window.ResizeObserver) {
+    try { new ResizeObserver(report).observe(document.body); } catch (e) {}
+  }
+  setInterval(report, 1500); // safety poll
 })();
 </script>
 
