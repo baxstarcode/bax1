@@ -27,6 +27,7 @@
       background: var(--black);
       font-family: 'Barlow', sans-serif;
       -webkit-font-smoothing: antialiased;
+      overscroll-behavior-y: contain;
     }
 
     .footer {
@@ -259,6 +260,32 @@
 
   </div>
 </footer>
+
+<!-- Iframe height reporter — fixes Wix embed "stuck scroll" by telling the parent how tall this content actually is -->
+<script>
+(function() {
+  if (window.parent === window) return;
+  var lastH = 0;
+  function report() {
+    var h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body ? document.body.scrollHeight : 0
+    );
+    if (h && h !== lastH) {
+      lastH = h;
+      try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch (e) {}
+      try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch (e) {}
+      try { window.parent.postMessage('height:' + h, '*'); } catch (e) {}
+    }
+  }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  if (window.ResizeObserver) {
+    try { new ResizeObserver(report).observe(document.body); } catch (e) {}
+  }
+  setInterval(report, 1500);
+})();
+</script>
 
 </body>
 </html>
