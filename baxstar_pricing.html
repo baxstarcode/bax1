@@ -29,10 +29,10 @@
       "@type": "OfferCatalog",
       "name": "Private Guided Fishing Trip Packages",
       "itemListElement": [
-        { "@type": "Offer", "name": "4-Hour Private Guided Fishing Trip", "price": "432", "priceCurrency": "USD" },
-        { "@type": "Offer", "name": "5-Hour Private Guided Fishing Trip", "price": "611", "priceCurrency": "USD" },
-        { "@type": "Offer", "name": "6-Hour Private Guided Fishing Trip", "price": "712", "priceCurrency": "USD" },
-        { "@type": "Offer", "name": "8-Hour Private Guided Fishing Trip", "price": "967", "priceCurrency": "USD" }
+        { "@type": "Offer", "name": "4-Hour Private Guided Fishing Trip", "price": "451", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "5-Hour Private Guided Fishing Trip", "price": "583", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "6-Hour Private Guided Fishing Trip", "price": "742", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "8-Hour Private Guided Fishing Trip", "price": "1007", "priceCurrency": "USD" }
       ]
     }
   }
@@ -513,25 +513,31 @@
       }
     }
 
-    /* ── 1–2 guests callout line above table ── */
-    .table-guide {
+    /* ── Bullet line 1 (Rates · Fees) above table ── */
+    .table-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 2px 0 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      column-gap: 28px;
+      row-gap: 6px;
+    }
+
+    .table-bullets li {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 13px;
-      color: var(--gray-light);
-      margin: 4px 0 12px;
-      letter-spacing: 0.01em;
-      line-height: 1.45;
-    }
-
-    .table-guide strong {
       color: var(--white);
-      font-weight: 600;
-      letter-spacing: 0.02em;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: normal;
+      letter-spacing: 0.015em;
+      line-height: 1.4;
     }
 
-    .table-guide::before {
+    .table-bullets li::before {
       content: '';
       display: inline-block;
       width: 6px; height: 6px;
@@ -541,12 +547,78 @@
     }
 
     @media (max-width: 580px) {
-      .table-guide {
-        font-size: 12px;
-        align-items: flex-start;
-        line-height: 1.5;
+      .table-bullets {
+        flex-direction: column;
+        gap: 6px;
       }
-      .table-guide::before { margin-top: 7px; }
+      .table-bullets li {
+        font-size: 12.5px;
+        align-items: flex-start;
+      }
+      .table-bullets li::before { margin-top: 6px; }
+    }
+
+    /* ── Bullet line 2 (Scroll hint + Tap CTA) ── */
+    .table-hint-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+      margin: 0 0 14px;
+    }
+
+    .tap-cta-line {
+      margin: 0;
+      line-height: 1;
+    }
+
+    .tap-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--red-bright);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-shadow: 0 0 18px rgba(230, 57, 70, 0.35);
+      animation: tapGlow 2.4s ease-in-out infinite;
+    }
+
+    .tap-cta .tap-icon {
+      flex-shrink: 0;
+      color: var(--red-bright);
+      filter: drop-shadow(0 0 6px rgba(230, 57, 70, 0.5));
+      animation: tapNudge 1.6s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+
+    @keyframes tapGlow {
+      0%, 100% { text-shadow: 0 0 12px rgba(230, 57, 70, 0.25); }
+      50%      { text-shadow: 0 0 22px rgba(230, 57, 70, 0.55); }
+    }
+
+    @keyframes tapNudge {
+      0%, 60%, 100% { transform: translateY(0) scale(1); }
+      30%           { transform: translateY(-4px) scale(1.08); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .tap-cta,
+      .tap-cta .tap-icon { animation: none; }
+    }
+
+    @media (max-width: 580px) {
+      .table-hint-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .tap-cta {
+        font-size: 13.5px;
+      }
+      .tap-cta .tap-icon {
+        width: 16px; height: 16px;
+      }
     }
 
     /* ── Clickable price cells ── */
@@ -804,19 +876,32 @@
 
     </header>
 
-    <!-- Scroll hint: appears above table on mobile, arrow + clean text only -->
-    <p class="scroll-hint" aria-hidden="true">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
-      Scroll right to see all trip durations
-    </p>
+    <!-- Bullet line 1: Rates + Fees (side-by-side on desktop, stacked on mobile) -->
+    <ul class="table-bullets">
+      <li>Rates shown for 1–2 guests.</li>
+      <li>Prices include all fees. Tax added at checkout.</li>
+    </ul>
 
-    <!-- 1–2 guests callout + calculator hint -->
-    <p class="table-guide">
-      <span class="rates-desktop">Rates shown for 1–2 guests.</span>
-      <strong>Tap any price to see the price for your group.</strong>
-    </p>
+    <!-- Bullet line 2: Scroll hint (mobile only) + Tap CTA -->
+    <div class="table-hint-row">
+      <p class="scroll-hint" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+        Scroll right to see all trip durations
+      </p>
+      <p class="tap-cta-line">
+        <strong class="tap-cta">
+          <svg class="tap-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 11V6a2 2 0 0 1 4 0v5"/>
+            <path d="M13 11V4a2 2 0 0 1 4 0v7"/>
+            <path d="M17 11V7a2 2 0 0 1 4 0v9a7 7 0 0 1-7 7h-2a7 7 0 0 1-6.45-4.3L3 14a2 2 0 0 1 3.45-2L8 14"/>
+            <path d="M9 11a2 2 0 1 0-4 0v3"/>
+          </svg>
+          Tap any price to see the price for your group.
+        </strong>
+      </p>
+    </div>
 
     <!-- PRICING TABLE -->
     <div class="table-wrapper" role="region" aria-label="Seasonal trip pricing">
@@ -839,74 +924,74 @@
           <tr data-tier="off-peak-all">
             <td>Apr 1–May 31, Sep 10–Oct 31</td>
             <td>All days</td>
-            <td class="price-cell" data-duration="4">$432</td>
-            <td class="price-cell" data-duration="5">$611</td>
-            <td class="price-cell" data-duration="6">$712</td>
-            <td class="price-cell" data-duration="8">$967</td>
+            <td class="price-cell" data-duration="4">$451</td>
+            <td class="price-cell" data-duration="5">$583</td>
+            <td class="price-cell" data-duration="6">$742</td>
+            <td class="price-cell" data-duration="8">$1,007</td>
           </tr>
           <tr data-tier="shoulder-mth">
             <td>Jun 1–12, Aug 21–Sep 9</td>
             <td>Mon–Thu</td>
-            <td class="price-cell" data-duration="4">$451</td>
-            <td class="price-cell" data-duration="5">$636</td>
-            <td class="price-cell" data-duration="6">$742</td>
-            <td class="price-cell" data-duration="8">$1,007</td>
+            <td class="price-cell" data-duration="4">$455</td>
+            <td class="price-cell" data-duration="5">$589</td>
+            <td class="price-cell" data-duration="6">$749</td>
+            <td class="price-cell" data-duration="8">$1,017</td>
           </tr>
           <tr data-tier="shoulder-fss">
             <td>Jun 1–12, Aug 21–Sep 9</td>
             <td>Fri, Sat, Sun</td>
-            <td class="price-cell" data-duration="4">$464</td>
-            <td class="price-cell" data-duration="5">$655</td>
-            <td class="price-cell" data-duration="6">$764</td>
-            <td class="price-cell" data-duration="8">$1,037</td>
+            <td class="price-cell" data-duration="4">$469</td>
+            <td class="price-cell" data-duration="5">$606</td>
+            <td class="price-cell" data-duration="6">$772</td>
+            <td class="price-cell" data-duration="8">$1,047</td>
           </tr>
           <tr data-tier="high-mth">
             <td>Jun 13–Jun 30, Jul 26–Aug 20</td>
             <td>Mon–Thu</td>
-            <td class="price-cell" data-duration="4">$469</td>
-            <td class="price-cell" data-duration="5">$661</td>
-            <td class="price-cell" data-duration="6">$772</td>
-            <td class="price-cell" data-duration="8">$1,047</td>
+            <td class="price-cell" data-duration="4">$478</td>
+            <td class="price-cell" data-duration="5">$618</td>
+            <td class="price-cell" data-duration="6">$787</td>
+            <td class="price-cell" data-duration="8">$1,067</td>
           </tr>
           <tr data-tier="high-fss">
             <td>Jun 13–Jun 30, Jul 26–Aug 20</td>
             <td>Fri, Sat, Sun</td>
-            <td class="price-cell" data-duration="4">$478</td>
-            <td class="price-cell" data-duration="5">$674</td>
-            <td class="price-cell" data-duration="6">$787</td>
-            <td class="price-cell" data-duration="8">$1,067</td>
+            <td class="price-cell" data-duration="4">$487</td>
+            <td class="price-cell" data-duration="5">$630</td>
+            <td class="price-cell" data-duration="6">$801</td>
+            <td class="price-cell" data-duration="8">$1,088</td>
           </tr>
           <tr data-tier="peak-mth">
             <td>Jul 1–Jul 25</td>
             <td>Mon–Thu</td>
-            <td class="price-cell" data-duration="4">$487</td>
-            <td class="price-cell" data-duration="5">$687</td>
-            <td class="price-cell" data-duration="6">$801</td>
-            <td class="price-cell" data-duration="8">$1,088</td>
+            <td class="price-cell" data-duration="4">$496</td>
+            <td class="price-cell" data-duration="5">$641</td>
+            <td class="price-cell" data-duration="6">$816</td>
+            <td class="price-cell" data-duration="8">$1,108</td>
           </tr>
           <tr data-tier="peak-fs">
             <td>Jul 1–Jul 25</td>
             <td>Fri, Sun</td>
-            <td class="price-cell" data-duration="4">$505</td>
-            <td class="price-cell" data-duration="5">$712</td>
-            <td class="price-cell" data-duration="6">$831</td>
-            <td class="price-cell" data-duration="8">$1,128</td>
+            <td class="price-cell" data-duration="4">$514</td>
+            <td class="price-cell" data-duration="5">$665</td>
+            <td class="price-cell" data-duration="6">$846</td>
+            <td class="price-cell" data-duration="8">$1,148</td>
           </tr>
           <tr data-tier="peak-sat">
             <td>Jul 1–Jul 25</td>
             <td>Saturday</td>
-            <td class="price-cell" data-duration="4">$518</td>
-            <td class="price-cell" data-duration="5">$731</td>
-            <td class="price-cell" data-duration="6">$853</td>
-            <td class="price-cell" data-duration="8">$1,158</td>
+            <td class="price-cell" data-duration="4">$532</td>
+            <td class="price-cell" data-duration="5">$688</td>
+            <td class="price-cell" data-duration="6">$876</td>
+            <td class="price-cell" data-duration="8">$1,188</td>
           </tr>
           <tr data-tier="holiday">
             <td>May 22–25, Jul 2–5, Sep 4–7</td>
             <td>All days</td>
-            <td class="price-cell" data-duration="4">$532</td>
-            <td class="price-cell" data-duration="5">$750</td>
-            <td class="price-cell" data-duration="6">$876</td>
-            <td class="price-cell" data-duration="8">$1,188</td>
+            <td class="price-cell" data-duration="4">$541</td>
+            <td class="price-cell" data-duration="5">$700</td>
+            <td class="price-cell" data-duration="6">$890</td>
+            <td class="price-cell" data-duration="8">$1,208</td>
           </tr>
         </tbody>
       </table>
@@ -914,7 +999,7 @@
 
     <!-- 3HR availability note -->
     <p class="table-note">
-      * 3-hour trips available Monday–Thursday, April–May &amp; September–October, starting at $407.
+      * 3-hour trips available Monday–Thursday, April–May &amp; September–October, starting at $424.
     </p>
 
     <!-- TRUST STRIP + CTA -->
@@ -1008,18 +1093,18 @@
 (function() {
   // Exact customer-facing base prices (FareHarbor 6% fee included) from Baxstar Pricing Engine 2026 v2
   var basePrices = {
-    '4:off-peak-all':  432.48, '4:shoulder-mth':  450.50, '4:shoulder-fss':  464.02,
-    '4:high-mth':      468.52, '4:high-fss':      477.53, '4:peak-mth':      486.54,
-    '4:peak-fs':       504.56, '4:peak-sat':      518.08, '4:holiday':       531.59,
-    '5:off-peak-all':  610.56, '5:shoulder-mth':  636.00, '5:shoulder-fss':  655.08,
-    '5:high-mth':      661.44, '5:high-fss':      674.16, '5:peak-mth':      686.88,
-    '5:peak-fs':       712.32, '5:peak-sat':      731.40, '5:holiday':       750.48,
-    '6:off-peak-all':  712.32, '6:shoulder-mth':  742.00, '6:shoulder-fss':  764.26,
-    '6:high-mth':      771.68, '6:high-fss':      786.52, '6:peak-mth':      801.36,
-    '6:peak-fs':       831.04, '6:peak-sat':      853.30, '6:holiday':       875.56,
-    '8:off-peak-all':  966.72, '8:shoulder-mth': 1007.00, '8:shoulder-fss': 1037.21,
-    '8:high-mth':     1047.28, '8:high-fss':     1067.42, '8:peak-mth':     1087.56,
-    '8:peak-fs':      1127.84, '8:peak-sat':     1158.05, '8:holiday':      1188.26
+    '4:off-peak-all':  450.50, '4:shoulder-mth':  455.01, '4:shoulder-fss':  468.52,
+    '4:high-mth':      477.53, '4:high-fss':      486.54, '4:peak-mth':      495.55,
+    '4:peak-fs':       513.57, '4:peak-sat':      531.59, '4:holiday':       540.60,
+    '5:off-peak-all':  583.00, '5:shoulder-mth':  588.83, '5:shoulder-fss':  606.32,
+    '5:high-mth':      617.98, '5:high-fss':      629.64, '5:peak-mth':      641.30,
+    '5:peak-fs':       664.62, '5:peak-sat':      687.94, '5:holiday':       699.60,
+    '6:off-peak-all':  742.00, '6:shoulder-mth':  749.42, '6:shoulder-fss':  771.68,
+    '6:high-mth':      786.52, '6:high-fss':      801.36, '6:peak-mth':      816.20,
+    '6:peak-fs':       845.88, '6:peak-sat':      875.56, '6:holiday':       890.40,
+    '8:off-peak-all': 1007.00, '8:shoulder-mth': 1017.07, '8:shoulder-fss': 1047.28,
+    '8:high-mth':     1067.42, '8:high-fss':     1087.56, '8:peak-mth':     1107.70,
+    '8:peak-fs':      1147.98, '8:peak-sat':     1188.26, '8:holiday':      1208.40
   };
 
   // Customer-facing per-additional-guest fees (net × 1.06 FareHarbor fee).
