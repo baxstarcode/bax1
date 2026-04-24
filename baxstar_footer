@@ -1,1 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer | Baxstar Fishing</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black:      #08080a;
+      --red:        #c1272d;
+      --red-bright: #e63946;
+      --cream:      #f0ece4;
+      --white:      #ffffff;
+      --gray-light: #d4d0c9;
+      --gray-mid:   #8f8f9a;
+      --divider:    rgba(255,255,255,0.08);
+    }
+
+    body {
+      background: var(--black);
+      font-family: 'Barlow', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .footer {
+      position: relative;
+      width: 100%;
+      background: var(--black);
+      color: var(--cream);
+      padding: 78px 48px 30px;
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr 1fr;
+      gap: 64px;
+      padding-bottom: 58px;
+    }
+
+    /* ── Brand column ── */
+    .footer-brand-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      letter-spacing: 0.045em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .footer-tagline {
+      font-size: 14.5px;
+      font-weight: 400;
+      color: var(--gray-mid);
+      line-height: 1.75;
+      max-width: 360px;
+      margin-bottom: 32px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-link {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.22);
+      color: var(--gray-light);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Barlow', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .social-link:hover,
+    .social-link:focus-visible {
+      background: var(--red);
+      border-color: var(--red);
+      color: var(--white);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    /* ── Column headers ── */
+    .footer-col-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 26px;
+    }
+
+    /* ── Link lists ── */
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .footer-links a,
+    .footer-links .footer-static {
+      color: var(--gray-light);
+      text-decoration: none;
+      font-size: 14.5px;
+      font-weight: 400;
+      line-height: 1.35;
+      transition: color 0.15s ease;
+      display: inline-block;
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus-visible {
+      color: var(--red-bright);
+      outline: none;
+    }
+
+    /* ── Divider + copyright row ── */
+    .footer-divider {
+      height: 1px;
+      background: var(--divider);
+      margin-bottom: 22px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12.5px;
+      color: var(--gray-mid);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .footer { padding: 64px 32px 28px; }
+      .footer-grid { gap: 48px; }
+    }
+
+    @media (max-width: 860px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 44px 36px;
+      }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-tagline { max-width: none; }
+    }
+
+    @media (max-width: 580px) {
+      .footer { padding: 52px 22px 24px; }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding-bottom: 40px;
+      }
+
+      .footer-brand-name { font-size: 28px; }
+      .footer-tagline { font-size: 13.5px; margin-bottom: 26px; }
+      .footer-col-title { margin-bottom: 20px; font-size: 12px; }
+      .footer-links { gap: 12px; }
+      .footer-links a, .footer-links .footer-static { font-size: 14px; }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+        text-align: left;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+
+    <div class="footer-grid">
+
+      <!-- Brand + tagline + socials -->
+      <div class="footer-brand">
+        <p class="footer-brand-name">BAXSTAR FISHING</p>
+        <p class="footer-tagline">
+          Premium guided fishing on 100+ lakes in the Detroit Lakes, Minnesota region. Private trips. Professional operation.
+        </p>
+        <div class="footer-socials" role="list" aria-label="Social media">
+          <a href="https://www.facebook.com/baxstarfishing" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+          <a href="https://www.instagram.com/baxstarfishing" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">ig</a>
+          <a href="https://www.youtube.com/@baxstarfishing" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">yt</a>
+        </div>
+      </div>
+
+      <!-- Experiences -->
+      <nav aria-label="Experiences">
+        <p class="footer-col-title">Experiences</p>
+        <ul class="footer-links">
+          <li><a href="/guided-fishing">Guided Fishing</a></li>
+          <li><a href="/ice-fishing">Ice Fishing</a></li>
+          <li><a href="/pontoon-rentals">Pontoon Rentals</a></li>
+          <li><a href="/ice-castle-rentals">Ice Castle Rentals</a></li>
+          <li><a href="/date-night-on-ice">Date Night on Ice</a></li>
+          <li><a href="/fishing-lessons">Fishing Lessons</a></li>
+        </ul>
+      </nav>
+
+      <!-- Plan Your Trip -->
+      <nav aria-label="Plan Your Trip">
+        <p class="footer-col-title">Plan Your Trip</p>
+        <ul class="footer-links">
+          <li><a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/&flow=576827" target="_blank" rel="noopener noreferrer">Book Online</a></li>
+          <li><a href="/fishing-report">Fishing Report</a></li>
+          <li><a href="/what-to-bring">What to Bring</a></li>
+          <li><a href="/lodging-partners">Lodging Partners</a></li>
+          <li><a href="/gift-cards">Gift Cards</a></li>
+        </ul>
+      </nav>
+
+      <!-- Contact -->
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <ul class="footer-links">
+          <li><span class="footer-static">Detroit Lakes, MN</span></li>
+          <li><a href="tel:+17012613703">Call / Text Brady</a></li>
+          <li><a href="mailto:info@baxstarfishing.com">info@baxstarfishing.com</a></li>
+          <li><a href="https://www.instagram.com/baxstarfishing" target="_blank" rel="noopener noreferrer">@baxstarfishing</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Baxstar Fishing. All rights reserved.</span>
+      <span>Detroit Lakes, Minnesota</span>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
