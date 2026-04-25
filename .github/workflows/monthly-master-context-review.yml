@@ -1,0 +1,159 @@
+name: Monthly Master Context Review
+
+on:
+  schedule:
+    - cron: '0 14 1 * *'   # 8:00 AM CST on the 1st of every month
+  workflow_dispatch:         # Run manually anytime from GitHub Actions tab
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  monthly-review:
+    name: Prompt Master Context Review
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # ── 1. Checkout repo ──────────────────────────────────────────────────
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ── 2. Detect changes since last month ────────────────────────────────
+      - name: Detect changes since last month
+        id: changes
+        run: |
+          SINCE=$(date -u -d '31 days ago' +"%Y-%m-%dT%H:%M:%SZ")
+          NOW=$(date -u +"%B %Y")
+          MONTH_NUM=$(date +"%m")
+          YEAR=$(date +"%Y")
+
+          # All files changed in last 31 days
+          ALL_CHANGED=$(git log --since="$SINCE" --name-only --pretty=format: | sort -u | grep -v '^$' || true)
+
+          # HTML section files changed
+          HTML_CHANGED=$(echo "$ALL_CHANGED" | grep 'baxstar.*\.html' || true)
+          HTML_COUNT=$(echo "$HTML_CHANGED" | grep -c '.' || echo 0)
+
+          # Was the master context doc updated?
+          CONTEXT_CHANGED=$(echo "$ALL_CHANGED" | grep -i 'master.context\|master_context' || true)
+
+          echo "month=$NOW" >> $GITHUB_OUTPUT
+          echo "month_num=$MONTH_NUM" >> $GITHUB_OUTPUT
+          echo "year=$YEAR" >> $GITHUB_OUTPUT
+          echo "html_count=$HTML_COUNT" >> $GITHUB_OUTPUT
+          echo "html_files=${HTML_CHANGED//$'\n'/'|'}" >> $GITHUB_OUTPUT
+          echo "context_updated=$( [ -n "$CONTEXT_CHANGED" ] && echo 'yes' || echo 'no' )" >> $GITHUB_OUTPUT
+          echo "all_files=${ALL_CHANGED//$'\n'/'|'}" >> $GITHUB_OUTPUT
+
+      # ── 3. Build checklist based on detected changes ──────────────────────
+      - name: Build review checklist
+        id: checklist
+        run: |
+          HTML_COUNT="${{ steps.changes.outputs.html_count }}"
+          CONTEXT_UPDATED="${{ steps.changes.outputs.context_updated }}"
+          HTML_FILES="${{ steps.changes.outputs.html_files }}"
+
+          # Determine review priority
+          if [ "$HTML_COUNT" -gt "3" ] || [ "$CONTEXT_UPDATED" = "no" ]; then
+            PRIORITY="🔴 High"
+          elif [ "$HTML_COUNT" -gt "0" ]; then
+            PRIORITY="🟡 Medium"
+          else
+            PRIORITY="🟢 Low"
+          fi
+
+          echo "priority=$PRIORITY" >> $GITHUB_OUTPUT
+
+      # ── 4. Open the monthly review Issue ─────────────────────────────────
+      - name: Open monthly review issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const month       = '${{ steps.changes.outputs.month }}';
+            const htmlCount   = '${{ steps.changes.outputs.html_count }}';
+            const htmlFiles   = '${{ steps.changes.outputs.html_files }}';
+            const ctxUpdated  = '${{ steps.changes.outputs.context_updated }}';
+            const priority    = '${{ steps.checklist.outputs.priority }}';
+            const today       = new Date().toISOString().split('T')[0];
+
+            // Build changed files list
+            const fileList = htmlFiles
+              ? htmlFiles.split('|').filter(Boolean).map(f => `- \`${f}\``).join('\n')
+              : '_No HTML section files changed this month._';
+
+            const contextNote = ctxUpdated === 'yes'
+              ? '✅ Master Context doc was updated this month.'
+              : '⚠️ Master Context doc was NOT updated this month — may need a sync.';
+
+            const body = `
+          ## 📋 Monthly Master Context Review — ${month}
+
+          **Priority:** ${priority}
+
+          ---
+
+          ### What Changed This Month
+          **HTML section files modified:** ${htmlCount}
+
+          ${fileList}
+
+          ${contextNote}
+
+          ---
+
+          ### Review Checklist
+
+          Open a Claude session and say: **"Run monthly Master Context review."**
+
+          Claude will work through this checklist automatically:
+
+          - [ ] Pull current \`Baxstar_AI_Master_Context_v1.1.docx\` from GitHub
+          - [ ] Review all changes made to baxstar HTML files this month
+          - [ ] Check if any new services, pricing, or tools were added
+          - [ ] Check if tech stack entries need updating (new tools, deprecated tools)
+          - [ ] Check if Historical Baselines section needs new data
+          - [ ] Check if Marketing Rules or Decision Filter need updating
+          - [ ] Check if "How to Work With Brady" patterns have changed
+          - [ ] Flag any copy errors or outdated info found
+          - [ ] Generate updated \`Baxstar_AI_Master_Context_v1.2.docx\` if changes needed
+          - [ ] Push updated doc to GitHub with version bump
+          - [ ] Push updated doc to Google Drive / AI Inputs folder
+
+          ---
+
+          ### Quick Context for Claude Session
+
+          When you open Claude, paste this:
+
+          > **"Run monthly Master Context review. It's ${month}. ${htmlCount} HTML section files changed this month. Check the current Master Context doc against everything we've built and tell me what needs updating."**
+
+          ---
+
+          ### If Nothing Needs Changing
+          Simply close this issue with the label \`no-changes-needed\`.
+
+          ---
+          *This issue was auto-generated by the Monthly Master Context Review Action.*
+          *Close it once the Claude review session is complete.*
+            `.trim();
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo:  context.repo.repo,
+              title: `📋 Monthly Master Context Review — ${month}`,
+              body,
+              labels: ['monthly-review', 'master-context']
+            });
+
+      # ── 5. Summary ────────────────────────────────────────────────────────
+      - name: Job summary
+        run: |
+          echo "## ✅ Monthly Review Issue Created" >> $GITHUB_STEP_SUMMARY
+          echo "Month: ${{ steps.changes.outputs.month }}" >> $GITHUB_STEP_SUMMARY
+          echo "HTML files changed: ${{ steps.changes.outputs.html_count }}" >> $GITHUB_STEP_SUMMARY
+          echo "Priority: ${{ steps.checklist.outputs.priority }}" >> $GITHUB_STEP_SUMMARY
+          echo "Check the Issues tab for the full review checklist." >> $GITHUB_STEP_SUMMARY
