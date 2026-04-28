@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Baxstar Fishing guided trip pricing — 100% private walleye and bass charters on Detroit Lakes, Minnesota. Transparent seasonal rates, 4 to 8-hour trips. Book with confidence.">
-  <title>Guided Fishing Trip Rates | Baxstar Fishing — Detroit Lakes, MN</title>
+  <meta name="robots" content="indexifembedded">
+  <meta name="description" content="Baxstar Fishing 2026 guided trip pricing — 100% private walleye and bass charters on Detroit Lakes, Minnesota. Transparent seasonal rates, 4 to 8-hour trips. Price shown is price paid. Book with confidence.">
 
   <script type="application/ld+json">
   {
@@ -27,12 +27,12 @@
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Private Guided Fishing Trip Packages",
+      "name": "2026 Private Guided Fishing Trip Packages — Detroit Lakes, MN",
       "itemListElement": [
-        { "@type": "Offer", "name": "4-Hour Private Guided Fishing Trip", "price": "451", "priceCurrency": "USD" },
-        { "@type": "Offer", "name": "5-Hour Private Guided Fishing Trip", "price": "583", "priceCurrency": "USD" },
-        { "@type": "Offer", "name": "6-Hour Private Guided Fishing Trip", "price": "742", "priceCurrency": "USD" },
-        { "@type": "Offer", "name": "8-Hour Private Guided Fishing Trip", "price": "1007", "priceCurrency": "USD" }
+        { "@type": "Offer", "name": "4-Hour Private Guided Fishing Trip", "price": "451", "priceCurrency": "USD", "description": "Starting rate, Off Peak season. All booking fees included. Price shown is price paid." },
+        { "@type": "Offer", "name": "5-Hour Private Guided Fishing Trip", "price": "583", "priceCurrency": "USD", "description": "Starting rate, Off Peak season. All booking fees included. Price shown is price paid." },
+        { "@type": "Offer", "name": "6-Hour Private Guided Fishing Trip", "price": "742", "priceCurrency": "USD", "description": "Starting rate, Off Peak season. All booking fees included. Price shown is price paid." },
+        { "@type": "Offer", "name": "8-Hour Private Guided Fishing Trip", "price": "1007", "priceCurrency": "USD", "description": "Starting rate, Off Peak season. All booking fees included. Price shown is price paid." }
       ]
     }
   }
@@ -40,7 +40,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -58,863 +58,369 @@
       --divider:    rgba(255,255,255,0.08);
     }
 
-    body {
-      background: var(--black);
-      font-family: 'Barlow', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      overscroll-behavior-y: contain;
-    }
+    body { background: var(--black); font-family: 'Barlow', sans-serif; -webkit-font-smoothing: antialiased; }
 
-    .sr-only {
-      position: absolute; width: 1px; height: 1px;
-      padding: 0; margin: -1px; overflow: hidden;
-      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-    }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
-    /* ── SECTION SHELL ── */
-    .pricing-section {
-      position: relative;
-      width: 100%;
-      min-height: 520px;
-      background: var(--black);
-      overflow: hidden;
-    }
+    /* ── SECTION ── */
+    .pricing-section { position: relative; width: 100%; background: var(--black); overflow: hidden; }
 
     .pricing-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
+      position: absolute; inset: 0; z-index: 0;
       background:
-        linear-gradient(to right,
-          rgba(8,8,10,1)    0%,
-          rgba(8,8,10,0.96) 38%,
-          rgba(8,8,10,0.60) 58%,
-          rgba(8,8,10,0.15) 75%,
-          rgba(8,8,10,0)    100%
-        ),
-        radial-gradient(ellipse at 90% 40%,
-          #7a1808 0%, #4a0d05 28%, #1f0604 58%, #08080a 80%
-        );
+        linear-gradient(to right, rgba(8,8,10,1) 0%, rgba(8,8,10,0.96) 38%, rgba(8,8,10,0.60) 58%, rgba(8,8,10,0.15) 75%, rgba(8,8,10,0) 100%),
+        radial-gradient(ellipse at 90% 40%, #7a1808 0%, #4a0d05 28%, #1f0604 58%, #08080a 80%);
     }
 
     .pricing-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      opacity: 0.04;
+      content: ''; position: absolute; inset: 0; opacity: 0.04;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
       background-size: 200px 200px;
     }
 
-    .pricing-content {
-      position: relative;
-      z-index: 2;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 52px 48px 44px;
-    }
+    .pricing-content { position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: 52px 48px 44px; }
 
     /* ── HEADER ── */
-    .pricing-header {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 48px;
-      align-items: start;
-      margin-bottom: 30px;
-    }
+    .pricing-header { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; margin-bottom: 30px; }
 
-    .pricing-eyebrow {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.26em;
-      color: var(--red-bright);
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
+    .pricing-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.26em; color: var(--red-bright); text-transform: uppercase; margin-bottom: 10px; }
 
-    .pricing-headline {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(56px, 7.5vw, 92px);
-      line-height: 0.9;
-      color: var(--white);
-      letter-spacing: 0.01em;
-      margin-bottom: 18px;
-    }
-
+    .pricing-headline { font-family: 'Bebas Neue', sans-serif; font-size: clamp(56px, 7.5vw, 92px); line-height: 0.9; color: var(--white); letter-spacing: 0.01em; margin-bottom: 18px; }
     .pricing-headline span { color: var(--red); display: block; }
 
-    .pricing-subhead {
-      font-size: 16px;
-      font-weight: 400;
-      color: var(--gray-light);
-      line-height: 1.65;
-      max-width: 340px;
-    }
+    .pricing-subhead { font-size: 16px; font-weight: 400; color: var(--gray-light); line-height: 1.65; max-width: 360px; margin-bottom: 20px; }
 
-    /* ── BADGES — tightened ── */
-    .pricing-badges {
-      display: flex;
-      align-items: flex-start;
-      padding-top: 6px;
-      gap: 0;
-    }
+    .pricing-bullets { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .pricing-bullets li { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: var(--gray-mid); line-height: 1.45; }
+    .pricing-bullets li::before { content: ''; display: block; width: 5px; height: 5px; border-radius: 50%; background: var(--red); margin-top: 5px; flex-shrink: 0; }
 
-    .badge {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-      border-right: 1px solid rgba(255,255,255,0.11);
-      min-width: 0;
-    }
-
+    /* ── BADGES ── */
+    .pricing-badges { display: flex; align-items: flex-start; padding-top: 6px; }
+    .badge { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 20px; border-right: 1px solid rgba(255,255,255,0.11); }
     .badge:last-child { border-right: none; padding-right: 0; }
     .badge:first-child { padding-left: 0; }
-
-    .badge-icon {
-      width: 42px; height: 42px;
-      border: 1.5px solid var(--red);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 10px;
-      color: var(--red);
-      flex-shrink: 0;
-    }
-
+    .badge-icon { width: 42px; height: 42px; border: 1.5px solid var(--red); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; color: var(--red); }
     .badge-icon svg { width: 17px; height: 17px; }
+    .badge-title { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; color: var(--white); text-transform: uppercase; margin-bottom: 4px; white-space: nowrap; }
+    .badge-desc { font-size: 12.5px; color: var(--gray-mid); line-height: 1.4; }
 
-    .badge-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      color: var(--white);
-      text-transform: uppercase;
-      margin-bottom: 4px;
-      white-space: nowrap;
-    }
+    /* ── SCROLL HINT (mobile) ── */
+    .scroll-hint { display: none; align-items: center; gap: 8px; font-size: 11.5px; font-style: italic; color: var(--gray-mid); padding: 10px 2px 0; line-height: 1; }
+    .scroll-hint svg { flex-shrink: 0; animation: nudge 1.8s ease-in-out infinite; }
+    @keyframes nudge { 0%,100%{transform:translateX(0)} 50%{transform:translateX(4px)} }
 
-    .badge-desc {
-      font-size: 12.5px;
-      font-weight: 400;
-      color: var(--gray-mid);
-      line-height: 1.4;
-    }
-
-    /* ── PRICING TABLE ── */
-    .table-wrapper {
-      width: 100%;
-      overflow-x: auto;
-      border-radius: 2px;
-      border: 1px solid rgba(193,39,45,0.22);
-      margin-bottom: 10px;
-      -webkit-overflow-scrolling: touch;
-      touch-action: pan-x pan-y;
-      overscroll-behavior-x: contain;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 540px;
-      background: var(--table-bg);
-    }
-
-    thead tr { background: var(--red); }
-
-    thead th {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 15.6px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--white);
-      padding: 14px 14px;
-      text-align: center;
-      white-space: nowrap;
-    }
-
-    thead th:first-child,
-    thead th:nth-child(2) { text-align: left; }
-
-    tbody tr {
-      border-bottom: 1px solid var(--divider);
-      transition: background 0.15s ease;
-    }
-
-    tbody tr:nth-child(even) { background: var(--row-alt); }
-    tbody tr:hover { background: rgba(193,39,45,0.07); }
-
-    tbody td {
-      font-size: 15.4px;
-      font-weight: 300;
-      color: var(--cream);
-      padding: 13px 14px;
-      text-align: center;
-    }
-
-    tbody td:first-child {
-      text-align: left;
-      font-weight: 500;
-      color: var(--white);
-      font-size: 13px;
-    }
-
-    tbody td:nth-child(2) {
-      text-align: left;
-      color: var(--gray-light);
-      font-size: 14.3px;
-      font-weight: 300;
-    }
-
-    /* ── Scroll hint — clean, arrow + text only ── */
-    .scroll-hint {
+    /* ── TAP BANNER — mobile (above table wrapper) ── */
+    .tap-banner-mobile {
       display: none;
       align-items: center;
-      gap: 8px;
-      font-size: 11.5px;
-      font-style: italic;
-      color: var(--gray-mid);
-      padding: 10px 2px 6px;
-      line-height: 1;
+      justify-content: center;
+      gap: 9px;
+      background: rgba(193,39,45,0.10);
+      border: 1px solid rgba(193,39,45,0.30);
+      border-bottom: none;
+      padding: 10px 16px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--red-bright);
     }
+    .tap-icon { animation: tapPulse 2s ease-in-out infinite; display: inline-block; line-height: 1; }
+    @keyframes tapPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.2)} }
 
-    .scroll-hint svg {
-      flex-shrink: 0;
-      animation: nudge 1.8s ease-in-out infinite;
-    }
+    /* ── TABLE ── */
+    .table-wrapper { width: 100%; overflow-x: auto; border-radius: 2px; border: 1px solid rgba(193,39,45,0.22); margin-bottom: 10px; -webkit-overflow-scrolling: touch; }
 
-    @keyframes nudge {
-      0%, 100% { transform: translateX(0); }
-      50%      { transform: translateX(4px); }
-    }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; background: var(--table-bg); }
 
-    /* ── 3HR note ── */
-    .table-note {
-      font-size: 12px;
-      font-style: italic;
-      color: var(--gray-mid);
-      padding: 8px 2px 22px;
-      line-height: 1.5;
-    }
-
-    /* ── TRUST STRIP ── */
-    .trust-strip {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr auto;
-      align-items: center;
-      border-top: 1px solid var(--divider);
-      padding-top: 24px;
-    }
-
-    .trust-item {
+    /* TAP FLOAT — centered above price columns, desktop only */
+    .table-outer { position: relative; padding-top: 36px; }
+    .tap-float {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0; /* overridden by JS */
+      height: 36px;
+      z-index: 10;
+      pointer-events: none;
       display: flex;
       align-items: center;
-      gap: 14px;
-      padding-right: 28px;
-      margin-right: 28px;
-      border-right: 1px solid rgba(255,255,255,0.09);
+      justify-content: center;
+      gap: 9px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: 0.025em;
+      color: rgba(255,255,255,0.55);
     }
+    .tap-float svg { opacity: 0.50; flex-shrink: 0; }
 
+    thead tr.col-headers { background: var(--red); }
+    thead th { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); padding: 14px 14px; text-align: center; white-space: nowrap; }
+    thead th:first-child, thead th:nth-child(2) { text-align: left; }
+
+    tbody tr { border-bottom: 1px solid var(--divider); transition: background 0.15s; }
+    tbody tr:nth-child(even) { background: var(--row-alt); }
+    tbody tr:hover { background: rgba(193,39,45,0.07); }
+    tbody tr.holiday-row { background: rgba(193,39,45,0.06); }
+    tbody tr.holiday-row:hover { background: rgba(193,39,45,0.12); }
+
+    tbody td { font-size: 14px; color: var(--cream); padding: 13px 14px; text-align: center; }
+    tbody td:first-child { text-align: left; font-weight: 500; color: var(--white); font-size: 13px; }
+    tbody td:nth-child(2) { text-align: left; color: var(--gray-light); font-size: 13px; }
+
+    /* Price cells */
+    td.price-cell { cursor: pointer; font-weight: 500; transition: color 0.15s, background 0.15s; position: relative; overflow: hidden; }
+    td.price-cell:hover { color: var(--white); background: rgba(193,39,45,0.16); }
+    td.price-cell:active { background: rgba(193,39,45,0.28); }
+    td.price-cell .ripple { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle, rgba(193,39,45,0.4) 0%, transparent 70%); opacity: 0; transform: scale(0.4); transition: opacity 0.4s, transform 0.4s; }
+    td.price-cell.tapped .ripple { opacity: 1; transform: scale(2); }
+
+    /* Season pill */
+    .season-pill { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red-bright); background: rgba(193,39,45,0.12); border: 1px solid rgba(193,39,45,0.25); border-radius: 2px; padding: 1px 5px; margin-left: 5px; vertical-align: middle; white-space: nowrap; }
+    .holiday-row .season-pill { color: #ffcc66; background: rgba(255,204,102,0.1); border-color: rgba(255,204,102,0.3); }
+
+    .table-note { font-size: 12px; font-style: italic; color: var(--gray-mid); padding: 8px 2px 22px; line-height: 1.5; }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip { display: grid; grid-template-columns: 1fr 1fr 1fr auto; align-items: center; border-top: 1px solid var(--divider); padding-top: 24px; }
+    .trust-item { display: flex; align-items: center; gap: 14px; padding-right: 28px; margin-right: 28px; border-right: 1px solid rgba(255,255,255,0.09); }
     .trust-icon { color: var(--red); flex-shrink: 0; }
     .trust-icon svg { width: 26px; height: 26px; }
+    .trust-title { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.14em; color: var(--white); text-transform: uppercase; margin-bottom: 3px; }
+    .trust-desc { font-size: 13px; color: var(--gray-mid); line-height: 1.45; }
 
-    .trust-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      color: var(--white);
-      text-transform: uppercase;
-      margin-bottom: 3px;
-    }
-
-    .trust-desc {
-      font-size: 13px;
-      color: var(--gray-mid);
-      line-height: 1.45;
-    }
-
-    /* ── CTA Button ── */
-    .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 44px 16px 36px;
-      background: var(--red);
-      color: var(--white);
-      font-family: 'Barlow', sans-serif;
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      flex-shrink: 0;
-      white-space: nowrap;
-      transform: skewX(-12deg);
-    }
-
-    .cta-btn > * {
-      display: inline-flex;
-      align-items: center;
-      transform: skewX(12deg);
-    }
-
-    .cta-btn::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .cta-btn:hover {
-      background: var(--red-bright);
-      transform: skewX(-12deg) translateY(-2px);
-      box-shadow: 0 8px 30px rgba(193, 39, 45, 0.4);
-    }
-
+    /* ── CTA ── */
+    .cta-btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 44px 16px 36px; background: var(--red); color: var(--white); font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; cursor: pointer; position: relative; overflow: hidden; transition: all 0.3s; flex-shrink: 0; white-space: nowrap; transform: skewX(-12deg); }
+    .cta-btn > * { display: inline-flex; align-items: center; transform: skewX(12deg); }
+    .cta-btn::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent); opacity: 0; transition: opacity 0.3s; }
+    .cta-btn:hover { background: var(--red-bright); transform: skewX(-12deg) translateY(-2px); box-shadow: 0 8px 30px rgba(193,39,45,0.4); }
     .cta-btn:hover::after { opacity: 1; }
     .cta-btn:active { transform: skewX(-12deg) translateY(0); }
 
+    /* ═══════════════════════════════════
+       MODAL
+    ═══════════════════════════════════ */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.84); z-index: 9000; display: flex; align-items: center; justify-content: center; padding: 16px; opacity: 0; pointer-events: none; transition: opacity 0.2s; backdrop-filter: blur(5px); }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+    .modal-card { background: #0e0c0c; border: 1px solid rgba(193,39,45,0.38); border-radius: 3px; width: 100%; max-width: 440px; position: relative; transform: translateY(16px) scale(0.97); transition: transform 0.24s ease; overflow: hidden; }
+    .modal-overlay.open .modal-card { transform: translateY(0) scale(1); }
+    .modal-card::before { content: ''; display: block; height: 3px; background: linear-gradient(to right, var(--red), var(--red-bright)); }
+
+    .modal-header { padding: 22px 24px 0; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .modal-trip-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; color: var(--red-bright); text-transform: uppercase; margin-bottom: 5px; }
+    .modal-trip-name { font-family: 'Bebas Neue', sans-serif; font-size: 36px; line-height: 1; color: var(--white); }
+    .modal-season-dates { font-size: 12.5px; color: var(--gray-mid); margin-top: 5px; line-height: 1.45; }
+
+    .modal-close { width: 32px; height: 32px; border: 1px solid rgba(255,255,255,0.12); border-radius: 50%; background: transparent; color: var(--gray-mid); cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.18s; margin-top: 2px; }
+    .modal-close:hover { border-color: var(--red); color: var(--white); }
+    .modal-close svg { width: 14px; height: 14px; }
+
+    .modal-divider { height: 1px; background: var(--divider); margin: 18px 24px; }
+
+    .modal-group-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: var(--gray-mid); text-transform: uppercase; padding: 0 24px; margin-bottom: 10px; }
+
+    .modal-group-buttons { display: flex; gap: 8px; padding: 0 24px; }
+    .group-btn { flex: 1; padding: 11px 4px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); border-radius: 2px; color: var(--gray-light); font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; cursor: pointer; transition: all 0.15s; text-align: center; }
+    .group-btn:hover { border-color: rgba(193,39,45,0.5); color: var(--white); background: rgba(193,39,45,0.08); }
+    .group-btn.active { border-color: var(--red); background: rgba(193,39,45,0.18); color: var(--white); }
+
+    .group-sub-labels { display: flex; gap: 8px; padding: 5px 24px 0; }
+    .group-sub-labels span { flex: 1; font-size: 10px; color: var(--gray-mid); text-align: center; }
+
+    .modal-price-block { margin: 20px 24px 0; background: rgba(193,39,45,0.07); border: 1px solid rgba(193,39,45,0.22); border-radius: 2px; padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .modal-price-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--gray-mid); text-transform: uppercase; margin-bottom: 4px; }
+    .modal-price-amount { font-family: 'Bebas Neue', sans-serif; font-size: 54px; line-height: 1; color: var(--white); transition: opacity 0.1s; }
+    .modal-price-per-person { font-size: 12px; color: var(--gray-mid); margin-top: 4px; }
+    .modal-price-badge-text { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #4ade80; background: rgba(74,222,128,0.10); border: 1px solid rgba(74,222,128,0.25); border-radius: 2px; padding: 4px 9px; white-space: nowrap; text-align: center; line-height: 1.5; }
+
+    .modal-honest-note { margin: 12px 24px 0; display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--gray-mid); line-height: 1.4; }
+    .modal-honest-note svg { flex-shrink: 0; color: var(--red); margin-top: 1px; }
+
+    .modal-cta-row { padding: 18px 24px 24px; display: flex; gap: 10px; }
+    .modal-book-btn { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 20px; background: var(--red); color: var(--white); font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 13.5px; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; }
+    .modal-book-btn:hover { background: var(--red-bright); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(193,39,45,0.4); }
+    .modal-dismiss-btn { padding: 14px 18px; background: transparent; border: 1px solid rgba(255,255,255,0.12); color: var(--gray-mid); font-family: 'Barlow', sans-serif; font-size: 13px; cursor: pointer; transition: all 0.18s; }
+    .modal-dismiss-btn:hover { border-color: rgba(255,255,255,0.3); color: var(--white); }
+
     /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) {
-      .pricing-content { padding: 44px 32px 36px; }
-    }
+    @media (max-width: 1024px) { .pricing-content { padding: 44px 32px 36px; } }
 
     @media (max-width: 860px) {
       .pricing-header { grid-template-columns: 1fr; gap: 28px; }
-
-      .pricing-badges {
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 0;
-      }
-
+      .pricing-badges { flex-wrap: wrap; }
       .trust-strip { grid-template-columns: 1fr 1fr; gap: 20px; }
-
-      .trust-item {
-        border-right: none;
-        margin-right: 0;
-        padding-right: 0;
-      }
-
-      .cta-btn {
-        grid-column: 1 / -1;
-        justify-content: center;
-        width: 100%;
-      }
-
+      .trust-item { border-right: none; margin-right: 0; padding-right: 0; }
+      .cta-btn { grid-column: 1 / -1; justify-content: center; width: 100%; }
       .scroll-hint { display: inline-flex; }
+      /* Switch: hide desktop tap row, show mobile banner */
+      .tap-float { display: none; }
+      .tap-banner-mobile { display: flex; }
     }
 
     @media (max-width: 580px) {
       .pricing-content { padding: 36px 18px 28px; }
-
-      /* Tighter badges on mobile */
-      .pricing-badges {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0;
-        width: 100%;
-      }
-
-      .badge {
-        padding: 0 8px;
-      }
-
-      .badge-icon {
-        width: 38px; height: 38px;
-      }
-
+      .pricing-badges { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; }
+      .badge { padding: 0 8px; }
+      .badge-icon { width: 38px; height: 38px; }
       .badge-icon svg { width: 15px; height: 15px; }
-
-      .badge-title {
-        font-size: 12px;
-        letter-spacing: 0.1em;
-      }
-
-      .badge-desc {
-        font-size: 11.5px;
-      }
-
-      /* Tight mobile table so 4-HR column is visible at a glance */
-      table {
-        min-width: 0;
-      }
-
-      thead th,
-      tbody td {
-        padding: 11px 8px;
-        font-size: 13.75px;
-      }
-
-      thead th {
-        font-size: 13.2px;
-        letter-spacing: 0.1em;
-      }
-
-      thead th:first-child,
-      tbody td:first-child {
-        width: 92px;
-        min-width: 92px;
-        line-height: 1.3;
-      }
-
-      thead th:first-child {
-        font-size: 13.8px;
-      }
-
-      tbody td:first-child {
-        font-size: 11.5px;
-      }
-
-      thead th:nth-child(2),
-      tbody td:nth-child(2) {
-        width: 68px;
-        min-width: 68px;
-        line-height: 1.3;
-      }
-
-      thead th:nth-child(2) {
-        font-size: 13.8px;
-      }
-
-      tbody td:nth-child(2) {
-        font-size: 12.65px;
-      }
-
-      tbody td:nth-child(n+3) {
-        min-width: 62px;
-      }
-
+      .badge-title { font-size: 12px; letter-spacing: 0.1em; }
+      .badge-desc { font-size: 11.5px; }
+      table { min-width: 0; }
+      thead th, tbody td { padding: 11px 8px; font-size: 12.5px; }
+      thead th { font-size: 11px; letter-spacing: 0.1em; }
+      thead th:first-child, tbody td:first-child { width: 92px; min-width: 92px; font-size: 11.5px; line-height: 1.3; }
+      thead th:nth-child(2), tbody td:nth-child(2) { width: 68px; min-width: 68px; font-size: 11.5px; line-height: 1.3; }
+      tbody td:nth-child(n+3) { min-width: 62px; }
+      .season-pill { display: none; }
       .trust-strip { grid-template-columns: 1fr; }
+      .modal-price-amount { font-size: 46px; }
+      .modal-cta-row { flex-direction: column; }
     }
 
     @media (max-width: 380px) {
-      thead th,
-      tbody td { padding: 10px 6px; }
-
-      thead th:first-child,
-      tbody td:first-child {
-        width: 84px;
-        min-width: 84px;
-      }
-
-      thead th:nth-child(2),
-      tbody td:nth-child(2) {
-        width: 60px;
-        min-width: 60px;
-      }
-    }
-
-    /* ── Bullet line 1 (Rates · Fees) above table ── */
-    .table-bullets {
-      list-style: none;
-      padding: 0;
-      margin: 2px 0 8px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 28px;
-      column-gap: 28px;
-      row-gap: 6px;
-    }
-
-    .table-bullets li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--white);
-      font-size: 13px;
-      font-weight: 400;
-      font-style: normal;
-      letter-spacing: 0.015em;
-      line-height: 1.4;
-    }
-
-    .table-bullets li::before {
-      content: '';
-      display: inline-block;
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--red);
-      flex-shrink: 0;
-    }
-
-    @media (max-width: 580px) {
-      .table-bullets {
-        flex-direction: column;
-        gap: 6px;
-      }
-      .table-bullets li {
-        font-size: 12.5px;
-        align-items: flex-start;
-      }
-      .table-bullets li::before { margin-top: 6px; }
-    }
-
-    /* ── Bullet line 2 (Scroll hint + Tap CTA) ── */
-    .table-hint-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 20px;
-      margin: 0 0 14px;
-    }
-
-    .tap-cta-line {
-      margin: 0;
-      line-height: 1;
-    }
-
-    .tap-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--red-bright);
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      text-shadow: 0 0 18px rgba(230, 57, 70, 0.35);
-      animation: tapGlow 2.4s ease-in-out infinite;
-    }
-
-    .tap-cta .tap-icon {
-      flex-shrink: 0;
-      color: var(--red-bright);
-      filter: drop-shadow(0 0 6px rgba(230, 57, 70, 0.5));
-      animation: tapNudge 1.6s ease-in-out infinite;
-      transform-origin: center bottom;
-    }
-
-    @keyframes tapGlow {
-      0%, 100% { text-shadow: 0 0 12px rgba(230, 57, 70, 0.25); }
-      50%      { text-shadow: 0 0 22px rgba(230, 57, 70, 0.55); }
-    }
-
-    @keyframes tapNudge {
-      0%, 60%, 100% { transform: translateY(0) scale(1); }
-      30%           { transform: translateY(-4px) scale(1.08); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .tap-cta,
-      .tap-cta .tap-icon { animation: none; }
-    }
-
-    @media (max-width: 580px) {
-      .table-hint-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-      .tap-cta {
-        font-size: 13.5px;
-      }
-      .tap-cta .tap-icon {
-        width: 16px; height: 16px;
-      }
-    }
-
-    /* ── Clickable price cells ── */
-    tbody td.price-cell {
-      cursor: pointer;
-      transition: background 0.15s ease, color 0.15s ease;
-      position: relative;
-    }
-
-    tbody td.price-cell:hover {
-      background: rgba(193, 39, 45, 0.28);
-      color: var(--white);
-    }
-
-    tbody td.price-cell:focus { outline: none; }
-
-    tbody td.price-cell:focus-visible {
-      background: rgba(193, 39, 45, 0.28);
-      outline: 2px solid var(--red-bright);
-      outline-offset: -2px;
-    }
-
-    /* ── PRICE CALCULATOR MODAL ── */
-    .calc-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .calc-modal.is-open { display: flex; }
-
-    .calc-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(8, 8, 10, 0.72);
-      backdrop-filter: blur(3px);
-      -webkit-backdrop-filter: blur(3px);
-    }
-
-    .calc-card {
-      position: relative;
-      background: #ffffff;
-      color: #08080a;
-      width: 100%;
-      max-width: 480px;
-      padding: 32px 32px 24px;
-      border-radius: 3px;
-      box-shadow: 0 24px 70px rgba(0,0,0,0.55);
-      border-top: 3px solid var(--red);
-      animation: calcIn 0.2s ease-out;
-      font-family: 'Barlow', sans-serif;
-    }
-
-    @keyframes calcIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .calc-close {
-      position: absolute;
-      top: 6px;
-      right: 8px;
-      background: none;
-      border: none;
-      font-size: 26px;
-      line-height: 1;
-      color: #8f8f9a;
-      cursor: pointer;
-      padding: 8px 12px;
-      transition: color 0.15s;
-    }
-
-    .calc-close:hover { color: var(--red); }
-
-    .calc-eyebrow {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.26em;
-      color: var(--red);
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .calc-trip {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 30px;
-      line-height: 1.05;
-      color: #08080a;
-      letter-spacing: 0.01em;
-      margin-bottom: 4px;
-    }
-
-    .calc-meta {
-      font-size: 13px;
-      color: #8f8f9a;
-      margin-bottom: 20px;
-      line-height: 1.45;
-    }
-
-    .calc-controls {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 18px 20px;
-      border: 1px solid rgba(0,0,0,0.1);
-      background: #fbfaf7;
-      margin-bottom: 14px;
-    }
-
-    .calc-field {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      flex-shrink: 0;
-    }
-
-    .calc-field label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #8f8f9a;
-    }
-
-    .calc-field select {
-      font-family: 'Barlow', sans-serif;
-      font-size: 17px;
-      font-weight: 500;
-      padding: 10px 36px 10px 14px;
-      border: 1px solid rgba(0,0,0,0.2);
-      background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c1272d' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") right 10px center/14px no-repeat;
-      min-width: 84px;
-      cursor: pointer;
-      color: #08080a;
-      appearance: none;
-      -webkit-appearance: none;
-      border-radius: 2px;
-    }
-
-    .calc-field select:focus {
-      outline: 2px solid var(--red);
-      outline-offset: 1px;
-    }
-
-    .calc-result {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      text-align: right;
-      flex: 1;
-      min-width: 0;
-    }
-
-    .calc-result-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #8f8f9a;
-    }
-
-    .calc-result-amount {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 38px;
-      line-height: 1;
-      color: var(--red);
-      letter-spacing: 0.01em;
-    }
-
-    .calc-note {
-      font-size: 11.5px;
-      font-style: italic;
-      color: #8f8f9a;
-      line-height: 1.55;
-    }
-
-    @media (max-width: 480px) {
-      .calc-card { padding: 26px 22px 20px; }
-      .calc-trip { font-size: 26px; }
-      .calc-result-amount { font-size: 32px; }
-      .calc-controls { padding: 14px 16px; gap: 14px; }
-      .calc-field select { font-size: 16px; min-width: 72px; padding: 9px 32px 9px 12px; }
+      thead th, tbody td { padding: 10px 6px; }
+      thead th:first-child, tbody td:first-child { width: 84px; min-width: 84px; }
+      thead th:nth-child(2), tbody td:nth-child(2) { width: 60px; min-width: 60px; }
+      .modal-group-buttons { gap: 5px; }
     }
   </style>
 </head>
 <body>
 
+<!-- ═══════════════════════════════════════════
+     GROUP PRICE CALCULATOR MODAL
+═══════════════════════════════════════════ -->
+<div class="modal-overlay" id="priceModal" role="dialog" aria-modal="true" aria-labelledby="modalTripName">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div>
+        <p class="modal-trip-label" id="modalTripLabel">Private Guided Trip — 100% Private</p>
+        <p class="modal-trip-name" id="modalTripName">4-Hour Trip</p>
+        <p class="modal-season-dates" id="modalSeasonDates">Off Peak · All days</p>
+      </div>
+      <button class="modal-close" id="modalClose" aria-label="Close price calculator">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="modal-divider"></div>
+
+    <p class="modal-group-label">How many people in your group?</p>
+    <div class="modal-group-buttons" role="group" aria-label="Select group size">
+      <button class="group-btn active" data-guests="1" aria-pressed="true">1</button>
+      <button class="group-btn" data-guests="2" aria-pressed="false">2</button>
+      <button class="group-btn" data-guests="3" aria-pressed="false">3</button>
+      <button class="group-btn" data-guests="4" aria-pressed="false">4</button>
+      <button class="group-btn" data-guests="5" aria-pressed="false">5</button>
+    </div>
+    <div class="group-sub-labels" aria-hidden="true">
+      <span>1 guest</span><span>2 guests</span><span>3 guests</span><span>4 guests</span><span>5 guests</span>
+    </div>
+
+    <div class="modal-price-block">
+      <div>
+        <p class="modal-price-eyebrow">Total Trip Price</p>
+        <p class="modal-price-amount" id="modalPrice">$451</p>
+        <p class="modal-price-per-person" id="modalPerPerson">$451 per person</p>
+      </div>
+      <div>
+        <p class="modal-price-badge-text">Price shown<br>is price paid</p>
+      </div>
+    </div>
+
+    <p class="modal-honest-note">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+      All fees included. Nothing added at booking or checkout.
+    </p>
+
+    <div class="modal-cta-row">
+      <a id="modalBookBtn"
+         href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/&flow=576827"
+         class="modal-book-btn" target="_blank" rel="noopener noreferrer">
+        <span>Book This Trip</span>
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <button class="modal-dismiss-btn" id="modalDismiss">Close</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PRICING SECTION
+═══════════════════════════════════════════ -->
 <section class="pricing-section" aria-labelledby="pricing-heading">
-
   <div class="pricing-bg" role="presentation" aria-hidden="true"></div>
-
   <div class="pricing-content">
 
-    <!-- HEADER -->
     <header class="pricing-header">
-
       <div>
         <p class="pricing-eyebrow">Private Guided Charters · Detroit Lakes, Minnesota</p>
-        <h2 class="pricing-headline" id="pricing-heading">
-          PRICING THAT
-          <span>PERFORMS.</span>
-        </h2>
+        <h2 class="pricing-headline" id="pricing-heading">PRICING THAT<span>PERFORMS.</span></h2>
         <p class="pricing-subhead">
           Private guided rates, clearly stated.<br>
           Seasonal tiers reflect peak demand —<br>
-          no hidden fees, no surprises. Ever.
+          no hidden fees, no surprises.<br>
+          What you see is exactly what you pay.
         </p>
+        <ul class="pricing-bullets" aria-label="Pricing notes">
+          <li>Rates shown for 1–2 guests.</li>
+          <li>Price shown is price paid. All fees included — nothing added at checkout.</li>
+        </ul>
       </div>
 
       <div class="pricing-badges" role="list" aria-label="Trip highlights">
-
         <div class="badge" role="listitem">
           <div class="badge-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <p class="badge-title">Transparent</p>
           <p class="badge-desc">No hidden fees.<br>Ever.</p>
         </div>
-
         <div class="badge" role="listitem">
           <div class="badge-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3v9"/><path d="M9 9l3 3 3-3"/>
-              <path d="M8 17c0 2.5 8 2.5 8 0"/><path d="M6 17h12"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
           <p class="badge-title">Flexible</p>
           <p class="badge-desc">4 to 8-hour<br>private trips.</p>
         </div>
-
         <div class="badge" role="listitem">
           <div class="badge-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2"/>
-              <line x1="16" y1="2" x2="16" y2="6"/>
-              <line x1="8" y1="2" x2="8" y2="6"/>
-              <line x1="3" y1="10" x2="21" y2="10"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           </div>
           <p class="badge-title">Premium</p>
           <p class="badge-desc">Elite lakes.<br>Proven results.</p>
         </div>
-
       </div>
-
     </header>
 
-    <!-- Bullet line 1: Rates + Fees (side-by-side on desktop, stacked on mobile) -->
-    <ul class="table-bullets">
-      <li>Rates shown for 1–2 guests.</li>
-      <li>Prices include all fees. Tax added at checkout.</li>
-    </ul>
-
-    <!-- Bullet line 2: Scroll hint (mobile only) + Tap CTA -->
-    <div class="table-hint-row">
-      <p class="scroll-hint" aria-hidden="true">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-        Scroll right to see all trip durations
-      </p>
-      <p class="tap-cta-line">
-        <strong class="tap-cta">
-          <svg class="tap-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M9 11V6a2 2 0 0 1 4 0v5"/>
-            <path d="M13 11V4a2 2 0 0 1 4 0v7"/>
-            <path d="M17 11V7a2 2 0 0 1 4 0v9a7 7 0 0 1-7 7h-2a7 7 0 0 1-6.45-4.3L3 14a2 2 0 0 1 3.45-2L8 14"/>
-            <path d="M9 11a2 2 0 1 0-4 0v3"/>
-          </svg>
-          Tap any price to see the price for your group.
-        </strong>
-      </p>
+    <!-- Mobile helpers — appear only on mobile -->
+    <p class="scroll-hint" aria-hidden="true">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      Scroll right to see all trip durations
+    </p>
+    <div class="tap-banner-mobile" aria-hidden="true">
+      <span class="tap-icon">👆</span>
+      Tap any price to see your group's rate
     </div>
 
     <!-- PRICING TABLE -->
-    <div class="table-wrapper" role="region" aria-label="Seasonal trip pricing">
+    <div class="table-outer">
+      <div class="tap-float" aria-hidden="true">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V6a3 3 0 0 1 6 0v5"/><path d="M9 11a3 3 0 0 0-3 3v1a8 8 0 0 0 16 0v-5a2 2 0 0 0-4 0v2"/><path d="M15 11a2 2 0 0 0-4 0"/></svg>
+        Tap any price to see the price for your group
+      </div>
+    <div class="table-wrapper" role="region" aria-label="2026 seasonal trip pricing">
       <table>
-        <caption class="sr-only">
-          Baxstar Fishing private guided trip rates by season and duration.
-          All trips are 100% private. Rates include guide, boat, and equipment.
-        </caption>
+        <caption class="sr-only">Baxstar Fishing 2026 private guided trip rates by season and duration. All prices are final — all fees included, nothing added at checkout. Rates shown for 1–2 guests. Tap any price to calculate group pricing. All trips are 100% private.</caption>
         <thead>
-          <tr>
+          <!-- TAP BANNER ROW — desktop only, spans the 4 price columns -->
+          <!-- COLUMN HEADERS -->
+          <tr class="col-headers">
             <th scope="col">Date Range</th>
             <th scope="col">Day</th>
             <th scope="col">4 HR</th>
@@ -924,315 +430,297 @@
           </tr>
         </thead>
         <tbody>
-          <tr data-tier="off-peak-all">
-            <td>Apr 1–May 31, Sep 10–Oct 31</td>
+
+          <tr>
+            <td>Apr 1–May 31<br>Sep 10–Oct 31<span class="season-pill">Off Peak</span></td>
             <td>All days</td>
-            <td class="price-cell" data-duration="4">$451</td>
-            <td class="price-cell" data-duration="5">$583</td>
-            <td class="price-cell" data-duration="6">$742</td>
-            <td class="price-cell" data-duration="8">$1,007</td>
+            <td class="price-cell" data-price="451"  data-duration="4" data-season="Off Peak"  data-dates="Apr 1–May 31, Sep 10–Oct 31" data-day="All days">$451<span class="ripple"></span></td>
+            <td class="price-cell" data-price="583"  data-duration="5" data-season="Off Peak"  data-dates="Apr 1–May 31, Sep 10–Oct 31" data-day="All days">$583<span class="ripple"></span></td>
+            <td class="price-cell" data-price="742"  data-duration="6" data-season="Off Peak"  data-dates="Apr 1–May 31, Sep 10–Oct 31" data-day="All days">$742<span class="ripple"></span></td>
+            <td class="price-cell" data-price="1007" data-duration="8" data-season="Off Peak"  data-dates="Apr 1–May 31, Sep 10–Oct 31" data-day="All days">$1,007<span class="ripple"></span></td>
           </tr>
-          <tr data-tier="shoulder-mth">
-            <td>Jun 1–12, Aug 21–Sep 9</td>
+
+          <tr>
+            <td>Jun 1–12<br>Aug 21–Sep 9<span class="season-pill">Shoulder</span></td>
             <td>Mon–Thu</td>
-            <td class="price-cell" data-duration="4">$455</td>
-            <td class="price-cell" data-duration="5">$589</td>
-            <td class="price-cell" data-duration="6">$749</td>
-            <td class="price-cell" data-duration="8">$1,017</td>
+            <td class="price-cell" data-price="455"  data-duration="4" data-season="Shoulder"  data-dates="Jun 1–12, Aug 21–Sep 9" data-day="Mon–Thu">$455<span class="ripple"></span></td>
+            <td class="price-cell" data-price="589"  data-duration="5" data-season="Shoulder"  data-dates="Jun 1–12, Aug 21–Sep 9" data-day="Mon–Thu">$589<span class="ripple"></span></td>
+            <td class="price-cell" data-price="749"  data-duration="6" data-season="Shoulder"  data-dates="Jun 1–12, Aug 21–Sep 9" data-day="Mon–Thu">$749<span class="ripple"></span></td>
+            <td class="price-cell" data-price="1017" data-duration="8" data-season="Shoulder"  data-dates="Jun 1–12, Aug 21–Sep 9" data-day="Mon–Thu">$1,017<span class="ripple"></span></td>
           </tr>
-          <tr data-tier="shoulder-fss">
-            <td>Jun 1–12, Aug 21–Sep 9</td>
+
+          <tr>
+            <td>Jun 1–12<br>Aug 21–Sep 9<span class="season-pill">Shoulder</span></td>
             <td>Fri, Sat, Sun</td>
-            <td class="price-cell" data-duration="4">$469</td>
-            <td class="price-cell" data-duration="5">$606</td>
-            <td class="price-cell" data-duration="6">$772</td>
-            <td class="price-cell" data-duration="8">$1,047</td>
+            <td class="price-cell" data-price="473"  data-duration="4" data-season="Shoulder"  data-dates="Jun 1–12, Aug 21–Sep 9" data-day="Fri, Sat, Sun">$473<span class="ripple"></span></td>
+            <td class="price-cell" data-price="612"  data-duration="5" data-season="Shoulder"  data-dates="Jun 1–12, Aug 21–Sep 9" data-day="Fri, Sat, Sun">$612<span class="ripple"></span></td>
+            <td class="price-cell" data-price="779"  data-duration="6" data-season="Shoulder"  data-dates="Jun 1–12, Aug 21–Sep 9" data-day="Fri, Sat, Sun">$779<span class="ripple"></span></td>
+            <td class="price-cell" data-price="1057" data-duration="8" data-season="Shoulder"  data-dates="Jun 1–12, Aug 21–Sep 9" data-day="Fri, Sat, Sun">$1,057<span class="ripple"></span></td>
           </tr>
-          <tr data-tier="high-mth">
-            <td>Jun 13–Jun 30, Jul 26–Aug 20</td>
+
+          <tr>
+            <td>Jun 13–30<br>Jul 26–Aug 20<span class="season-pill">High</span></td>
             <td>Mon–Thu</td>
-            <td class="price-cell" data-duration="4">$478</td>
-            <td class="price-cell" data-duration="5">$618</td>
-            <td class="price-cell" data-duration="6">$787</td>
-            <td class="price-cell" data-duration="8">$1,067</td>
+            <td class="price-cell" data-price="482"  data-duration="4" data-season="High"      data-dates="Jun 13–30, Jul 26–Aug 20" data-day="Mon–Thu">$482<span class="ripple"></span></td>
+            <td class="price-cell" data-price="624"  data-duration="5" data-season="High"      data-dates="Jun 13–30, Jul 26–Aug 20" data-day="Mon–Thu">$624<span class="ripple"></span></td>
+            <td class="price-cell" data-price="794"  data-duration="6" data-season="High"      data-dates="Jun 13–30, Jul 26–Aug 20" data-day="Mon–Thu">$794<span class="ripple"></span></td>
+            <td class="price-cell" data-price="1077" data-duration="8" data-season="High"      data-dates="Jun 13–30, Jul 26–Aug 20" data-day="Mon–Thu">$1,077<span class="ripple"></span></td>
           </tr>
-          <tr data-tier="high-fss">
-            <td>Jun 13–Jun 30, Jul 26–Aug 20</td>
+
+          <tr>
+            <td>Jun 13–30<br>Jul 26–Aug 20<span class="season-pill">High</span></td>
             <td>Fri, Sat, Sun</td>
-            <td class="price-cell" data-duration="4">$487</td>
-            <td class="price-cell" data-duration="5">$630</td>
-            <td class="price-cell" data-duration="6">$801</td>
-            <td class="price-cell" data-duration="8">$1,088</td>
+            <td class="price-cell" data-price="496"  data-duration="4" data-season="High"      data-dates="Jun 13–30, Jul 26–Aug 20" data-day="Fri, Sat, Sun">$496<span class="ripple"></span></td>
+            <td class="price-cell" data-price="641"  data-duration="5" data-season="High"      data-dates="Jun 13–30, Jul 26–Aug 20" data-day="Fri, Sat, Sun">$641<span class="ripple"></span></td>
+            <td class="price-cell" data-price="816"  data-duration="6" data-season="High"      data-dates="Jun 13–30, Jul 26–Aug 20" data-day="Fri, Sat, Sun">$816<span class="ripple"></span></td>
+            <td class="price-cell" data-price="1108" data-duration="8" data-season="High"      data-dates="Jun 13–30, Jul 26–Aug 20" data-day="Fri, Sat, Sun">$1,108<span class="ripple"></span></td>
           </tr>
-          <tr data-tier="peak-mth">
-            <td>Jul 1–Jul 25</td>
+
+          <tr>
+            <td>Jul 1–Jul 25<span class="season-pill">Peak</span></td>
             <td>Mon–Thu</td>
-            <td class="price-cell" data-duration="4">$496</td>
-            <td class="price-cell" data-duration="5">$641</td>
-            <td class="price-cell" data-duration="6">$816</td>
-            <td class="price-cell" data-duration="8">$1,108</td>
+            <td class="price-cell" data-price="505"  data-duration="4" data-season="Peak"      data-dates="Jul 1–Jul 25" data-day="Mon–Thu">$505<span class="ripple"></span></td>
+            <td class="price-cell" data-price="653"  data-duration="5" data-season="Peak"      data-dates="Jul 1–Jul 25" data-day="Mon–Thu">$653<span class="ripple"></span></td>
+            <td class="price-cell" data-price="831"  data-duration="6" data-season="Peak"      data-dates="Jul 1–Jul 25" data-day="Mon–Thu">$831<span class="ripple"></span></td>
+            <td class="price-cell" data-price="1128" data-duration="8" data-season="Peak"      data-dates="Jul 1–Jul 25" data-day="Mon–Thu">$1,128<span class="ripple"></span></td>
           </tr>
-          <tr data-tier="peak-fs">
-            <td>Jul 1–Jul 25</td>
+
+          <tr>
+            <td>Jul 1–Jul 25<span class="season-pill">Peak</span></td>
             <td>Fri, Sun</td>
-            <td class="price-cell" data-duration="4">$514</td>
-            <td class="price-cell" data-duration="5">$665</td>
-            <td class="price-cell" data-duration="6">$846</td>
-            <td class="price-cell" data-duration="8">$1,148</td>
+            <td class="price-cell" data-price="523"  data-duration="4" data-season="Peak"      data-dates="Jul 1–Jul 25" data-day="Fri, Sun">$523<span class="ripple"></span></td>
+            <td class="price-cell" data-price="677"  data-duration="5" data-season="Peak"      data-dates="Jul 1–Jul 25" data-day="Fri, Sun">$677<span class="ripple"></span></td>
+            <td class="price-cell" data-price="861"  data-duration="6" data-season="Peak"      data-dates="Jul 1–Jul 25" data-day="Fri, Sun">$861<span class="ripple"></span></td>
+            <td class="price-cell" data-price="1169" data-duration="8" data-season="Peak"      data-dates="Jul 1–Jul 25" data-day="Fri, Sun">$1,169<span class="ripple"></span></td>
           </tr>
-          <tr data-tier="peak-sat">
-            <td>Jul 1–Jul 25</td>
+
+          <tr>
+            <td>Jul 1–Jul 25<span class="season-pill">Peak</span></td>
             <td>Saturday</td>
-            <td class="price-cell" data-duration="4">$532</td>
-            <td class="price-cell" data-duration="5">$688</td>
-            <td class="price-cell" data-duration="6">$876</td>
-            <td class="price-cell" data-duration="8">$1,188</td>
+            <td class="price-cell" data-price="541"  data-duration="4" data-season="Peak"      data-dates="Jul 1–Jul 25" data-day="Saturday">$541<span class="ripple"></span></td>
+            <td class="price-cell" data-price="700"  data-duration="5" data-season="Peak"      data-dates="Jul 1–Jul 25" data-day="Saturday">$700<span class="ripple"></span></td>
+            <td class="price-cell" data-price="890"  data-duration="6" data-season="Peak"      data-dates="Jul 1–Jul 25" data-day="Saturday">$890<span class="ripple"></span></td>
+            <td class="price-cell" data-price="1208" data-duration="8" data-season="Peak"      data-dates="Jul 1–Jul 25" data-day="Saturday">$1,208<span class="ripple"></span></td>
           </tr>
-          <tr data-tier="holiday">
-            <td>May 22–25, Jul 2–5, Sep 4–7</td>
+
+          <tr class="holiday-row">
+            <td>May 22–25<br>Jul 2–5<br>Sep 4–7<span class="season-pill">Holiday</span></td>
             <td>All days</td>
-            <td class="price-cell" data-duration="4">$541</td>
-            <td class="price-cell" data-duration="5">$700</td>
-            <td class="price-cell" data-duration="6">$890</td>
-            <td class="price-cell" data-duration="8">$1,208</td>
+            <td class="price-cell" data-price="541"  data-duration="4" data-season="Holiday"   data-dates="May 22–25, Jul 2–5, Sep 4–7" data-day="All days">$541<span class="ripple"></span></td>
+            <td class="price-cell" data-price="700"  data-duration="5" data-season="Holiday"   data-dates="May 22–25, Jul 2–5, Sep 4–7" data-day="All days">$700<span class="ripple"></span></td>
+            <td class="price-cell" data-price="890"  data-duration="6" data-season="Holiday"   data-dates="May 22–25, Jul 2–5, Sep 4–7" data-day="All days">$890<span class="ripple"></span></td>
+            <td class="price-cell" data-price="1208" data-duration="8" data-season="Holiday"   data-dates="May 22–25, Jul 2–5, Sep 4–7" data-day="All days">$1,208<span class="ripple"></span></td>
           </tr>
+
         </tbody>
       </table>
     </div>
+    </div><!-- /.table-outer -->
 
-    <!-- 3HR availability note -->
-    <p class="table-note">
-      * 3-hour trips available Monday–Thursday, April–May &amp; September–October, starting at $424.
-    </p>
+    <p class="table-note">* 3-hour trips available Monday–Thursday, April–May and September–October, starting at $424.</p>
 
     <!-- TRUST STRIP + CTA -->
     <div class="trust-strip">
-
       <div class="trust-item">
         <div class="trust-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            <polyline points="9 12 11 14 15 10"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
         </div>
         <div>
           <p class="trust-title">Trusted Guide</p>
-          <p class="trust-desc">30+ years, 7 years guiding<br>5× Master Angler<br>4.9★ Google rated.</p>
+          <p class="trust-desc">30+ years, 7 years guiding<br>5× Master Angler · 4.9★ rated.</p>
         </div>
       </div>
-
       <div class="trust-item">
         <div class="trust-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <div>
           <p class="trust-title">Top Equipment</p>
           <p class="trust-desc">Vexus DVX20S boat.<br>Elite electronics and gear.</p>
         </div>
       </div>
-
       <div class="trust-item">
         <div class="trust-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </div>
         <div>
           <p class="trust-title">Premier Locations</p>
-          <p class="trust-desc">Detroit Lakes' hottest lakes.<br>100% private — always.</p>
+          <p class="trust-desc">Detroit Lakes' finest waters.<br>100% private — always.</p>
         </div>
       </div>
-
       <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/&flow=576827"
-         class="cta-btn"
-         target="_blank"
-         rel="noopener noreferrer"
+         class="cta-btn" target="_blank" rel="noopener noreferrer"
          aria-label="Book your private guided fishing trip with Baxstar Fishing">
         <span>Book Your Trip</span>
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-
     </div>
 
   </div>
 </section>
 
-<!-- ── PRICE CALCULATOR MODAL ── -->
-<div id="calc-modal" class="calc-modal" role="dialog" aria-modal="true" aria-labelledby="calc-title" aria-hidden="true">
-  <div class="calc-backdrop" data-calc-close></div>
-  <div class="calc-card" role="document">
-    <button type="button" class="calc-close" data-calc-close aria-label="Close calculator">&times;</button>
-    <p class="calc-eyebrow" id="calc-title">Trip Total Calculator</p>
-    <p class="calc-trip" id="calc-trip">—</p>
-    <p class="calc-meta" id="calc-meta">—</p>
-    <div class="calc-controls">
-      <div class="calc-field">
-        <label for="calc-guests">Guests</label>
-        <select id="calc-guests" aria-describedby="calc-amount">
-          <option value="1">1</option>
-          <option value="2" selected>2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      </div>
-      <div class="calc-result">
-        <span class="calc-result-label">Trip Total</span>
-        <span class="calc-result-amount" id="calc-amount" aria-live="polite">$—</span>
-      </div>
-    </div>
-    <p class="calc-note">
-      Total includes FareHarbor's 6% booking fee. 1–2 guests covered by the base rate; 3rd and 4th guest fees apply, with a larger add-on for a 5th guest. Guided fishing is not taxed in Minnesota.
-    </p>
-  </div>
-</div>
 
 <script>
-(function() {
-  // Exact customer-facing base prices (FareHarbor 6% fee included) from Baxstar Pricing Engine 2026 v2
-  var basePrices = {
-    '4:off-peak-all':  450.50, '4:shoulder-mth':  455.01, '4:shoulder-fss':  468.52,
-    '4:high-mth':      477.53, '4:high-fss':      486.54, '4:peak-mth':      495.55,
-    '4:peak-fs':       513.57, '4:peak-sat':      531.59, '4:holiday':       540.60,
-    '5:off-peak-all':  583.00, '5:shoulder-mth':  588.83, '5:shoulder-fss':  606.32,
-    '5:high-mth':      617.98, '5:high-fss':      629.64, '5:peak-mth':      641.30,
-    '5:peak-fs':       664.62, '5:peak-sat':      687.94, '5:holiday':       699.60,
-    '6:off-peak-all':  742.00, '6:shoulder-mth':  749.42, '6:shoulder-fss':  771.68,
-    '6:high-mth':      786.52, '6:high-fss':      801.36, '6:peak-mth':      816.20,
-    '6:peak-fs':       845.88, '6:peak-sat':      875.56, '6:holiday':       890.40,
-    '8:off-peak-all': 1007.00, '8:shoulder-mth': 1017.07, '8:shoulder-fss': 1047.28,
-    '8:high-mth':     1067.42, '8:high-fss':     1087.56, '8:peak-mth':     1107.70,
-    '8:peak-fs':      1147.98, '8:peak-sat':     1188.26, '8:holiday':      1208.40
+(function () {
+  'use strict';
+
+  /* ─────────────────────────────────────────
+     Per-person add-on fees — customer-facing, static (no seasonal %)
+     Source: Baxstar Pricing Engine 2026 v2, Add-Ons + Fishing Trip Prices sheets
+
+     Format: { duration: [3rd_guest_fee, 4th_guest_fee, 5th_guest_fee] }
+     1–2 guests: base price, no add-on
+  ───────────────────────────────────────── */
+  var ADDONS = {
+    3: [ 53,  53, 106],   // 3hr: $50 × 1.06 each (3rd/4th), $100 × 1.06 (5th)
+    4: [ 53,  53, 106],   // 4hr: same tier
+    5: [ 66,  66, 106],   // 5hr: $62.50 × 1.06 = $66.25 → $66
+    6: [ 80,  80, 133],   // 6hr: $75 × 1.06 = $79.50 → $80 | $125 × 1.06 = $132.50 → $133
+    8: [106, 106, 186]    // 8hr: $100 × 1.06 = $106 | $175 × 1.06 = $185.50 → $186
   };
 
-  // Customer-facing per-additional-guest fees (net × 1.06 FareHarbor fee).
-  var perPerson = {
-    4: { 3:  53.00, 4:  53.00, 5: 106.00 },
-    5: { 3:  66.25, 4:  66.25, 5: 106.00 },
-    6: { 3:  79.50, 4:  79.50, 5: 132.50 },
-    8: { 3: 106.00, 4: 106.00, 5: 185.50 }
-  };
+  var overlay      = document.getElementById('priceModal');
+  var modalClose   = document.getElementById('modalClose');
+  var modalDismiss = document.getElementById('modalDismiss');
+  var modalName    = document.getElementById('modalTripName');
+  var modalSeason  = document.getElementById('modalSeasonDates');
+  var modalPrice   = document.getElementById('modalPrice');
+  var modalPerP    = document.getElementById('modalPerPerson');
+  var groupBtns    = document.querySelectorAll('.group-btn');
 
-  var tierLabels = {
-    'off-peak-all': 'Off Peak',
-    'shoulder-mth': 'Shoulder',
-    'shoulder-fss': 'Shoulder Weekend',
-    'high-mth':     'High Season',
-    'high-fss':     'High Season Weekend',
-    'peak-mth':     'Peak',
-    'peak-fs':      'Peak Fri / Sun',
-    'peak-sat':     'Peak Saturday',
-    'holiday':      'Holiday'
-  };
+  var state = { basePrice: 0, duration: 4, guests: 1 };
 
-  var modal    = document.getElementById('calc-modal');
-  var tripEl   = document.getElementById('calc-trip');
-  var metaEl   = document.getElementById('calc-meta');
-  var guestsEl = document.getElementById('calc-guests');
-  var amountEl = document.getElementById('calc-amount');
-
-  var current = { duration: 4, tier: 'off-peak-all' };
+  function calcTotal(base, dur, guests) {
+    var a = ADDONS[dur] || ADDONS[4];
+    var t = base;
+    if (guests >= 3) t += a[0];
+    if (guests >= 4) t += a[1];
+    if (guests >= 5) t += a[2];
+    return t;
+  }
 
   function fmt(n) {
-    return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return '$' + n.toLocaleString('en-US');
   }
 
-  function calc() {
-    var g = parseInt(guestsEl.value, 10);
-    var key = current.duration + ':' + current.tier;
-    var base = basePrices[key];
-    if (base == null) { amountEl.textContent = '$—'; return; }
-    var pp = perPerson[current.duration];
-    if (pp) {
-      if (g >= 3) base += pp[3];
-      if (g >= 4) base += pp[4];
-      if (g >= 5) base += pp[5];
-    }
-    amountEl.textContent = fmt(base);
+  function updateDisplay() {
+    var total = calcTotal(state.basePrice, state.duration, state.guests);
+    var per   = Math.round(total / state.guests);
+    modalPrice.textContent = fmt(total);
+    modalPerP.textContent  = fmt(per) + ' per person';
   }
 
-  function openCalc(cell) {
-    var row = cell.closest('tr');
-    if (!row) return;
-    current.duration = parseInt(cell.getAttribute('data-duration'), 10);
-    current.tier     = row.getAttribute('data-tier');
-    var dates = row.children[0].textContent.trim();
-    var days  = row.children[1].textContent.trim();
-    tripEl.textContent = current.duration + '-Hour Trip · ' + (tierLabels[current.tier] || '');
-    metaEl.textContent = dates + ' · ' + days;
-    calc();
-    modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden', 'false');
+  function openModal(cell) {
+    state.basePrice = parseInt(cell.dataset.price, 10);
+    state.duration  = parseInt(cell.dataset.duration, 10);
+    state.guests    = 1;
+
+    groupBtns.forEach(function(b) {
+      var on = b.dataset.guests === '1';
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+
+    modalName.textContent   = state.duration + '-Hour Trip';
+    modalSeason.textContent = cell.dataset.season + ' · ' + cell.dataset.dates + ' · ' + cell.dataset.day;
+
+    updateDisplay();
+
+    overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
-    setTimeout(function() { guestsEl.focus(); }, 30);
+    modalClose.focus();
+
+    /* Ripple */
+    var rip = cell.querySelector('.ripple');
+    if (rip) {
+      cell.classList.remove('tapped');
+      void cell.offsetWidth; /* force reflow */
+      cell.classList.add('tapped');
+      setTimeout(function() { cell.classList.remove('tapped'); }, 500);
+    }
   }
 
-  function closeCalc() {
-    modal.classList.remove('is-open');
-    modal.setAttribute('aria-hidden', 'true');
+  function closeModal() {
+    overlay.classList.remove('open');
     document.body.style.overflow = '';
   }
 
-  var cells = document.querySelectorAll('tbody td.price-cell');
-  for (var i = 0; i < cells.length; i++) {
-    (function(cell) {
-      cell.setAttribute('tabindex', '0');
-      cell.setAttribute('role', 'button');
-      cell.setAttribute('aria-label', 'Calculate total for ' + cell.textContent.trim() + ' trip by group size');
-      cell.addEventListener('click', function() { openCalc(cell); });
-      cell.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ' || e.keyCode === 13 || e.keyCode === 32) {
-          e.preventDefault();
-          openCalc(cell);
-        }
-      });
-    })(cells[i]);
-  }
-
-  var closers = document.querySelectorAll('[data-calc-close]');
-  for (var j = 0; j < closers.length; j++) {
-    closers[j].addEventListener('click', closeCalc);
-  }
-
-  document.addEventListener('keydown', function(e) {
-    if ((e.key === 'Escape' || e.keyCode === 27) && modal.classList.contains('is-open')) {
-      closeCalc();
-    }
+  /* Wire price cells */
+  document.querySelectorAll('td.price-cell').forEach(function(cell) {
+    cell.setAttribute('role', 'button');
+    cell.setAttribute('tabindex', '0');
+    cell.setAttribute('aria-label',
+      cell.dataset.duration + '-hour trip · ' + cell.dataset.season +
+      ' · ' + cell.dataset.day + ' · ' + cell.textContent.trim() +
+      ' · Tap for group pricing'
+    );
+    cell.addEventListener('click', function() { openModal(cell); });
+    cell.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(cell); }
+    });
   });
 
-  guestsEl.addEventListener('change', calc);
-  guestsEl.addEventListener('input', calc);
-})();
-</script>
+  /* Group size buttons */
+  groupBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      state.guests = parseInt(btn.dataset.guests, 10);
+      groupBtns.forEach(function(b) {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+      updateDisplay();
+    });
+  });
 
-<!-- Iframe height reporter — fixes Wix embed "stuck scroll" by telling the parent how tall this content actually is -->
-<script>
+  modalClose.addEventListener('click', closeModal);
+  modalDismiss.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+  });
+
+})();
+
+/* ── Tap float positioning — anchored over price columns ── */
 (function() {
-  if (window.parent === window) return; // not in an iframe, skip
-  var lastH = 0;
-  function report() {
-    var h = Math.max(
-      document.documentElement.scrollHeight,
-      document.body ? document.body.scrollHeight : 0
-    );
-    if (h && h !== lastH) {
-      lastH = h;
-      try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch (e) {}
-      try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch (e) {}
-      try { window.parent.postMessage('height:' + h, '*'); } catch (e) {}
-    }
+  var float = document.querySelector('.tap-float');
+  var outer = document.querySelector('.table-outer');
+
+  function position() {
+    if (!float || !outer) return;
+    // Hide on mobile (CSS handles display:none, but guard JS too)
+    if (window.innerWidth <= 860) return;
+
+    // Measure the right edge of the 2nd column header (Day)
+    var th2 = document.querySelector('thead .col-headers th:nth-child(2)');
+    if (!th2) return;
+
+    var th2Rect  = th2.getBoundingClientRect();
+    var outerRect = outer.getBoundingClientRect();
+    // account for the 1px table border on the left side of the wrapper
+    var leftEdge = th2Rect.right - outerRect.left + 1;
+
+    // Match the height of the red header row exactly
+    float.style.left   = leftEdge + 'px';
+    float.style.right  = '0';
+    float.style.height = '36px';
   }
-  window.addEventListener('load', report);
-  window.addEventListener('resize', report);
-  if (window.ResizeObserver) {
-    try { new ResizeObserver(report).observe(document.body); } catch (e) {}
+
+  // Run after fonts/layout settle
+  if (document.readyState === 'complete') {
+    position();
+  } else {
+    window.addEventListener('load', position);
   }
-  setInterval(report, 1500); // safety poll
+
+  // Re-anchor on resize
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(position).observe(document.body);
+  } else {
+    window.addEventListener('resize', position);
+  }
 })();
 </script>
 
