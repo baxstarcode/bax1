@@ -1,0 +1,88 @@
+# Baxstar Media Library
+**Last Updated:** April 2026  
+**Purpose:** Master reference for all Baxstar Fishing image URLs. Paste this into any AI session so image URLs are immediately available without searching.
+
+---
+
+## How to Use
+1. Upload image to Wix Media Manager
+2. Right-click the image → Copy URL
+3. Paste the URL into the correct section below
+4. Save this doc — any AI can reference it instantly
+
+---
+
+## Brand Assets
+
+| File Name | Description | Wix CDN URL |
+|---|---|---|
+| Final_Baxstar_Fishing_Logo_White.png | White logo, primary | https://static.wixstatic.com/media/a30e59_413146f7cd6a496a823309aefc67e66c~mv2.png |
+| [hook mark / fish icon] | Brand mark element | [PASTE URL] |
+
+---
+
+## Brady / Guide Photos
+
+| File Name | Description | Wix CDN URL |
+|---|---|---|
+| 1C5A3483_SP_Baxstar_Fishing__HR.jpg | Brady hero shot, high res | [PASTE URL] |
+| Baxstar_Fishing_Faces_of_Fargo.jpg | Faces of Fargo feature photo | [PASTE URL] |
+
+---
+
+## Boat / Equipment
+
+| File Name | Description | Wix CDN URL |
+|---|---|---|
+| Vexus_In_Background.JPG | Vexus DVX20S on water | [PASTE URL] |
+| Boys_Walleye_Fising_Trip_with_Baxstar.jpeg | Clients with walleye catch | [PASTE URL] |
+
+---
+
+## Catch Gallery — Current Live URLs (Wix CDN)
+
+| Position | Description | Wix CDN URL |
+|---|---|---|
+| Gallery 1 | Walleye catch | https://static.wixstatic.com/media/a30e59_a3a4b9d0de1c4f05919838fbb4df0fcd~mv2.jpg |
+| Gallery 2 | Smallmouth bass | https://static.wixstatic.com/media/a30e59_6a1013a90bd345e5a39f0a783f7be307~mv2.jpeg |
+| Gallery 3 | Northern pike | https://static.wixstatic.com/media/a30e59_5c80c966234f4b1d8cb404f6db00b571~mv2.jpeg |
+| Gallery 4 | Largemouth bass | https://static.wixstatic.com/media/a30e59_45467c5f7f824b839f6a5a46274c4693~mv2.jpeg |
+| Gallery 5 | Sunset on Detroit Lakes | https://static.wixstatic.com/media/a30e59_180632eb48564cc49b3c7f19b081a69e~mv2.jpg |
+
+---
+
+## Hero / Section Backgrounds
+
+| File Name | Description | Wix CDN URL |
+|---|---|---|
+| Intro section background | Water/lake hero image | https://static.wixstatic.com/media/a30e59_a9167752e0154968b2bf6c8b8d076bef~mv2.jpg |
+| Hero video | Cinematic intro video | https://video.wixstatic.com/video/a30e59_3a34a2a92ea245a0bb4d4a2a7bc17f94/1080p/mp4/file.mp4 |
+
+---
+
+## Press / Media
+
+| File Name | Description | Wix CDN URL |
+|---|---|---|
+| [Forbes logo] | Press logo | [PASTE URL] |
+| [KVLY logo] | Press logo | [PASTE URL] |
+| [WDAY logo] | Press logo | [PASTE URL] |
+| [Faces of Fargo logo] | Press logo | [PASTE URL] |
+
+---
+
+## Upload Checklist
+When adding a new image to Wix, record it here immediately:
+- [ ] Uploaded to Wix Media Manager
+- [ ] URL copied and pasted into this doc
+- [ ] Description added
+- [ ] Section noted (gallery, hero, guide, etc.)
+
+---
+
+## Notes for AI Reference
+- All live gallery URLs are already active on baxstarfishing.com
+- Brady/guide photos and boat photos need Wix CDN URLs added before use in HTML sections
+- Logo white URL is confirmed active
+- Video CDN URL is confirmed active
+- Never use base64 for images — always use Wix CDN URLs
