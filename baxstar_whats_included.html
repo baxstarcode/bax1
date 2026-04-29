@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="robots" content="indexifembedded">
+<meta name="description" content="Every Baxstar Fishing guided trip includes the Vexus DVX20S tournament boat, Garmin and Humminbird sonar, pro-grade rods and tackle, fresh live bait, fish cleaning, and same-day photo package. Detroit Lakes, MN.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>What's Included — Baxstar Fishing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -37,6 +40,7 @@ body {
   color: var(--cream);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  overscroll-behavior: none;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -102,9 +106,13 @@ img { display: block; max-width: 100%; }
 /* Scroll reveal */
 .reveal {
   opacity: 0; transform: translateY(28px);
-  transition: opacity 0.85s ease, transform 0.85s ease;
+  transition: opacity 0.75s ease, transform 0.75s ease;
+  will-change: transform, opacity;
 }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal.visible { opacity: 1; transform: translateY(0); will-change: auto; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; will-change: auto; }
+}
 
 
 .included { padding: var(--section-pad) 0; position: relative; }
@@ -152,6 +160,18 @@ img { display: block; max-width: 100%; }
 @media (max-width: 1024px) { .included__grid { grid-template-columns: 1fr; gap: 48px; } }
 
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Private Guided Fishing Trip — What's Included",
+  "provider": { "@type": "LocalBusiness", "name": "Baxstar Fishing", "url": "https://www.baxstarfishing.com" },
+  "description": "Every Baxstar Fishing guided trip on Detroit Lakes includes the Vexus DVX20S tournament boat, Garmin LiveScope and Humminbird MEGA Live sonar, pro-grade rods and tackle, fresh live bait, fish cleaning, vacuum packaging, and same-day photos.",
+  "serviceOutput": ["Private guided walleye fishing", "Private guided bass fishing", "Tournament-grade boat and electronics", "Pro-grade rods, reels, and tackle", "Fresh live bait", "Fish cleaning and vacuum packaging", "Same-day photo package"],
+  "areaServed": "Detroit Lakes, Minnesota"
+}
+</script>
 </head>
 <body>
 
@@ -217,7 +237,7 @@ img { display: block; max-width: 100%; }
 
       <div class="included__right reveal">
         <div class="included__image">
-          <img src="https://static.wixstatic.com/media/a30e59_d947a7ae2c0f47b59248b482efd16d08~mv2.jpeg" alt="Baxstar Fishing — Vexus DVX20S on Detroit Lakes">
+          <img src="https://static.wixstatic.com/media/a30e59_d947a7ae2c0f47b59248b482efd16d08~mv2.jpeg" alt="Baxstar Fishing Vexus DVX20S tournament boat on Detroit Lakes, Minnesota — private guided walleye and bass fishing trips">
         </div>
         <div class="included__caption">
           The Vexus DVX20S — tournament-grade equipment on every trip, 
@@ -230,16 +250,24 @@ img { display: block; max-width: 100%; }
 
 
 <script>
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+(function () {
+  var reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
+  reveals.forEach(function(el, i) { el.style.transitionDelay = (i * 65) + 'ms'; });
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    reveals.forEach(function(el) { el.style.transitionDelay = '0ms'; el.classList.add('visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        observer.unobserve(entry.target);
+        requestAnimationFrame(function() { entry.target.classList.add('visible'); });
+        io.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-  reveals.forEach(el => observer.observe(el));
+  }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+  reveals.forEach(function(el) { io.observe(el); });
+}());
 </script>
 
 </body>

@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="robots" content="indexifembedded">
+<meta name="description" content="Baxstar Fishing reviews — 4.9 stars from 100+ verified guests. Private guided walleye and bass fishing trips on Detroit Lakes, Minnesota. Read what clients say about Brady Baxter's guided trips.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -16,7 +20,8 @@
   --font-accent: 'Cormorant Garamond', serif;
   --section-pad: clamp(80px, 10vw, 140px);
 }
-body { font-family: var(--font-body); background: var(--charcoal); color: var(--cream); -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font-body); background: var(--charcoal); color: var(--cream); -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none; }
 .container { max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
 
 .testimonials { padding: var(--section-pad) 0; background: var(--charcoal); }
@@ -41,6 +46,23 @@ body { font-family: var(--font-body); background: var(--charcoal); color: var(--
 
 @media (max-width: 1024px) { .testimonials__grid { grid-template-columns: 1fr; } }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": "Baxstar Fishing",
+      "url": "https://www.baxstarfishing.com",
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "100", "bestRating": "5", "worstRating": "1" }
+    },
+    { "@type": "Review", "itemReviewed": { "@type": "LocalBusiness", "name": "Baxstar Fishing" }, "author": { "@type": "Person", "name": "The Andersons" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "reviewBody": "Brady put us on fish all day — the kids are already asking when we can come back. Best fishing experience we have ever had. Every detail was covered.", "datePublished": "2025-08-01" },
+    { "@type": "Review", "itemReviewed": { "@type": "LocalBusiness", "name": "Baxstar Fishing" }, "author": { "@type": "Person", "name": "Mike R." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "reviewBody": "Flew in from Denver for a corporate retreat. Brady handled everything and made it feel effortless. Already booked for next summer.", "datePublished": "2025-07-15" },
+    { "@type": "Review", "itemReviewed": { "@type": "LocalBusiness", "name": "Baxstar Fishing" }, "author": { "@type": "Person", "name": "Tom H." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "reviewBody": "Nobody reads conditions like Brady. He adjusted mid-morning when the bite shifted and we limited out before noon.", "datePublished": "2025-06-20" }
+  ]
+}
+</script>
 </head>
 <body>
 <section class="testimonials">
@@ -51,7 +73,7 @@ body { font-family: var(--font-body); background: var(--charcoal); color: var(--
         <span class="testimonials__count">4.9 from 100+ reviews</span>
       </div>
       <div class="section-tag" style="justify-content:center;">Guest Reviews</div>
-      <h2 class="section-title">THEY COME BACK <span>EVERY YEAR.</span></h2>
+      <h2 class="section-title">THEY COME BACK <span>EVERY YEAR.</span><span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0"> — 4.9-star rated private guided fishing trips on Detroit Lakes, Minnesota with guide Brady Baxter</span></h2>
     </div>
     <div class="testimonials__grid">
       <div class="test-card">

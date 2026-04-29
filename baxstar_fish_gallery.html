@@ -5,15 +5,16 @@
 <meta name="robots" content="indexifembedded">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Real catches from real clients — guided fishing trips with Baxstar Fishing, Detroit Lakes Minnesota's premier private guide service.">
-<title>Catch Gallery — Baxstar Fishing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ImageGallery",
-  "name": "Baxstar Fishing Catch Gallery",
-  "description": "Real client catches from guided fishing trips in Detroit Lakes and surrounding Minnesota lakes.",
+  "name": "Baxstar Fishing Catch Gallery — Detroit Lakes, Minnesota",
+  "description": "Real walleye, bass, pike, crappie, and panfish catches from private guided fishing trips with Brady Baxter on Detroit Lake, Pelican Lake, Lake Sallie, Big Cormorant, and 100+ Minnesota lakes.",
   "provider": {
     "@type": "LocalBusiness",
     "name": "Baxstar Fishing",
@@ -52,6 +53,7 @@ body {
   color: var(--cream);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  overscroll-behavior: none;
 }
 img { display: block; max-width: 100%; }
 
@@ -337,8 +339,15 @@ img { display: block; max-width: 100%; }
 }
 
 /* ── Reveal ── */
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.8s ease, transform 0.8s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+  will-change: transform, opacity;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); will-change: auto; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; will-change: auto; }
+}
 
 /* ── Mobile ── */
 @media (max-width: 600px) {
