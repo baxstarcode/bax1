@@ -4,19 +4,18 @@
 <meta charset="UTF-8">
 <meta name="robots" content="indexifembedded"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Baxstar Fishing reviews — 4.9 stars from 100+ verified guests. Private guided walleye and bass fishing trips on Detroit Lakes, Minnesota. Read what clients say about Brady Baxter's guided trips.">
+<meta name="description" content="Baxstar Fishing — 4.9 stars from 100+ verified guest reviews. Private guided walleye, bass, and pike fishing on Detroit Lakes, Minnesota with guide Brady Baxter.">
 
-<!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://www.baxstarfishing.com"/>
 <meta property="og:site_name" content="Baxstar Fishing"/>
 <meta property="og:title" content="Baxstar Fishing — Detroit Lakes Private Guided Fishing"/>
-<meta property="og:description" content="Detroit Lakes' only 100% private guided fishing experience. 4.9★ rated, 5× Master Angler, 30+ years on the water."/>
+<meta property="og:description" content="Detroit Lakes' only fully private guided fishing experience. 4.9★ rated, 5× Master Angler, 30+ years on the water."/>
 <meta property="og:image" content="https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg"/>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -24,141 +23,602 @@
   "@graph": [
     {
       "@type": "LocalBusiness",
+      "@id": "https://www.baxstarfishing.com/#business",
       "name": "Baxstar Fishing",
       "url": "https://www.baxstarfishing.com",
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "100", "bestRating": "5", "worstRating": "1" }
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "100",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
     },
-    { "@type": "Review", "itemReviewed": { "@type": "LocalBusiness", "name": "Baxstar Fishing" }, "author": { "@type": "Person", "name": "The Andersons" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "reviewBody": "Brady put us on fish all day — the kids are already asking when we can come back. Best fishing experience we have ever had. Every detail was covered.", "datePublished": "2025-08-01" },
-    { "@type": "Review", "itemReviewed": { "@type": "LocalBusiness", "name": "Baxstar Fishing" }, "author": { "@type": "Person", "name": "Mike R." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "reviewBody": "Flew in from Denver for a corporate retreat. Brady handled everything and made it feel effortless. Already booked for next summer.", "datePublished": "2025-07-15" },
-    { "@type": "Review", "itemReviewed": { "@type": "LocalBusiness", "name": "Baxstar Fishing" }, "author": { "@type": "Person", "name": "Tom H." }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "reviewBody": "Nobody reads conditions like Brady. He adjusted mid-morning when the bite shifted and we limited out before noon.", "datePublished": "2025-06-20" }
+    {
+      "@type": "Person",
+      "@id": "https://www.baxstarfishing.com/#brady",
+      "name": "Brady Baxter",
+      "jobTitle": "Fishing Guide & Owner",
+      "worksFor": { "@id": "https://www.baxstarfishing.com/#business" },
+      "award": [
+        "5× Minnesota Master Angler",
+        "Forbes Featured Guide",
+        "30+ Years Fishing Experience on Detroit Lakes"
+      ],
+      "knowsAbout": ["Walleye Fishing", "Smallmouth Bass", "Largemouth Bass", "Northern Pike", "Crappie", "Detroit Lakes Minnesota", "Pelican Lake Minnesota", "Cormorant Lakes"]
+    },
+    {
+      "@type": "Review",
+      "@id": "https://www.baxstarfishing.com/#review-andersons",
+      "itemReviewed": { "@id": "https://www.baxstarfishing.com/#fishing-guide-service" },
+      "author": {
+        "@type": "Person",
+        "name": "The Andersons",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Seattle",
+          "addressRegion": "WA",
+          "addressCountry": "US"
+        }
+      },
+      "mentions": { "@id": "https://www.baxstarfishing.com/#brady" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Brady put us on fish all day — the kids are already asking when we can come back. Best fishing experience we've ever had. Every detail was covered.",
+      "datePublished": "2025-08-01"
+    },
+    {
+      "@type": "Review",
+      "@id": "https://www.baxstarfishing.com/#review-mike-r",
+      "itemReviewed": { "@id": "https://www.baxstarfishing.com/#fishing-guide-service" },
+      "author": {
+        "@type": "Person",
+        "name": "Mike R.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Denver",
+          "addressRegion": "CO",
+          "addressCountry": "US"
+        }
+      },
+      "mentions": { "@id": "https://www.baxstarfishing.com/#brady" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Flew in from Denver for a corporate retreat. Brady handled three boats, kept everyone catching fish, and made it feel effortless. Already booked for next summer.",
+      "datePublished": "2025-07-15"
+    },
+    {
+      "@type": "Review",
+      "@id": "https://www.baxstarfishing.com/#review-tom-h",
+      "itemReviewed": { "@id": "https://www.baxstarfishing.com/#fishing-guide-service" },
+      "author": {
+        "@type": "Person",
+        "name": "Tom H.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Minneapolis",
+          "addressRegion": "MN",
+          "addressCountry": "US"
+        }
+      },
+      "mentions": { "@id": "https://www.baxstarfishing.com/#brady" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "I've fished with guides across the Midwest. Nobody reads conditions like Brady. He adjusted mid-morning when the bite shifted and we limited out before noon.",
+      "datePublished": "2025-06-20"
+    }
   ]
 }
 </script>
 
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
 :root {
-  --charcoal: #111114; --dark: #18181c; --mid-dark: #222228;
-  --red: #c1272d; --red-bright: #e63946;
-  --cream: #f0ece4; --warm-white: #faf8f4;
-  --gold: #c9a84c; --slate: #6b6b78;
+  --black: #08080a;
+  --charcoal: #0d0d10;
+  --dark: #131318;
+  --dark-2: #16161c;
+  --mid-dark: #1c1c24;
+  --red: #c1272d;
+  --red-bright: #e63946;
+  --red-glow: rgba(193, 39, 45, 0.18);
+  --cream: #f0ece4;
+  --warm-white: #faf8f4;
+  --gold: #c9a84c;
+  --gold-soft: #d4b558;
+  --slate: #6b6b78;
+  --slate-light: #8f8f9a;
+  --hairline: rgba(240, 236, 228, 0.07);
+  --hairline-strong: rgba(240, 236, 228, 0.14);
+
   --font-display: 'Bebas Neue', sans-serif;
   --font-body: 'Barlow', sans-serif;
   --font-condensed: 'Barlow Condensed', sans-serif;
   --font-accent: 'Cormorant Garamond', serif;
-  --section-pad: clamp(80px, 9vw, 130px);
+
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --section-pad: clamp(88px, 10vw, 144px);
 }
-body { font-family: var(--font-body); background: var(--charcoal); color: var(--cream); -webkit-font-smoothing: antialiased; overscroll-behavior: none; }
-.container { max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
-.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 
-.testimonials { padding: var(--section-pad) 0; background: var(--charcoal); }
-.testimonials__header { text-align: center; margin-bottom: clamp(50px, 6vw, 80px); }
-.testimonials__rating { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px; }
-.testimonials__stars { color: var(--gold); font-size: 22px; letter-spacing: 0.18em; }
-.testimonials__count { font-size: 14px; color: var(--slate); }
-.testimonials__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+body {
+  font-family: var(--font-body);
+  background: var(--charcoal);
+  color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+}
 
-.section-tag {
+.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+/* ── SCROLL REVEAL — Baxstar Performance Standard ───────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  will-change: transform, opacity;
+  transition: opacity 0.85s var(--ease-out), transform 0.85s var(--ease-out);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+/* ── SECTION SHELL ──────────────────────────────────────── */
+.testimonials {
+  padding: var(--section-pad) 0;
+  background: var(--charcoal);
+  position: relative;
+  overflow: hidden;
+}
+.testimonials::before,
+.testimonials::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hairline-strong), transparent);
+}
+.testimonials::before { top: 0; }
+.testimonials::after { bottom: 0; }
+
+/* Subtle radial accent — barely there */
+.testimonials__bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse at 88% 20%, rgba(122, 24, 8, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 8% 90%, rgba(122, 24, 8, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.testimonials__content { position: relative; z-index: 2; }
+
+/* ── HEADER ─────────────────────────────────────────────── */
+.t-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto clamp(56px, 7vw, 88px);
+}
+.t-eyebrow {
+  display: inline-flex; align-items: center; gap: 14px;
   font-family: var(--font-condensed);
   font-weight: 600;
   font-size: 11px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--red-bright);
-  margin-bottom: 20px;
-  display: flex; align-items: center; gap: 12px;
-  justify-content: center;
+  margin-bottom: 22px;
 }
-.section-tag::before, .section-tag::after { content: ''; width: 24px; height: 1px; background: var(--red); }
-.section-title {
+.t-eyebrow::before, .t-eyebrow::after {
+  content: '';
+  width: 28px; height: 1px;
+  background: var(--red);
+}
+.t-headline {
   font-family: var(--font-display);
-  font-size: clamp(36px, 5vw, 56px);
-  line-height: 1; letter-spacing: 0.012em;
+  font-size: clamp(42px, 5.4vw, 68px);
+  line-height: 0.94;
+  letter-spacing: 0.012em;
   text-transform: uppercase;
   color: var(--warm-white);
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
-.section-title span { color: var(--red-bright); }
-
-.test-card {
-  padding: clamp(28px, 3vw, 44px);
-  background: var(--dark);
-  border: 1px solid rgba(240,236,228,0.04);
-  display: flex; flex-direction: column; justify-content: space-between;
-  transition: border-color 0.3s, background 0.3s;
-}
-.test-card:hover { border-color: rgba(193,39,45,0.2); background: var(--mid-dark); }
-@media (prefers-reduced-motion: reduce) {
-  .test-card { transition: none; }
-}
-.test-card__stars { color: var(--gold); font-size: 14px; letter-spacing: 0.12em; margin-bottom: 20px; }
-.test-card__quote {
-  font-family: var(--font-accent);
-  font-size: clamp(17px, 1.6vw, 20px);
-  font-style: italic;
-  line-height: 1.65;
+.t-headline .accent { color: var(--red); }
+.t-bluf {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.5vw, 18px);
+  font-weight: 300;
+  line-height: 1.7;
   color: var(--cream);
-  margin-bottom: 28px;
-  flex-grow: 1;
+  max-width: 580px;
+  margin: 0 auto;
+  letter-spacing: 0.005em;
 }
-.test-card__author { font-size: 13px; font-weight: 600; color: var(--warm-white); }
-.test-card__location { font-size: 12px; color: var(--slate); font-weight: 400; margin-top: 2px; }
-.test-card__trip {
-  font-family: var(--font-condensed);
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-top: 8px;
+.t-bluf strong {
+  color: var(--warm-white);
+  font-weight: 500;
 }
 
-@media (max-width: 1024px) { .testimonials__grid { grid-template-columns: 1fr; } }
+/* ── RATING BAR ─────────────────────────────────────────── */
+.t-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 2.5vw, 28px);
+  margin: clamp(36px, 4vw, 48px) auto 0;
+  padding: 18px 28px;
+  border-top: 1px solid var(--hairline-strong);
+  border-bottom: 1px solid var(--hairline-strong);
+  max-width: 580px;
+  flex-wrap: wrap;
+}
+.t-rating__num {
+  font-family: var(--font-display);
+  font-size: 38px;
+  line-height: 1;
+  color: var(--gold);
+  letter-spacing: 0.012em;
+  font-variant-numeric: tabular-nums;
+}
+.t-rating__stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--gold);
+}
+.t-rating__stars .star { width: 16px; height: 16px; }
+.t-rating__divider {
+  width: 1px;
+  height: 28px;
+  background: var(--hairline-strong);
+}
+.t-rating__text {
+  font-family: var(--font-condensed);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--slate-light);
+}
+
+/* ── CARD GRID ──────────────────────────────────────────── */
+.t-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.4vw, 32px);
+}
+
+.t-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, var(--dark) 0%, var(--dark-2) 100%);
+  border: 1px solid var(--hairline);
+  padding: clamp(32px, 3.4vw, 44px) clamp(28px, 3vw, 40px);
+  transition:
+    transform 0.5s var(--ease-out),
+    border-color 0.4s var(--ease),
+    background 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
+}
+.t-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 36px;
+  height: 2px;
+  background: var(--red);
+  transition: width 0.45s var(--ease-out);
+}
+.t-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(193, 39, 45, 0.32);
+  background: linear-gradient(180deg, var(--dark-2) 0%, var(--mid-dark) 100%);
+  box-shadow:
+    0 24px 60px -20px rgba(0, 0, 0, 0.5),
+    0 0 0 1px var(--red-glow);
+}
+.t-card:hover::before {
+  width: 72px;
+}
+
+.t-card__stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--gold);
+  margin-bottom: clamp(20px, 2.2vw, 26px);
+}
+.t-card__stars .star { width: 14px; height: 14px; }
+
+.t-card__quote {
+  font-family: var(--font-accent);
+  font-size: clamp(18px, 1.7vw, 21px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--cream);
+  margin-bottom: clamp(28px, 3vw, 36px);
+  flex-grow: 1;
+  letter-spacing: 0.005em;
+  text-wrap: pretty;
+  quotes: "\201C" "\201D";
+}
+.t-card__quote::before {
+  content: open-quote;
+  color: var(--red);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.15em;
+  margin-right: 0.05em;
+  opacity: 0.7;
+}
+.t-card__quote::after {
+  content: close-quote;
+  color: var(--red);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.15em;
+  margin-left: 0.05em;
+  opacity: 0.7;
+}
+
+.t-card__byline {
+  border-top: 1px solid var(--hairline);
+  padding-top: clamp(18px, 2vw, 22px);
+}
+.t-card__author {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--warm-white);
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+}
+.t-card__meta {
+  font-family: var(--font-condensed);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--slate-light);
+}
+.t-card__meta .sep {
+  display: inline-block;
+  margin: 0 8px;
+  color: var(--red);
+}
+
+/* ── FOOTER LINK ────────────────────────────────────────── */
+.t-foot {
+  margin-top: clamp(48px, 5vw, 64px);
+  padding-top: clamp(28px, 3vw, 36px);
+  border-top: 1px solid var(--hairline);
+  text-align: center;
+}
+.t-foot__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-condensed);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cream);
+  text-decoration: none;
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease), gap 0.3s var(--ease-out);
+}
+.t-foot__link svg {
+  width: 12px; height: 12px;
+  transition: transform 0.3s var(--ease-out);
+}
+.t-foot__link:hover {
+  color: var(--red-bright);
+  border-color: var(--red);
+  gap: 14px;
+}
+.t-foot__link:hover svg {
+  transform: translateX(3px);
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .t-grid { grid-template-columns: 1fr; gap: 16px; }
+  .t-card__quote { font-size: 18px; }
+}
+@media (max-width: 560px) {
+  .t-rating { padding: 16px 20px; gap: 14px; }
+  .t-rating__num { font-size: 32px; }
+  .t-rating__divider { display: none; }
+  .t-rating__text { font-size: 11px; letter-spacing: 0.18em; }
+}
+
+/* ── REDUCED MOTION ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+  .t-card,
+  .t-card::before,
+  .t-foot__link,
+  .t-foot__link svg {
+    transition: none;
+  }
+  .t-card:hover {
+    transform: none;
+  }
+}
 </style>
 </head>
 <body>
 
-<section class="testimonials" aria-labelledby="test-h2">
-  <div class="container">
-    <div class="testimonials__header">
-      <div class="testimonials__rating">
-        <span class="testimonials__stars">★★★★★</span>
-        <span class="testimonials__count">4.9 from 100+ reviews</span>
+<!-- SVG sprite — single star definition, reused everywhere -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="bx-star" viewBox="0 0 24 24">
+    <path d="M12 2.6l2.95 5.98 6.6.96-4.78 4.66 1.13 6.57L12 17.66 6.1 20.77l1.13-6.57L2.45 9.54l6.6-.96L12 2.6z" fill="currentColor"/>
+  </symbol>
+  <symbol id="bx-arrow" viewBox="0 0 24 24">
+    <path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<section class="testimonials" aria-labelledby="t-headline">
+  <div class="testimonials__bg" role="presentation" aria-hidden="true"></div>
+
+  <div class="testimonials__content">
+    <div class="container">
+
+      <!-- HEADER -->
+      <header class="t-header">
+        <div class="t-eyebrow reveal">Guest Experience</div>
+        <h2 class="t-headline reveal" id="t-headline">
+          They come back <span class="accent">every year.</span>
+          <span class="sr-only"> — 4.9-star rated private guided fishing trips on Detroit Lakes, Minnesota with guide Brady Baxter</span>
+        </h2>
+        <p class="t-bluf reveal">
+          <strong>Baxstar Fishing maintains a 4.9-star average across 100+ verified Google Reviews.</strong>
+          Many clients fly in from across the country and book the following year's dates before leaving the water — three of those reviews appear below.
+        </p>
+
+        <div class="t-rating reveal" aria-label="4.9 out of 5 stars from over 100 verified reviews">
+          <span class="t-rating__num">4.9</span>
+          <span class="t-rating__stars" aria-hidden="true">
+            <svg class="star"><use href="#bx-star"/></svg>
+            <svg class="star"><use href="#bx-star"/></svg>
+            <svg class="star"><use href="#bx-star"/></svg>
+            <svg class="star"><use href="#bx-star"/></svg>
+            <svg class="star"><use href="#bx-star"/></svg>
+          </span>
+          <span class="t-rating__divider" aria-hidden="true"></span>
+          <span class="t-rating__text">100+ Verified Reviews</span>
+        </div>
+      </header>
+
+      <!-- CARD GRID -->
+      <div class="t-grid">
+
+        <article class="t-card reveal" aria-labelledby="rev-andersons">
+          <h3 class="sr-only" id="rev-andersons">Five-star review from The Andersons of Seattle, Washington</h3>
+          <div class="t-card__stars" aria-label="5 out of 5 stars">
+            <svg class="star"><use href="#bx-star"/></svg>
+            <svg class="star"><use href="#bx-star"/></svg>
+            <svg class="star"><use href="#bx-star"/></svg>
+            <svg class="star"><use href="#bx-star"/></svg>
+            <svg class="star"><use href="#bx-star"/></svg>
+          </div>
+          <blockquote class="t-card__quote">Brady put us on fish all day — the kids are already asking when we can come back. Best fishing experience we've ever had. Every detail was covered.</blockquote>
+          <div class="t-card__byline">
+            <div class="t-card__author">The Andersons</div>
+            <div class="t-card__meta">
+              Seattle, WA <span class="sep" aria-hidden="true">·</span> Guided Full Day — Walleye
+            </div>
+          </div>
+        </article>
+
+        <article class="t-card reveal" aria-labelledby="rev-mike-r">
+          <h3 class="sr-only" id="rev-mike-r">Five-star review from Mike R. of Denver, Colorado</h3>
+          <div class="t-card__stars" aria-label="5 out of 5 stars">
+            <svg class="star"><use href="#bx-star"/></svg>
+            <svg class="star"><use href="#bx-star"/></svg>
+            <svg class="star"><use href="#bx-star"/></svg>
+            <svg class="star"><use href="#bx-star"/></svg>
+            <svg class="star"><use href="#bx-star"/></svg>
+          </div>
+          <blockquote class="t-card__quote">Flew in from Denver for a corporate retreat. Brady handled three boats, kept everyone catching fish, and made it feel effortless. Already booked for next summer.</blockquote>
+          <div class="t-card__byline">
+            <div class="t-card__author">Mike R.</div>
+            <div class="t-card__meta">
+              Denver, CO <span class="sep" aria-hidden="true">·</span> Corporate Group — Multi-Day
+            </div>
+          </div>
+        </article>
+
+        <article class="t-card reveal" aria-labelledby="rev-tom-h">
+          <h3 class="sr-only" id="rev-tom-h">Five-star review from Tom H. of Minneapolis, Minnesota</h3>
+          <div class="t-card__stars" aria-label="5 out of 5 stars">
+            <svg class="star"><use href="#bx-star"/></svg>
+            <svg class="star"><use href="#bx-star"/></svg>
+            <svg class="star"><use href="#bx-star"/></svg>
+            <svg class="star"><use href="#bx-star"/></svg>
+            <svg class="star"><use href="#bx-star"/></svg>
+          </div>
+          <blockquote class="t-card__quote">I've fished with guides across the Midwest. Nobody reads conditions like Brady. He adjusted mid-morning when the bite shifted and we limited out before noon.</blockquote>
+          <div class="t-card__byline">
+            <div class="t-card__author">Tom H.</div>
+            <div class="t-card__meta">
+              Minneapolis, MN <span class="sep" aria-hidden="true">·</span> Guided Half Day — Bass &amp; Walleye
+            </div>
+          </div>
+        </article>
+
       </div>
-      <h3 class="section-tag">Guest Reviews</h3>
-      <h2 class="section-title" id="test-h2">THEY COME BACK <span>EVERY YEAR.</span><span class="sr-only"> — 4.9-star rated private guided fishing trips on Detroit Lakes, Minnesota with guide Brady Baxter</span></h2>
-    </div>
-    <div class="testimonials__grid">
-      <article class="test-card">
-        <div class="test-card__stars" aria-hidden="true">★★★★★</div>
-        <blockquote class="test-card__quote">"Brady put us on fish all day — the kids are already asking when we can come back. Best fishing experience we've ever had. Every detail was covered."</blockquote>
-        <div>
-          <div class="test-card__author">The Andersons</div>
-          <div class="test-card__location">Seattle, WA</div>
-          <div class="test-card__trip">Guided Full Day — Walleye</div>
-        </div>
-      </article>
-      <article class="test-card">
-        <div class="test-card__stars" aria-hidden="true">★★★★★</div>
-        <blockquote class="test-card__quote">"Flew in from Denver for a corporate retreat. Brady handled three boats, kept everyone catching fish, and made it feel effortless. Already booked for next summer."</blockquote>
-        <div>
-          <div class="test-card__author">Mike R.</div>
-          <div class="test-card__location">Denver, CO</div>
-          <div class="test-card__trip">Corporate Group — Multi-Day</div>
-        </div>
-      </article>
-      <article class="test-card">
-        <div class="test-card__stars" aria-hidden="true">★★★★★</div>
-        <blockquote class="test-card__quote">"I've fished with guides across the Midwest. Nobody reads conditions like Brady. He adjusted mid-morning when the bite shifted and we limited out before noon."</blockquote>
-        <div>
-          <div class="test-card__author">Tom H.</div>
-          <div class="test-card__location">Minneapolis, MN</div>
-          <div class="test-card__trip">Guided Half Day — Bass &amp; Walleye</div>
-        </div>
-      </article>
+
+      <!-- FOOTER LINK -->
+      <div class="t-foot reveal">
+        <a class="t-foot__link"
+           href="https://www.google.com/search?q=Baxstar+Fishing+Detroit+Lakes+reviews"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Read all 100+ verified Google Reviews for Baxstar Fishing">
+          Read All 100+ Reviews on Google
+          <svg aria-hidden="true"><use href="#bx-arrow"/></svg>
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
+
+<!-- ════════════════════════════════════════
+     SCROLL REVEAL — Baxstar Performance Standard
+     1. Stagger via CSS transitionDelay stamped per-element
+     2. requestAnimationFrame wrapper on classList.add
+     3. will-change preset in CSS, reset on .visible
+     4. prefers-reduced-motion in both CSS + JS
+════════════════════════════════════════ -->
+<script>
+(function(){
+  'use strict';
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
+
+  // Stamp transitionDelay once at init — never inside the observer
+  var STAGGER_MS = 90;
+  reveals.forEach(function(el, i){
+    el.style.transitionDelay = (i * STAGGER_MS) + 'ms';
+  });
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    reveals.forEach(function(el){ el.classList.add('visible'); });
+    return;
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        var target = entry.target;
+        // rAF wrap keeps class change on compositor frame
+        requestAnimationFrame(function(){
+          target.classList.add('visible');
+        });
+        io.unobserve(target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -60px 0px'
+  });
+
+  reveals.forEach(function(el){ io.observe(el); });
+})();
+</script>
 
 <!-- IFRAME HEIGHT REPORTER -->
 <script>
