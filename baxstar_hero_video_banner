@@ -301,8 +301,8 @@ body{overscroll-behavior-y:auto}
 (function(){
   // ONE video everywhere — eliminates iframe-width detection bugs.
   // Tries 1080p first, falls back to 720p if the HD asset 404s.
-  var VIDEO_HD = 'https://video.wixstatic.com/video/a30e59_7c53d22fbb7641f0a1bbf08c2a000c93/1080p/mp4/file.mp4';
-  var VIDEO_SD = 'https://video.wixstatic.com/video/a30e59_7c53d22fbb7641f0a1bbf08c2a000c93/720p/mp4/file.mp4';
+  var VIDEO_HD = 'https://video.wixstatic.com/video/a30e59_7c53d22fbb7641f0a1bbf08c2a000c93/1080p/mp4/file.mp4#t=0.001';
+  var VIDEO_SD = 'https://video.wixstatic.com/video/a30e59_7c53d22fbb7641f0a1bbf08c2a000c93/720p/mp4/file.mp4#t=0.001';
 
   var videoWrap = document.getElementById('heroVideo');
   var videoEl = videoWrap ? videoWrap.querySelector('video') : null;
