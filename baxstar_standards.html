@@ -1,184 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Baxstar Standard — Baxstar Fishing</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  <!-- Primary SEO -->
-<meta name="description" content="Three non-negotiables behind every Baxstar guided fishing trip on Detroit Lakes, Minnesota: 100% private boat, tournament-grade Vexus equipment, and 30+ years of local walleye and bass knowledge.">
-<meta name="robots" content="indexifembedded"/>
+:root {
+  --black: #08080a;
+  --charcoal: #111114;
+  --dark: #18181c;
+  --mid-dark: #222228;
+  --red: #c1272d;
+  --red-bright: #e63946;
+  --red-deep: #8b1a1f;
+  --cream: #f0ece4;
+  --warm-white: #faf8f4;
+  --gold: #c9a84c;
+  --gold-dim: #9a7d3a;
+  --slate: #6b6b78;
+  --light-slate: #9a9aaa;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+  --font-accent: 'Cormorant Garamond', serif;
+  --max-w: 1320px;
+  --section-pad: clamp(80px, 10vw, 140px);
+}
 
-<!-- Open Graph -->
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://www.baxstarfishing.com"/>
-<meta property="og:site_name" content="Baxstar Fishing"/>
-<meta property="og:title" content="Baxstar Fishing — Detroit Lakes Private Guided Fishing"/>
-<meta property="og:description" content="Detroit Lakes' only 100% private guided fishing experience. 4.9★ rated, 5× Master Angler, 30+ years on the water."/>
-<meta property="og:image" content="https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg"/>
-<meta property="og:locale" content="en_US"/>
+html { scroll-behavior: smooth; }
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Baxstar Fishing — Detroit Lakes Private Guided Fishing"/>
-<meta name="twitter:description" content="Detroit Lakes' only 100% private guided fishing experience. 4.9★ rated, 5× Master Angler, 30+ years on the water."/>
-<meta name="twitter:image" content="https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg"/>
+body {
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
 
-<!-- JSON-LD: ItemList of differentiators + Service association -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "The Baxstar Standard",
-    "description": "Three core differentiators of a Baxstar Fishing private guided trip in Detroit Lakes, Minnesota.",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Private by Design",
-        "description": "Every trip is booked exclusively for your group — no shared boats, ever."
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Tournament-Grade Equipment",
-        "description": "Vexus DVX20S, Humminbird MEGA Live sonar, pro-grade rods, precision-rigged tackle, fresh live bait."
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Thirty Years of Local Intelligence",
-        "description": "100+ bodies of water across every season, condition, and weather pattern in the Detroit Lakes region."
-      }
-    ],
-    "about": {
-      "@type": "LocalBusiness",
-      "name": "Baxstar Fishing",
-      "url": "https://www.baxstarfishing.com/",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Detroit Lakes",
-        "addressRegion": "MN",
-        "addressCountry": "US"
-      }
-    }
-  }
-  </script>
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
 
-  <!-- Performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
 
-  <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --black: #08080a; --charcoal: #111114; --red: #c1272d; --red-bright: #e63946;
-    --cream: #f0ece4; --warm-white: #faf8f4; --slate: #6b6b78; --light-slate: #9a9aaa;
-    --font-display: 'Bebas Neue', sans-serif; --font-body: 'Barlow', sans-serif;
-    --font-accent: 'Cormorant Garamond', serif;
-    --max-w: 1320px; --section-pad: clamp(80px, 10vw, 140px);
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: var(--font-body); background: var(--black); color: var(--cream); -webkit-font-smoothing: antialiased; overflow-x: hidden; overscroll-behavior: none; }
-  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
+/* Shared buttons */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 17px 38px;
+  background: var(--red); color: white;
+  font-family: var(--font-body); font-weight: 600; font-size: 13px;
+  letter-spacing: 2px; text-transform: uppercase;
+  border: none; cursor: pointer;
+  transition: all 0.3s ease; position: relative; overflow: hidden;
+}
+.btn-primary::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.btn-primary:hover {
+  background: var(--red-bright); transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(193, 39, 45, 0.45);
+}
+.btn-primary:hover::after { opacity: 1; }
 
-  .section-tag { font-family: var(--font-body); font-weight: 500; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--red-bright); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
-  .section-tag::before { content: ''; width: 24px; height: 1px; background: var(--red); }
-  .section-title { font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px); line-height: 1; letter-spacing: 1px; text-transform: uppercase; color: var(--warm-white); margin-bottom: 28px; }
-  .section-title span { color: var(--red-bright); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 17px 32px;
+  background: transparent; color: var(--cream);
+  font-family: var(--font-body); font-weight: 500; font-size: 13px;
+  letter-spacing: 2px; text-transform: uppercase;
+  border: 1px solid rgba(240,236,228,0.2);
+  cursor: pointer; transition: all 0.3s ease;
+}
+.btn-ghost:hover {
+  border-color: rgba(240,236,228,0.55);
+  background: rgba(240,236,228,0.05);
+}
 
-  .reveal {
+/* Shared section elements */
+.section-tag {
+  font-family: var(--font-body); font-weight: 500;
+  font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--red-bright); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-tag::before {
+  content: ''; width: 24px; height: 1px; background: var(--red);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1; letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--warm-white);
+  margin-bottom: 28px;
+}
+.section-title span { color: var(--red-bright); }
+
+/* Scroll reveal */
+.reveal {
   opacity: 0; transform: translateY(28px);
-  transition: opacity 0.75s ease, transform 0.75s ease;
-  will-change: transform, opacity;
+  transition: opacity 0.85s ease, transform 0.85s ease;
 }
-.reveal.visible { opacity: 1; transform: translateY(0); will-change: auto; }
-@media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; will-change: auto; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+
+.standard {
+  padding: var(--section-pad) 0;
+  background: var(--charcoal);
+  position: relative; overflow: hidden;
 }
+.standard::before, .standard::after {
+  content: ''; position: absolute; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(240,236,228,0.07), transparent);
+}
+.standard::before { top: 0; }
+.standard::after { bottom: 0; }
+.standard__header {
+  text-align: center; margin-bottom: clamp(56px, 7vw, 90px);
+}
+.standard__sub {
+  font-family: var(--font-accent);
+  font-size: clamp(19.55px, 2.07vw, 23px);
+  font-style: italic; color: var(--light-slate);
+  max-width: 500px; margin: 0 auto; line-height: 1.6;
+}
+.standard__grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: rgba(240,236,228,0.05);
+}
+.standard__item {
+  padding: clamp(40px, 5vw, 64px) clamp(32px, 4vw, 52px);
+  background: var(--charcoal); position: relative;
+  transition: background 0.4s;
+}
+.standard__item:hover { background: #141418; }
+.standard__num {
+  font-family: var(--font-display); font-size: 80px;
+  color: rgba(240,236,228,0.03); line-height: 1;
+  position: absolute; top: 20px; right: 28px;
+  letter-spacing: 2px; pointer-events: none; user-select: none;
+}
+.standard__bar {
+  width: 36px; height: 2px; background: var(--red);
+  margin-bottom: 28px; transition: width 0.4s ease;
+}
+.standard__item:hover .standard__bar { width: 52px; }
+.standard__title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 2.5vw, 32px);
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--warm-white); margin-bottom: 16px; line-height: 1.1;
+}
+.standard__text {
+  font-size: 17.25px; line-height: 1.8;
+  color: var(--slate); font-weight: 300; max-width: 320px;
+}
+@media (max-width: 1024px) { .standard__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .standard__grid { grid-template-columns: 1fr; } }
 
-  .standard { padding: var(--section-pad) 0; background: var(--charcoal); position: relative; overflow: hidden; }
-  .standard::before, .standard::after { content: ''; position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(240,236,228,0.07), transparent); }
-  .standard::before { top: 0; } .standard::after { bottom: 0; }
-  .standard__header { text-align: center; margin-bottom: clamp(56px, 7vw, 90px); }
-  .standard__sub { font-family: var(--font-accent); font-size: clamp(17px, 1.8vw, 20px); font-style: italic; color: var(--light-slate); max-width: 500px; margin: 0 auto; line-height: 1.6; }
-  .standard__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(240,236,228,0.05); }
-  .standard__item { padding: clamp(40px, 5vw, 64px) clamp(32px, 4vw, 52px); background: var(--charcoal); position: relative; transition: background 0.4s; }
-  .standard__item:hover { background: #141418; }
-  .standard__num { font-family: var(--font-display); font-size: 80px; color: rgba(240,236,228,0.03); line-height: 1; position: absolute; top: 20px; right: 28px; letter-spacing: 2px; pointer-events: none; user-select: none; }
-  .standard__bar { width: 36px; height: 2px; background: var(--red); margin-bottom: 28px; transition: width 0.4s ease; }
-  .standard__item:hover .standard__bar { width: 52px; }
-  .standard__title { font-family: var(--font-display); font-size: clamp(24px, 2.5vw, 32px); text-transform: uppercase; letter-spacing: 1px; color: var(--warm-white); margin-bottom: 16px; line-height: 1.1; }
-  .standard__text { font-size: 15px; line-height: 1.8; color: var(--slate); font-weight: 300; max-width: 320px; }
-
-  @media (max-width: 1024px) { .standard__grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 640px) { .standard__grid { grid-template-columns: 1fr; } }
-  </style>
+</style>
 </head>
 <body>
-<section class="standard" id="baxstar-standard" aria-labelledby="standard-h1">
-  <div class="container">
-    <header class="standard__header reveal">
-      <p class="section-tag" style="justify-content: center;">Why Baxstar</p>
-      <h1 class="section-title" id="standard-h1">THE BAXSTAR <span>STANDARD.</span></h1>
-      <p class="standard__sub">
-        Three non-negotiables that separate a Baxstar private guided fishing trip
-        from every other experience in the Detroit Lakes, Minnesota region.
-      </p>
-    </header>
 
-    <ol class="standard__grid" role="list" style="list-style:none">
-      <li class="standard__item reveal">
-        <div class="standard__num" aria-hidden="true">01</div>
-        <div class="standard__bar" aria-hidden="true"></div>
-        <h2 class="standard__title">PRECISION-GUIDED<br>RESULTS</h2>
+
+<section class="standard">
+  <div class="container">
+    <div class="standard__header reveal">
+      <div class="section-tag" style="justify-content: center;">Why Baxstar</div>
+      <h2 class="section-title">THE BAXSTAR <span>STANDARD.</span></h2>
+      <p class="standard__sub">
+        Three non-negotiables that separate a Baxstar trip from 
+        every other guided experience in the region.
+      </p>
+    </div>
+    <div class="standard__grid">
+      <div class="standard__item reveal">
+        <div class="standard__num">01</div>
+        <div class="standard__bar"></div>
+        <div class="standard__title">Private<br>by Design</div>
         <p class="standard__text">
-         Every trip is built around putting you on fish — not just going through the motions. Adjustments are constant, decisions are deliberate, and the goal is simple: maximize your time on the water.
+          You will never share the boat with strangers. Every trip is booked 
+          exclusively for your group — your pace, your targets, your experience. 
+          This isn't how most guides operate. It's the only way Brady does.
         </p>
-      </li>
-      <li class="standard__item reveal">
-        <div class="standard__num" aria-hidden="true">02</div>
-        <div class="standard__bar" aria-hidden="true"></div>
-        <h2 class="standard__title">Tournament-Grade<br>Equipment</h2>
+      </div>
+      <div class="standard__item reveal">
+        <div class="standard__num">02</div>
+        <div class="standard__bar"></div>
+        <div class="standard__title">Tournament-Grade<br>Equipment</div>
         <p class="standard__text">
-          The <strong>Vexus DVX20S</strong>. <strong>Garmin LiveScope</strong> sonar. Pro-grade rods,
-          precision-rigged tackle, and fresh live bait for every walleye, bass, pike, or panfish trip.
+          The Vexus DVX20S. Humminbird MEGA Live sonar. Pro-grade rods, 
+          precision-rigged tackle, and fresh live bait for every trip. 
           The kind of setup most anglers only read about — standard here.
         </p>
-      </li>
-      <li class="standard__item reveal">
-        <div class="standard__num" aria-hidden="true">03</div>
-        <div class="standard__bar" aria-hidden="true"></div>
-        <h2 class="standard__title">Thirty Years of<br>Local Intelligence</h2>
+      </div>
+      <div class="standard__item reveal">
+        <div class="standard__num">03</div>
+        <div class="standard__bar"></div>
+        <div class="standard__title">Thirty Years of<br>Local Intelligence</div>
         <p class="standard__text">
-          Brady has fished 100+ bodies of water across the Detroit Lakes region in every
-          season, every condition, every weather pattern. He doesn't guess
+          Brady has fished 100+ bodies of water in this region across every 
+          season, every condition, every weather pattern. He doesn't guess 
           where the fish are. He knows. No algorithm replicates that.
         </p>
-      </li>
-    </ol>
+      </div>
+    </div>
   </div>
 </section>
 
+
 <script>
-(function () {
-  var reveals = document.querySelectorAll('.reveal');
-  if (!reveals.length) return;
-  reveals.forEach(function(el, i) { el.style.transitionDelay = (i * 65) + 'ms'; });
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    reveals.forEach(function(el) { el.style.transitionDelay = '0ms'; el.classList.add('visible'); });
-    return;
-  }
-  var io = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        requestAnimationFrame(function() { entry.target.classList.add('visible'); });
-        io.unobserve(entry.target);
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
-  reveals.forEach(function(el) { io.observe(el); });
-}());
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
 </script>
+
 </body>
 </html>
