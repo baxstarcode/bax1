@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="robots" content="indexifembedded"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Real catches from real clients — walleye, bass, pike, crappie, and sunfish from private guided fishing trips with Baxstar Fishing, Detroit Lakes Minnesota.">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website"/>
@@ -18,18 +20,17 @@
 <meta name="twitter:title" content="Baxstar Fishing — Detroit Lakes Private Guided Fishing"/>
 <meta name="twitter:description" content="Detroit Lakes' only 100% private guided fishing experience. 4.9★ rated, 5× Master Angler, 30+ years on the water."/>
 <meta name="twitter:image" content="https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Real catches from real clients — guided fishing trips with Baxstar Fishing, Detroit Lakes Minnesota's premier private guide service.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ImageGallery",
   "name": "Baxstar Fishing Catch Gallery — Detroit Lakes, Minnesota",
-  "description": "Real catches from real clients — walleye, bass, pike, crappie, and panfish from private guided fishing trips on Detroit Lake, Pelican Lake, Lake Sallie, Big Cormorant, and 100+ Minnesota lakes with guide Brady Baxter.",
+  "description": "Real catches from real clients — walleye, bass, pike, crappie, sunfish, and panfish from private guided fishing trips on Detroit Lake, Pelican Lake, Lake Sallie, Big Cormorant, and 100+ Minnesota lakes with guide Brady Baxter.",
   "author": {
     "@type": "Person",
     "name": "Brady Baxter",
@@ -66,6 +67,7 @@
   --light-slate: #9a9aaa;
   --font-display: 'Bebas Neue', sans-serif;
   --font-body:    'Barlow', sans-serif;
+  --font-condensed: 'Barlow Condensed', sans-serif;
   --font-accent:  'Cormorant Garamond', serif;
   --photo-ratio:  952 / 1288;
   --card-w: clamp(220px, 28vw, 310px);
@@ -83,8 +85,10 @@ body {
 }
 img { display: block; max-width: 100%; }
 
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
 .gallery-section {
-  padding: clamp(60px, 8vw, 110px) 0 clamp(50px, 6vw, 90px);
+  padding: clamp(80px, 9vw, 130px) 0 clamp(60px, 7vw, 100px);
   background: var(--black);
   position: relative;
 }
@@ -101,10 +105,10 @@ img { display: block; max-width: 100%; }
   margin-bottom: clamp(32px, 4vw, 48px);
 }
 .section-tag {
-  font-family: var(--font-body);
-  font-weight: 500;
+  font-family: var(--font-condensed);
+  font-weight: 600;
   font-size: 11px;
-  letter-spacing: 4px;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--red-bright);
   margin-bottom: 16px;
@@ -119,7 +123,7 @@ img { display: block; max-width: 100%; }
 .gallery-title {
   font-family: var(--font-display);
   font-size: clamp(36px, 5vw, 58px);
-  line-height: 1; letter-spacing: 1px;
+  line-height: 1; letter-spacing: 0.012em;
   text-transform: uppercase;
   color: var(--warm-white);
   margin-bottom: 14px;
@@ -131,16 +135,18 @@ img { display: block; max-width: 100%; }
   font-size: clamp(15px, 1.6vw, 18px);
   color: var(--light-slate);
   line-height: 1.6;
+  max-width: 580px;
+  margin: 0 auto;
 }
 
 .scroll-hint {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   gap: 10px;
   margin-bottom: clamp(20px, 2.5vw, 32px);
+  font-family: var(--font-condensed);
   font-size: 11px;
-  letter-spacing: 3px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--light-slate);
   opacity: 0;
@@ -165,8 +171,7 @@ img { display: block; max-width: 100%; }
 }
 
 .track-outer { position: relative; }
-.track-outer::before,
-.track-outer::after {
+.track-outer::before, .track-outer::after {
   content: '';
   position: absolute; top: 0; bottom: 0;
   width: clamp(32px, 5vw, 80px);
@@ -188,7 +193,7 @@ img { display: block; max-width: 100%; }
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  padding: 4px clamp(24px, 6vw, 90px) 4px;
+  padding: 4px clamp(24px, 6vw, 90px);
   cursor: grab;
   scrollbar-width: none;
   align-items: flex-start;
@@ -211,13 +216,12 @@ img { display: block; max-width: 100%; }
 .photo-card:hover { border-color: rgba(193,39,45,0.4); }
 
 .photo-card img {
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   object-fit: cover;
   object-position: center center;
   display: block;
   transition: transform 0.6s ease, filter 0.4s ease;
-  filter: brightness(0.9) saturate(1.05);
+  filter: brightness(0.92) saturate(1.05);
 }
 .photo-card:hover img {
   transform: scale(1.04);
@@ -244,7 +248,8 @@ img { display: block; max-width: 100%; }
   display: flex; align-items: center; justify-content: center;
   opacity: 0; transform: scale(0.75);
   transition: opacity 0.3s, transform 0.3s;
-  z-index: 3; backdrop-filter: blur(4px);
+  z-index: 3;
+  backdrop-filter: blur(4px);
 }
 .photo-card:hover .card-zoom { opacity: 1; transform: scale(1); }
 .card-zoom svg { stroke: var(--cream); }
@@ -260,11 +265,13 @@ img { display: block; max-width: 100%; }
 .nav-btn {
   width: 48px; height: 48px;
   border: 1px solid rgba(240,236,228,0.15);
-  background: transparent; color: var(--cream);
+  background: transparent;
+  color: var(--cream);
   cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   transition: all 0.3s ease;
-  position: relative; overflow: hidden; flex-shrink: 0;
+  position: relative; overflow: hidden;
+  flex-shrink: 0;
 }
 .nav-btn::before {
   content: ''; position: absolute; inset: 0;
@@ -281,18 +288,24 @@ img { display: block; max-width: 100%; }
 
 .progress-wrap { flex: 1; max-width: 340px; }
 .progress-track {
-  height: 1px; background: rgba(240,236,228,0.1); position: relative; overflow: hidden;
+  height: 1px; background: rgba(240,236,228,0.1);
+  position: relative; overflow: hidden;
 }
 .progress-fill {
   position: absolute; left: 0; top: 0; bottom: 0;
-  background: var(--red); transition: width 0.4s ease; width: 10%;
+  background: var(--red);
+  transition: width 0.4s ease; width: 8%;
 }
 .counter-label {
   text-align: center; margin-top: 10px;
-  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  font-family: var(--font-condensed);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
   color: var(--light-slate);
 }
-.counter-label strong { color: var(--cream); font-weight: 500; }
+.counter-label strong { color: var(--cream); font-weight: 600; }
 
 .lightbox {
   position: fixed; inset: 0;
@@ -320,9 +333,11 @@ img { display: block; max-width: 100%; }
 }
 .lb-close {
   position: absolute; top: -42px; right: 0;
-  background: none; border: none; color: var(--cream);
+  background: none; border: none;
+  color: var(--cream);
   font-size: 28px; cursor: pointer; line-height: 1;
-  opacity: 0.6; transition: opacity 0.2s, color 0.2s;
+  opacity: 0.6;
+  transition: opacity 0.2s, color 0.2s;
 }
 .lb-close:hover { opacity: 1; color: var(--red-bright); }
 .lb-nav {
@@ -343,12 +358,15 @@ img { display: block; max-width: 100%; }
   .lb-nav.lb-next { right: 8px; }
 }
 
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.75s ease, transform 0.75s ease; will-change: transform, opacity; }
+.reveal {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+  will-change: transform, opacity;
+}
 .reveal.visible { opacity: 1; transform: translateY(0); will-change: auto; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; will-change: auto; }
 }
-
 @media (max-width: 600px) {
   :root { --card-w: 72vw; }
 }
@@ -356,11 +374,11 @@ img { display: block; max-width: 100%; }
 </head>
 <body>
 
-<section class="gallery-section" aria-label="Baxstar Fishing Catch Gallery">
+<section class="gallery-section" aria-labelledby="gallery-h2">
 
   <div class="gallery-header reveal">
-    <div class="section-tag">From The Water</div>
-    <h2 class="gallery-title">REAL CATCHES. <span>REAL CLIENTS.</span><span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0"> — Walleye, Bass, and Pike Caught on Detroit Lakes, Minnesota Guided Fishing Trips with Baxstar Fishing</span></h2>
+    <h3 class="section-tag">From The Water</h3>
+    <h2 class="gallery-title" id="gallery-h2">REAL CATCHES. <span>REAL CLIENTS.</span><span class="sr-only"> — Walleye, Bass, Pike, Crappie, and Sunfish caught on Detroit Lakes, Minnesota Guided Fishing Trips with Baxstar Fishing</span></h2>
     <p class="gallery-sub">Every photo is a day someone stepped off the water smiling — on Detroit Lake, Pelican Lake, Lake Sallie, Big Cormorant, or one of 100+ Minnesota waters.</p>
   </div>
 
@@ -370,8 +388,7 @@ img { display: block; max-width: 100%; }
   </div>
 
   <div class="track-outer reveal">
-    <div class="track-scroll" id="trackScroll" role="list" aria-label="Photo gallery">
-    </div>
+    <div class="track-scroll" id="trackScroll" role="list" aria-label="Photo gallery"></div>
   </div>
 
   <div class="gallery-nav reveal">
@@ -382,7 +399,7 @@ img { display: block; max-width: 100%; }
     </button>
     <div class="progress-wrap">
       <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-      <div class="counter-label" id="counterLabel"><strong>1</strong> of 10</div>
+      <div class="counter-label" id="counterLabel"><strong>1</strong> of 12</div>
     </div>
     <button class="nav-btn" id="btnNext" aria-label="Next photo">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -407,29 +424,79 @@ img { display: block; max-width: 100%; }
 </div>
 
 <script>
-
-// ============================================================
-// PHOTO LIBRARY — SWAP IMAGES HERE
-// Replace each URL with your Wix Media Manager image URL.
-// Alt text = brief description for SEO.
-// To add more photos: copy a line, paste it, update URL + alt.
-// To remove a photo: delete the line (keep the comma pattern).
-// ============================================================
+// ════════════════════════════════════════════════════════════════
+// PHOTO LIBRARY — 12 NEW VERTICAL .WEBP FILES
+// ════════════════════════════════════════════════════════════════
+// FOR BRADY: After uploading each .webp file to your Wix Media
+// Manager, replace the placeholder URL below with the URL Wix
+// gives you. The "Local file:" comment shows which file each
+// line corresponds to. Paste the new Wix CDN URL after `src: "`
+// and remove the placeholder URL.
+// ════════════════════════════════════════════════════════════════
 const IMAGES = [
-  { src: "https://static.wixstatic.com/media/a30e59_5340c17a5655428889cea27e9cf73e78~mv2.jpeg", alt: "Client holding trophy walleye — Baxstar Fishing guided trip, Detroit Lakes MN" },
-  { src: "https://static.wixstatic.com/media/a30e59_3ce14c070a1343359a516e92ec69a3df~mv2.jpg", alt: "Big crappie on Baxstar Fishing guided trip, Minnesota" },
-  { src: "https://static.wixstatic.com/media/a30e59_9e13833b3c9646439b7eafe071e823f3~mv2.jpg", alt: "Happy angler with trophy smallmouth bass — Baxstar Fishing Detroit Lakes" },
-  { src: "https://static.wixstatic.com/media/a30e59_5d40a806876149508cae8faeecb3b56e~mv2.jpeg", alt: "Successful guided bass fishing trip with Brady Baxter, Detroit Lakes MN" },
-  { src: "https://static.wixstatic.com/media/a30e59_4172c42b2577438396947c4639603780~mv2.jpg", alt: "Trophy northn pike catch — Baxstar Fishing private guide service" },
-  { src: "https://static.wixstatic.com/media/a30e59_8f3b4fd09aa44e94850d106bc7135b99~mv2.jpeg", alt: "Client with big fish on Baxstar Fishing guided trip" },
-  { src: "https://static.wixstatic.com/media/a30e59_f60b231e74de4a60a0d2bb0f6470733a~mv2.jpeg", alt: "Northern Minnesota guided fishing experience with Baxstar" },
-  { src: "https://static.wixstatic.com/media/a30e59_7156471ff7bc41f9a483f7cec2057416~mv2.jpeg", alt: "Catching dinner on Detroit Lakes guided fishing trip" },
-  { src: "https://static.wixstatic.com/media/a30e59_747e0b60108c4bbe9115dfc05e1250a9~mv2.jpg", alt: "Smiling client with prize smallmouth bass — Baxstar Fishing Minnesota" },
-  { src: "https://static.wixstatic.com/media/a30e59_a61cd98b135b44d396b3fc7e85cc7b06~mv2.jpeg", alt: "Big bass on Baxstar Fishing private guided trip" }
+  // 1. Sunset Striker hoodie walleye — gallery hero
+  // Local file: Big_Walleye_from_Baxstar_Fishing.webp
+  { src: "https://static.wixstatic.com/media/a30e59_REPLACE_001~mv2.webp",
+    alt: "Trophy walleye caught at sunset on Detroit Lakes guided fishing trip with Baxstar Fishing, Minnesota" },
+
+  // 2. Brady with walleye, sunset
+  // Local file: Baxstar_Website_Brady_with_Walleye_Vertical.webp
+  { src: "https://static.wixstatic.com/media/a30e59_REPLACE_002~mv2.webp",
+    alt: "Guide Brady Baxter with walleye on Detroit Lakes private guided fishing trip, Baxstar Fishing Minnesota" },
+
+  // 3. Man with bass on water
+  // Local file: Baxstar_Website_Man_with_Bass_Vertical.webp
+  { src: "https://static.wixstatic.com/media/a30e59_REPLACE_003~mv2.webp",
+    alt: "Client with largemouth bass on Baxstar Fishing guided trip, Detroit Lakes Minnesota" },
+
+  // 4. Man with stringer of crappies
+  // Local file: Baxstar_Website_Man_With_Crappies.webp
+  { src: "https://static.wixstatic.com/media/a30e59_REPLACE_004~mv2.webp",
+    alt: "Stringer of crappies caught on Detroit Lakes guided fishing trip with Baxstar Fishing, Minnesota" },
+
+  // 5. Big northern pike sunset
+  // Local file: Baxstar_Website_Man_with_Pike.webp
+  { src: "https://static.wixstatic.com/media/a30e59_REPLACE_005~mv2.webp",
+    alt: "Trophy northern pike at sunset — Baxstar Fishing private guided trip, Detroit Lakes Minnesota" },
+
+  // 6. Older man with smallmouth bass
+  // Local file: Baxstar_Website_Man_with_Smallmouth_Bass.webp
+  { src: "https://static.wixstatic.com/media/a30e59_REPLACE_006~mv2.webp",
+    alt: "Trophy smallmouth bass caught on Detroit Lakes guided fishing trip with Baxstar Fishing, Minnesota" },
+
+  // 7. NDSU Bison hoodie walleye
+  // Local file: Big_Walleye.webp
+  { src: "https://static.wixstatic.com/media/a30e59_REPLACE_007~mv2.webp",
+    alt: "Big walleye caught on Detroit Lakes private guided fishing trip with Baxstar Fishing, Minnesota" },
+
+  // 8. Three generations group photo with mansion backdrop
+  // Local file: Baxstar_WebsiteGreat_group_pic.webp
+  { src: "https://static.wixstatic.com/media/a30e59_REPLACE_008~mv2.webp",
+    alt: "Three-generation family on private guided fishing trip with Baxstar Fishing, Detroit Lakes Minnesota" },
+
+  // 9. Big northern pike with dramatic sky
+  // Local file: Big_Northern_Pike.webp
+  { src: "https://static.wixstatic.com/media/a30e59_REPLACE_009~mv2.webp",
+    alt: "Trophy northern pike caught on Baxstar Fishing private guided trip, Detroit Lakes Minnesota" },
+
+  // 10. Father and son with massive pike
+  // Local file: Big_Pike.webp
+  { src: "https://static.wixstatic.com/media/a30e59_REPLACE_010~mv2.webp",
+    alt: "Father and son with trophy northern pike on Baxstar Fishing Vexus boat, Detroit Lakes Minnesota" },
+
+  // 11. Boy with green sunfish, life vest, blue lake
+  // Local file: Baxstar_Website_Boy_With_Green_Sunfish.webp
+  { src: "https://static.wixstatic.com/media/a30e59_REPLACE_011~mv2.webp",
+    alt: "Young angler with green sunfish on family-friendly Baxstar Fishing guided trip, Detroit Lakes Minnesota" },
+
+  // 12. Man with big walleye
+  // Local file: IMG_0235.webp
+  { src: "https://static.wixstatic.com/media/a30e59_REPLACE_012~mv2.webp",
+    alt: "Client with trophy walleye on Detroit Lakes private guided fishing trip with Baxstar Fishing, Minnesota" }
 ];
-// ============================================================
-// END PHOTO LIBRARY — do not edit below this line
-// ============================================================
+// ════════════════════════════════════════════════════════════════
+// END PHOTO LIBRARY
+// ════════════════════════════════════════════════════════════════
 
 const track   = document.getElementById('trackScroll');
 const btnPrev = document.getElementById('btnPrev');
@@ -546,6 +613,7 @@ lb.addEventListener('touchend', e => {
 
 updateUI();
 
+// Scroll reveal
 (function() {
   var revs = document.querySelectorAll('.reveal');
   if (!revs.length) return;
@@ -564,7 +632,37 @@ updateUI();
   }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
   revs.forEach(function(el) { io.observe(el); });
 }());
-
 </script>
+
+<!-- ════════════════════════════════════════════════════════════════
+     IFRAME HEIGHT REPORTER — Wix Custom Embed auto-resize
+     This tells the Wix parent page how tall this section actually is.
+     Without this, the iframe stays a fixed height and content gets cut off.
+════════════════════════════════════════════════════════════════════ -->
+<script>
+(function() {
+  if (window.parent === window) return;
+  var lastH = 0;
+  function report() {
+    var h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body ? document.body.scrollHeight : 0
+    );
+    if (h && h !== lastH) {
+      lastH = h;
+      try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch (e) {}
+      try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch (e) {}
+      try { window.parent.postMessage('height:' + h, '*'); } catch (e) {}
+    }
+  }
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  if (window.ResizeObserver) {
+    try { new ResizeObserver(report).observe(document.body); } catch (e) {}
+  }
+  setInterval(report, 1500);
+})();
+</script>
+
 </body>
 </html>
