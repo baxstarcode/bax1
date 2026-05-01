@@ -125,7 +125,7 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{width:100%;overflow-x:hidden;background:#08080a}
-body{overscroll-behavior-y:auto}
+body{overscroll-behavior-y:auto;-webkit-tap-highlight-color:transparent}
 
 :root{
   --red:#c1272d;
@@ -137,9 +137,9 @@ body{overscroll-behavior-y:auto}
 }
 
 .hero{position:relative;width:100%;min-height:100vh;min-height:100svh;overflow:hidden;display:flex;align-items:stretch;background:var(--bg)}
-.hero__bg-img{position:absolute;inset:0;z-index:1;background-image:url('https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg');background-size:cover;background-position:center 25%;will-change:transform}
-.hero__video{position:absolute;inset:0;z-index:2;opacity:0;transition:opacity 1.4s cubic-bezier(0.4,0,0.2,1);pointer-events:none}
-.hero__video video{width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.hero__bg-img{position:absolute;inset:0;z-index:1;background-image:url('https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg');background-size:cover;background-position:center 25%;transform:translateZ(0);backface-visibility:hidden}
+.hero__video{position:absolute;inset:0;z-index:2;opacity:0;transition:opacity 0.15s linear;pointer-events:none;will-change:opacity,transform;transform:translateZ(0);backface-visibility:hidden}
+.hero__video video{width:100%;height:100%;object-fit:cover;object-position:center 25%;will-change:transform;transform:translateZ(0);backface-visibility:hidden}
 .hero__video.is-ready{opacity:1}
 
 .hero__veil{position:absolute;inset:0;z-index:3;background:linear-gradient(105deg,rgba(8,8,10,0.93) 0%,rgba(8,8,10,0.78) 35%,rgba(8,8,10,0.35) 62%,rgba(8,8,10,0.08) 100%)}
@@ -155,7 +155,7 @@ body{overscroll-behavior-y:auto}
 .bracket--bl{bottom:24px;left:24px;border-bottom:1.5px solid var(--red);border-left:1.5px solid var(--red);animation-delay:0.6s}
 .bracket--br{bottom:24px;right:24px;border-bottom:1.5px solid var(--red);border-right:1.5px solid var(--red);animation-delay:0.75s}
 @keyframes bracketIn{to{opacity:1}}
-.bracket::after{content:'';position:absolute;width:5px;height:5px;background:var(--red);border-radius:50%;box-shadow:0 0 8px 3px var(--red-glow);animation:pulse 3s ease-in-out infinite}
+.bracket::after{content:'';position:absolute;width:5px;height:5px;background:var(--red);border-radius:50%;box-shadow:0 0 8px 3px var(--red-glow);animation:pulse 3s ease-in-out infinite;will-change:transform,opacity}
 .bracket--tl::after{top:-2.5px;left:-2.5px}
 .bracket--tr::after{top:-2.5px;right:-2.5px}
 .bracket--bl::after{bottom:-2.5px;left:-2.5px}
@@ -206,6 +206,7 @@ body{overscroll-behavior-y:auto}
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   .hero__scan { display: none; }
+  .bracket::after { animation: none !important; opacity: 1 !important; transform: scale(1) !important; }
 }
 
 @media(max-width:768px){
@@ -236,6 +237,8 @@ body{overscroll-behavior-y:auto}
   .bracket--bl,.bracket--br{bottom:14px}
   .bracket--tl,.bracket--bl{left:14px}
   .bracket--tr,.bracket--br{right:14px}
+  /* Kill the four pulse animations on mobile to cut paint pressure */
+  .bracket::after{animation:none;opacity:0.85}
 }
 @media(max-width:400px){
   .hero__headline{font-size:clamp(46px,13vw,60px)}
@@ -280,7 +283,9 @@ body{overscroll-behavior-y:auto}
       Detroit Lakes' only fully private guided fishing experience. Every trip is your group, your boat, and a 5× Master Angler with 30+ years on these waters — backed by a 4.9★ rating from 100+ verified clients. Booked weeks in advance for one reason: it's exactly the way it should be.
     </p>
     <nav class="hero__cta" aria-label="Primary booking actions">
-      <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" target="_top" class="btn btn--primary" aria-label="Book a guided fishing trip with Baxstar Fishing">
+      <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/"
+         onclick="try{window.parent.postMessage({type:'baxstar_event',event:'book_now_click',location:'hero'},'*')}catch(e){}"
+         target="_top" class="btn btn--primary" aria-label="Book a guided fishing trip with Baxstar Fishing">
         Book Your Trip
         <svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -300,7 +305,7 @@ body{overscroll-behavior-y:auto}
 <script>
 (function(){
   // ONE video everywhere — eliminates iframe-width detection bugs.
-  // Tries 1080p first, falls back to 720p if the HD asset 404s.
+  // #t=0.001 forces iOS to render the actual first frame as the placeholder.
   var VIDEO_HD = 'https://video.wixstatic.com/video/a30e59_7c53d22fbb7641f0a1bbf08c2a000c93/1080p/mp4/file.mp4#t=0.001';
   var VIDEO_SD = 'https://video.wixstatic.com/video/a30e59_7c53d22fbb7641f0a1bbf08c2a000c93/720p/mp4/file.mp4#t=0.001';
 
@@ -308,7 +313,6 @@ body{overscroll-behavior-y:auto}
   var videoEl = videoWrap ? videoWrap.querySelector('video') : null;
   if(!videoEl) return;
 
-  // Add HD source first, SD as fallback
   function addSource(src){
     var s = document.createElement('source');
     s.src = src;
@@ -316,14 +320,13 @@ body{overscroll-behavior-y:auto}
     videoEl.appendChild(s);
   }
 
-  videoEl.addEventListener('error', function fallback(e){
-    // If HD source errors out, retry with SD only
+  videoEl.addEventListener('error', function fallback(){
     while (videoEl.firstChild) videoEl.removeChild(videoEl.firstChild);
     addSource(VIDEO_SD);
     videoEl.removeEventListener('error', fallback);
     videoEl.load();
     videoEl.play().catch(function(){});
-  }, { once: true });
+  }, { once: true, passive: true });
 
   addSource(VIDEO_HD);
   addSource(VIDEO_SD);
@@ -331,14 +334,24 @@ body{overscroll-behavior-y:auto}
   var loadVideo = function(){
     videoEl.addEventListener('canplaythrough', function onReady(){
       videoEl.removeEventListener('canplaythrough', onReady);
-      setTimeout(function(){ videoWrap.classList.add('is-ready'); }, 200);
-    });
+      // Snap to video — 0.15s opacity transition is perceived as "video starts" not "image fades"
+      requestAnimationFrame(function(){ videoWrap.classList.add('is-ready'); });
+    }, { passive: true });
     videoEl.load();
     videoEl.play().catch(function(){});
   };
 
   if('requestIdleCallback' in window){ requestIdleCallback(loadVideo, {timeout:2000}); }
   else { setTimeout(loadVideo, 1500); }
+
+  // Pause video when tab is hidden — saves battery and stops compositor work
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden) {
+      try { videoEl.pause(); } catch(e){}
+    } else {
+      try { videoEl.play().catch(function(){}); } catch(e){}
+    }
+  }, { passive: true });
 })();
 </script>
 
@@ -347,19 +360,46 @@ body{overscroll-behavior-y:auto}
 (function(){
   if (window.parent === window) return;
   var lastH = 0;
+  var stableCount = 0;
+  var intervalId = null;
+
   function report(){
     var h = Math.max(document.documentElement.scrollHeight, document.body ? document.body.scrollHeight : 0);
     if (h && h !== lastH) {
       lastH = h;
+      stableCount = 0;
       try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch(e){}
       try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch(e){}
       try { window.parent.postMessage('height:' + h, '*'); } catch(e){}
+    } else {
+      stableCount++;
+      // After 20 stable reports (~30 seconds), stop the interval to free the main thread
+      if (stableCount >= 20 && intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
     }
   }
-  window.addEventListener('load', report);
-  window.addEventListener('resize', report);
-  if (window.ResizeObserver) { try { new ResizeObserver(report).observe(document.body); } catch(e){} }
-  setInterval(report, 1500);
+
+  window.addEventListener('load', report, { passive: true });
+  window.addEventListener('resize', function(){
+    stableCount = 0;
+    // Restart interval on resize if it had stopped
+    if (!intervalId) intervalId = setInterval(report, 1500);
+    report();
+  }, { passive: true });
+
+  if (window.ResizeObserver) {
+    try {
+      new ResizeObserver(function(){
+        stableCount = 0;
+        if (!intervalId) intervalId = setInterval(report, 1500);
+        report();
+      }).observe(document.body);
+    } catch(e){}
+  }
+
+  intervalId = setInterval(report, 1500);
 })();
 </script>
 
