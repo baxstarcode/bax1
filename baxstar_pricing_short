@@ -155,7 +155,7 @@
       margin-bottom:-0.05em;
     }
     .pmin-subhead{
-      font-size:clamp(15px,1.5vw,17px);
+      font-size:clamp(17.25px,1.725vw,19.55px);
       font-weight:300;line-height:1.7;
       color:var(--gray-light);
       max-width:520px;margin:0 auto;
@@ -202,7 +202,7 @@
     .pmin-row__num{
       font-family:'Barlow Condensed',sans-serif;
       font-weight:600;
-      font-size:11px;
+      font-size:12.65px;
       letter-spacing:0.28em;
       color:var(--gray-mid);
       flex-shrink:0;
@@ -224,7 +224,7 @@
     .pmin-row__sub{
       font-family:'Cormorant Garamond',serif;
       font-style:italic;
-      font-size:clamp(15px,1.45vw,17px);
+      font-size:clamp(17.25px,1.6675vw,19.55px);
       color:var(--gray-mid);
       letter-spacing:0.01em;
       line-height:1.4;
@@ -236,7 +236,7 @@
     .pmin-row__from{
       font-family:'Barlow Condensed',sans-serif;
       font-weight:500;
-      font-size:11px;
+      font-size:12.65px;
       letter-spacing:0.22em;
       text-transform:uppercase;
       color:var(--gray-mid);
@@ -299,7 +299,7 @@
       justify-content:space-between;
       flex-wrap:wrap;
       gap:14px;
-      font-size:13px;
+      font-size:14.95px;
       color:var(--gray-mid);
       line-height:1.55;
       letter-spacing:0.01em;
@@ -354,7 +354,7 @@
     }
     .pmin-trust__label{
       font-family:'Barlow Condensed',sans-serif;
-      font-size:10.5px;
+      font-size:12.075px;
       font-weight:500;
       letter-spacing:0.22em;text-transform:uppercase;
       color:var(--gray-mid);
@@ -436,7 +436,7 @@
     .modal-trip-sub{
       font-family:'Cormorant Garamond',serif;
       font-style:italic;
-      font-size:17px;color:var(--gray-light);
+      font-size:19.55px;color:var(--gray-light);
       margin-top:7px;
       line-height:1.35;
       letter-spacing:0.005em;
@@ -457,7 +457,7 @@
 
     .modal-section-label{
       font-family:'Barlow Condensed',sans-serif;
-      font-size:10.5px;font-weight:700;
+      font-size:12.075px;font-weight:700;
       letter-spacing:0.22em;
       color:var(--gray-mid);
       text-transform:uppercase;
@@ -477,7 +477,7 @@
       border-radius:2px;
       color:var(--gray-light);
       font-family:'Barlow Condensed',sans-serif;
-      font-size:13px;font-weight:600;
+      font-size:14.95px;font-weight:600;
       letter-spacing:0.06em;
       cursor:pointer;
       transition:all 0.18s var(--ease);
@@ -504,7 +504,7 @@
       border-radius:2px;
       color:var(--gray-light);
       font-family:'Barlow Condensed',sans-serif;
-      font-size:17px;font-weight:700;
+      font-size:19.55px;font-weight:700;
       cursor:pointer;
       transition:all 0.15s var(--ease);
       text-align:center;
@@ -530,7 +530,7 @@
     }
     .modal-price-eyebrow{
       font-family:'Barlow Condensed',sans-serif;
-      font-size:10px;font-weight:700;letter-spacing:0.2em;
+      font-size:11.5px;font-weight:700;letter-spacing:0.2em;
       color:var(--gray-mid);text-transform:uppercase;
       margin-bottom:4px;
     }
@@ -541,7 +541,7 @@
     }
     .modal-price-math{
       font-family:'Barlow',sans-serif;
-      font-size:14px;
+      font-size:16.1px;
       font-weight:500;
       color:var(--gray-light);
       margin-top:8px;
@@ -561,7 +561,7 @@
       padding:0 4px;
     }
     .modal-price-per-person{
-      font-size:12px;color:var(--gray-mid);margin-top:6px;
+      font-size:13.8px;color:var(--gray-mid);margin-top:6px;
     }
     .modal-price-badge-text{
       font-family:'Barlow Condensed',sans-serif;
@@ -576,7 +576,7 @@
     .modal-honest-note{
       margin:12px 24px 0;
       display:flex;align-items:flex-start;gap:8px;
-      font-size:12px;color:var(--gray-mid);
+      font-size:13.8px;color:var(--gray-mid);
       line-height:1.4;
     }
     .modal-honest-note svg{flex-shrink:0;color:var(--red);margin-top:1px}
@@ -617,7 +617,7 @@
       border:1px solid rgba(255,255,255,0.16);
       color:var(--gray-mid);
       font-family:'Barlow',sans-serif;
-      font-size:13px;letter-spacing:1.2px;text-transform:uppercase;font-weight:500;
+      font-size:14.95px;letter-spacing:1.2px;text-transform:uppercase;font-weight:500;
       cursor:pointer;
       transform:skewX(-12deg);
       transition:all 0.2s var(--ease);
@@ -633,8 +633,8 @@
         padding:clamp(24px,3.4vw,30px) clamp(8px,2vw,14px) clamp(20px,3vw,24px);
       }
       .pmin-row__arrow{display:none}
-      .pmin-row__num{min-width:auto;font-size:10px}
-      .pmin-row__sub{padding-left:0;font-size:14px}
+      .pmin-row__num{min-width:auto;font-size:11.5px}
+      .pmin-row__sub{padding-left:0;font-size:16.1px}
       .pmin-popular{font-size:8.5px;letter-spacing:0.22em;padding:2px 6px}
 
       .pmin-cta-strip{flex-direction:column;align-items:flex-start;gap:24px}
@@ -645,12 +645,12 @@
       .pmin-row__num{display:none}
       .pmin-row__title{font-size:26px}
       .pmin-row__amount{font-size:30px}
-      .pmin-row__sub{font-size:13.5px}
+      .pmin-row__sub{font-size:15.525px}
 
       .modal-price-amount{font-size:46px}
       .modal-cta-row{flex-direction:column}
       .toggle-row{gap:4px}
-      .toggle-pill{font-size:11.5px;padding:9px 2px;letter-spacing:0.04em}
+      .toggle-pill{font-size:13.225px;padding:9px 2px;letter-spacing:0.04em}
     }
 
     @media (prefers-reduced-motion: reduce){
