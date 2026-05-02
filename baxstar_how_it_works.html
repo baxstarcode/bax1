@@ -90,11 +90,11 @@
     --black: #08080a; --charcoal: #111114; --red: #c1272d; --red-bright: #e63946;
     --cream: #f0ece4; --warm-white: #faf8f4; --slate: #6b6b78;
     --font-display: 'Bebas Neue', sans-serif; --font-body: 'Barlow', sans-serif;
-    --max-w: 1320px; --section-pad: clamp(80px, 10vw, 140px);
+    --max-w: 1320px; --section-pad: clamp(56px, 7vw, 98px);
   }
   html { scroll-behavior: smooth; }
   body { font-family: var(--font-body); background: var(--black); color: var(--cream); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(14px, 2.8vw, 42px); }
 
   .section-tag { font-family: var(--font-body); font-weight: 500; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--red-bright); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
   .section-tag::before { content: ''; width: 24px; height: 1px; background: var(--red); }
@@ -120,9 +120,9 @@
   .process__left { position: sticky; top: 100px; }
   .process__intro { font-size: 17px; line-height: 1.8; color: var(--slate); font-weight: 300; margin-top: 8px; }
   .process__steps { list-style: none; display: flex; flex-direction: column; gap: 0; counter-reset: none; padding: 0; }
-  .process__step { padding: 36px 0; border-bottom: 1px solid rgba(240,236,228,0.06); display: grid; grid-template-columns: 60px 1fr; gap: 24px; align-items: start; transition: background 0.3s; }
+  .process__step { padding: 25.2px 0; border-bottom: 1px solid rgba(240,236,228,0.06); display: grid; grid-template-columns: 60px 1fr; gap: 24px; align-items: start; transition: background 0.3s; }
   .process__step:first-child { border-top: 1px solid rgba(240,236,228,0.06); }
-  .process__step-num { font-family: var(--font-display); font-size: 42px; color: rgba(193,39,45,0.25); line-height: 1; padding-top: 2px; transition: color 0.4s; }
+  .process__step-num { font-family: var(--font-display); font-size: 42px; color: rgba(193,39,45,0.25); line-height: 1; padding-top: 1.4px; transition: color 0.4s; }
   .process__step:hover .process__step-num { color: var(--red); }
   .process__step-title { font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 28px); text-transform: uppercase; letter-spacing: 1px; color: var(--warm-white); margin-bottom: 12px; line-height: 1.1; }
   .process__step-text { font-size: 17px; line-height: 1.78; color: var(--slate); font-weight: 300; max-width: 480px; }

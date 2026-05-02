@@ -66,12 +66,12 @@
     --black: #08080a; --charcoal: #111114; --red: #c1272d; --red-bright: #e63946;
     --cream: #f0ece4; --warm-white: #faf8f4; --slate: #6b6b78; --light-slate: #9a9aaa;
     --font-display: 'Bebas Neue', sans-serif; --font-body: 'Barlow', sans-serif;
-    --section-pad: clamp(80px, 10vw, 140px);
+    --section-pad: clamp(56px, 7vw, 98px);
   }
   body { font-family: var(--font-body); background: var(--black); color: var(--cream); -webkit-font-smoothing: antialiased;
   overscroll-behavior: none; }
   img { display: block; max-width: 100%; height: auto; }
-  .container { max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 clamp(14px, 2.8vw, 42px); }
 
   .intro { padding: var(--section-pad) 0; }
   .intro__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 100px); align-items: center; }
@@ -105,7 +105,7 @@
   .intro__badge {
     position: absolute; bottom: -20px; left: -20px;
     background: var(--charcoal); border: 1px solid rgba(240,236,228,0.08);
-    padding: 24px 28px; z-index: 2;
+    padding: 16.8px 19.6px; z-index: 2;
   }
   .intro__badge-number { font-family: var(--font-display); font-size: 42px; color: var(--red-bright); line-height: 1; }
   .intro__badge-label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--slate); margin-top: 4px; }
@@ -113,7 +113,7 @@
   .intro__cta { margin-top: 32px; display: inline-flex; align-items: center; gap: 8px;
     font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
     color: var(--red-bright); text-decoration: none; border-bottom: 1px solid rgba(230,57,70,0.4);
-    padding-bottom: 6px; transition: color 0.25s, border-color 0.25s; }
+    padding-bottom: 4.2px; transition: color 0.25s, border-color 0.25s; }
   .intro__cta:hover { color: var(--warm-white); border-color: var(--warm-white); }
 
   @media (max-width: 768px) {

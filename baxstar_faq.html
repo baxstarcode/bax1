@@ -151,7 +151,7 @@
   --font-body:      'Barlow', sans-serif;
   --font-condensed: 'Barlow Condensed', sans-serif;
   --font-accent:    'Cormorant Garamond', serif;
-  --section-pad:    clamp(80px, 9vw, 130px);
+  --section-pad:    clamp(56px, 6.3vw, 91px);
 }
 
 html { scroll-behavior: smooth; }
@@ -187,7 +187,7 @@ body {
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 clamp(20px, 4vw, 60px);
+  padding: 0 clamp(14px, 2.8vw, 42px);
   position: relative;
   z-index: 1;
 }
@@ -248,7 +248,7 @@ body {
 
 .faq__item {
   border-bottom: 1px solid var(--hairline);
-  padding: clamp(28px, 3.5vw, 44px) 0;
+  padding: clamp(19.6px, 2.45vw, 30.8px) 0;
   display: grid;
   grid-template-columns: 56px 1fr;
   gap: clamp(18px, 2.5vw, 36px);
@@ -263,7 +263,7 @@ body {
   letter-spacing: 0.04em;
   color: var(--red);
   line-height: 1;
-  padding-top: 4px;
+  padding-top: 2.8px;
   white-space: nowrap;
 }
 
@@ -307,7 +307,7 @@ body {
 /* ─── Closing CTA strip ─── */
 .faq__close {
   margin-top: clamp(50px, 6vw, 80px);
-  padding-top: clamp(40px, 5vw, 60px);
+  padding-top: clamp(28px, 3.5vw, 42px);
   border-top: 1px solid var(--hairline);
   text-align: center;
 }
@@ -336,7 +336,7 @@ body {
   letter-spacing: 0.28em;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 16px 36px;
+  padding: 11.2px 25.2px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -397,13 +397,13 @@ body {
     grid-template-columns: 44px 1fr;
     gap: 14px;
   }
-  .faq__num { font-size: 18px; padding-top: 2px; }
+  .faq__num { font-size: 18px; padding-top: 1.4px; }
 }
 @media (max-width: 480px) {
   .faq__item {
     grid-template-columns: 1fr;
     gap: 8px;
-    padding: 28px 0;
+    padding: 19.6px 0;
   }
   .faq__num {
     font-size: 14px;
