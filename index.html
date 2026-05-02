@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baxstar Fishing | Detroit Lakes Private Guided Fishing Trips</title>
+  <meta name="description" content="Baxstar Fishing offers 100% private guided fishing trips in Detroit Lakes, Minnesota with Brady Baxter — 5× Master Angler, 30+ years on the water, and a 4.9★ Google rating." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://www.baxstarfishing.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Baxstar Fishing" />
+  <meta property="og:title" content="Baxstar Fishing | Detroit Lakes Private Guided Fishing Trips" />
+  <meta property="og:description" content="Detroit Lakes' fully private guided fishing experience. Walleye, bass, pike, crappie, and multi-species trips with Brady Baxter." />
+  <meta property="og:url" content="https://www.baxstarfishing.com/" />
+  <meta property="og:image" content="https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Baxstar Fishing | Detroit Lakes Private Guided Fishing Trips" />
+  <meta name="twitter:description" content="Private guided fishing trips in Detroit Lakes, Minnesota with Baxstar Fishing." />
+  <meta name="twitter:image" content="https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg" />
+
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; width: 100%; min-height: 100%; background: #08080a; overflow-x: hidden; }
+    body { color: #f0ece4; font-family: Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    main { width: 100%; background: #08080a; }
+    .baxstar-section-frame {
+      display: block;
+      width: 100%;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      background: #08080a;
+      overflow: hidden;
+      vertical-align: top;
+      transition: height 160ms ease;
+    }
+    .baxstar-section-frame[data-section="hero"] { min-height: 100svh; }
+    .baxstar-section-frame[data-section="gallery"] { min-height: 760px; }
+    .baxstar-section-frame[data-section="banner"] { min-height: 120px; }
+    .baxstar-section-frame[data-section="pricing"] { min-height: 980px; }
+    .baxstar-section-frame[data-section="testimonials"] { min-height: 760px; }
+    .baxstar-section-frame[data-section="included"] { min-height: 780px; }
+    .baxstar-section-frame[data-section="cta"] { min-height: 620px; }
+    .baxstar-section-frame[data-section="footer"] { min-height: 380px; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Baxstar Fishing",
+    "url": "https://www.baxstarfishing.com/",
+    "image": "https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Detroit Lakes",
+      "addressRegion": "MN",
+      "addressCountry": "US"
+    },
+    "areaServed": [
+      "Detroit Lake",
+      "Pelican Lake",
+      "Lake Lida",
+      "Big Cormorant Lake",
+      "Upper Cormorant Lake",
+      "Lake Sallie",
+      "Detroit Lakes, Minnesota"
+    ],
+    "priceRange": "$$$",
+    "description": "Private guided fishing trips in Detroit Lakes, Minnesota with Baxstar Fishing."
+  }
+  </script>
+</head>
+<body>
+  <main id="site-content" aria-label="Baxstar Fishing homepage">
+    <h1 class="sr-only">Baxstar Fishing — Detroit Lakes Private Guided Fishing Trips</h1>
+
+    <iframe class="baxstar-section-frame" data-section="hero" title="Baxstar hero video banner" src="baxstar_hero_video_banner" loading="eager"></iframe>
+    <iframe class="baxstar-section-frame" data-section="gallery" title="Baxstar fish gallery" src="baxstar_fish_gallery.html" loading="lazy"></iframe>
+    <iframe class="baxstar-section-frame" data-section="banner" title="Baxstar scrolling banner" src="baxstar_scrolling_banner.html" loading="lazy"></iframe>
+    <iframe class="baxstar-section-frame" data-section="pricing" title="Baxstar pricing" src="baxstar_pricing_v3win" loading="lazy"></iframe>
+    <iframe class="baxstar-section-frame" data-section="testimonials" title="Baxstar testimonials" src="baxstar_testimonials.html" loading="lazy"></iframe>
+    <iframe class="baxstar-section-frame" data-section="included" title="What is included with Baxstar fishing trips" src="baxstar_whats_included.html" loading="lazy"></iframe>
+    <iframe class="baxstar-section-frame" data-section="cta" title="Book a Baxstar Fishing trip" src="baxstar_CTA.html" loading="lazy"></iframe>
+    <iframe class="baxstar-section-frame" data-section="footer" title="Baxstar footer" src="baxstar_footer.html" loading="lazy"></iframe>
+  </main>
+
+  <script>
+    (function () {
+      var frames = Array.prototype.slice.call(document.querySelectorAll('.baxstar-section-frame'));
+      var byWindow = new Map();
+
+      function setFrameHeight(frame, height) {
+        var safeHeight = Math.max(Number(height) || 0, frame.dataset.section === 'hero' ? window.innerHeight : 120);
+        frame.style.height = Math.ceil(safeHeight) + 'px';
+      }
+
+      function measure(frame) {
+        try {
+          var doc = frame.contentDocument || frame.contentWindow.document;
+          if (!doc) return;
+          var body = doc.body;
+          var html = doc.documentElement;
+          var height = Math.max(
+            body ? body.scrollHeight : 0,
+            body ? body.offsetHeight : 0,
+            html ? html.clientHeight : 0,
+            html ? html.scrollHeight : 0,
+            html ? html.offsetHeight : 0
+          );
+          if (height) setFrameHeight(frame, height);
+        } catch (e) {}
+      }
+
+      function register(frame) {
+        if (frame.contentWindow) byWindow.set(frame.contentWindow, frame);
+        frame.addEventListener('load', function () {
+          if (frame.contentWindow) byWindow.set(frame.contentWindow, frame);
+          measure(frame);
+          setTimeout(function () { measure(frame); }, 350);
+          setTimeout(function () { measure(frame); }, 1200);
+        });
+      }
+
+      frames.forEach(register);
+
+      window.addEventListener('message', function (event) {
+        var frame = byWindow.get(event.source);
+        if (!frame) return;
+        var data = event.data;
+        var height = null;
+
+        if (typeof data === 'string' && data.indexOf('height:') === 0) {
+          height = parseInt(data.split(':')[1], 10);
+        } else if (data && typeof data === 'object') {
+          if (data.type === 'setHeight' || data.type === 'embed-size' || data.height) {
+            height = data.height;
+          }
+        }
+
+        if (height) setFrameHeight(frame, height);
+      });
+
+      window.addEventListener('resize', function () {
+        frames.forEach(measure);
+      }, { passive: true });
+
+      if ('IntersectionObserver' in window) {
+        var visibilityObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            var frame = entry.target;
+            try {
+              frame.contentWindow.postMessage({ type: 'baxstar_visibility', hidden: !entry.isIntersecting }, '*');
+            } catch (e) {}
+          });
+        }, { threshold: 0.01 });
+
+        frames.forEach(function (frame) { visibilityObserver.observe(frame); });
+      }
+    }());
+  </script>
+</body>
+</html>
