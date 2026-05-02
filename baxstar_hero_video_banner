@@ -122,8 +122,8 @@ html,body{width:100%;background:#08080a;overflow-x:hidden;overscroll-behavior:no
 </section>
 <script>
 (function(){
-  var SD='https://video.wixstatic.com/video/a30e59_81a653ea1cd147cea4066e99efade691/1080p/mp4/file.mp4';
-  var HD='https://video.wixstatic.com/video/a30e59_81a653ea1cd147cea4066e99efade691/1080p/mp4/file.mp4';
+  var SD='https://video.wixstatic.com/video/a30e59_93c03ce571164cd2ba251848c2ea4671/1080p/mp4/file.mp4';
+  var HD='https://video.wixstatic.com/video/a30e59_93c03ce571164cd2ba251848c2ea4671/1080p/mp4/file.mp4';
   var w=document.getElementById('heroVideo'),v=w&&w.querySelector('video');
   if(!v)return;
 
