@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@300;400&display=swap">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;background:#08080a;overflow-x:hidden;overscroll-behavior:none}
+html,body{width:100%;background:#08080a;overflow-x:hidden}
 :root{
   --red:#c1272d;
   --red-glow:rgba(193,39,45,0.55);
@@ -122,7 +122,7 @@ html,body{width:100%;background:#08080a;overflow-x:hidden;overscroll-behavior:no
 </section>
 <script>
 (function(){
-  var SD='https://video.wixstatic.com/video/a30e59_93c03ce571164cd2ba251848c2ea4671/1080p/mp4/file.mp4';
+  var SD='https://video.wixstatic.com/video/a30e59_93c03ce571164cd2ba251848c2ea4671/720p/mp4/file.mp4';
   var HD='https://video.wixstatic.com/video/a30e59_93c03ce571164cd2ba251848c2ea4671/1080p/mp4/file.mp4';
   var w=document.getElementById('heroVideo'),v=w&&w.querySelector('video');
   if(!v)return;
@@ -178,7 +178,11 @@ html,body{width:100%;background:#08080a;overflow-x:hidden;overscroll-behavior:no
   var l=0,c=0,id=null;
   function r(){
     var h=Math.max(document.documentElement.scrollHeight,document.body?document.body.scrollHeight:0);
-    if(h&&h!==l){l=h;c=0;try{parent.postMessage({type:'setHeight',height:h},'*')}catch(e){}}
+    if(h&&h!==l){l=h;c=0;
+      try{parent.postMessage({type:'setHeight',height:h},'*')}catch(e){}
+      try{parent.postMessage({type:'embed-size',height:h},'*')}catch(e){}
+      try{parent.postMessage('height:'+h,'*')}catch(e){}
+    }
     else if(++c>=20&&id){clearInterval(id);id=null}
   }
   addEventListener('load',r,{passive:true});
