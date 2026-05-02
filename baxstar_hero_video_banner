@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@300;400&display=swap">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;background:#08080a;overflow-x:hidden}
+html,body{width:100%;background:#08080a;overflow-x:hidden;overscroll-behavior:none}
 :root{
   --red:#c1272d;
   --red-glow:rgba(193,39,45,0.55);
@@ -18,9 +18,8 @@ html,body{width:100%;background:#08080a;overflow-x:hidden}
   --white-14:rgba(255,255,255,0.14);
 }
 .hero{position:relative;width:100%;min-height:100svh;overflow:hidden;display:flex;background:var(--bg);font-family:'Barlow',sans-serif}
-.hero__bg{position:absolute;inset:0;z-index:1;background-image:url('https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg');background-size:cover;background-position:center 25%;transform:translateZ(0)}
-.hero__video{position:absolute;inset:0;z-index:2;opacity:0;transition:opacity 0.15s linear;pointer-events:none;transform:translateZ(0);backface-visibility:hidden}
-.hero__video video{width:100%;height:100%;object-fit:cover;object-position:center 25%;transform:translateZ(0)}
+.hero__video{position:absolute;inset:0;z-index:1;opacity:0;transition:opacity 0.6s cubic-bezier(0.4,0,0.2,1);pointer-events:none;transform:translateZ(0);backface-visibility:hidden;background:var(--bg)}
+.hero__video video{width:100%;height:100%;object-fit:cover;object-position:center 25%;transform:translateZ(0);display:block}
 .hero__video.is-ready{opacity:1}
 .hero__veil{position:absolute;inset:0;z-index:3;background:linear-gradient(105deg,rgba(8,8,10,0.93) 0%,rgba(8,8,10,0.78) 35%,rgba(8,8,10,0.35) 62%,rgba(8,8,10,0.08) 100%)}
 .hero__vignette{position:absolute;bottom:0;left:0;right:0;height:220px;z-index:4;background:linear-gradient(to bottom,transparent,rgba(8,8,10,0.9));pointer-events:none}
@@ -60,10 +59,10 @@ html,body{width:100%;background:#08080a;overflow-x:hidden}
   *,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
 }
 @media(max-width:768px){
-  .hero__bg{background-image:url('https://static.wixstatic.com/media/a30e59_6c68ef96330040e9b9fc7a4524e28e3a~mv2.jpeg');background-position:35% 22%}
-  .hero__video video{object-position:35% 22%}
-  .hero__veil{background:linear-gradient(180deg,rgba(8,8,10,0.18) 0%,rgba(8,8,10,0.22) 38%,rgba(8,8,10,0.62) 58%,rgba(8,8,10,0.92) 78%,rgba(8,8,10,0.97) 100%)}
-  .hero__inner{max-width:100%;padding:38svh 24px 36px;justify-content:flex-start;align-items:center;text-align:center}
+  .hero{min-height:auto;padding-bottom:24px}
+  .hero__video video{object-position:50% 30%}
+  .hero__veil{background:linear-gradient(180deg,rgba(8,8,10,0.55) 0%,rgba(8,8,10,0.35) 30%,rgba(8,8,10,0.7) 55%,rgba(8,8,10,0.95) 78%,rgba(8,8,10,0.98) 100%)}
+  .hero__inner{max-width:100%;padding:18svh 24px 36px;justify-content:flex-start;align-items:center;text-align:center;min-height:auto}
   .hero__eyebrow{display:none}
   .hero__body{max-width:100%}
   .hero__cta{justify-content:center;gap:12px;margin-bottom:36px}
@@ -77,7 +76,7 @@ html,body{width:100%;background:#08080a;overflow-x:hidden}
   .bracket--tr,.bracket--br{right:14px}
 }
 @media(max-width:400px){
-  .hero__headline{font-size:clamp(46px,13vw,60px)}
+  .hero__headline{font-size:clamp(42px,11vw,54px)}
   .stat-strip{flex-wrap:wrap;gap:8px}
   .stat{padding:0 14px}
 }
@@ -85,9 +84,8 @@ html,body{width:100%;background:#08080a;overflow-x:hidden}
 </head>
 <body>
 <section class="hero" aria-label="Baxstar Fishing — Detroit Lakes Minnesota Private Guided Fishing">
-  <div class="hero__bg" role="img" aria-label="Baxstar Fishing client with walleye on Detroit Lakes, Minnesota"></div>
   <div class="hero__video" id="heroVideo" aria-hidden="true">
-    <video autoplay muted loop playsinline preload="none" width="1920" height="1080"></video>
+    <video autoplay muted loop playsinline preload="auto" width="1920" height="1080"></video>
   </div>
   <div class="hero__veil" aria-hidden="true"></div>
   <div class="hero__vignette" aria-hidden="true"></div>
@@ -106,7 +104,7 @@ html,body{width:100%;background:#08080a;overflow-x:hidden}
       <div class="hero__divider-line"></div>
       <div class="hero__divider-dot"></div>
     </div>
-    <p class="hero__body">Detroit Lakes' only fully private guided fishing experience. Every trip is your group, your boat, and a 5× Master Angler with 30+ years on these waters — backed by a 4.9★ rating from 100+ verified clients. Booked weeks in advance for one reason: it's exactly the way it should be.</p>
+    <p class="hero__body">Detroit Lakes' only fully private guided fishing experience. Every trip is your group, your boat, and a 5× Master Angler with 30+ years on these waters — backed by a 4.9★ rating from 100+ verified clients.</p>
     <nav class="hero__cta" aria-label="Primary booking actions">
       <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" onclick="try{parent.postMessage({type:'baxstar_event',event:'book_now_click',location:'hero'},'*')}catch(e){}" target="_top" class="btn btn--primary" aria-label="Book a guided fishing trip">
         Book Your Trip
@@ -124,28 +122,57 @@ html,body{width:100%;background:#08080a;overflow-x:hidden}
 </section>
 <script>
 (function(){
-  // Lazy-load video after first paint. #t=0.001 forces iOS to render the
-  // first frame as the placeholder — no fade artifact when video starts.
   var SD='https://video.wixstatic.com/video/a30e59_7c53d22fbb7641f0a1bbf08c2a000c93/720p/mp4/file.mp4#t=0.001';
   var HD='https://video.wixstatic.com/video/a30e59_7c53d22fbb7641f0a1bbf08c2a000c93/1080p/mp4/file.mp4#t=0.001';
   var w=document.getElementById('heroVideo'),v=w&&w.querySelector('video');
   if(!v)return;
-  function s(u){var n=document.createElement('source');n.src=u;n.type='video/mp4';v.appendChild(n)}
-  v.addEventListener('error',function r(){while(v.firstChild)v.removeChild(v.firstChild);s(SD);v.removeEventListener('error',r);v.load();v.play().catch(function(){})},{once:true,passive:true});
-  s(HD);s(SD);
-  function go(){
-    v.addEventListener('canplaythrough',function r(){v.removeEventListener('canplaythrough',r);requestAnimationFrame(function(){w.classList.add('is-ready')})},{passive:true});
-    v.load();v.play().catch(function(){});
+
+  function addSrc(u){
+    var n=document.createElement('source');
+    n.src=u;
+    n.type='video/mp4';
+    v.appendChild(n);
   }
-  if('requestIdleCallback' in window)requestIdleCallback(go,{timeout:2000});
-  else setTimeout(go,1500);
-  // Listen for tab-hidden message from parent
+
+  // Bandwidth-aware source selection
+  var conn=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
+  var saveData=conn&&conn.saveData;
+  var slowNet=conn&&/2g|slow-2g/i.test(conn.effectiveType||'');
+  var isMobile=window.matchMedia('(max-width:768px)').matches;
+  var useSDOnly=saveData||slowNet||isMobile;
+
+  // HD-fail-to-SD fallback (safety net even when HD is selected)
+  v.addEventListener('error',function r(){
+    while(v.firstChild)v.removeChild(v.firstChild);
+    addSrc(SD);
+    v.removeEventListener('error',r);
+    v.load();
+    v.play().catch(function(){});
+  },{once:true,passive:true});
+
+  if(useSDOnly){
+    addSrc(SD);
+  }else{
+    addSrc(HD);
+    addSrc(SD);
+  }
+
+  // Reveal as soon as enough data exists to start playback
+  v.addEventListener('canplay',function r(){
+    v.removeEventListener('canplay',r);
+    requestAnimationFrame(function(){w.classList.add('is-ready')});
+  },{passive:true});
+
+  // Trigger immediately — video is now critical hero content
+  v.load();
+  v.play().catch(function(){});
+
+  // Pause when hero is offscreen (parent posts visibility messages)
   window.addEventListener('message',function(e){
     if(!e.data||e.data.type!=='baxstar_visibility')return;
     try{e.data.hidden?v.pause():v.play().catch(function(){})}catch(err){}
   },{passive:true});
 })();
-// Iframe height reporter — single function, self-terminates after stability
 (function(){
   if(window.parent===window)return;
   var l=0,c=0,id=null;
