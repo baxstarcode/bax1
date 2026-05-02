@@ -93,7 +93,7 @@
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
           "opens": "06:00",
           "closes": "21:00"
         }
@@ -142,7 +142,7 @@ body {
   overscroll-behavior: none;
 }
 
-/* ── SCROLL REVEAL — Baxstar Performance Standard ───────── */
+/* ── SCROLL REVEAL ───────────────────────────────────────── */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -249,7 +249,7 @@ body {
   outline: none;
 }
 
-/* Phone number — visible & emphasized */
+/* Phone number */
 .footer-phone {
   font-family: 'Barlow', sans-serif;
   font-size: 17px !important;
@@ -307,21 +307,9 @@ body {
 
 /* ── REDUCED MOTION ─────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-    will-change: auto;
-  }
-  .social-link,
-  .footer-links a,
-  .footer-phone {
-    transition: none;
-  }
-  .social-link:hover,
-  .social-link:focus-visible {
-    transform: none;
-  }
+  .reveal { opacity: 1; transform: none; transition: none; will-change: auto; }
+  .social-link, .footer-links a, .footer-phone { transition: none; }
+  .social-link:hover, .social-link:focus-visible { transform: none; }
 }
 </style>
 </head>
@@ -344,12 +332,14 @@ body {
   <div class="footer-inner">
     <div class="footer-grid">
 
+      <!-- ── BRAND COL ── -->
       <div class="footer-brand reveal">
         <h2 class="footer-brand-name">BAXSTAR FISHING</h2>
         <p class="footer-tagline">
           Premium private guided fishing on Detroit Lake, Pelican Lake, Lake Sallie, Lake Lida, Big Cormorant, and 100+ lakes across the Detroit Lakes, Minnesota region.
         </p>
         <div class="footer-socials" role="list" aria-label="Social media">
+          <!-- Social links intentionally open in new tab (_blank) -->
           <a href="https://www.facebook.com/baxstarfishing" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Baxstar Fishing on Facebook">
             <svg aria-hidden="true"><use href="#ico-facebook"/></svg>
           </a>
@@ -362,34 +352,40 @@ body {
         </div>
       </div>
 
+      <!-- ── EXPERIENCES COL ── -->
       <nav class="reveal" aria-label="Experiences">
         <h3 class="footer-col-title">Experiences</h3>
         <ul class="footer-links">
-          <li><a href="https://www.baxstarfishing.com/openwater">Guided Fishing</a></li>
-          <li><a href="https://www.baxstarfishing.com/detroit-lakes-pontoon-rentals">Pontoon Rentals</a></li>
-          <li><a href="https://www.baxstarfishing.com/icefishing">Ice Fishing</a></li>
-          <li><a href="https://www.baxstarfishing.com/copy-of-ice-castle-rentals">Ice Castle Rentals</a></li>
-          <li><a href="https://www.baxstarfishing.com/datenight">Date Night on Ice</a></li>
+          <!-- target="_top" navigates the parent window, not the iframe -->
+          <li><a href="https://www.baxstarfishing.com/openwater" target="_top">Guided Fishing</a></li>
+          <li><a href="https://www.baxstarfishing.com/detroit-lakes-pontoon-rentals" target="_top">Pontoon Rentals</a></li>
+          <li><a href="https://www.baxstarfishing.com/icefishing" target="_top">Ice Fishing</a></li>
+          <li><a href="https://www.baxstarfishing.com/copy-of-ice-castle-rentals" target="_top">Ice Castle Rentals</a></li>
+          <li><a href="https://www.baxstarfishing.com/datenight" target="_top">Date Night on Ice</a></li>
         </ul>
       </nav>
 
+      <!-- ── PLAN YOUR TRIP COL ── -->
       <nav class="reveal" aria-label="Plan Your Trip">
         <h3 class="footer-col-title">Plan Your Trip</h3>
         <ul class="footer-links">
+          <!-- FareHarbor opens in new tab intentionally -->
           <li><a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/&flow=576827" target="_blank" rel="noopener noreferrer">Book Online</a></li>
-          <li><a href="https://www.baxstarfishing.com/aboutbaxstar">About Brady</a></li>
-          <li><a href="https://www.baxstarfishing.com/fishgallery">Fish Gallery</a></li>
-          <li><a href="https://www.baxstarfishing.com/lodging">Lodging Partners</a></li>
-          <li><a href="https://www.baxstarfishing.com/team-1">Ice Safety</a></li>
+          <li><a href="https://www.baxstarfishing.com/aboutbaxstar" target="_top">About Brady</a></li>
+          <li><a href="https://www.baxstarfishing.com/fishgallery" target="_top">Fish Gallery</a></li>
+          <li><a href="https://www.baxstarfishing.com/lodging" target="_top">Lodging Partners</a></li>
+          <li><a href="https://www.baxstarfishing.com/team-1" target="_top">Ice Safety</a></li>
         </ul>
       </nav>
 
+      <!-- ── CONTACT COL ── -->
       <div class="reveal">
         <h3 class="footer-col-title">Contact</h3>
         <ul class="footer-links">
           <li><span class="footer-static">Detroit Lakes, MN</span></li>
           <li><a class="footer-phone" href="tel:+12183256857" aria-label="Call or text Brady at 218-325-6857">(218) 325-6857</a></li>
           <li><a href="mailto:brady@baxstarfishing.com">brady@baxstarfishing.com</a></li>
+          <!-- Instagram handle — opens new tab -->
           <li><a href="https://www.instagram.com/baxstarfishing" target="_blank" rel="noopener noreferrer">@baxstarfishing</a></li>
         </ul>
       </div>
@@ -416,7 +412,6 @@ body {
   var reveals = document.querySelectorAll('.reveal');
   if (!reveals.length) return;
 
-  // Stamp transitionDelay once at init
   var STAGGER_MS = 80;
   reveals.forEach(function(el, i){
     el.style.transitionDelay = (i * STAGGER_MS) + 'ms';
@@ -437,10 +432,7 @@ body {
         io.unobserve(target);
       }
     });
-  }, {
-    threshold: 0.12,
-    rootMargin: '0px 0px -40px 0px'
-  });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
   reveals.forEach(function(el){ io.observe(el); });
 })();
