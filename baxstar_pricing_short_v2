@@ -91,7 +91,6 @@
 
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-    /* ── SECTION ───────────────────────────── */
     .pricing-min{
       position:relative;
       width:100%;
@@ -115,9 +114,9 @@
     .pricing-min__content{
       position:relative;z-index:2;
       max-width:1080px;margin:0 auto;
-padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px) clamp(72px,10vw,128px);    }
+      padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px) clamp(72px,10vw,128px);
+    }
 
-    /* ── HEADER ──────────────────────────── */
     .pmin-header{
       text-align:center;
       max-width:680px;
@@ -161,7 +160,51 @@ padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px) clamp(72px,10vw,128px);    }
       letter-spacing:0.005em;
     }
 
-    /* ── MENU ROWS ────────────────────────── */
+    .pmin-fee-notice{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      margin:0 auto clamp(28px,3.5vw,40px);
+      padding:14px 22px;
+      max-width:580px;
+      border:1px solid rgba(201,168,76,0.34);
+      background:rgba(201,168,76,0.06);
+      border-radius:2px;
+      font-family:'Barlow',sans-serif;
+      font-size:13.5px;
+      letter-spacing:0.02em;
+      color:var(--gray-light);
+      text-align:center;
+      line-height:1.4;
+    }
+    .pmin-fee-notice strong{
+      color:var(--gold);
+      font-weight:700;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+    .pmin-fee-notice svg{
+      flex-shrink:0;
+      color:var(--gold);
+      width:16px;height:16px;
+    }
+
+    .pmin-row__fee{
+      display:block;
+      font-family:'Barlow',sans-serif;
+      font-size:10.5px;
+      font-weight:500;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      color:var(--gold);
+      margin-top:6px;
+      line-height:1.3;
+      max-width:160px;
+      margin-left:auto;
+    }
+
     .pmin-menu{
       list-style:none;
       border-top:1px solid var(--divider-strong);
@@ -218,6 +261,7 @@ padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px) clamp(72px,10vw,128px);    }
 
     .pmin-row__main{min-width:0}
     .pmin-row__title{
+      display:block;
       font-family:'Bebas Neue',sans-serif;
       font-size:clamp(28px,3.6vw,42px);
       line-height:1;letter-spacing:0.018em;
@@ -227,13 +271,14 @@ padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px) clamp(72px,10vw,128px);    }
     }
     .pmin-row:hover .pmin-row__title{color:var(--red-bright)}
     .pmin-row__sub{
+      display:block;
       font-family:'Cormorant Garamond',serif;
       font-style:italic;
       font-size:clamp(16.25px,1.5675vw,18.55px);
       color:var(--gray-mid);
       letter-spacing:0.01em;
       line-height:1.4;
-      padding-left:96px;
+      padding-left:0;
       max-width:100%;
       text-wrap:balance;
     }
@@ -275,7 +320,6 @@ padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px) clamp(72px,10vw,128px);    }
       transform:rotate(-45deg);
     }
 
-    /* Most popular badge — sits directly above "From / $price" column */
     .pmin-row__price{
       text-align:right;
       flex-shrink:0;
@@ -297,7 +341,6 @@ padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px) clamp(72px,10vw,128px);    }
       white-space:nowrap;
     }
 
-    /* ── FOOTNOTE ────────────────────────── */
     .pmin-foot{
       display:flex;
       align-items:flex-start;
@@ -328,7 +371,6 @@ padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px) clamp(72px,10vw,128px);    }
       50%{transform:translateY(-3px);opacity:0.6}
     }
 
-    /* ── CTA STRIP ───────────────────────── */
     .pmin-cta-strip{
       margin-top:clamp(48px,6vw,72px);
       padding-top:clamp(36px,5vw,52px);
@@ -391,7 +433,6 @@ padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px) clamp(72px,10vw,128px);    }
     }
     .pmin-cta:hover::after{opacity:1}
 
-    /* ── RESPONSIVE ──────────────────────── */
     @media (max-width: 720px){
       .pmin-row{
         grid-template-columns:auto 1fr auto;
@@ -400,7 +441,7 @@ padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px) clamp(72px,10vw,128px);    }
       }
       .pmin-row__arrow{display:none}
       .pmin-row__num{min-width:auto;font-size:10.5px}
-      .pmin-row__sub{padding-left:0;font-size:15.1px}
+      .pmin-row__sub{font-size:15.1px}
       .pmin-popular{font-size:8.5px;letter-spacing:0.22em;padding:2px 6px}
 
       .pmin-cta-strip{flex-direction:column;align-items:flex-start;gap:24px}
@@ -421,9 +462,6 @@ padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px) clamp(72px,10vw,128px);    }
 </head>
 <body>
 
-<!-- ════════════════════════════════════════
-     PRICING SECTION — DIRECT FAREHARBOR LINKS
-════════════════════════════════════════ -->
 <section class="pricing-min" aria-labelledby="pmin-heading">
   <div class="pricing-min__bg" role="presentation" aria-hidden="true"></div>
 
@@ -456,6 +494,7 @@ padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px) clamp(72px,10vw,128px);    }
           <span class="pmin-row__price">
             <span class="pmin-row__from">From</span>
             <span class="pmin-row__amount">$425</span>
+            <span class="pmin-row__fee">6% Provider Fee applied at checkout</span>
           </span>
           <span class="pmin-row__arrow" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -477,6 +516,7 @@ padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px) clamp(72px,10vw,128px);    }
             <span class="pmin-popular">Most Booked</span>
             <span class="pmin-row__from">From</span>
             <span class="pmin-row__amount">$550</span>
+            <span class="pmin-row__fee">6% Provider Fee applied at checkout</span>
           </span>
           <span class="pmin-row__arrow" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -497,6 +537,7 @@ padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px) clamp(72px,10vw,128px);    }
           <span class="pmin-row__price">
             <span class="pmin-row__from">From</span>
             <span class="pmin-row__amount">$700</span>
+            <span class="pmin-row__fee">6% Provider Fee applied at checkout</span>
           </span>
           <span class="pmin-row__arrow" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -517,6 +558,7 @@ padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px) clamp(72px,10vw,128px);    }
           <span class="pmin-row__price">
             <span class="pmin-row__from">From</span>
             <span class="pmin-row__amount">$950</span>
+            <span class="pmin-row__fee">6% Provider Fee applied at checkout</span>
           </span>
           <span class="pmin-row__arrow" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -566,7 +608,6 @@ padding:clamp(56px,7vw,96px) clamp(28px,5vw,72px) clamp(72px,10vw,128px);    }
 </section>
 
 
-<!-- IFRAME HEIGHT REPORTER — Wix Custom Embed auto-resize -->
 <script>
 (function(){
   if (window.parent === window) return;
