@@ -57,7 +57,6 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  overscroll-behavior: none;
   line-height: 1.55;
 }
 img { display:block; max-width:100%; }
@@ -672,7 +671,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
         <span class="pmin-row__num">04</span>
         <span class="pmin-row__main">
           <span class="pmin-row__title">8 Hour <span class="sr-only">Private Guided Fishing Trip</span></span>
-          <span class="pmin-row__sub">The full experience — sun-up to mid-afternoon, big-water exploration, lunch on the boat.</span>
+          <span class="pmin-row__sub">Not for the meek — 1pm start time recommended.</span>
         </span>
         <span class="pmin-row__price">
           <span class="pmin-row__from">From</span>
@@ -793,7 +792,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     4: { base: 425, sub: 'Half-day on the water — perfect for an early bite or evening run.',     perAddOn: [50, 50, 100] },
     5: { base: 550, sub: 'The sweet spot — extra time without making it a full-day commitment.',  perAddOn: [62.5, 62.5, 100] },
     6: { base: 700, sub: 'Built for serious anglers — patterns, structure, and multiple species.', perAddOn: [75, 75, 125] },
-    8: { base: 950, sub: 'Sun-up to mid-afternoon. Big-water exploration, lunch on the boat.',    perAddOn: [100, 100, 175] }
+    8: { base: 950, sub: 'Not for the meek — 1pm start time recommended.',                            perAddOn: [100, 100, 175] }
   };
   // perAddOn = [3rd guest, 4th guest, 5th guest] — static net add-ons, no seasonal multiplier
 
@@ -1098,7 +1097,9 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     function report(){
       var h = Math.max(
         document.documentElement.scrollHeight,
-        document.body ? document.body.scrollHeight : 0
+        document.body ? document.body.scrollHeight : 0,
+        document.documentElement.offsetHeight,
+        document.body ? document.body.offsetHeight : 0
       );
       if (h && h !== lastH) {
         lastH = h;
@@ -1107,12 +1108,35 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
         try { window.parent.postMessage('height:' + h, '*'); } catch (e) {}
       }
     }
+    // Fire early & often during initial render
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', report);
+    } else {
+      report();
+    }
     window.addEventListener('load', report);
     window.addEventListener('resize', report);
+    // Fonts can shift layout dramatically — wait for them
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(report).catch(function(){});
+    }
+    // Catch image/video loads
+    document.querySelectorAll('img, video').forEach(function(el){
+      el.addEventListener('load', report);
+    });
     if (window.ResizeObserver) {
       try { new ResizeObserver(report).observe(document.body); } catch (e) {}
+      try { new ResizeObserver(report).observe(document.documentElement); } catch (e) {}
     }
-    setInterval(report, 1500);
+    // Tight polling for first 5 seconds, then back off
+    var fastTicks = 0;
+    var fastInterval = setInterval(function(){
+      report();
+      if (++fastTicks > 25) {
+        clearInterval(fastInterval);
+        setInterval(report, 1500);
+      }
+    }, 200);
   })();
 
 })();
