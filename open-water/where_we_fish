@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="indexifembedded">
+<meta name="description" content="The Lake Atlas — five marquee Detroit Lakes Minnesota waters guided by Baxstar Fishing. Walleye, muskie, smallmouth, largemouth, and pike on Detroit Lake, Lake Sallie, Pelican, Big Cormorant, and Lida.">
+
+<!-- Open Graph / Twitter for any direct deep-link to this section -->
+<meta property="og:title" content="The Lake Atlas | Detroit Lakes MN Guided Fishing — Baxstar Fishing">
+<meta property="og:description" content="Five marquee Detroit Lakes waters mapped by 5× Master Angler Brady Baxter. Walleye, muskie, smallmouth bass and more — privately guided.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://static.wixstatic.com/media/a30e59_413146f7cd6a496a823309aefc67e66c~mv2.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,500;1,400&display=swap">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;background:#08080a;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{overscroll-behavior:none}
+
+:root{
+  --black:#08080a;
+  --charcoal:#0f0f12;
+  --dark:#16161b;
+  --mid:#1f1f26;
+  --red:#c1272d;
+  --red-bright:#e63946;
+  --red-glow:rgba(193,39,45,0.55);
+  --red-glow-soft:rgba(193,39,45,0.18);
+  --cream:#f0ece4;
+  --warm-white:#faf8f4;
+  --slate:#6b6b78;
+  --light-slate:#9a9aaa;
+  --line:rgba(255,255,255,0.08);
+  --line-strong:rgba(255,255,255,0.18);
+  --water:#1a2a3d;
+  --water-edge:#2c4360;
+
+  --font-display:'Bebas Neue',sans-serif;
+  --font-cond:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+  --font-accent:'Cormorant Garamond',serif;
+
+  --ease-out:cubic-bezier(0.2,0,0,1);
+  --ease-in-out:cubic-bezier(0.65,0,0.35,1);
+}
+
+/* ============================================================
+   SECTION CONTAINER + AMBIENT OVERLAYS
+   ============================================================ */
+.atlas{
+  position:relative;
+  width:100%;
+  background:var(--black);
+  color:var(--cream);
+  font-family:var(--font-body);
+  overflow:hidden;
+  isolation:isolate;
+}
+.atlas::before{
+  content:'';
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(193,39,45,0.06), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(193,39,45,0.04), transparent 70%);
+  pointer-events:none;z-index:1;
+}
+.atlas::after{
+  content:'';
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.012) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.012) 1px,transparent 1px);
+  background-size:40px 40px;
+  pointer-events:none;z-index:1;
+  mask-image:radial-gradient(ellipse 100% 80% at 50% 50%, black, transparent 90%);
+}
+
+/* Tactical corner brackets — section-level */
+.atlas-bracket{
+  position:absolute;width:56px;height:56px;z-index:6;pointer-events:none;
+  opacity:0;animation:bracketIn 0.8s var(--ease-out) forwards;
+}
+.atlas-bracket--tl{top:32px;left:32px;border-top:1px solid var(--red);border-left:1px solid var(--red);animation-delay:0.2s}
+.atlas-bracket--tr{top:32px;right:32px;border-top:1px solid var(--red);border-right:1px solid var(--red);animation-delay:0.32s}
+.atlas-bracket--bl{bottom:32px;left:32px;border-bottom:1px solid var(--red);border-left:1px solid var(--red);animation-delay:0.44s}
+.atlas-bracket--br{bottom:32px;right:32px;border-bottom:1px solid var(--red);border-right:1px solid var(--red);animation-delay:0.56s}
+@keyframes bracketIn{from{opacity:0;transform:scale(0.4)}to{opacity:1;transform:scale(1)}}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.atlas-header{
+  position:relative;z-index:5;
+  max-width:1320px;margin:0 auto;
+  padding:clamp(80px,12vh,160px) clamp(28px,5vw,80px) clamp(40px,6vh,80px);
+  text-align:center;
+}
+.atlas-eyebrow{
+  display:inline-flex;align-items:center;gap:14px;
+  font-family:var(--font-cond);font-weight:600;font-size:11px;
+  letter-spacing:0.4em;text-transform:uppercase;color:var(--red);
+  margin-bottom:24px;
+}
+.atlas-eyebrow::before,.atlas-eyebrow::after{
+  content:'';display:block;width:24px;height:1px;background:var(--red);
+}
+.atlas-headline{
+  font-family:var(--font-display);
+  font-size:clamp(48px,7vw,108px);
+  line-height:0.92;letter-spacing:0.01em;
+  color:var(--warm-white);
+  margin-bottom:22px;
+}
+.atlas-headline em{
+  font-family:var(--font-accent);font-style:italic;font-weight:500;
+  color:var(--red-bright);text-transform:none;letter-spacing:0;
+}
+.atlas-sub{
+  max-width:640px;margin:0 auto;
+  font-weight:300;font-size:clamp(15px,1.5vw,18px);line-height:1.7;
+  color:rgba(240,236,228,0.65);letter-spacing:0.02em;
+}
+.atlas-sub strong{color:var(--warm-white);font-weight:500}
+.atlas-coordbar{
+  display:flex;justify-content:center;gap:36px;margin-top:32px;flex-wrap:wrap;
+  font-family:var(--font-cond);font-size:11px;font-weight:500;
+  letter-spacing:0.32em;text-transform:uppercase;
+  color:rgba(240,236,228,0.32);
+}
+.atlas-coordbar span{display:inline-flex;align-items:center;gap:8px}
+.atlas-coordbar span::before{
+  content:'';width:5px;height:5px;background:var(--red);transform:rotate(45deg);
+  box-shadow:0 0 6px var(--red-glow);
+}
+
+/* ============================================================
+   STAGE — sticky map on desktop, stacked on mobile
+   ============================================================ */
+.atlas-stage{
+  position:relative;z-index:5;
+  max-width:1320px;margin:0 auto;
+  padding:0 clamp(28px,5vw,80px) clamp(60px,10vh,140px);
+}
+.atlas-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+  gap:clamp(40px,5vw,80px);
+  align-items:start;
+}
+@media(max-width:980px){
+  .atlas-grid{grid-template-columns:1fr;gap:48px}
+}
+
+/* MAP COLUMN */
+.map-col{position:relative}
+@media(min-width:981px){
+  .map-col{position:sticky;top:7vh;align-self:start}
+}
+
+.map-frame{
+  position:relative;
+  background:
+    radial-gradient(ellipse at 30% 30%, rgba(193,39,45,0.05), transparent 60%),
+    linear-gradient(180deg, var(--charcoal), var(--black));
+  border:1px solid var(--line-strong);
+  aspect-ratio:9/8;
+  overflow:hidden;
+  border-radius:2px;
+  transform-style:preserve-3d;
+  perspective:1400px;
+}
+.map-frame::before{
+  content:'';
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);
+  background-size:36px 36px;
+  pointer-events:none;
+  mask-image:radial-gradient(ellipse 90% 70% at 50% 50%, black 40%, transparent 100%);
+}
+
+/* HUD readouts pinned to map */
+.map-hud{
+  position:absolute;
+  font-family:var(--font-cond);font-size:10px;font-weight:600;
+  letter-spacing:0.3em;text-transform:uppercase;
+  color:rgba(240,236,228,0.5);
+  pointer-events:none;z-index:6;
+}
+.map-hud--tl{top:18px;left:20px}
+.map-hud--tr{top:18px;right:20px;text-align:right}
+.map-hud--bl{bottom:18px;left:20px;display:flex;align-items:center;gap:10px}
+.map-hud--br{bottom:18px;right:20px;display:flex;align-items:center;gap:10px}
+.map-hud strong{color:var(--red);font-weight:700;letter-spacing:0.32em}
+.map-hud .pulse-dot{
+  width:6px;height:6px;background:var(--red);border-radius:50%;
+  box-shadow:0 0 0 0 var(--red-glow);
+  animation:hudPulse 2s ease-out infinite;
+}
+@keyframes hudPulse{
+  0%{box-shadow:0 0 0 0 var(--red-glow)}
+  70%{box-shadow:0 0 0 12px rgba(193,39,45,0)}
+  100%{box-shadow:0 0 0 0 rgba(193,39,45,0)}
+}
+
+/* Compass */
+.compass{
+  position:absolute;top:18px;left:50%;transform:translateX(-50%);
+  font-family:var(--font-cond);font-weight:700;font-size:12px;
+  letter-spacing:0.3em;color:var(--red);z-index:6;pointer-events:none;
+}
+.compass::after{
+  content:'';display:block;margin:4px auto 0;width:1px;height:14px;
+  background:linear-gradient(180deg,var(--red),transparent);
+}
+
+/* SVG MAP */
+.map-svg{
+  position:absolute;inset:0;width:100%;height:100%;
+  z-index:2;
+}
+.map-svg .water-shape{
+  fill:url(#waterFill);
+  stroke:rgba(154,154,170,0.35);
+  stroke-width:1;
+  filter:url(#softGlow);
+  transition:stroke 0.4s var(--ease-out),filter 0.4s var(--ease-out);
+}
+.map-svg .water-shape.is-active{
+  stroke:rgba(230,57,70,0.95);
+  stroke-width:1.5;
+  filter:url(#redGlow);
+}
+.map-svg .lake-label{
+  font-family:var(--font-cond);font-weight:600;font-size:11px;
+  letter-spacing:0.22em;text-transform:uppercase;
+  fill:rgba(240,236,228,0.55);
+  transition:fill 0.4s var(--ease-out);
+  pointer-events:none;
+}
+.map-svg .lake-label.is-active{fill:var(--warm-white)}
+.map-svg .connector{
+  stroke:rgba(193,39,45,0.25);
+  stroke-width:1;
+  stroke-dasharray:4 6;
+  fill:none;
+  opacity:0;
+}
+.map-svg.is-revealed .connector{
+  animation:connectorFade 1.2s var(--ease-out) forwards;
+}
+
+@keyframes connectorFade{to{opacity:1}}
+
+/* SCAN LINE */
+.scanline{
+  position:absolute;left:0;right:0;
+  height:2px;
+  background:linear-gradient(90deg,transparent,rgba(193,39,45,0.55),transparent);
+  z-index:4;pointer-events:none;
+  opacity:0;
+  filter:blur(1px);
+}
+.map-frame.is-revealed .scanline{
+  animation:scan 7s linear infinite;
+}
+@keyframes scan{
+  0%{top:0%;opacity:0}
+  10%{opacity:1}
+  90%{opacity:1}
+  100%{top:100%;opacity:0}
+}
+
+/* LAKE MARKERS — pulsing red dots positioned absolutely */
+.markers{
+  position:absolute;inset:0;z-index:5;pointer-events:none;
+}
+.marker{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  pointer-events:auto;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  width:48px;height:48px;
+  background:transparent;border:none;padding:0;
+  -webkit-tap-highlight-color:transparent;
+}
+.marker__core{
+  position:relative;width:14px;height:14px;border-radius:50%;
+  background:var(--red);
+  box-shadow:
+    0 0 0 3px rgba(8,8,10,0.95),
+    0 0 0 4px rgba(193,39,45,0.4),
+    0 0 16px var(--red-glow);
+  transition:transform 0.4s var(--ease-out),background 0.3s var(--ease-out);
+  z-index:2;
+}
+.marker__ring{
+  position:absolute;inset:0;border-radius:50%;
+  border:1px solid var(--red);
+  opacity:0;
+  animation:markerRing 2.6s cubic-bezier(0.4,0,0.6,1) infinite;
+}
+.marker__ring--2{animation-delay:0.9s}
+.marker__ring--3{animation-delay:1.8s}
+@keyframes markerRing{
+  0%{opacity:0.7;transform:scale(0.3)}
+  90%{opacity:0;transform:scale(1.6)}
+  100%{opacity:0;transform:scale(1.6)}
+}
+.marker:hover .marker__core,
+.marker:focus-visible .marker__core,
+.marker.is-active .marker__core{
+  background:var(--red-bright);
+  transform:scale(1.25);
+  box-shadow:
+    0 0 0 3px rgba(8,8,10,0.95),
+    0 0 0 5px rgba(230,57,70,0.6),
+    0 0 28px rgba(230,57,70,0.85);
+}
+.marker:focus-visible{outline:none}
+.marker:focus-visible .marker__core{box-shadow:
+  0 0 0 3px rgba(8,8,10,0.95),
+  0 0 0 6px rgba(230,57,70,0.9),
+  0 0 28px rgba(230,57,70,0.85);}
+
+/* Marker tag — shows lake name on hover/active (desktop) */
+.marker__tag{
+  position:absolute;left:50%;top:calc(100% + 10px);
+  transform:translateX(-50%);
+  font-family:var(--font-cond);font-weight:700;font-size:10px;
+  letter-spacing:0.28em;text-transform:uppercase;color:var(--warm-white);
+  white-space:nowrap;
+  background:rgba(8,8,10,0.92);
+  border:1px solid rgba(193,39,45,0.5);
+  padding:6px 10px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.25s var(--ease-out),transform 0.25s var(--ease-out);
+}
+.marker:hover .marker__tag,
+.marker.is-active .marker__tag,
+.marker:focus-visible .marker__tag{
+  opacity:1;
+  transform:translateX(-50%) translateY(2px);
+}
+
+/* Initial reveal */
+.marker{
+  opacity:0;
+  transform:translate(-50%,-50%) scale(0.4);
+  transition:opacity 0.6s var(--ease-out),transform 0.6s var(--ease-out);
+}
+.map-frame.is-revealed .marker{
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1);
+}
+.map-frame.is-revealed .marker:nth-child(1){transition-delay:0.5s}
+.map-frame.is-revealed .marker:nth-child(2){transition-delay:0.65s}
+.map-frame.is-revealed .marker:nth-child(3){transition-delay:0.8s}
+.map-frame.is-revealed .marker:nth-child(4){transition-delay:0.95s}
+.map-frame.is-revealed .marker:nth-child(5){transition-delay:1.1s}
+
+/* ============================================================
+   LAKE CARDS (right column on desktop, full-width on mobile)
+   ============================================================ */
+.cards-col{
+  display:flex;flex-direction:column;
+  gap:clamp(28px,4vh,52px);
+}
+.lake-card{
+  position:relative;
+  background:linear-gradient(180deg,rgba(22,22,27,0.85),rgba(15,15,18,0.85));
+  border:1px solid var(--line);
+  padding:clamp(28px,3.5vw,44px);
+  transform-origin:center top;
+  opacity:0.35;
+  transform:translateY(40px) perspective(1400px) rotateX(8deg);
+  transition:
+    opacity 0.7s var(--ease-out),
+    transform 0.7s var(--ease-out),
+    border-color 0.5s var(--ease-out),
+    box-shadow 0.5s var(--ease-out);
+  will-change:transform,opacity;
+}
+.lake-card.is-active{
+  opacity:1;
+  transform:translateY(0) perspective(1400px) rotateX(0deg);
+  border-color:rgba(193,39,45,0.45);
+  box-shadow:
+    0 30px 60px -20px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(193,39,45,0.12) inset;
+}
+.lake-card.is-revealed{
+  opacity:1;
+  transform:translateY(0) perspective(1400px) rotateX(0deg);
+}
+/* Active corner brackets */
+.lake-card::before,
+.lake-card::after{
+  content:'';position:absolute;width:18px;height:18px;
+  border-color:var(--red);border-style:solid;border-width:0;
+  opacity:0;transition:opacity 0.4s var(--ease-out);
+  pointer-events:none;
+}
+.lake-card::before{top:-1px;left:-1px;border-top-width:1.5px;border-left-width:1.5px}
+.lake-card::after{bottom:-1px;right:-1px;border-bottom-width:1.5px;border-right-width:1.5px}
+.lake-card.is-active::before,
+.lake-card.is-active::after{opacity:1}
+
+.card-head{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  gap:20px;margin-bottom:18px;flex-wrap:wrap;
+}
+.card-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-cond);font-weight:600;font-size:10px;
+  letter-spacing:0.32em;text-transform:uppercase;color:var(--red);
+}
+.card-eyebrow::before{
+  content:'';width:14px;height:1px;background:var(--red);
+}
+.card-num{
+  font-family:var(--font-cond);font-weight:600;font-size:10px;
+  letter-spacing:0.3em;color:rgba(240,236,228,0.32);
+}
+.card-name{
+  font-family:var(--font-display);
+  font-size:clamp(38px,4.4vw,56px);
+  line-height:0.95;letter-spacing:0.005em;
+  color:var(--warm-white);
+  margin-bottom:18px;
+}
+.card-coords{
+  font-family:var(--font-cond);font-weight:500;font-size:11px;
+  letter-spacing:0.28em;text-transform:uppercase;
+  color:rgba(240,236,228,0.45);
+  margin-bottom:24px;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.card-coords span+span{display:inline-flex;align-items:center;gap:12px}
+.card-coords span+span::before{
+  content:'';width:3px;height:3px;background:var(--red);transform:rotate(45deg);
+  box-shadow:0 0 4px var(--red-glow);
+}
+
+/* Stat row */
+.card-stats{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  margin-bottom:24px;
+}
+.stat-cell{
+  padding:18px 0;
+  position:relative;
+}
+.stat-cell+.stat-cell{padding-left:24px}
+.stat-cell+.stat-cell::before{
+  content:'';position:absolute;left:0;top:24%;bottom:24%;width:1px;background:var(--line);
+}
+.stat-cell__label{
+  font-family:var(--font-cond);font-size:9px;font-weight:500;
+  letter-spacing:0.28em;text-transform:uppercase;
+  color:rgba(240,236,228,0.4);
+  margin-bottom:6px;
+}
+.stat-cell__val{
+  font-family:var(--font-cond);font-weight:700;
+  font-size:clamp(22px,2.4vw,30px);line-height:1;color:var(--warm-white);
+}
+.stat-cell__val em{color:var(--red);font-style:normal;font-weight:600}
+
+/* Species pills */
+.card-species-label{
+  font-family:var(--font-cond);font-size:10px;font-weight:500;
+  letter-spacing:0.3em;text-transform:uppercase;
+  color:rgba(240,236,228,0.45);margin-bottom:12px;
+}
+.card-species{
+  display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;
+}
+.species-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:9px 14px;
+  background:rgba(193,39,45,0.08);
+  border:1px solid rgba(193,39,45,0.3);
+  font-family:var(--font-cond);font-weight:600;font-size:11px;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--cream);
+  transition:background 0.3s var(--ease-out),border-color 0.3s var(--ease-out);
+}
+.species-pill:hover{background:rgba(193,39,45,0.18);border-color:rgba(193,39,45,0.6)}
+.species-pill svg{width:12px;height:12px;fill:var(--red);flex-shrink:0}
+
+/* Photo */
+.card-photo{
+  position:relative;
+  aspect-ratio:16/10;
+  overflow:hidden;
+  margin-bottom:22px;
+  background:
+    linear-gradient(135deg,#1a1a20,#08080a),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M0 20h40M20 0v40' stroke='%23222228' stroke-width='1'/%3E%3C/svg%3E");
+}
+.card-photo img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform 1.6s var(--ease-out);
+}
+.lake-card.is-active .card-photo img{transform:scale(1.04)}
+.card-photo::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 50%,rgba(8,8,10,0.65));
+  pointer-events:none;
+}
+.card-photo--placeholder{
+  display:flex;align-items:center;justify-content:center;
+  background:
+    radial-gradient(ellipse at 30% 30%, rgba(193,39,45,0.08), transparent 60%),
+    repeating-linear-gradient(45deg,rgba(255,255,255,0.012) 0 1px,transparent 1px 12px),
+    var(--dark);
+  border:1px dashed rgba(255,255,255,0.08);
+}
+.card-photo--placeholder span{
+  font-family:var(--font-cond);font-weight:500;font-size:10px;
+  letter-spacing:0.3em;text-transform:uppercase;
+  color:rgba(240,236,228,0.35);
+  display:flex;align-items:center;gap:10px;
+}
+.card-photo--placeholder span::before{
+  content:'';width:6px;height:6px;background:var(--red);
+  transform:rotate(45deg);box-shadow:0 0 8px var(--red-glow);
+}
+.card-photo__caption{
+  position:absolute;bottom:14px;left:16px;right:16px;
+  font-family:var(--font-cond);font-weight:500;font-size:10px;
+  letter-spacing:0.26em;text-transform:uppercase;
+  color:rgba(240,236,228,0.85);z-index:2;
+}
+.card-photo__caption strong{color:var(--red-bright);font-weight:700;letter-spacing:0.3em}
+
+/* Note (italic positioning line) */
+.card-note{
+  font-family:var(--font-accent);font-style:italic;font-weight:500;
+  font-size:clamp(16px,1.5vw,19px);line-height:1.5;
+  color:rgba(240,236,228,0.78);
+  border-left:2px solid var(--red);
+  padding-left:18px;
+  margin-bottom:28px;
+}
+
+/* CTA */
+.card-cta{
+  display:inline-flex;align-items:center;gap:12px;
+  font-family:var(--font-cond);font-weight:700;font-size:11px;
+  letter-spacing:0.32em;text-transform:uppercase;
+  color:var(--warm-white);text-decoration:none;
+  padding:15px 30px;
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.25);
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+  transition:background 0.3s var(--ease-out),border-color 0.3s var(--ease-out),color 0.3s var(--ease-out);
+}
+.card-cta svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2.5;
+  transition:transform 0.3s var(--ease-out)}
+.card-cta:hover{
+  background:var(--red);border-color:var(--red);color:var(--warm-white);
+}
+.card-cta:hover svg{transform:translateX(4px)}
+
+/* ============================================================
+   FOOTER CTA — "5 of 100+"
+   ============================================================ */
+.atlas-footer{
+  position:relative;z-index:5;
+  padding:clamp(80px,12vh,160px) clamp(28px,5vw,80px);
+  text-align:center;
+  border-top:1px solid var(--line);
+}
+.atlas-footer::before{
+  content:'';position:absolute;top:-1px;left:50%;transform:translateX(-50%);
+  width:60px;height:1px;background:var(--red);
+  box-shadow:0 0 12px var(--red-glow);
+}
+.footer-counter{
+  font-family:var(--font-display);
+  font-size:clamp(56px,10vw,140px);
+  line-height:0.9;letter-spacing:0.01em;
+  color:var(--warm-white);
+  margin-bottom:18px;
+}
+.footer-counter em{
+  color:var(--red);font-style:normal;
+}
+.footer-counter .small{
+  display:block;font-size:0.18em;letter-spacing:0.4em;
+  color:rgba(240,236,228,0.5);font-family:var(--font-cond);font-weight:500;
+  text-transform:uppercase;margin-top:18px;
+}
+.footer-body{
+  max-width:580px;margin:24px auto 36px;
+  font-weight:300;font-size:clamp(15px,1.5vw,17px);line-height:1.7;
+  color:rgba(240,236,228,0.65);letter-spacing:0.02em;
+}
+.footer-cta{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:18px 44px;
+  background:var(--red);color:var(--warm-white);
+  font-family:var(--font-cond);font-weight:700;font-size:12px;
+  letter-spacing:0.32em;text-transform:uppercase;text-decoration:none;
+  clip-path:polygon(12px 0%,100% 0%,calc(100% - 12px) 100%,0% 100%);
+  transition:background 0.3s var(--ease-out),box-shadow 0.3s var(--ease-out),transform 0.3s var(--ease-out);
+}
+.footer-cta svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.5;
+  transition:transform 0.3s var(--ease-out)}
+.footer-cta:hover{
+  background:var(--red-bright);
+  box-shadow:0 18px 44px var(--red-glow),0 0 0 1px rgba(230,57,70,0.4);
+  transform:translateY(-2px);
+}
+.footer-cta:hover svg{transform:translateX(4px)}
+
+/* ============================================================
+   SCROLL REVEAL UTILITIES
+   ============================================================ */
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity 0.9s var(--ease-out),transform 0.9s var(--ease-out);
+  will-change:transform,opacity;
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+  will-change:auto;
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media(max-width:768px){
+  .atlas-bracket{width:36px;height:36px}
+  .atlas-bracket--tl,.atlas-bracket--tr{top:18px}
+  .atlas-bracket--bl,.atlas-bracket--br{bottom:18px}
+  .atlas-bracket--tl,.atlas-bracket--bl{left:18px}
+  .atlas-bracket--tr,.atlas-bracket--br{right:18px}
+  .atlas-coordbar{gap:18px;font-size:10px;letter-spacing:0.26em}
+  .map-frame{aspect-ratio:1/1}
+  .map-hud{font-size:9px;letter-spacing:0.24em}
+  .map-hud--tl,.map-hud--tr{top:12px}
+  .map-hud--tl{left:14px}.map-hud--tr{right:14px}
+  .map-hud--bl,.map-hud--br{bottom:12px}
+  .map-hud--bl{left:14px}.map-hud--br{right:14px}
+  .compass{top:12px;font-size:11px}
+  .map-svg .lake-label{font-size:9px}
+  .marker{width:42px;height:42px}
+  .marker__core{width:12px;height:12px}
+  .lake-card{padding:26px 22px}
+  .card-stats{grid-template-columns:1fr 1fr}
+  .footer-counter{font-size:clamp(48px,15vw,88px)}
+}
+
+@media(max-width:400px){
+  .card-coords{font-size:10px;letter-spacing:0.22em}
+  .stat-cell+.stat-cell{padding-left:18px}
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:0.01ms!important;
+  }
+  .lake-card{opacity:1;transform:none}
+  .marker{opacity:1;transform:translate(-50%,-50%) scale(1)}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     STRUCTURED DATA — @graph with LocalBusiness + Place[] for each lake + Service
+     ============================================================ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"LocalBusiness",
+      "@id":"https://www.baxstarfishing.com/#business",
+      "name":"Baxstar Fishing",
+      "image":"https://static.wixstatic.com/media/a30e59_413146f7cd6a496a823309aefc67e66c~mv2.png",
+      "url":"https://www.baxstarfishing.com",
+      "telephone":"+12185551234",
+      "priceRange":"$$$",
+      "address":{"@type":"PostalAddress","addressLocality":"Detroit Lakes","addressRegion":"MN","addressCountry":"US"},
+      "geo":{"@type":"GeoCoordinates","latitude":46.8186,"longitude":-95.8456},
+      "areaServed":["Becker County","Otter Tail County","Clay County","Detroit Lakes Minnesota"],
+      "founder":{"@type":"Person","@id":"https://www.baxstarfishing.com/#brady"},
+      "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"100"}
+    },
+    {
+      "@type":"Person",
+      "@id":"https://www.baxstarfishing.com/#brady",
+      "name":"Brady Baxter",
+      "jobTitle":"Owner & Lead Fishing Guide",
+      "description":"Detroit Lakes fishing guide with 30+ years of experience and 7 years professionally guiding. 5× Minnesota Master Angler award winner. Certified in CPR and First Aid.",
+      "worksFor":{"@id":"https://www.baxstarfishing.com/#business"},
+      "award":["5× Minnesota Master Angler"]
+    },
+    {
+      "@type":"Service",
+      "@id":"https://www.baxstarfishing.com/openwater#service",
+      "name":"Detroit Lakes Open Water Guided Fishing Trips",
+      "provider":{"@id":"https://www.baxstarfishing.com/#business"},
+      "areaServed":{"@type":"Place","name":"Detroit Lakes, Minnesota"},
+      "serviceType":"Private Guided Fishing Charter"
+    },
+    {
+      "@type":"Place",
+      "@id":"https://www.baxstarfishing.com/openwater#detroit-lake",
+      "name":"Detroit Lake",
+      "description":"3,068-acre walleye, largemouth bass, and muskie fishery in Detroit Lakes, Minnesota.",
+      "geo":{"@type":"GeoCoordinates","latitude":46.8186,"longitude":-95.8456},
+      "containedInPlace":{"@type":"AdministrativeArea","name":"Becker County, Minnesota"}
+    },
+    {
+      "@type":"Place",
+      "@id":"https://www.baxstarfishing.com/openwater#lake-sallie",
+      "name":"Lake Sallie",
+      "description":"1,247-acre Becker County water known for walleye, muskie, and largemouth bass.",
+      "geo":{"@type":"GeoCoordinates","latitude":46.7836,"longitude":-95.8567},
+      "containedInPlace":{"@type":"AdministrativeArea","name":"Becker County, Minnesota"}
+    },
+    {
+      "@type":"Place",
+      "@id":"https://www.baxstarfishing.com/openwater#pelican-lake",
+      "name":"Pelican Lake",
+      "description":"3,945-acre Otter Tail County trophy water — walleye, muskie, and northern pike.",
+      "geo":{"@type":"GeoCoordinates","latitude":46.5739,"longitude":-95.9994},
+      "containedInPlace":{"@type":"AdministrativeArea","name":"Otter Tail County, Minnesota"}
+    },
+    {
+      "@type":"Place",
+      "@id":"https://www.baxstarfishing.com/openwater#big-cormorant",
+      "name":"Big Cormorant Lake",
+      "description":"3,418-acre clear-water Becker County lake known for walleye, smallmouth bass, and northern pike.",
+      "geo":{"@type":"GeoCoordinates","latitude":46.6356,"longitude":-96.0539},
+      "containedInPlace":{"@type":"AdministrativeArea","name":"Becker County, Minnesota"}
+    },
+    {
+      "@type":"Place",
+      "@id":"https://www.baxstarfishing.com/openwater#lake-lida",
+      "name":"Lake Lida",
+      "description":"5,558-acre Otter Tail County multi-species water — walleye, northern pike, and largemouth bass.",
+      "geo":{"@type":"GeoCoordinates","latitude":46.6342,"longitude":-95.9028},
+      "containedInPlace":{"@type":"AdministrativeArea","name":"Otter Tail County, Minnesota"}
+    }
+  ]
+}
+</script>
+
+<!-- ============================================================
+     SECTION
+     ============================================================ -->
+<section class="atlas" aria-labelledby="atlas-heading">
+  <div class="atlas-bracket atlas-bracket--tl" aria-hidden="true"></div>
+  <div class="atlas-bracket atlas-bracket--tr" aria-hidden="true"></div>
+  <div class="atlas-bracket atlas-bracket--bl" aria-hidden="true"></div>
+  <div class="atlas-bracket atlas-bracket--br" aria-hidden="true"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="atlas-header">
+    <p class="atlas-eyebrow reveal">// The Lake Atlas · Detroit Lakes, MN //</p>
+    <h2 id="atlas-heading" class="atlas-headline reveal">
+      Where <em>we</em> fish.
+    </h2>
+    <p class="atlas-sub reveal">
+      <strong>Five marquee waters in the Detroit Lakes corridor — each scouted, mapped, and guided by Brady Baxter for over thirty years.</strong>
+      Walleye, muskie, smallmouth, largemouth, and pike. Live conditions, structure intel, and the right water for the day — chosen for you, not the other way around.
+    </p>
+    <div class="atlas-coordbar reveal" aria-hidden="true">
+      <span>46.6519°N · 95.8453°W</span>
+      <span>Becker · Otter Tail County</span>
+      <span>5 of 100+ Lakes</span>
+    </div>
+  </header>
+
+  <!-- ===== STAGE: Sticky map + scrolling cards ===== -->
+  <div class="atlas-stage">
+    <div class="atlas-grid">
+
+      <!-- ===== MAP COLUMN ===== -->
+      <div class="map-col">
+        <div class="map-frame" id="mapFrame" role="img" aria-label="Map showing five guided fishing lakes around Detroit Lakes, Minnesota">
+
+          <span class="compass" aria-hidden="true">N</span>
+          <div class="map-hud map-hud--tl" aria-hidden="true"><strong>BAX-LIVE</strong> 01.05</div>
+          <div class="map-hud map-hud--tr" aria-hidden="true">SCALE 1 : 65K</div>
+          <div class="map-hud map-hud--bl" aria-hidden="true"><span class="pulse-dot"></span> ACTIVE FEED</div>
+          <div class="map-hud map-hud--br" aria-hidden="true">5 / 100+</div>
+          <div class="scanline" aria-hidden="true"></div>
+
+          <!-- ===== SVG MAP ===== -->
+          <svg class="map-svg" id="mapSvg" viewBox="0 0 900 700" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs>
+              <radialGradient id="waterFill" cx="50%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#2c4360" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#1a2a3d" stop-opacity="0.7"/>
+              </radialGradient>
+              <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="2" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="redGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="6" result="redblur"/>
+                <feMerge><feMergeNode in="redblur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+
+            <!-- Connectors between lakes (dashed tactical lines) -->
+            <g class="connectors" stroke-linecap="round">
+              <path class="connector" d="M 778 144 L 749 217" />
+              <path class="connector" d="M 749 217 L 626 526" />
+              <path class="connector" d="M 626 526 L 223 522" />
+              <path class="connector" d="M 626 526 L 368 650" />
+              <path class="connector" d="M 223 522 L 368 650" />
+            </g>
+
+            <!-- Lake water shapes (organic blobs at each location) -->
+            <!-- DETROIT LAKE -->
+            <path class="water-shape" data-lake="detroit-lake"
+              d="M 728 110 Q 760 90 800 100 Q 836 116 832 148 Q 826 178 798 188 Q 766 196 738 184 Q 706 168 712 138 Q 716 122 728 110 Z" />
+            <!-- LAKE SALLIE -->
+            <path class="water-shape" data-lake="lake-sallie"
+              d="M 716 196 Q 748 188 776 200 Q 798 218 790 244 Q 776 264 748 262 Q 724 256 712 240 Q 704 218 716 196 Z" />
+            <!-- LAKE LIDA -->
+            <path class="water-shape" data-lake="lake-lida"
+              d="M 568 488 Q 612 478 660 490 Q 700 504 696 540 Q 686 572 644 578 Q 604 580 580 564 Q 552 548 552 520 Q 552 500 568 488 Z" />
+            <!-- BIG CORMORANT -->
+            <path class="water-shape" data-lake="big-cormorant"
+              d="M 158 484 Q 200 472 248 484 Q 290 498 290 528 Q 282 562 240 568 Q 200 570 174 558 Q 144 542 144 514 Q 144 496 158 484 Z" />
+            <!-- PELICAN LAKE -->
+            <path class="water-shape" data-lake="pelican-lake"
+              d="M 304 614 Q 348 604 400 618 Q 442 636 436 666 Q 420 690 376 690 Q 334 686 312 670 Q 286 652 290 632 Q 292 620 304 614 Z" />
+
+            <!-- Lake labels positioned alongside markers -->
+            <text class="lake-label" data-lake="detroit-lake" x="778" y="92" text-anchor="middle">Detroit Lake</text>
+            <text class="lake-label" data-lake="lake-sallie" x="836" y="232" text-anchor="start">Sallie</text>
+            <text class="lake-label" data-lake="lake-lida" x="626" y="478" text-anchor="middle">Lida</text>
+            <text class="lake-label" data-lake="big-cormorant" x="223" y="475" text-anchor="middle">Big Cormorant</text>
+            <text class="lake-label" data-lake="pelican-lake" x="368" y="700" text-anchor="middle">Pelican</text>
+          </svg>
+
+          <!-- ===== HTML MARKERS (for click + accessibility) ===== -->
+          <div class="markers">
+            <button class="marker" data-lake="detroit-lake" style="left:86.4%;top:20.6%" aria-label="Detroit Lake — walleye, largemouth, muskie">
+              <span class="marker__ring"></span>
+              <span class="marker__ring marker__ring--2"></span>
+              <span class="marker__ring marker__ring--3"></span>
+              <span class="marker__core"></span>
+              <span class="marker__tag">Detroit Lake</span>
+            </button>
+            <button class="marker" data-lake="lake-sallie" style="left:83.2%;top:31%" aria-label="Lake Sallie — walleye, muskie, largemouth">
+              <span class="marker__ring"></span>
+              <span class="marker__ring marker__ring--2"></span>
+              <span class="marker__ring marker__ring--3"></span>
+              <span class="marker__core"></span>
+              <span class="marker__tag">Lake Sallie</span>
+            </button>
+            <button class="marker" data-lake="lake-lida" style="left:69.6%;top:75.1%" aria-label="Lake Lida — walleye, pike, largemouth">
+              <span class="marker__ring"></span>
+              <span class="marker__ring marker__ring--2"></span>
+              <span class="marker__ring marker__ring--3"></span>
+              <span class="marker__core"></span>
+              <span class="marker__tag">Lake Lida</span>
+            </button>
+            <button class="marker" data-lake="big-cormorant" style="left:24.8%;top:74.6%" aria-label="Big Cormorant Lake — walleye, smallmouth, pike">
+              <span class="marker__ring"></span>
+              <span class="marker__ring marker__ring--2"></span>
+              <span class="marker__ring marker__ring--3"></span>
+              <span class="marker__core"></span>
+              <span class="marker__tag">Big Cormorant</span>
+            </button>
+            <button class="marker" data-lake="pelican-lake" style="left:40.9%;top:92.9%" aria-label="Pelican Lake — walleye, muskie, pike">
+              <span class="marker__ring"></span>
+              <span class="marker__ring marker__ring--2"></span>
+              <span class="marker__ring marker__ring--3"></span>
+              <span class="marker__core"></span>
+              <span class="marker__tag">Pelican Lake</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== CARDS COLUMN ===== -->
+      <div class="cards-col">
+
+        <!-- ============ DETROIT LAKE ============ -->
+        <article class="lake-card" id="card-detroit-lake" data-lake="detroit-lake">
+          <div class="card-head">
+            <p class="card-eyebrow">Lake 01</p>
+            <p class="card-num">BAX · 3068A</p>
+          </div>
+          <h3 class="card-name">Detroit Lake</h3>
+          <p class="card-coords">
+            <span>46.8186°N · 95.8456°W</span>
+            <span>Becker County</span>
+          </p>
+          <div class="card-stats">
+            <div class="stat-cell">
+              <div class="stat-cell__label">Surface Area</div>
+              <div class="stat-cell__val">3,068<em>ac</em></div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-cell__label">Max Depth</div>
+              <div class="stat-cell__val">85<em>ft</em></div>
+            </div>
+          </div>
+          <div class="card-species-label">Top 3 Species</div>
+          <div class="card-species" role="list">
+            <span class="species-pill" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12 C 6 6, 14 6, 18 12 C 14 18, 6 18, 2 12 Z M18 12 L 22 8 L 22 16 Z"/></svg>Walleye</span>
+            <span class="species-pill" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12 C 6 6, 14 6, 18 12 C 14 18, 6 18, 2 12 Z M18 12 L 22 8 L 22 16 Z"/></svg>Largemouth</span>
+            <span class="species-pill" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12 C 6 6, 14 6, 18 12 C 14 18, 6 18, 2 12 Z M18 12 L 22 8 L 22 16 Z"/></svg>Muskie</span>
+          </div>
+          <div class="card-photo card-photo--placeholder" aria-hidden="true">
+            <span>Photo Slot · Detroit Lake</span>
+            <!-- BAXSTAR PHOTO URL: replace this entire .card-photo div with the IMG version below -->
+            <!--
+            <img src="REPLACE_DETROIT_LAKE_PHOTO_URL" alt="Walleye caught on Detroit Lake with Baxstar Fishing — Detroit Lakes Minnesota" loading="lazy" width="800" height="500">
+            <div class="card-photo__caption"><strong>// Detroit Lake</strong> · Walleye Program</div>
+            -->
+          </div>
+          <p class="card-note">The flagship — multi-species range, structure-rich shoreline, and a proven walleye + muskie program steps from town.</p>
+          <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" target="_top" class="card-cta" data-track="reserve_detroit-lake">
+            Reserve a Trip Here
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <!-- ============ LAKE SALLIE ============ -->
+        <article class="lake-card" id="card-lake-sallie" data-lake="lake-sallie">
+          <div class="card-head">
+            <p class="card-eyebrow">Lake 02</p>
+            <p class="card-num">BAX · 1247A</p>
+          </div>
+          <h3 class="card-name">Lake Sallie</h3>
+          <p class="card-coords">
+            <span>46.7836°N · 95.8567°W</span>
+            <span>Becker County</span>
+          </p>
+          <div class="card-stats">
+            <div class="stat-cell">
+              <div class="stat-cell__label">Surface Area</div>
+              <div class="stat-cell__val">1,247<em>ac</em></div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-cell__label">Max Depth</div>
+              <div class="stat-cell__val">49<em>ft</em></div>
+            </div>
+          </div>
+          <div class="card-species-label">Top 3 Species</div>
+          <div class="card-species" role="list">
+            <span class="species-pill" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12 C 6 6, 14 6, 18 12 C 14 18, 6 18, 2 12 Z M18 12 L 22 8 L 22 16 Z"/></svg>Walleye</span>
+            <span class="species-pill" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12 C 6 6, 14 6, 18 12 C 14 18, 6 18, 2 12 Z M18 12 L 22 8 L 22 16 Z"/></svg>Muskie</span>
+            <span class="species-pill" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12 C 6 6, 14 6, 18 12 C 14 18, 6 18, 2 12 Z M18 12 L 22 8 L 22 16 Z"/></svg>Largemouth</span>
+          </div>
+          <div class="card-photo card-photo--placeholder" aria-hidden="true">
+            <span>Photo Slot · Lake Sallie</span>
+            <!--
+            <img src="REPLACE_LAKE_SALLIE_PHOTO_URL" alt="Muskie caught on Lake Sallie with Baxstar Fishing — Detroit Lakes Minnesota" loading="lazy" width="800" height="500">
+            <div class="card-photo__caption"><strong>// Lake Sallie</strong> · Trophy Muskie</div>
+            -->
+          </div>
+          <p class="card-note">Connected, deep, and consistent — a quiet muskie sleeper with a steady walleye bite. Often the right water on the wrong-wind day.</p>
+          <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" target="_top" class="card-cta" data-track="reserve_lake-sallie">
+            Reserve a Trip Here
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <!-- ============ PELICAN LAKE ============ -->
+        <article class="lake-card" id="card-pelican-lake" data-lake="pelican-lake">
+          <div class="card-head">
+            <p class="card-eyebrow">Lake 03</p>
+            <p class="card-num">BAX · 3945A</p>
+          </div>
+          <h3 class="card-name">Pelican Lake</h3>
+          <p class="card-coords">
+            <span>46.5739°N · 95.9994°W</span>
+            <span>Otter Tail County</span>
+          </p>
+          <div class="card-stats">
+            <div class="stat-cell">
+              <div class="stat-cell__label">Surface Area</div>
+              <div class="stat-cell__val">3,945<em>ac</em></div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-cell__label">Max Depth</div>
+              <div class="stat-cell__val">104<em>ft</em></div>
+            </div>
+          </div>
+          <div class="card-species-label">Top 3 Species</div>
+          <div class="card-species" role="list">
+            <span class="species-pill" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12 C 6 6, 14 6, 18 12 C 14 18, 6 18, 2 12 Z M18 12 L 22 8 L 22 16 Z"/></svg>Walleye</span>
+            <span class="species-pill" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12 C 6 6, 14 6, 18 12 C 14 18, 6 18, 2 12 Z M18 12 L 22 8 L 22 16 Z"/></svg>Muskie</span>
+            <span class="species-pill" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12 C 6 6, 14 6, 18 12 C 14 18, 6 18, 2 12 Z M18 12 L 22 8 L 22 16 Z"/></svg>Pike</span>
+          </div>
+          <div class="card-photo card-photo--placeholder" aria-hidden="true">
+            <span>Photo Slot · Pelican Lake</span>
+            <!--
+            <img src="REPLACE_PELICAN_LAKE_PHOTO_URL" alt="Trophy fish caught on Pelican Lake with Baxstar Fishing — Otter Tail County Minnesota" loading="lazy" width="800" height="500">
+            <div class="card-photo__caption"><strong>// Pelican Lake</strong> · Trophy Water</div>
+            -->
+          </div>
+          <p class="card-note">104 feet deep across nearly four thousand acres — the corridor's true trophy water. When the muskie program lights up, this is where it happens.</p>
+          <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" target="_top" class="card-cta" data-track="reserve_pelican-lake">
+            Reserve a Trip Here
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <!-- ============ BIG CORMORANT (with confirmed photo) ============ -->
+        <article class="lake-card" id="card-big-cormorant" data-lake="big-cormorant">
+          <div class="card-head">
+            <p class="card-eyebrow">Lake 04</p>
+            <p class="card-num">BAX · 3418A</p>
+          </div>
+          <h3 class="card-name">Big Cormorant</h3>
+          <p class="card-coords">
+            <span>46.6356°N · 96.0539°W</span>
+            <span>Becker County</span>
+          </p>
+          <div class="card-stats">
+            <div class="stat-cell">
+              <div class="stat-cell__label">Surface Area</div>
+              <div class="stat-cell__val">3,418<em>ac</em></div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-cell__label">Max Depth</div>
+              <div class="stat-cell__val">71<em>ft</em></div>
+            </div>
+          </div>
+          <div class="card-species-label">Top 3 Species</div>
+          <div class="card-species" role="list">
+            <span class="species-pill" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12 C 6 6, 14 6, 18 12 C 14 18, 6 18, 2 12 Z M18 12 L 22 8 L 22 16 Z"/></svg>Walleye</span>
+            <span class="species-pill" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12 C 6 6, 14 6, 18 12 C 14 18, 6 18, 2 12 Z M18 12 L 22 8 L 22 16 Z"/></svg>Smallmouth</span>
+            <span class="species-pill" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12 C 6 6, 14 6, 18 12 C 14 18, 6 18, 2 12 Z M18 12 L 22 8 L 22 16 Z"/></svg>Pike</span>
+          </div>
+          <div class="card-photo">
+            <img src="https://static.wixstatic.com/media/a30e59_6a1013a90bd345e5a39f0a783f7be307~mv2.jpeg/v1/fill/w_900,h_563,al_c,q_85,enc_avif,quality_auto/Smallmouth%20Bass.jpeg"
+                 alt="Personal-best 19.5-inch smallmouth bass caught on Big Cormorant Lake with Baxstar Fishing — Detroit Lakes Minnesota"
+                 loading="lazy" width="900" height="563">
+            <div class="card-photo__caption"><strong>// Big Cormorant</strong> · Personal Best 19.5" Smallmouth</div>
+          </div>
+          <!-- TROPHY WALLEYE PHOTO SLOT — drop URL here when ready -->
+          <div class="card-photo card-photo--placeholder" aria-hidden="true" style="margin-top:-8px">
+            <span>Photo Slot · Trophy Walleye on Big Cormorant</span>
+            <!--
+            <img src="REPLACE_BIG_CORMORANT_TROPHY_WALLEYE_URL" alt="Trophy walleye caught on Big Cormorant Lake with Baxstar Fishing — Detroit Lakes Minnesota" loading="lazy" width="800" height="500">
+            <div class="card-photo__caption"><strong>// Big Cormorant</strong> · Trophy Walleye</div>
+            -->
+          </div>
+          <p class="card-note">A clear-water gem. Smallmouth and walleye headline the program; pike run hard all season. The lake that rewards patience and a Garmin LiveScope read.</p>
+          <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" target="_top" class="card-cta" data-track="reserve_big-cormorant">
+            Reserve a Trip Here
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <!-- ============ LAKE LIDA ============ -->
+        <article class="lake-card" id="card-lake-lida" data-lake="lake-lida">
+          <div class="card-head">
+            <p class="card-eyebrow">Lake 05</p>
+            <p class="card-num">BAX · 5558A</p>
+          </div>
+          <h3 class="card-name">Lake Lida</h3>
+          <p class="card-coords">
+            <span>46.6342°N · 95.9028°W</span>
+            <span>Otter Tail County</span>
+          </p>
+          <div class="card-stats">
+            <div class="stat-cell">
+              <div class="stat-cell__label">Surface Area</div>
+              <div class="stat-cell__val">5,558<em>ac</em></div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-cell__label">Max Depth</div>
+              <div class="stat-cell__val">110<em>ft</em></div>
+            </div>
+          </div>
+          <div class="card-species-label">Top 3 Species</div>
+          <div class="card-species" role="list">
+            <span class="species-pill" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12 C 6 6, 14 6, 18 12 C 14 18, 6 18, 2 12 Z M18 12 L 22 8 L 22 16 Z"/></svg>Walleye</span>
+            <span class="species-pill" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12 C 6 6, 14 6, 18 12 C 14 18, 6 18, 2 12 Z M18 12 L 22 8 L 22 16 Z"/></svg>Pike</span>
+            <span class="species-pill" role="listitem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12 C 6 6, 14 6, 18 12 C 14 18, 6 18, 2 12 Z M18 12 L 22 8 L 22 16 Z"/></svg>Largemouth</span>
+          </div>
+          <div class="card-photo card-photo--placeholder" aria-hidden="true">
+            <span>Photo Slot · Lake Lida</span>
+            <!--
+            <img src="REPLACE_LAKE_LIDA_PHOTO_URL" alt="Walleye caught on Lake Lida with Baxstar Fishing — Otter Tail County Minnesota" loading="lazy" width="800" height="500">
+            <div class="card-photo__caption"><strong>// Lake Lida</strong> · Multi-Species Water</div>
+            -->
+          </div>
+          <p class="card-note">Five thousand five hundred acres of mixed structure. Lida's depth and diversity reward patient anglers — and read like a topo map for a guide who's run it a thousand times.</p>
+          <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" target="_top" class="card-cta" data-track="reserve_lake-lida">
+            Reserve a Trip Here
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER CTA ===== -->
+  <footer class="atlas-footer">
+    <div class="footer-counter reveal">
+      Five shown. <em>95+</em> more.
+      <span class="small">// The Atlas Expands With Every Season //</span>
+    </div>
+    <p class="footer-body reveal">The Lake Atlas is a living map. Each season adds new waters, fresh structure intel, and trophy catches logged with Garmin LiveScope and a Vexus DVX20S. Reserve a date — Brady picks the lake.</p>
+    <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/"
+       target="_top" class="footer-cta reveal" data-track="reserve_footer">
+      Check Availability
+      <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </footer>
+</section>
+
+<script>
+(function(){
+  'use strict';
+  var $ = function(s,r){return (r||document).querySelector(s)};
+  var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ===== 1. SCROLL REVEAL — staggered fade-up =====
+  var revealEls = $$('.reveal');
+  if(prefersReduced){
+    revealEls.forEach(function(el){el.classList.add('visible')});
+  }else if('IntersectionObserver' in window){
+    revealEls.forEach(function(el,i){
+      el.style.transitionDelay = (i*0.05) + 's';
+    });
+    var revealObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          var t = en.target;
+          requestAnimationFrame(function(){t.classList.add('visible')});
+          revealObs.unobserve(t);
+        }
+      });
+    },{threshold:0.18,rootMargin:'0px 0px -8% 0px'});
+    revealEls.forEach(function(el){revealObs.observe(el)});
+  }
+
+  // ===== 2. MAP REVEAL — triggers connector + scan + markers =====
+  var mapFrame = $('#mapFrame');
+  var mapSvg = $('#mapSvg');
+  if(mapFrame && 'IntersectionObserver' in window){
+    var mapObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          requestAnimationFrame(function(){
+            mapFrame.classList.add('is-revealed');
+            mapSvg && mapSvg.classList.add('is-revealed');
+          });
+          mapObs.unobserve(en.target);
+        }
+      });
+    },{threshold:0.25});
+    mapObs.observe(mapFrame);
+  }else if(mapFrame){
+    mapFrame.classList.add('is-revealed');
+    mapSvg && mapSvg.classList.add('is-revealed');
+  }
+
+  // ===== 3. CARDS ⇄ MAP SYNC — active card highlights its lake =====
+  var cards = $$('.lake-card');
+  var markers = $$('.marker');
+  var waterShapes = $$('.water-shape');
+  var lakeLabels = $$('.lake-label');
+
+  function setActiveLake(lakeId){
+    cards.forEach(function(c){c.classList.toggle('is-active', c.dataset.lake === lakeId)});
+    markers.forEach(function(m){m.classList.toggle('is-active', m.dataset.lake === lakeId)});
+    waterShapes.forEach(function(s){s.classList.toggle('is-active', s.dataset.lake === lakeId)});
+    lakeLabels.forEach(function(l){l.classList.toggle('is-active', l.dataset.lake === lakeId)});
+  }
+
+  // Card-in-view → set active
+  if('IntersectionObserver' in window && cards.length){
+    var lastActive = null;
+    var inView = {};
+    var cardSyncObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        var id = en.target.dataset.lake;
+        if(en.isIntersecting){ inView[id] = en.intersectionRatio; }
+        else { delete inView[id]; }
+      });
+      // Pick the card with the largest visibility ratio
+      var bestId = null, bestRatio = 0;
+      Object.keys(inView).forEach(function(k){
+        if(inView[k] > bestRatio){ bestRatio = inView[k]; bestId = k; }
+      });
+      if(bestId && bestId !== lastActive){
+        lastActive = bestId;
+        // Reveal card on first sight
+        cards.forEach(function(c){if(c.dataset.lake===bestId)c.classList.add('is-revealed')});
+        setActiveLake(bestId);
+      }
+    },{threshold:[0,0.3,0.55,0.8,1],rootMargin:'-20% 0px -20% 0px'});
+    cards.forEach(function(c){cardSyncObs.observe(c)});
+  }else{
+    // Fallback: reveal everything
+    cards.forEach(function(c){c.classList.add('is-revealed')});
+  }
+
+  // ===== 4. MARKER CLICK → scroll to its card =====
+  markers.forEach(function(m){
+    m.addEventListener('click', function(e){
+      var id = m.dataset.lake;
+      var target = document.getElementById('card-' + id);
+      if(!target) return;
+      var rect = target.getBoundingClientRect();
+      var top = rect.top + (window.pageYOffset || document.documentElement.scrollTop) - (window.innerHeight*0.18);
+      try{
+        // Tell the parent Wix page to scroll (since we're in an iframe)
+        parent.postMessage({type:'baxstar_scroll_to', y: top, lake: id},'*');
+      }catch(err){}
+      // Local scroll fallback (works if not in iframe or when sandbox allows)
+      try{
+        window.scrollTo({top: top, behavior: prefersReduced ? 'auto' : 'smooth'});
+      }catch(err){
+        window.scrollTo(0, top);
+      }
+      // Snap visual state immediately
+      setActiveLake(id);
+    },{passive:true});
+  });
+
+  // ===== 5. CTA TRACKING — fire postMessage events to parent =====
+  $$('[data-track]').forEach(function(a){
+    a.addEventListener('click', function(){
+      try{ parent.postMessage({type:'baxstar_event',event:a.dataset.track,location:'lake_atlas'},'*'); }catch(e){}
+    },{passive:true});
+  });
+
+  // ===== 6. PERSPECTIVE TILT ON MAP — subtle scroll-driven rotateX =====
+  // (skipped for prefers-reduced-motion)
+  if(!prefersReduced && mapFrame && window.innerWidth > 980){
+    var ticking = false;
+    function updateTilt(){
+      var rect = mapFrame.getBoundingClientRect();
+      var winH = window.innerHeight;
+      // -1 above, 0 centered, 1 below
+      var pos = (rect.top + rect.height/2 - winH/2) / winH;
+      pos = Math.max(-1, Math.min(1, pos));
+      var tilt = pos * 4; // up to 4deg
+      mapFrame.style.transform = 'perspective(1400px) rotateX(' + (-tilt) + 'deg)';
+      ticking = false;
+    }
+    window.addEventListener('scroll', function(){
+      if(!ticking){ requestAnimationFrame(updateTilt); ticking = true; }
+    },{passive:true});
+    updateTilt();
+  }
+
+  // ===== 7. IFRAME HEIGHT REPORTER (Wix Custom Embed) =====
+  if(window.parent !== window){
+    var lastH = 0, stable = 0, intId = null;
+    function reportHeight(){
+      var h = Math.max(
+        document.documentElement.scrollHeight,
+        document.body ? document.body.scrollHeight : 0
+      );
+      if(h && h !== lastH){
+        lastH = h; stable = 0;
+        try{parent.postMessage({type:'setHeight',height:h},'*')}catch(e){}
+        try{parent.postMessage({type:'embed-size',height:h},'*')}catch(e){}
+        try{parent.postMessage('height:'+h,'*')}catch(e){}
+      } else if(++stable >= 20 && intId){
+        clearInterval(intId); intId = null;
+      }
+    }
+    window.addEventListener('load', reportHeight, {passive:true});
+    window.addEventListener('resize', function(){
+      stable = 0; if(!intId) intId = setInterval(reportHeight, 1500); reportHeight();
+    },{passive:true});
+    if(window.ResizeObserver){
+      try{ new ResizeObserver(function(){
+        stable = 0; if(!intId) intId = setInterval(reportHeight, 1500);
+      }).observe(document.body); }catch(e){}
+    }
+    intId = setInterval(reportHeight, 1500);
+  }
+})();
+</script>
+</body>
+</html>
