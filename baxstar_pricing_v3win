@@ -224,7 +224,12 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
   transition: color 0.3s var(--ease);
 }
 .pmin-row:hover .pmin-row__num { color: var(--red-bright); }
-.pmin-row__main { min-width: 0; }
+.pmin-row__main {
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: clamp(16px, 2.5vw, 32px);
+}
 .pmin-row__title {
   display: block;
   font-family: var(--font-display);
@@ -237,10 +242,11 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
 .pmin-row__sub {
   font-family: var(--font-accent);
   font-style: italic;
-  font-size: clamp(15px, 1.45vw, 17px);
+  font-size: clamp(17px, 1.65vw, 19px);
   color: var(--gray-mid);
   letter-spacing: 0.01em; line-height: 1.4;
-  padding-left: 96px; max-width: 100%;
+  flex: 1;
+  text-align: center;
   text-wrap: balance;
 }
 
@@ -346,7 +352,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
   background: #0e0c0c;
   border: 1px solid rgba(193,39,45,0.38);
   border-radius: 3px;
-  width: 100%; max-width: 480px;
+  width: 100%; max-width: 720px;
   position: relative;
   transform: translateY(16px) scale(0.97);
   transition: transform 0.28s var(--ease-out);
@@ -379,6 +385,9 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
   font-size: 17px; color: var(--gray-light);
   margin-top: 7px; line-height: 1.35;
   letter-spacing: 0.005em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .pmin-modal-close {
   width: 32px; height: 32px;
@@ -402,10 +411,23 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
   color: var(--gray-mid); text-transform: uppercase;
   padding: 0 24px; margin-bottom: 10px;
 }
+.pmin-section-label .meta {
+  font-weight: 500;
+  color: var(--warm-white);
+  letter-spacing: 0.12em;
+  margin-left: 8px;
+  text-transform: none;
+  font-size: 14px;
+  font-style: italic;
+  opacity: 0.92;
+}
 
-.pmin-toggle-row { display: flex; gap: 6px; padding: 0 24px 18px; }
+.pmin-toggle-row { display: flex; gap: 6px; padding: 0 24px 10px; flex-wrap: wrap; }
+.pmin-toggle-row--sub { padding-bottom: 18px; padding-top: 2px; }
 .pmin-toggle-pill {
-  flex: 1; padding: 10px 4px;
+  flex: 1 1 0;
+  min-width: 56px;
+  padding: 10px 6px;
   background: rgba(255,255,255,0.04);
   border: 1px solid var(--w-14);
   border-radius: 2px;
@@ -422,6 +444,21 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
 }
 .pmin-toggle-pill.active {
   border-color: var(--red); background: rgba(193,39,45,0.18); color: var(--white);
+}
+.pmin-toggle-pill[disabled] {
+  opacity: 0.32;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.pmin-toggle-pill--sub {
+  font-size: 11.5px;
+  padding: 8px 6px;
+  letter-spacing: 0.08em;
+}
+
+.pmin-day-row {
+  /* same as toggle row but slightly tighter */
+  padding-bottom: 18px;
 }
 
 .pmin-group-btn {
@@ -543,7 +580,9 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
   }
   .pmin-row__arrow { display: none; }
   .pmin-row__num { min-width: auto; font-size: 10px; }
-  .pmin-row__sub { padding-left: 0; font-size: 14px; }
+  .pmin-row__sub { padding-left: 0; font-size: 16px; text-align: left; flex: none; width: 100%; }
+  .pmin-row__main { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .pmin-modal-trip-sub { white-space: normal; overflow: visible; text-overflow: clip; font-size: 16px; }
   .pmin-popular { font-size: 8.5px; letter-spacing: 0.22em; padding: 2px 6px; }
   .pmin-cta-strip { flex-direction: column; align-items: flex-start; gap: 24px; }
   .pmin-cta-strip .bx-btn { align-self: stretch; justify-content: center; }
@@ -553,11 +592,12 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
   .pmin-row__num { display: none; }
   .pmin-row__title { font-size: 26px; }
   .pmin-row__amount { font-size: 30px; }
-  .pmin-row__sub { font-size: 13.5px; }
+  .pmin-row__sub { font-size: 15.5px; }
   .pmin-price-amount { font-size: 46px; }
   .pmin-modal-cta-row { flex-direction: column; }
   .pmin-toggle-row { gap: 4px; }
-  .pmin-toggle-pill { font-size: 11.5px; padding: 9px 2px; letter-spacing: 0.04em; }
+  .pmin-toggle-pill { font-size: 11.5px; padding: 9px 4px; letter-spacing: 0.04em; min-width: 48px; }
+  .pmin-toggle-pill--sub { font-size: 10.5px; }
 }
 </style>
 </head>
@@ -571,8 +611,8 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     <header class="pmin-header reveal">
       <p class="pmin-eyebrow">2026 Season — Detroit Lakes, MN</p>
       <h2 class="pmin-headline" id="pmin-h2">
-        <span class="pmin-italic">By private</span>
-        Reservation.
+        <span class="pmin-italic">Your water. Your day.</span>
+        Reserved.
         <span class="sr-only"> — 2026 Private Guided Fishing Trip Rates, Detroit Lakes, Minnesota. Walleye, Bass, Pike, and Crappie trips with Baxstar Fishing.</span>
       </h2>
       <p class="pmin-subhead">
@@ -586,6 +626,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
         <span class="pmin-row__num">01</span>
         <span class="pmin-row__main">
           <span class="pmin-row__title">4 Hour <span class="sr-only">Private Guided Fishing Trip</span></span>
+          <span class="pmin-row__sub">Half-day on the water — perfect for an early bite or evening run.</span>
         </span>
         <span class="pmin-row__price">
           <span class="pmin-row__from">From</span>
@@ -594,13 +635,13 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
         <span class="pmin-row__arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </span>
-      </button>
-      <p class="pmin-row__sub">Half-day on the water — perfect for an early bite or evening run.</p></li>
+      </button></li>
 
       <li><button class="pmin-row" type="button" data-trip="5">
         <span class="pmin-row__num">02</span>
         <span class="pmin-row__main">
           <span class="pmin-row__title">5 Hour <span class="sr-only">Private Guided Fishing Trip — Most Booked</span></span>
+          <span class="pmin-row__sub">The sweet spot — extra time without making it a full-day commitment.</span>
         </span>
         <span class="pmin-row__price">
           <span class="pmin-popular" aria-hidden="true">Most Booked</span>
@@ -610,13 +651,13 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
         <span class="pmin-row__arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </span>
-      </button>
-      <p class="pmin-row__sub">The sweet spot — extra time without making it a full-day commitment.</p></li>
+      </button></li>
 
       <li><button class="pmin-row" type="button" data-trip="6">
         <span class="pmin-row__num">03</span>
         <span class="pmin-row__main">
           <span class="pmin-row__title">6 Hour <span class="sr-only">Private Guided Fishing Trip</span></span>
+          <span class="pmin-row__sub">Built for serious anglers — patterns, structure, and multiple species in one trip.</span>
         </span>
         <span class="pmin-row__price">
           <span class="pmin-row__from">From</span>
@@ -625,13 +666,13 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
         <span class="pmin-row__arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </span>
-      </button>
-      <p class="pmin-row__sub">Built for serious anglers — patterns, structure, and multiple species in one trip.</p></li>
+      </button></li>
 
       <li><button class="pmin-row" type="button" data-trip="8">
         <span class="pmin-row__num">04</span>
         <span class="pmin-row__main">
           <span class="pmin-row__title">8 Hour <span class="sr-only">Private Guided Fishing Trip</span></span>
+          <span class="pmin-row__sub">The full experience — sun-up to mid-afternoon, big-water exploration, lunch on the boat.</span>
         </span>
         <span class="pmin-row__price">
           <span class="pmin-row__from">From</span>
@@ -640,8 +681,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
         <span class="pmin-row__arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </span>
-      </button>
-      <p class="pmin-row__sub">The full experience — sun-up to mid-afternoon, big-water exploration, lunch on the boat.</p></li>
+      </button></li>
     </ul>
 
     <div class="pmin-foot reveal">
@@ -692,13 +732,17 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
 
     <div class="pmin-modal-divider"></div>
 
-    <div class="pmin-section-label">Season</div>
+    <div class="pmin-section-label">Season<span class="meta" id="pminSeasonMeta"></span></div>
     <div class="pmin-toggle-row" id="pminSeasonRow" role="radiogroup" aria-label="Season">
-      <button class="pmin-toggle-pill active" data-season="base" data-mult="1.00" role="radio" aria-checked="true">Base</button>
-      <button class="pmin-toggle-pill" data-season="high" data-mult="1.07" role="radio" aria-checked="false">High</button>
-      <button class="pmin-toggle-pill" data-season="peak" data-mult="1.12" role="radio" aria-checked="false">Peak</button>
-      <button class="pmin-toggle-pill" data-season="holiday" data-mult="1.20" role="radio" aria-checked="false">Holiday</button>
+      <button class="pmin-toggle-pill active" data-season="off_peak"  role="radio" aria-checked="true">Off Peak</button>
+      <button class="pmin-toggle-pill"        data-season="shoulder"  role="radio" aria-checked="false">Shoulder</button>
+      <button class="pmin-toggle-pill"        data-season="high"      role="radio" aria-checked="false">High</button>
+      <button class="pmin-toggle-pill"        data-season="peak"      role="radio" aria-checked="false">Peak</button>
+      <button class="pmin-toggle-pill"        data-season="holiday"   role="radio" aria-checked="false">Holiday</button>
     </div>
+
+    <div class="pmin-section-label" id="pminDayLabel" style="display:none;">Day Type</div>
+    <div class="pmin-toggle-row pmin-day-row" id="pminDayRow" role="radiogroup" aria-label="Day type" style="display:none;"></div>
 
     <div class="pmin-section-label">Group Size</div>
     <div class="pmin-toggle-row" id="pminGroupRow" role="radiogroup" aria-label="Group size">
@@ -738,115 +782,294 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
 (function () {
   'use strict';
 
-  /* PRICING MODAL — calculator */
-  (function initPricingModal(){
-    var modal     = document.getElementById('pminModal');
-    var modalCard = modal ? modal.querySelector('.pmin-modal-card') : null;
-    if (!modal || !modalCard) return;
+  /* ═══════════════════════════════════════════════════════════
+     PRICING DATA — sourced from Baxstar Pricing Engine 2026
+     Net prices BEFORE 6% Provider Fee. Multipliers applied
+     to base only; per-person add-ons are STATIC.
+  ═══════════════════════════════════════════════════════════ */
 
-    var rows       = document.querySelectorAll('.pmin-row');
-    var closeBtns  = [document.getElementById('pminModalClose'), document.getElementById('pminDismissBtn')];
-    var nameEl     = document.getElementById('pminModalName');
-    var subEl      = document.getElementById('pminModalSub');
-    var amountEl   = document.getElementById('pminPriceAmount');
-    var mathEl     = document.getElementById('pminPriceMath');
-    var perEl      = document.getElementById('pminPerPerson');
-    var seasonRow  = document.getElementById('pminSeasonRow');
-    var groupRow   = document.getElementById('pminGroupRow');
+  // Net base prices per trip length (1–2 guests)
+  var TRIPS = {
+    4: { base: 425, sub: 'Half-day on the water — perfect for an early bite or evening run.',     perAddOn: [50, 50, 100] },
+    5: { base: 550, sub: 'The sweet spot — extra time without making it a full-day commitment.',  perAddOn: [62.5, 62.5, 100] },
+    6: { base: 700, sub: 'Built for serious anglers — patterns, structure, and multiple species.', perAddOn: [75, 75, 125] },
+    8: { base: 950, sub: 'Sun-up to mid-afternoon. Big-water exploration, lunch on the boat.',    perAddOn: [100, 100, 175] }
+  };
+  // perAddOn = [3rd guest, 4th guest, 5th guest] — static net add-ons, no seasonal multiplier
 
-    var TRIPS = {
-      4: { name: '4 Hour Trip',  base: 425, sub: 'Half-day on the water — perfect for an early bite or evening run.',     perAddOn: [50, 50, 100] },
-      5: { name: '5 Hour Trip',  base: 550, sub: 'The sweet spot — extra time without making it a full-day commitment.',  perAddOn: [62.5, 62.5, 100] },
-      6: { name: '6 Hour Trip',  base: 700, sub: 'Built for serious anglers — patterns, structure, and multiple species.', perAddOn: [75, 75, 125] },
-      8: { name: '8 Hour Trip',  base: 950, sub: 'Sun-up to mid-afternoon. Big-water exploration, lunch on the boat.',    perAddOn: [100, 100, 175] }
-    };
+  // Season tiers from the engine. `days` array defines the day-type sub-buttons.
+  // Each day-type entry has its own multiplier. Tiers without day variation use a single "All days" entry.
+  var SEASONS = {
+    off_peak: {
+      label: 'Off Peak',
+      dates: 'Apr 1 – May 31  ·  Sep 10 – Oct 31',
+      days: [
+        { key: 'all', label: 'All Days', mult: 0.00 }
+      ]
+    },
+    shoulder: {
+      label: 'Shoulder',
+      dates: 'Jun 1–12  ·  Aug 21 – Sep 9',
+      days: [
+        { key: 'mon_thu', label: 'Mon–Thu', mult: 0.01 },
+        { key: 'fri_sun', label: 'Fri–Sun', mult: 0.05 }
+      ]
+    },
+    high: {
+      label: 'High',
+      dates: 'Jun 13–30  ·  Jul 26 – Aug 20',
+      days: [
+        { key: 'mon_thu', label: 'Mon–Thu', mult: 0.08 },
+        { key: 'fri_sun', label: 'Fri–Sun', mult: 0.10 }
+      ]
+    },
+    peak: {
+      label: 'Peak',
+      dates: 'Jul 1 – Jul 25',
+      days: [
+        { key: 'mon_thu', label: 'Mon–Thu', mult: 0.12 },
+        { key: 'fri_sun', label: 'Fri / Sun', mult: 0.16 },
+        { key: 'sat',     label: 'Saturday', mult: 0.20 }
+      ]
+    },
+    holiday: {
+      label: 'Holiday',
+      dates: 'May 22–25  ·  Jul 2–5  ·  Sep 4–7',
+      days: [
+        { key: 'all', label: 'All Days', mult: 0.20 }
+      ]
+    }
+  };
 
-    var state = { trip: 4, seasonMult: 1.00, groupSize: 2 };
-    var FEE = 0.06;
+  var FEE = 0.06;
 
-    function fmt(n){ return '$' + Math.round(n).toLocaleString(); }
-    function fmtFee(n){ return '$' + n.toFixed(2).replace(/\.00$/, ''); }
+  /* ═══════════════════════════════════════════════════════════
+     STATE
+  ═══════════════════════════════════════════════════════════ */
+  var state = { trip: 4, season: 'off_peak', dayKey: 'all', groupSize: 2 };
 
-    function calculate(){
-      var trip = TRIPS[state.trip];
-      if (!trip) return;
-      var net = trip.base * state.seasonMult;
-      var addOns = 0;
-      for (var i = 3; i <= state.groupSize; i++) {
-        addOns += trip.perAddOn[i - 3];
-      }
-      net += addOns;
-      var fee = net * FEE;
-      var total = net + fee;
+  /* ═══════════════════════════════════════════════════════════
+     DOM REFS
+  ═══════════════════════════════════════════════════════════ */
+  var modal      = document.getElementById('pminModal');
+  if (!modal) return;
 
-      amountEl.style.opacity = '0';
-      requestAnimationFrame(function(){
-        amountEl.textContent = fmt(total);
-        mathEl.innerHTML = fmt(net) + ' <em>+</em> <span class="fee">' + fmtFee(fee) + ' Provider Fee (6%)</span> <em>=</em> ' + fmt(total);
-        perEl.textContent = state.groupSize === 2 ? 'For 1–2 guests' : 'For ' + state.groupSize + ' guests';
-        amountEl.style.opacity = '1';
-      });
+  var rows       = document.querySelectorAll('.pmin-row');
+  var closeBtns  = [document.getElementById('pminModalClose'), document.getElementById('pminDismissBtn')];
+  var nameEl     = document.getElementById('pminModalName');
+  var subEl      = document.getElementById('pminModalSub');
+  var amountEl   = document.getElementById('pminPriceAmount');
+  var mathEl     = document.getElementById('pminPriceMath');
+  var perEl      = document.getElementById('pminPerPerson');
+  var seasonRow  = document.getElementById('pminSeasonRow');
+  var seasonMeta = document.getElementById('pminSeasonMeta');
+  var dayLabel   = document.getElementById('pminDayLabel');
+  var dayRow     = document.getElementById('pminDayRow');
+  var groupRow   = document.getElementById('pminGroupRow');
+
+  /* ═══════════════════════════════════════════════════════════
+     HELPERS
+  ═══════════════════════════════════════════════════════════ */
+  function fmt(n){ return '$' + Math.round(n).toLocaleString(); }
+  function fmtFee(n){
+    // Show decimals only when not a whole dollar
+    return Math.abs(n - Math.round(n)) < 0.005
+      ? '$' + Math.round(n).toLocaleString()
+      : '$' + n.toFixed(2);
+  }
+
+  function getCurrentMultiplier(){
+    var s = SEASONS[state.season];
+    if (!s) return 0;
+    var d = s.days.find(function(x){ return x.key === state.dayKey; });
+    if (!d) d = s.days[0];
+    return d.mult;
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     CALCULATION
+     net = (base × (1 + seasonMult)) + static per-person add-ons
+     total = net × 1.06
+  ═══════════════════════════════════════════════════════════ */
+  function calculate(){
+    var trip = TRIPS[state.trip];
+    if (!trip) return;
+
+    var mult = getCurrentMultiplier();
+    var net = trip.base * (1 + mult);
+
+    // Static per-person add-ons (NOT multiplied by season)
+    var addOns = 0;
+    for (var i = 3; i <= state.groupSize; i++) {
+      addOns += trip.perAddOn[i - 3];
+    }
+    net += addOns;
+
+    var fee = net * FEE;
+    var total = net + fee;
+
+    amountEl.style.opacity = '0';
+    requestAnimationFrame(function(){
+      amountEl.textContent = fmt(total);
+      mathEl.innerHTML =
+        fmt(net) + ' <em>+</em> <span class="fee">' + fmtFee(fee) +
+        ' Provider Fee (6%)</span> <em>=</em> ' + fmt(total);
+      perEl.textContent = state.groupSize === 2
+        ? 'For 1–2 guests'
+        : 'For ' + state.groupSize + ' guests';
+      amountEl.style.opacity = '1';
+    });
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     DAY-TYPE SUB-ROW (built dynamically per season)
+  ═══════════════════════════════════════════════════════════ */
+  function renderDayRow(){
+    var s = SEASONS[state.season];
+    if (!s) return;
+
+    // Single-day-type seasons hide the sub-row entirely
+    if (s.days.length <= 1) {
+      dayLabel.style.display = 'none';
+      dayRow.style.display = 'none';
+      dayRow.innerHTML = '';
+      state.dayKey = s.days[0].key;
+      return;
     }
 
-    function openModal(tripLen){
-      state.trip = tripLen;
-      var trip = TRIPS[tripLen];
-      nameEl.textContent = trip.name;
-      subEl.textContent = trip.sub;
-      calculate();
-      modal.classList.add('open');
-      document.body.style.overflow = 'hidden';
+    dayLabel.style.display = '';
+    dayRow.style.display = '';
+    dayRow.innerHTML = '';
+
+    s.days.forEach(function(d, idx){
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'pmin-toggle-pill pmin-toggle-pill--sub';
+      btn.dataset.day = d.key;
+      btn.setAttribute('role', 'radio');
+      var isFirst = idx === 0;
+      btn.classList.toggle('active', isFirst);
+      btn.setAttribute('aria-checked', isFirst ? 'true' : 'false');
+      btn.textContent = d.label;
+      dayRow.appendChild(btn);
+    });
+    state.dayKey = s.days[0].key;
+  }
+
+  function updateSeasonMeta(){
+    var s = SEASONS[state.season];
+    if (s && s.dates) {
+      seasonMeta.textContent = '· ' + s.dates;
+    } else {
+      seasonMeta.textContent = '';
     }
-    function closeModal(){
-      modal.classList.remove('open');
-      document.body.style.overflow = '';
-    }
+  }
 
-    rows.forEach(function(row){
-      row.addEventListener('click', function(){
-        var t = parseInt(row.dataset.trip, 10);
-        if (TRIPS[t]) openModal(t);
-      });
+  /* ═══════════════════════════════════════════════════════════
+     MODAL OPEN / CLOSE
+  ═══════════════════════════════════════════════════════════ */
+  function openModal(tripLen){
+    state.trip = tripLen;
+    var trip = TRIPS[tripLen];
+    nameEl.textContent = tripLen + ' Hour Trip';
+    subEl.textContent = trip.sub;
+
+    // Reset to off_peak on open
+    state.season = 'off_peak';
+    state.dayKey = SEASONS.off_peak.days[0].key;
+    state.groupSize = 2;
+
+    // Reset season buttons
+    seasonRow.querySelectorAll('.pmin-toggle-pill').forEach(function(p){
+      var on = p.dataset.season === 'off_peak';
+      p.classList.toggle('active', on);
+      p.setAttribute('aria-checked', on ? 'true' : 'false');
+    });
+    // Reset group buttons
+    groupRow.querySelectorAll('.pmin-group-btn').forEach(function(p){
+      var on = p.dataset.group === '2';
+      p.classList.toggle('active', on);
+      p.setAttribute('aria-checked', on ? 'true' : 'false');
     });
 
-    closeBtns.forEach(function(btn){
-      if (btn) btn.addEventListener('click', closeModal);
-    });
+    updateSeasonMeta();
+    renderDayRow();
+    calculate();
 
-    modal.addEventListener('click', function(e){
-      if (e.target === modal) closeModal();
-    });
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
 
-    document.addEventListener('keydown', function(e){
-      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
-    });
+  function closeModal(){
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
 
-    seasonRow.addEventListener('click', function(e){
-      var btn = e.target.closest('.pmin-toggle-pill');
-      if (!btn) return;
-      seasonRow.querySelectorAll('.pmin-toggle-pill').forEach(function(p){
-        p.classList.remove('active');
-        p.setAttribute('aria-checked', 'false');
-      });
-      btn.classList.add('active');
-      btn.setAttribute('aria-checked', 'true');
-      state.seasonMult = parseFloat(btn.dataset.mult);
-      calculate();
+  /* ═══════════════════════════════════════════════════════════
+     EVENTS
+  ═══════════════════════════════════════════════════════════ */
+  rows.forEach(function(row){
+    row.addEventListener('click', function(){
+      var t = parseInt(row.dataset.trip, 10);
+      if (TRIPS[t]) openModal(t);
     });
+  });
 
-    groupRow.addEventListener('click', function(e){
-      var btn = e.target.closest('.pmin-group-btn');
-      if (!btn) return;
-      groupRow.querySelectorAll('.pmin-group-btn').forEach(function(p){
-        p.classList.remove('active');
-        p.setAttribute('aria-checked', 'false');
-      });
-      btn.classList.add('active');
-      btn.setAttribute('aria-checked', 'true');
-      state.groupSize = parseInt(btn.dataset.group, 10);
-      calculate();
+  closeBtns.forEach(function(btn){
+    if (btn) btn.addEventListener('click', closeModal);
+  });
+
+  modal.addEventListener('click', function(e){
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+
+  // Season selection
+  seasonRow.addEventListener('click', function(e){
+    var btn = e.target.closest('.pmin-toggle-pill');
+    if (!btn) return;
+    seasonRow.querySelectorAll('.pmin-toggle-pill').forEach(function(p){
+      p.classList.remove('active');
+      p.setAttribute('aria-checked', 'false');
     });
-  })();
+    btn.classList.add('active');
+    btn.setAttribute('aria-checked', 'true');
+    state.season = btn.dataset.season;
+    updateSeasonMeta();
+    renderDayRow();
+    calculate();
+  });
+
+  // Day type selection (delegated since buttons are dynamic)
+  dayRow.addEventListener('click', function(e){
+    var btn = e.target.closest('.pmin-toggle-pill');
+    if (!btn) return;
+    dayRow.querySelectorAll('.pmin-toggle-pill').forEach(function(p){
+      p.classList.remove('active');
+      p.setAttribute('aria-checked', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-checked', 'true');
+    state.dayKey = btn.dataset.day;
+    calculate();
+  });
+
+  // Group size selection
+  groupRow.addEventListener('click', function(e){
+    var btn = e.target.closest('.pmin-group-btn');
+    if (!btn) return;
+    groupRow.querySelectorAll('.pmin-group-btn').forEach(function(p){
+      p.classList.remove('active');
+      p.setAttribute('aria-checked', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-checked', 'true');
+    state.groupSize = parseInt(btn.dataset.group, 10);
+    calculate();
+  });
 
   /* SCROLL REVEAL */
   (function initReveal(){
