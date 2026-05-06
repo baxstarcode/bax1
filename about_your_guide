@@ -839,7 +839,7 @@
 
     <figure class="hero__portrait reveal" aria-label="Brady Baxter — Master Angler, Detroit Lakes Minnesota">
       <!-- Replace src with Brady's preferred portrait once selected. Suggestion: a working-on-the-boat shot with eye contact, not posed studio. -->
-      <img src="https://static.wixstatic.com/media/a30e59_PORTRAIT_PLACEHOLDER.jpg"
+      <img src="https://static.wixstatic.com/media/a30e59_3f38ef696d704b2fb29262fe2e221f22~mv2.webp"
            alt="Brady Baxter, owner and lead guide of Baxstar Fishing, on the water at Detroit Lakes, Minnesota"
            loading="eager"
            decoding="async"
@@ -911,7 +911,7 @@
           </div>
           <span class="chapter__num">01 / 06</span>
           <!-- 👇 PASTE YOUR IMAGE URL BETWEEN THE QUOTES IN src="" BELOW.   (Vintage shot of Brady fishing as a kid with grandpa, OR a current B&W of him walking a shoreline) -->
-          <img class="chapter__photo" src="https://static.wixstatic.com/media/a30e59_8e6994715f6c42dcb8c2f004f3507498~mv2.webp" alt="Brady Baxter as a young angler — three decades of outdoor experience" loading="lazy" decoding="async">
+          <img class="chapter__photo" src="https://static.wixstatic.com/media/a30e59_7fc1b37df0f54c4d9b0c81de2dbfb111~mv2.webp" alt="Brady Baxter as a young angler — three decades of outdoor experience" loading="lazy" decoding="async">
         </div>
         <div class="chapter__body">
           <h3 class="chapter__title" id="ch-01-title">The Outdoorsman</h3>
@@ -957,7 +957,7 @@
           </div>
           <span class="chapter__num">03 / 06</span>
           <!-- 👇 PASTE YOUR IMAGE URL BETWEEN THE QUOTES IN src="" BELOW.   (Pole vault action photo OR a concert/event behind-the-scenes shot) -->
-          <img class="chapter__photo" src="" alt="Brady Baxter as a collegiate pole vaulter" loading="lazy" decoding="async">
+          <img class="chapter__photo" src="https://static.wixstatic.com/media/a30e59_5b9cda9f2b7d435d896aec7a3a9dadb3~mv2.png" alt="Brady Baxter as a collegiate pole vaulter" loading="lazy" decoding="async">
         </div>
         <div class="chapter__body">
           <h3 class="chapter__title" id="ch-03-title">The Athlete</h3>
@@ -1026,7 +1026,7 @@
           </div>
           <span class="chapter__num">06 / 06</span>
           <!-- 👇 PASTE YOUR IMAGE URL BETWEEN THE QUOTES IN src="" BELOW.   (Hero working photo — Brady on the Vexus DVX20S, LiveScope visible, sunrise/sunset light) -->
-          <img class="chapter__photo" src="" alt="Brady Baxter on the Vexus DVX20S with Garmin LiveScope, Detroit Lakes Minnesota" loading="lazy" decoding="async">
+          <img class="chapter__photo" src="https://static.wixstatic.com/media/a30e59_1949bbf9960c4865a3b1edf5392ae364~mv2.webp" alt="Brady Baxter on the Vexus DVX20S with Garmin LiveScope, Detroit Lakes Minnesota" loading="lazy" decoding="async">
         </div>
         <div class="chapter__body">
           <h3 class="chapter__title" id="ch-06-title">The Guide</h3>
