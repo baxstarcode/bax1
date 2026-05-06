@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="indexifembedded">
+<meta name="description" content="The waters Brady Baxter knows by heart. Six anchor lakes — Detroit, Sallie, Big Cormorant, Upper Cormorant, Pelican, and Lida — within a sixty-mile radius of Detroit Lakes, Minnesota. Charted depths, documented structure, three decades of pattern recognition.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600;700&family=Barlow:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.baxstarfishing.com/#business",
+      "name": "Baxstar Fishing",
+      "description": "Premium private guided fishing charters across 100+ lakes within 60 miles of Detroit Lakes, Minnesota.",
+      "telephone": "+12185551234",
+      "url": "https://www.baxstarfishing.com/",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Detroit Lakes",
+        "addressRegion": "MN",
+        "postalCode": "56501",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 46.6519,
+        "longitude": -95.8453
+      },
+      "areaServed": [
+        { "@type": "Place", "name": "Detroit Lake", "geo": { "@type": "GeoCoordinates", "latitude": 46.8167, "longitude": -95.8125 } },
+        { "@type": "Place", "name": "Lake Sallie", "geo": { "@type": "GeoCoordinates", "latitude": 46.7872, "longitude": -95.8825 } },
+        { "@type": "Place", "name": "Big Cormorant Lake", "geo": { "@type": "GeoCoordinates", "latitude": 46.7036, "longitude": -96.0656 } },
+        { "@type": "Place", "name": "Upper Cormorant Lake", "geo": { "@type": "GeoCoordinates", "latitude": 46.7589, "longitude": -96.0814 } },
+        { "@type": "Place", "name": "Pelican Lake", "geo": { "@type": "GeoCoordinates", "latitude": 46.5811, "longitude": -96.0431 } },
+        { "@type": "Place", "name": "Lake Lida", "geo": { "@type": "GeoCoordinates", "latitude": 46.5067, "longitude": -95.9008 } }
+      ],
+      "founder": {
+        "@type": "Person",
+        "@id": "https://www.baxstarfishing.com/#brady",
+        "name": "Brady Baxter",
+        "jobTitle": "Master Angler & Fishing Guide",
+        "worksFor": { "@id": "https://www.baxstarfishing.com/#business" }
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.baxstarfishing.com/#guided-service",
+      "serviceType": "Private Guided Fishing Charter",
+      "provider": { "@id": "https://www.baxstarfishing.com/#business" },
+      "areaServed": { "@id": "https://www.baxstarfishing.com/#business" },
+      "description": "Private guided fishing trips across 100+ lakes in the Detroit Lakes, Minnesota area. Aboard the Vexus DVX20S equipped with Garmin LiveScope sonar."
+    }
+  ]
+}
+</script>
+
+<style>
+  /* ───────── DESIGN TOKENS ───────── */
+  :root {
+    --bx-black: #08080a;
+    --bx-near-black: #0d0d11;
+    --bx-graphite: #16171c;
+    --bx-slate: #2a2d36;
+    --bx-fog: #4a5560;
+    --bx-bone: #c8c5bd;
+    --bx-pearl: #e8e6e0;
+
+    --bx-red: #e63946;
+    --bx-red-deep: #c1272d;
+    --bx-red-glow: rgba(230, 57, 70, 0.45);
+
+    --bx-cyan: #1ce3d2;
+    --bx-cyan-2: #0fb8b0;
+    --bx-cyan-3: #086e7a;
+    --bx-cyan-4: #04434f;
+    --bx-cyan-5: #022933;
+
+    --bx-tilt: 0deg;
+    --bx-spin: 0deg;
+    --bx-fade: 0;
+
+    --font-display: 'Bebas Neue', 'Impact', sans-serif;
+    --font-tactical: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    --font-body: 'Barlow', 'Helvetica Neue', sans-serif;
+    --font-italic: 'Cormorant Garamond', Georgia, serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--bx-black);
+    color: var(--bx-pearl);
+    font-family: var(--font-body);
+    overscroll-behavior: none;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ───────── SECTION SHELL ───────── */
+  .ops {
+    position: relative;
+    width: 100%;
+    background: var(--bx-black);
+    color: var(--bx-pearl);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .ops::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 50%, rgba(28, 227, 210, 0.04), transparent 70%),
+      linear-gradient(180deg, var(--bx-black) 0%, #0a0a0e 50%, var(--bx-black) 100%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .ops::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(200, 197, 189, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200, 197, 189, 0.025) 1px, transparent 1px);
+    background-size: 64px 64px;
+    z-index: 0;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000 30%, transparent 100%);
+  }
+
+  /* ───────── INTRO HEADER ───────── */
+  .ops__intro {
+    position: relative;
+    z-index: 3;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: clamp(64px, 9vw, 120px) clamp(20px, 4vw, 56px) clamp(28px, 4vw, 48px);
+    text-align: left;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-tactical);
+    font-weight: 500;
+    font-size: clamp(11px, 1.05vw, 13px);
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--bx-red);
+    margin: 0 0 22px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: var(--bx-red);
+    box-shadow: 0 0 10px var(--bx-red-glow);
+  }
+  .eyebrow .live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--bx-red);
+    box-shadow: 0 0 12px var(--bx-red-glow);
+    animation: pulse-dot 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(0.8); }
+  }
+
+  .ops__headline {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(58px, 11vw, 168px);
+    line-height: 0.86;
+    letter-spacing: -0.01em;
+    color: var(--bx-pearl);
+    margin: 0;
+    text-transform: uppercase;
+  }
+  .ops__headline em {
+    font-family: var(--font-italic);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--bx-bone);
+    letter-spacing: 0;
+    font-size: 0.42em;
+    display: block;
+    margin-top: 0.35em;
+    line-height: 1.05;
+    text-transform: none;
+  }
+
+  .ops__bluf {
+    font-family: var(--font-body);
+    font-size: clamp(17px, 1.6vw, 21px);
+    line-height: 1.55;
+    color: var(--bx-bone);
+    max-width: 64ch;
+    margin: clamp(28px, 3vw, 40px) 0 0;
+    font-weight: 300;
+  }
+  .ops__bluf strong {
+    color: var(--bx-pearl);
+    font-weight: 500;
+  }
+
+  /* ───────── MAP STAGE ───────── */
+  .ops__theater {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: clamp(600px, 95vh, 980px);
+    perspective: 2400px;
+    perspective-origin: 50% 38%;
+    margin: 0 auto;
+  }
+
+  .stage {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--bx-tilt)) rotateZ(var(--bx-spin));
+    transform-origin: 50% 50%;
+    will-change: transform;
+  }
+
+  .stage__plate {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: 92%;
+    aspect-ratio: 1000 / 1200;
+    max-width: 88%;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+  }
+
+  /* ───────── HUD FRAME (lives outside the tilt — stays oriented) ───────── */
+  .hud {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
+    font-family: var(--font-tactical);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bx-bone);
+  }
+
+  .hud__corner {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-color: var(--bx-red);
+    opacity: 0.7;
+  }
+  .hud__corner--tl { top: 16px; left: 16px; border-top: 1px solid; border-left: 1px solid; }
+  .hud__corner--tr { top: 16px; right: 16px; border-top: 1px solid; border-right: 1px solid; }
+  .hud__corner--bl { bottom: 16px; left: 16px; border-bottom: 1px solid; border-left: 1px solid; }
+  .hud__corner--br { bottom: 16px; right: 16px; border-bottom: 1px solid; border-right: 1px solid; }
+
+  .hud__strip {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 10px;
+    color: var(--bx-fog);
+  }
+  .hud__strip--top-left { top: 28px; left: 60px; }
+  .hud__strip--top-right { top: 28px; right: 60px; }
+  .hud__strip--bottom-left { bottom: 28px; left: 60px; }
+  .hud__strip--bottom-right { bottom: 28px; right: 60px; }
+
+  .hud__strip .key {
+    color: var(--bx-fog);
+  }
+  .hud__strip .val {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--bx-pearl);
+    letter-spacing: 0.04em;
+    text-transform: none;
+  }
+  .hud__strip .val--accent {
+    color: var(--bx-red);
+  }
+
+  .hud__divider {
+    width: 1px;
+    height: 12px;
+    background: var(--bx-slate);
+  }
+
+  /* North arrow / compass */
+  .hud__compass {
+    position: absolute;
+    bottom: 70px;
+    right: 60px;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hud__compass svg { width: 100%; height: 100%; }
+  .hud__compass .compass-rotor {
+    transform-origin: center;
+    animation: compass-drift 22s linear infinite;
+  }
+  @keyframes compass-drift {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Scale bar */
+  .hud__scale {
+    position: absolute;
+    bottom: 70px;
+    left: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--bx-bone);
+    font-size: 10px;
+  }
+  .hud__scale-bar {
+    display: flex;
+    align-items: stretch;
+    height: 6px;
+    border: 1px solid var(--bx-fog);
+  }
+  .hud__scale-bar span {
+    flex: 1;
+    border-right: 1px solid var(--bx-fog);
+  }
+  .hud__scale-bar span:nth-child(odd) { background: var(--bx-fog); }
+  .hud__scale-bar span:last-child { border-right: 0; }
+  .hud__scale-labels {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--bx-fog);
+  }
+
+  /* ───────── 3D LAKE STACK ───────── */
+  .lakes {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+  }
+
+  /* Each depth layer is a full SVG shifted in Z. We stack 5 layers per lake set. */
+  .lakes__layer {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    pointer-events: none;
+  }
+  .lakes__layer svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  .lakes__layer--surface  { transform: translateZ(0px); }
+  .lakes__layer--shallow  { transform: translateZ(-22px); }
+  .lakes__layer--deep     { transform: translateZ(-55px); }
+  .lakes__layer--abyss    { transform: translateZ(-100px); }
+
+  /* Land plate — sits behind everything, gives mass */
+  .land-plate {
+    position: absolute;
+    inset: 0;
+    transform: translateZ(-130px);
+  }
+  .land-plate svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Lake outline visible at top — crisp */
+  .lakes__layer--surface svg path {
+    fill: var(--bx-cyan);
+    fill-opacity: 0.10;
+    stroke: var(--bx-cyan);
+    stroke-width: 1.4;
+    stroke-opacity: 0.95;
+    filter: drop-shadow(0 0 6px rgba(28, 227, 210, 0.35));
+  }
+
+  .lakes__layer--shallow svg path {
+    fill: var(--bx-cyan-2);
+    fill-opacity: 0.20;
+    stroke: var(--bx-cyan-2);
+    stroke-width: 0.5;
+    stroke-opacity: 0.35;
+  }
+  .lakes__layer--deep svg path {
+    fill: var(--bx-cyan-3);
+    fill-opacity: 0.50;
+    stroke: var(--bx-cyan-3);
+    stroke-width: 0.3;
+    stroke-opacity: 0.25;
+  }
+  .lakes__layer--abyss svg path {
+    fill: var(--bx-cyan-5);
+    fill-opacity: 0.92;
+    stroke: none;
+  }
+
+  /* Secondary lakes (Floyd / Melissa / Lizzie / Prairie) — surface only, atmospheric */
+  .lakes__layer--surface svg path.secondary {
+    fill-opacity: 0.05;
+    stroke-opacity: 0.45;
+    filter: none;
+  }
+
+  /* ───────── CALLOUT MARKERS ───────── */
+  .markers {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    transform-style: preserve-3d;
+  }
+
+  .marker {
+    position: absolute;
+    transform-style: preserve-3d;
+    pointer-events: auto;
+    color: var(--bx-pearl);
+  }
+
+  .marker__pin {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    transform: translate(-50%, -50%) translateZ(8px);
+  }
+  .marker__pin::before,
+  .marker__pin::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--bx-red);
+    border-radius: 50%;
+  }
+  .marker__pin::after {
+    inset: 4px;
+    background: var(--bx-red);
+    box-shadow: 0 0 12px var(--bx-red-glow);
+  }
+  .marker__pin .ring-pulse {
+    position: absolute;
+    inset: -8px;
+    border: 1px solid var(--bx-red);
+    border-radius: 50%;
+    opacity: 0;
+    animation: ring-pulse 3.2s ease-out infinite;
+  }
+  @keyframes ring-pulse {
+    0% { transform: scale(0.5); opacity: 0.9; }
+    80% { transform: scale(1.6); opacity: 0; }
+    100% { opacity: 0; }
+  }
+
+  /* Tether line + label — counter-rotated to stay readable */
+  .marker__label {
+    position: absolute;
+    transform: translateZ(40px);
+    transform-origin: 0 50%;
+    min-width: 188px;
+    padding: 10px 14px;
+    background: rgba(8, 8, 10, 0.78);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(28, 227, 210, 0.28);
+    border-left: 2px solid var(--bx-red);
+    font-family: var(--font-tactical);
+  }
+  .marker__label--right { left: 22px; top: -14px; }
+  .marker__label--left  { right: 22px; top: -14px; border-left: 1px solid rgba(28, 227, 210, 0.28); border-right: 2px solid var(--bx-red); }
+  /* --up-left: label sits ABOVE-LEFT of pin (used where the side-by-side spot is crowded) */
+  .marker__label--up-left { right: 22px; bottom: 18px; border-left: 1px solid rgba(28, 227, 210, 0.28); border-right: 2px solid var(--bx-red); }
+  .marker__label--right::before {
+    content: "";
+    position: absolute;
+    left: -32px;
+    top: 50%;
+    width: 32px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--bx-red), rgba(230, 57, 70, 0));
+  }
+  .marker__label--left::before {
+    content: "";
+    position: absolute;
+    right: -32px;
+    top: 50%;
+    width: 32px;
+    height: 1px;
+    background: linear-gradient(270deg, var(--bx-red), rgba(230, 57, 70, 0));
+  }
+  .marker__label--up-left::before {
+    /* tether anchored at label's bottom-right (closer to pin since label is above) */
+    content: "";
+    position: absolute;
+    right: -22px;
+    bottom: -1px;
+    width: 22px;
+    height: 1px;
+    background: linear-gradient(270deg, var(--bx-red), rgba(230, 57, 70, 0));
+  }
+  .marker__name {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 18px;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    color: var(--bx-pearl);
+    margin-bottom: 4px;
+  }
+  .marker__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 12px;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--bx-bone);
+    text-transform: uppercase;
+  }
+  .marker__meta .accent { color: var(--bx-cyan); }
+
+  /* ───────── INTEL PANEL (below map) ───────── */
+  .intel {
+    position: relative;
+    z-index: 3;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: clamp(48px, 6vw, 80px) clamp(20px, 4vw, 56px) clamp(80px, 10vw, 140px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(28px, 3vw, 48px);
+  }
+
+  .intel__col {
+    border-top: 1px solid var(--bx-slate);
+    padding-top: 28px;
+  }
+
+  .intel__lede {
+    font-family: var(--font-italic);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(20px, 2.1vw, 28px);
+    line-height: 1.3;
+    color: var(--bx-bone);
+  }
+  .intel__lede strong {
+    color: var(--bx-pearl);
+    font-style: normal;
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.03em;
+  }
+
+  .intel__copy {
+    font-family: var(--font-body);
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.65;
+    color: var(--bx-bone);
+    font-weight: 300;
+  }
+  .intel__copy strong {
+    color: var(--bx-pearl);
+    font-weight: 500;
+  }
+
+  .intel__sub {
+    font-family: var(--font-tactical);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--bx-red);
+    margin-bottom: 14px;
+  }
+
+  /* ───────── BENEATH-MAP CTA STRIP ───────── */
+  .ops__cta {
+    position: relative;
+    z-index: 3;
+    padding: clamp(40px, 5vw, 64px) clamp(20px, 4vw, 56px);
+    border-top: 1px solid var(--bx-slate);
+    border-bottom: 1px solid var(--bx-slate);
+    background: linear-gradient(180deg, rgba(13, 13, 17, 0) 0%, rgba(13, 13, 17, 0.6) 100%);
+  }
+  .ops__cta-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .ops__cta-text {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2.4vw, 32px);
+    letter-spacing: 0.02em;
+    color: var(--bx-pearl);
+  }
+  .ops__cta-text em {
+    font-family: var(--font-italic);
+    font-style: italic;
+    color: var(--bx-bone);
+    font-size: 0.7em;
+    display: block;
+    letter-spacing: 0;
+    margin-top: 4px;
+  }
+  .ops__cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 28px;
+    background: var(--bx-red);
+    color: var(--bx-pearl);
+    text-decoration: none;
+    font-family: var(--font-tactical);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    border: 1px solid var(--bx-red);
+    transition: background 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .ops__cta-button:hover {
+    background: var(--bx-red-deep);
+    transform: translateY(-1px);
+  }
+  .ops__cta-button::after {
+    content: "→";
+    font-family: var(--font-mono);
+    font-size: 16px;
+    transition: transform 0.3s ease;
+  }
+  .ops__cta-button:hover::after { transform: translateX(4px); }
+
+  /* ───────── RESPONSIVE ───────── */
+  @media (max-width: 900px) {
+    .ops__theater {
+      perspective: 1600px;
+      height: clamp(480px, 75vh, 700px);
+    }
+    .stage__plate { height: 94%; max-width: 96%; }
+    .hud__strip--top-left { top: 22px; left: 50px; }
+    .hud__strip--top-right { display: none; }
+    .hud__strip--bottom-right { display: none; }
+    .hud__compass { width: 44px; height: 44px; bottom: 60px; right: 50px; }
+    .hud__scale { left: 50px; bottom: 60px; }
+    .marker__label { min-width: 140px; padding: 8px 10px; }
+    .marker__label--left { right: auto; left: 22px; top: 18px; border-right: 1px solid rgba(28, 227, 210, 0.28); border-left: 2px solid var(--bx-red); }
+    .marker__label--left::before { right: auto; left: -22px; background: linear-gradient(90deg, var(--bx-red), rgba(230, 57, 70, 0)); width: 22px; }
+    .marker__label--right::before { left: -22px; width: 22px; }
+    /* --up-left: keep above-left on mobile too — sits up and slightly left of pin */
+    .marker__label--up-left { right: 22px; bottom: 14px; }
+    .marker__label--up-left::before { right: -22px; width: 22px; }
+    .marker__name { font-size: 14px; }
+    .marker__meta { font-size: 9px; }
+    .intel { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .ops__theater { height: clamp(440px, 68vh, 600px); perspective: 1200px; }
+    .hud__strip--top-left { font-size: 9px; gap: 8px; }
+    .marker__label { min-width: 120px; padding: 6px 9px; }
+    .marker__label::before { left: -22px; width: 22px; }
+    .marker__name { font-size: 13px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stage { transform: rotateX(8deg) rotateZ(0deg) !important; }
+    .ring-pulse, .compass-rotor, .live-dot { animation: none !important; }
+  }
+
+  /* SR-only utility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+</head>
+<body>
+
+<section class="ops" id="ops-theater" aria-labelledby="ops-headline">
+
+  <!-- ── Header / BLUF ── -->
+  <div class="ops__intro">
+    <h3 class="eyebrow"><span class="live-dot" aria-hidden="true"></span>Operating Theater · Active</h3>
+    <h2 class="ops__headline" id="ops-headline">
+      Ground Truth
+      <em>the waters Brady knows by heart</em>
+      <span class="sr-only"> — Detroit Lakes, Minnesota Guided Fishing Coverage Map: Detroit Lake, Lake Sallie, Big Cormorant, Upper Cormorant, Pelican Lake, Lake Lida</span>
+    </h2>
+    <p class="ops__bluf">
+      <strong>Most guides know one or two lakes well.</strong> Brady Baxter operates a sixty-mile radius from Detroit Lakes, Minnesota — over a hundred lakes mapped across thirty years on the water. The six plotted here account for the majority of guided trips, each with documented structure, seasonal patterns, and depth charts most clients never see.
+    </p>
+  </div>
+
+  <!-- ── Map Theater (3D stage) ── -->
+  <div class="ops__theater" id="theater">
+
+    <!-- HUD frame (does not tilt — stays oriented) -->
+    <div class="hud" aria-hidden="true">
+      <span class="hud__corner hud__corner--tl"></span>
+      <span class="hud__corner hud__corner--tr"></span>
+      <span class="hud__corner hud__corner--bl"></span>
+      <span class="hud__corner hud__corner--br"></span>
+
+      <div class="hud__strip hud__strip--top-left">
+        <span class="key">SECTOR</span>
+        <span class="val val--accent">DTL · MN</span>
+        <span class="hud__divider"></span>
+        <span class="key">RADIUS</span>
+        <span class="val">60 MI</span>
+      </div>
+
+      <div class="hud__strip hud__strip--top-right">
+        <span class="key">GPS</span>
+        <span class="val">46.6519° N · 95.8453° W</span>
+      </div>
+
+      <div class="hud__strip hud__strip--bottom-left">
+        <span class="key">CHARTED</span>
+        <span class="val">100+ LAKES</span>
+      </div>
+
+      <div class="hud__strip hud__strip--bottom-right">
+        <span class="key">VESSEL</span>
+        <span class="val">VEXUS DVX20S</span>
+        <span class="hud__divider"></span>
+        <span class="key">SONAR</span>
+        <span class="val">GARMIN LIVESCOPE</span>
+      </div>
+
+      <!-- Scale bar -->
+      <div class="hud__scale">
+        <div class="hud__scale-bar" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="hud__scale-labels">
+          <span>0</span><span>5</span><span>10 MI</span>
+        </div>
+      </div>
+
+      <!-- Compass -->
+      <div class="hud__compass" aria-label="North indicator">
+        <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="30" cy="30" r="28" fill="none" stroke="#4a5560" stroke-width="0.5"/>
+          <circle cx="30" cy="30" r="22" fill="none" stroke="#4a5560" stroke-width="0.5" stroke-dasharray="2 4"/>
+          <g class="compass-rotor">
+            <circle cx="30" cy="30" r="20" fill="none" stroke="rgba(28,227,210,0.15)" stroke-width="0.5"/>
+            <line x1="30" y1="14" x2="30" y2="20" stroke="#1ce3d2" stroke-width="0.6"/>
+            <line x1="30" y1="40" x2="30" y2="46" stroke="#4a5560" stroke-width="0.4"/>
+            <line x1="14" y1="30" x2="20" y2="30" stroke="#4a5560" stroke-width="0.4"/>
+            <line x1="40" y1="30" x2="46" y2="30" stroke="#4a5560" stroke-width="0.4"/>
+          </g>
+          <path d="M30 8 L33 16 L30 14 L27 16 Z" fill="#e63946" stroke="#e63946" stroke-width="0.4"/>
+          <text x="30" y="6" text-anchor="middle" font-family="Barlow Condensed" font-size="6" font-weight="600" fill="#e63946" letter-spacing="0.5">N</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- 3D Stage -->
+    <div class="stage" id="stage">
+      <div class="stage__plate">
+
+        <!-- Land plate (deepest layer) -->
+        <div class="land-plate" aria-hidden="true">
+          <svg viewBox="0 0 1000 1200" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <pattern id="topo" patternUnits="userSpaceOnUse" width="80" height="80">
+                <path d="M0 40 Q20 30, 40 40 T80 40" fill="none" stroke="rgba(74, 85, 96, 0.18)" stroke-width="0.4"/>
+                <path d="M0 60 Q20 50, 40 60 T80 60" fill="none" stroke="rgba(74, 85, 96, 0.14)" stroke-width="0.4"/>
+                <path d="M0 20 Q20 10, 40 20 T80 20" fill="none" stroke="rgba(74, 85, 96, 0.14)" stroke-width="0.4"/>
+              </pattern>
+              <linearGradient id="land-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#16171c"/>
+                <stop offset="100%" stop-color="#0d0d11"/>
+              </linearGradient>
+            </defs>
+            <rect width="1000" height="1200" fill="url(#land-grad)"/>
+            <rect width="1000" height="1200" fill="url(#topo)"/>
+
+            <!-- County boundaries (subtle) -->
+            <line x1="0" y1="380" x2="1000" y2="320" stroke="rgba(74, 85, 96, 0.4)" stroke-width="0.6" stroke-dasharray="6 4"/>
+            <line x1="80" y1="0" x2="80" y2="1200" stroke="rgba(74, 85, 96, 0.3)" stroke-width="0.5" stroke-dasharray="4 6"/>
+
+            <!-- Subtle river/water-flow indicator -->
+            <path d="M730 100 Q700 200, 660 280 Q620 380, 540 460 Q480 540, 440 600 Q420 660, 380 760 Q340 840, 320 920"
+                  fill="none" stroke="rgba(28, 227, 210, 0.10)" stroke-width="2" stroke-dasharray="3 8" stroke-linecap="round"/>
+
+          </svg>
+        </div>
+
+        <!-- 3D Lake Stack — 4 layers, paths derived by center-anchored scaling -->
+        <div class="lakes" aria-hidden="true">
+
+          <!-- ABYSS layer (deepest cores, scale 0.55) -->
+          <div class="lakes__layer lakes__layer--abyss">
+            <svg viewBox="0 0 1000 1200" preserveAspectRatio="xMidYMid meet">
+              <!-- Pelican (~10,945 ac) -->
+              <path d="M 404.0 607.0 C 420.5 601.5 438.1 600.4 452.4 605.9 C 460.1 608.6 463.4 615.2 464.5 623.5 C 465.6 630.1 470.0 635.6 478.2 637.2 C 494.8 640.0 512.9 635.6 526.1 642.8 C 536.0 648.8 541.5 657.6 536.0 667.5 C 530.5 675.8 516.8 678.5 501.9 677.4 C 487.6 675.8 474.4 670.2 467.2 664.8 C 463.4 660.9 460.1 657.6 454.6 657.6 C 443.6 656.5 431.5 657.6 419.4 656.5 C 408.4 655.4 402.9 649.9 401.2 641.1 C 400.1 630.1 401.2 616.9 404.0 607.0 Z"/>
+              <!-- Detroit (~3,067 ac) -->
+              <path d="M 624.2 172.7 C 649.0 168.2 675.4 172.7 694.1 184.8 C 709.5 194.7 716.1 211.2 712.8 228.8 C 708.4 248.0 694.1 257.4 676.5 259.6 C 660.0 261.8 642.4 257.4 631.4 250.8 C 621.5 245.2 617.1 238.7 609.4 235.3 C 598.4 231.5 588.5 224.3 592.9 212.2 C 598.4 195.8 611.6 180.3 620.4 174.8 C 622.6 173.2 623.7 172.7 624.2 172.7 Z"/>
+              <!-- Sallie (~1,247 ac) -->
+              <path d="M 500.5 311.6 C 523.6 306.7 550.0 313.3 561.0 326.5 C 568.7 337.5 562.1 351.8 546.7 357.3 C 526.4 362.8 506.0 358.4 495.0 347.4 C 487.3 337.5 490.6 321.0 500.5 311.6 Z"/>
+              <!-- Big Cormorant (~6,107 ac) -->
+              <path d="M 150.5 373.9 C 187.3 366.1 214.8 377.1 222.0 400.2 C 228.6 423.4 226.4 454.1 215.4 469.6 C 203.3 482.8 184.6 487.1 167.0 481.6 C 146.1 475.1 134.0 456.4 132.9 434.4 C 131.8 414.0 136.2 393.6 142.8 382.6 C 146.1 377.1 148.3 374.9 150.5 373.9 Z"/>
+              <!-- Upper Cormorant (~1,210 ac) -->
+              <path d="M 175.5 214.4 C 195.3 210.0 215.7 218.8 217.3 233.7 C 217.3 247.4 204.7 255.1 190.9 255.1 C 174.4 254.0 166.7 243.0 167.8 229.8 C 168.9 221.0 172.2 216.6 175.5 214.4 Z"/>
+              <!-- Lida (~5,789 ac) -->
+              <path d="M 613.2 783.2 C 638.0 776.1 666.6 775.0 691.9 786.0 C 709.5 794.2 723.2 806.9 723.2 823.4 C 724.9 843.8 716.1 861.9 697.4 871.2 C 690.2 875.1 683.1 876.2 676.5 874.0 C 673.8 882.2 672.6 896.0 669.9 907.0 C 667.7 918.0 662.8 923.5 657.2 921.3 C 651.8 918.0 650.1 907.0 650.1 894.9 C 650.1 883.9 651.8 876.8 649.0 871.2 C 638.0 869.6 627.0 869.6 620.4 864.1 C 611.6 857.5 600.6 849.8 599.5 839.9 C 598.4 825.6 602.2 810.8 606.1 801.4 C 608.3 792.6 610.5 786.0 613.2 783.2 Z"/>
+            </svg>
+          </div>
+
+          <!-- DEEP layer (scale 0.76) -->
+          <div class="lakes__layer lakes__layer--deep">
+            <svg viewBox="0 0 1000 1200" preserveAspectRatio="xMidYMid meet">
+              <path d="M 378.8 594.4 C 401.6 586.8 425.9 585.3 445.7 592.9 C 456.3 596.7 460.9 605.8 462.4 617.2 C 463.9 626.3 470.0 633.9 481.4 636.2 C 504.2 640.0 529.3 633.9 547.5 643.8 C 561.2 652.2 568.8 664.3 561.2 678.0 C 553.6 689.4 534.6 693.2 514.1 691.7 C 494.3 689.4 476.1 681.8 466.2 674.2 C 460.9 668.9 456.3 664.3 448.7 664.3 C 433.5 662.8 416.8 664.3 400.1 662.8 C 384.9 661.3 377.3 653.7 375.0 641.5 C 373.5 626.3 375.0 608.1 378.8 594.4 Z"/>
+              <path d="M 610.6 156.5 C 644.8 150.4 681.3 156.5 707.1 173.2 C 728.4 186.9 737.5 209.7 733.0 234.0 C 726.9 260.6 707.1 273.5 682.8 276.6 C 660.0 279.6 635.7 273.5 620.5 264.4 C 606.8 256.8 600.7 247.7 590.1 243.1 C 574.9 237.8 561.2 227.9 567.3 211.2 C 574.9 188.4 593.1 167.1 605.3 159.5 C 608.3 157.2 609.8 156.5 610.6 156.5 Z"/>
+              <path d="M 490.0 303.9 C 521.9 297.0 558.4 306.2 573.6 324.4 C 584.2 339.6 575.1 359.4 553.8 367.0 C 525.7 374.6 497.6 368.5 482.4 353.3 C 471.8 339.6 476.3 316.8 490.0 303.9 Z"/>
+              <path d="M 140.0 354.3 C 190.9 343.7 228.9 358.9 238.8 390.8 C 247.9 422.7 244.9 465.3 229.7 486.6 C 213.0 504.8 187.1 510.9 162.8 503.3 C 133.9 494.2 117.2 468.3 115.7 437.9 C 114.2 409.8 120.2 381.7 129.4 366.5 C 133.9 358.9 137.0 355.8 140.0 354.3 Z"/>
+              <path d="M 169.2 207.7 C 196.6 201.6 224.7 213.8 227.0 234.3 C 227.0 253.3 209.5 263.9 190.5 263.9 C 167.7 262.4 157.0 247.2 158.6 229.0 C 160.1 216.8 164.6 210.7 169.2 207.7 Z"/>
+              <path d="M 595.4 765.4 C 629.6 755.5 669.1 754.0 704.1 769.2 C 728.4 780.6 747.4 798.1 747.4 820.9 C 749.7 849.0 737.5 874.1 711.7 887.0 C 701.8 892.3 691.9 893.8 682.8 890.8 C 679.0 902.2 677.5 921.2 673.7 936.4 C 670.6 951.6 663.8 959.2 656.2 956.2 C 648.6 951.6 646.3 936.4 646.3 919.7 C 646.3 904.5 648.6 894.6 644.8 887.0 C 629.6 884.7 614.4 884.7 605.3 877.1 C 593.1 868.0 577.9 857.4 576.4 843.7 C 574.9 823.9 580.2 803.4 585.5 790.5 C 588.6 778.3 591.6 769.2 595.4 765.4 Z"/>
+            </svg>
+          </div>
+
+          <!-- SHALLOW layer (scale 0.92) -->
+          <div class="lakes__layer lakes__layer--shallow">
+            <svg viewBox="0 0 1000 1200" preserveAspectRatio="xMidYMid meet">
+              <path d="M 359.6 584.8 C 387.2 575.6 416.6 573.8 440.6 583.0 C 453.4 587.6 459.0 598.6 460.8 612.4 C 462.6 623.4 470.0 632.6 483.8 635.4 C 511.4 640.0 541.8 632.6 563.8 644.6 C 580.4 654.7 589.6 669.4 580.4 686.0 C 571.2 699.8 548.2 704.4 523.4 702.6 C 499.4 699.8 477.4 690.6 465.4 681.4 C 459.0 675.0 453.4 669.4 444.2 669.4 C 425.8 667.6 405.6 669.4 385.4 667.6 C 367.0 665.8 357.8 656.6 355.0 641.8 C 353.2 623.4 355.0 601.4 359.6 584.8 Z"/>
+              <path d="M 600.2 144.2 C 641.6 136.8 685.8 144.2 717.0 164.4 C 742.8 181.0 753.8 208.6 748.3 238.0 C 741.0 270.2 717.0 285.8 687.6 289.5 C 660.0 293.2 630.6 285.8 612.2 274.8 C 595.6 265.6 588.2 254.6 575.4 249.0 C 557.0 242.6 540.4 230.6 547.8 210.4 C 557.0 182.8 579.0 157.0 593.8 147.8 C 597.4 145.1 599.3 144.2 600.2 144.2 Z"/>
+              <path d="M 482.0 298.0 C 520.6 289.7 564.8 300.7 583.2 322.8 C 596.1 341.2 585.0 365.1 559.3 374.3 C 525.2 383.5 491.2 376.2 472.8 357.8 C 459.9 341.2 465.4 313.6 482.0 298.0 Z"/>
+              <path d="M 132.0 339.4 C 193.6 326.6 239.6 345.0 251.6 383.6 C 262.6 422.2 259.0 473.8 240.6 499.5 C 220.3 521.6 189.0 529.0 159.6 519.8 C 124.6 508.7 104.4 477.4 102.6 440.6 C 100.7 406.6 108.1 372.6 119.1 354.2 C 124.6 345.0 128.3 341.3 132.0 339.4 Z"/>
+              <path d="M 164.4 202.6 C 197.5 195.2 231.6 209.9 234.3 234.8 C 234.3 257.8 213.2 270.6 190.2 270.6 C 162.6 268.8 149.7 250.4 151.5 228.3 C 153.4 213.6 158.9 206.2 164.4 202.6 Z"/>
+              <path d="M 581.8 751.8 C 623.2 739.8 671.0 738.0 713.4 756.4 C 742.8 770.2 765.8 791.4 765.8 819.0 C 768.6 853.0 753.8 883.4 722.6 899.0 C 710.6 905.4 698.6 907.3 687.6 903.6 C 683.0 917.4 681.2 940.4 676.6 958.8 C 672.9 977.2 664.6 986.4 655.4 982.7 C 646.2 977.2 643.4 958.8 643.4 938.6 C 643.4 920.2 646.2 908.2 641.6 899.0 C 623.2 896.2 604.8 896.2 593.8 887.0 C 579.0 876.0 560.6 863.1 558.8 846.6 C 557.0 822.6 563.4 797.8 569.8 782.2 C 573.5 767.4 577.2 756.4 581.8 751.8 Z"/>
+            </svg>
+          </div>
+
+          <!-- SURFACE layer (full size, with stroke + glow) -->
+          <div class="lakes__layer lakes__layer--surface">
+            <svg viewBox="0 0 1000 1200" preserveAspectRatio="xMidYMid meet">
+              <!-- PELICAN LAKE — long E-W with paired lobes and narrow waist -->
+              <path d="M 350.0 580.0 C 380.0 570.0 412.0 568.0 438.0 578.0 C 452.0 583.0 458.0 595.0 460.0 610.0 C 462.0 622.0 470.0 632.0 485.0 635.0 C 515.0 640.0 548.0 632.0 572.0 645.0 C 590.0 656.0 600.0 672.0 590.0 690.0 C 580.0 705.0 555.0 710.0 528.0 708.0 C 502.0 705.0 478.0 695.0 465.0 685.0 C 458.0 678.0 452.0 672.0 442.0 672.0 C 422.0 670.0 400.0 672.0 378.0 670.0 C 358.0 668.0 348.0 658.0 345.0 642.0 C 343.0 622.0 345.0 598.0 350.0 580.0 Z"/>
+              <!-- DETROIT LAKE — 3,067 ac · multi-lobed E-W -->
+              <path d="M 595 138 C 640 130 688 138 722 160 C 750 178 762 208 756 240 C 748 275 722 292 690 296 C 660 300 628 292 608 280 C 590 270 582 258 568 252 C 548 245 530 232 538 210 C 548 180 572 152 588 142 C 592 139 594 138 595 138 Z"/>
+              <!-- LAKE SALLIE — 1,247 ac · kidney NE-SW connected to Detroit -->
+              <path d="M 478 295 C 520 286 568 298 588 322 C 602 342 590 368 562 378 C 525 388 488 380 468 360 C 454 342 460 312 478 295 Z"/>
+              <!-- BIG CORMORANT — 6,107 ac · large irregular oval N-S -->
+              <path d="M 128 332 C 195 318 245 338 258 380 C 270 422 266 478 246 506 C 224 530 190 538 158 528 C 120 516 98 482 96 442 C 94 405 102 368 114 348 C 120 338 124 334 128 332 Z"/>
+              <!-- UPPER CORMORANT — 1,210 ac · small irregular -->
+              <path d="M 162 200 C 198 192 235 208 238 235 C 238 260 215 274 190 274 C 160 272 146 252 148 228 C 150 212 156 204 162 200 Z"/>
+              <!-- LAKE LIDA — 5,789 ac · main body with southern peninsula tail -->
+              <path d="M 575.0 745.0 C 620.0 732.0 672.0 730.0 718.0 750.0 C 750.0 765.0 775.0 788.0 775.0 818.0 C 778.0 855.0 762.0 888.0 728.0 905.0 C 715.0 912.0 702.0 914.0 690.0 910.0 C 685.0 925.0 683.0 950.0 678.0 970.0 C 674.0 990.0 665.0 1000.0 655.0 996.0 C 645.0 990.0 642.0 970.0 642.0 948.0 C 642.0 928.0 645.0 915.0 640.0 905.0 C 620.0 902.0 600.0 902.0 588.0 892.0 C 572.0 880.0 552.0 866.0 550.0 848.0 C 548.0 822.0 555.0 795.0 562.0 778.0 C 566.0 762.0 570.0 750.0 575.0 745.0 Z"/>
+
+              <!-- Secondary atmospheric lakes (Floyd · Melissa · Lizzie · Prairie) -->
+              <path class="secondary" d="M 735 88 C 762 84 782 100 780 120 C 776 138 752 142 738 134 C 722 124 720 92 735 88 Z"/>
+              <path class="secondary" d="M 518 405 C 548 400 568 412 566 432 C 562 448 540 452 522 446 C 508 440 508 410 518 405 Z"/>
+              <path class="secondary" d="M 488 712 C 518 706 552 712 578 725 C 602 738 608 752 590 762 C 562 776 528 776 495 768 C 472 760 470 720 488 712 Z"/>
+              <path class="secondary" d="M 408 822 C 436 820 456 832 454 850 C 450 864 430 866 415 862 C 398 858 398 826 408 822 Z"/>
+            </svg>
+          </div>
+
+        </div>
+
+        <!-- Markers / Lake callouts -->
+        <div class="markers">
+          <!-- DETROIT LAKE -->
+          <div class="marker" style="left: 66%; top: 18%;">
+            <div class="marker__pin"><span class="ring-pulse"></span></div>
+            <div class="marker__label marker__label--up-left">
+              <span class="marker__name">Detroit Lake</span>
+              <span class="marker__meta">
+                <span>3,067 AC</span>
+                <span class="accent">80 FT MAX</span>
+                <span>Walleye · Muskie</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- LAKE SALLIE -->
+          <div class="marker" style="left: 53%; top: 28%;">
+            <div class="marker__pin"><span class="ring-pulse"></span></div>
+            <div class="marker__label marker__label--right">
+              <span class="marker__name">Lake Sallie</span>
+              <span class="marker__meta">
+                <span>1,247 AC</span>
+                <span class="accent">50 FT MAX</span>
+                <span>Walleye · Panfish</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- UPPER CORMORANT -->
+          <div class="marker" style="left: 19%; top: 19%;">
+            <div class="marker__pin"><span class="ring-pulse"></span></div>
+            <div class="marker__label marker__label--right">
+              <span class="marker__name">Upper Cormorant</span>
+              <span class="marker__meta">
+                <span>1,210 AC</span>
+                <span class="accent">25 FT MAX</span>
+                <span>Bass · Sunfish</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- BIG CORMORANT -->
+          <div class="marker" style="left: 18%; top: 35%;">
+            <div class="marker__pin"><span class="ring-pulse"></span></div>
+            <div class="marker__label marker__label--right">
+              <span class="marker__name">Big Cormorant</span>
+              <span class="marker__meta">
+                <span>6,107 AC</span>
+                <span class="accent">57 FT MAX</span>
+                <span>Trophy Walleye · Pike</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- PELICAN LAKE — center of E-W body -->
+          <div class="marker" style="left: 47%; top: 53%;">
+            <div class="marker__pin"><span class="ring-pulse"></span></div>
+            <div class="marker__label marker__label--right">
+              <span class="marker__name">Pelican Lake</span>
+              <span class="marker__meta">
+                <span>10,945 AC</span>
+                <span class="accent">104 FT MAX</span>
+                <span>Walleye · Perch</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- LAKE LIDA -->
+          <div class="marker" style="left: 66%; top: 69%;">
+            <div class="marker__pin"><span class="ring-pulse"></span></div>
+            <div class="marker__label marker__label--left">
+              <span class="marker__name">Lake Lida</span>
+              <span class="marker__meta">
+                <span>5,789 AC</span>
+                <span class="accent">106 FT MAX</span>
+                <span>Smallmouth · Walleye</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Intel Panel ── -->
+  <div class="intel">
+    <div class="intel__col">
+      <div class="intel__sub">Why The Range Matters</div>
+      <p class="intel__lede">
+        <strong>Sixty miles of options</strong> — chosen each morning against wind, water clarity, and what the fish are doing today.
+      </p>
+    </div>
+    <div class="intel__col">
+      <div class="intel__sub">The Difference</div>
+      <p class="intel__copy">
+        Most operations run a single home lake. <strong>Baxstar runs a portfolio.</strong> If a cold front shuts down Detroit Lake, the boat is on Big Cormorant by 7 a.m. If walleyes are stacked deep on Lida, that's where the day starts. Decades of pattern recognition mean fewer slow days — and a calendar that reads like a working chart, not a sales sheet.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── CTA strip ── -->
+  <div class="ops__cta">
+    <div class="ops__cta-inner">
+      <div class="ops__cta-text">
+        Reserve A Day On The Water
+        <em>One group per day · Booked weeks in advance</em>
+      </div>
+      <a class="ops__cta-button" href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" target="_top" rel="noopener" aria-label="Reserve a guided fishing trip with Baxstar Fishing">
+        Reserve This Day
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<script>
+(function() {
+  'use strict';
+
+  const section  = document.getElementById('ops-theater');
+  const theater  = document.getElementById('theater');
+  const stage    = document.getElementById('stage');
+
+  if (!section || !theater || !stage) return;
+
+  // Respect reduced motion
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion) {
+    stage.style.setProperty('--bx-tilt', '8deg');
+    stage.style.setProperty('--bx-spin', '0deg');
+    return;
+  }
+
+  // ── Tunables ──
+  // Tilt: how much the map leans back to reveal depth. Tuned for premium feel — substantial but not extreme.
+  const MAX_TILT_DESKTOP = 30;   // degrees — increased per Brady, more dramatic depth reveal
+  const MAX_TILT_MOBILE  = 19;   // degrees
+  // Spin: clockwise rotation. Brady spec — "no more than 1/8 inch displacement" → barely perceptible.
+  const MAX_SPIN_DESKTOP = 2.6;  // degrees
+  const MAX_SPIN_MOBILE  = 1.8;  // degrees
+  // Lerp factor: lower = smoother/heavier, higher = more responsive. 0.10 is the Apple sweet spot.
+  const LERP = 0.14;  // bumped per Brady — faster response, still buttery
+
+  const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
+
+  let scrollTarget  = 0;
+  let scrollCurrent = 0;
+  let inView        = false;
+  let rafId         = null;
+
+  // Compute scroll progress: 0 when section is fully below viewport, 1 when fully above.
+  // Apex at ~50% through the section's travel.
+  const computeProgress = () => {
+    const rect = theater.getBoundingClientRect();
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    // Travel range: from "section bottom touches viewport bottom" to "section top exits viewport top"
+    const total = vh + rect.height;
+    const traveled = vh - rect.top;
+    const raw = traveled / total;
+    return Math.max(0, Math.min(1, raw));
+  };
+
+  const tick = () => {
+    // Lerp toward target — buttery
+    scrollCurrent += (scrollTarget - scrollCurrent) * LERP;
+
+    const tiltMax = isMobile() ? MAX_TILT_MOBILE : MAX_TILT_DESKTOP;
+    const spinMax = isMobile() ? MAX_SPIN_MOBILE : MAX_SPIN_DESKTOP;
+
+    // Easing: ease-in-out so the tilt feels weighted, not linear
+    const eased = scrollCurrent < 0.5
+      ? 2 * scrollCurrent * scrollCurrent
+      : 1 - Math.pow(-2 * scrollCurrent + 2, 2) / 2;
+
+    const tilt = eased * tiltMax;
+    const spin = eased * spinMax;
+
+    stage.style.transform = `rotateX(${tilt.toFixed(3)}deg) rotateZ(${spin.toFixed(3)}deg)`;
+
+    // Continue animating if delta is meaningful, otherwise idle
+    if (Math.abs(scrollTarget - scrollCurrent) > 0.0005) {
+      rafId = requestAnimationFrame(tick);
+    } else {
+      rafId = null;
+      stage.style.willChange = 'auto';
+    }
+  };
+
+  const onScroll = () => {
+    if (!inView) return;
+    scrollTarget = computeProgress();
+    if (rafId === null) {
+      stage.style.willChange = 'transform';
+      rafId = requestAnimationFrame(tick);
+    }
+  };
+
+  // IntersectionObserver — only animate when section is near viewport
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      inView = entry.isIntersecting;
+      if (inView) {
+        // Prime values on entry
+        scrollTarget = computeProgress();
+        if (rafId === null) {
+          stage.style.willChange = 'transform';
+          rafId = requestAnimationFrame(tick);
+        }
+      }
+    });
+  }, { rootMargin: '20% 0px 20% 0px', threshold: 0 });
+
+  io.observe(theater);
+
+  // Single passive scroll listener
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+
+  // Prime on load
+  scrollTarget = computeProgress();
+  scrollCurrent = scrollTarget * 0.4; // start partially settled to avoid initial snap
+  rafId = requestAnimationFrame(tick);
+
+  // ── Iframe height reporter (Wix Custom Embed) ──
+  const reportHeight = () => {
+    if (window.parent && window.parent !== window) {
+      try {
+        window.parent.postMessage({
+          type: 'baxstar:height',
+          section: 'ground-truth',
+          height: document.body.scrollHeight
+        }, '*');
+      } catch (e) { /* cross-origin — ignore */ }
+    }
+  };
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  // Re-report after fonts load (height shifts)
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(reportHeight);
+  }
+})();
+</script>
+
+</body>
+</html>
