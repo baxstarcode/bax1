@@ -183,12 +183,13 @@
     50% { opacity: 0.45; transform: scale(0.8); }
   }
 
+  /* H2 sized to match site standard (pricing section parity) */
   .ops__headline {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(58px, 11vw, 168px);
-    line-height: 0.86;
-    letter-spacing: -0.01em;
+    font-size: clamp(56px, 8vw, 96px);
+    line-height: 0.92;
+    letter-spacing: 0.012em;
     color: var(--bx-pearl);
     margin: 0;
     text-transform: uppercase;
@@ -199,9 +200,9 @@
     font-weight: 400;
     color: var(--bx-bone);
     letter-spacing: 0;
-    font-size: 0.42em;
+    font-size: 0.34em;
     display: block;
-    margin-top: 0.35em;
+    margin-top: 0.4em;
     line-height: 1.05;
     text-transform: none;
   }
@@ -898,7 +899,7 @@
               <!-- Secondary atmospheric lakes (Floyd · Melissa · Lizzie · Prairie) -->
               <path class="secondary" d="M 735 88 C 762 84 782 100 780 120 C 776 138 752 142 738 134 C 722 124 720 92 735 88 Z"/>
               <path class="secondary" d="M 518 405 C 548 400 568 412 566 432 C 562 448 540 452 522 446 C 508 440 508 410 518 405 Z"/>
-              <path class="secondary" d="M 488 712 C 518 706 552 712 578 725 C 602 738 608 752 590 762 C 562 776 528 776 495 768 C 472 760 470 720 488 712 Z"/>
+              <path class="secondary" d="M 488 712 C 518 706 552 712 590 762 C 562 776 528 776 495 768 C 472 760 470 720 488 712 Z"/>
               <path class="secondary" d="M 408 822 C 436 820 456 832 454 850 C 450 864 430 866 415 862 C 398 858 398 826 408 822 Z"/>
             </svg>
           </div>
