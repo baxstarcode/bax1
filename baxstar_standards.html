@@ -22,6 +22,8 @@
   --gold-dim: #9a7d3a;
   --slate: #6b6b78;
   --light-slate: #9a9aaa;
+  --bx-bone: #c8c5bd;
+  --bx-pearl: #e8e6e0;
   --font-display: 'Bebas Neue', sans-serif;
   --font-body: 'Barlow', sans-serif;
   --font-accent: 'Cormorant Garamond', serif;
@@ -122,10 +124,14 @@ img { display: block; max-width: 100%; }
   text-align: center; margin-bottom: clamp(56px, 7vw, 90px);
 }
 .standard__sub {
-  font-family: var(--font-accent);
-  font-size: clamp(17px, 1.8vw, 20px);
-  font-style: italic; color: var(--light-slate);
-  max-width: 500px; margin: 0 auto; line-height: 1.6;
+  font-family: var(--font-body);
+  font-size: clamp(17px, 1.6vw, 21px);
+  font-style: normal;
+  color: var(--bx-bone);
+  max-width: 64ch;
+  margin: 0 auto;
+  line-height: 1.55;
+  font-weight: 300;
 }
 .standard__grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
@@ -155,8 +161,12 @@ img { display: block; max-width: 100%; }
   color: var(--warm-white); margin-bottom: 16px; line-height: 1.1;
 }
 .standard__text {
-  font-size: 15px; line-height: 1.8;
-  color: var(--slate); font-weight: 300; max-width: 320px;
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.3vw, 17px);
+  line-height: 1.65;
+  color: var(--bx-bone);
+  font-weight: 300;
+  max-width: 320px;
 }
 @media (max-width: 1024px) { .standard__grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 640px) { .standard__grid { grid-template-columns: 1fr; } }
