@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Baxstar Standard — Baxstar Fishing</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600&family=Barlow:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -24,6 +26,7 @@
   --light-slate: #9a9aaa;
   --font-display: 'Bebas Neue', sans-serif;
   --font-body: 'Barlow', sans-serif;
+  --font-condensed: 'Barlow Condensed', 'Arial Narrow', sans-serif;
   --font-accent: 'Cormorant Garamond', serif;
   --max-w: 1320px;
   --section-pad: clamp(56px, 7vw, 98px);
@@ -79,25 +82,54 @@ img { display: block; max-width: 100%; }
   background: rgba(240,236,228,0.05);
 }
 
-/* Shared section elements */
-.section-tag {
-  font-family: var(--font-body); font-weight: 500;
-  font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
-  color: var(--red-bright); margin-bottom: 20px;
-  display: flex; align-items: center; gap: 12px;
+/* Canonical typography classes */
+.bx-eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--font-condensed);
+  font-weight: 500;
+  font-size: clamp(11px, 1.05vw, 13px);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--red-bright);
+  margin-bottom: 22px;
 }
-.section-tag::before {
-  content: ''; width: 24px; height: 1px; background: var(--red);
+.bx-eyebrow::before {
+  content: ''; width: 28px; height: 1px;
+  background: var(--red);
+  box-shadow: 0 0 10px rgba(193, 39, 45, 0.45);
 }
-.section-title {
+.bx-headline {
   font-family: var(--font-display);
-  font-size: clamp(36px, 5vw, 56px);
-  line-height: 1; letter-spacing: 1px;
+  font-weight: 400;
+  font-size: clamp(56px, 8vw, 96px);
+  line-height: 0.92;
+  letter-spacing: 0.012em;
   text-transform: uppercase;
   color: var(--warm-white);
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
-.section-title span { color: var(--red-bright); }
+.bx-headline .accent { color: var(--red-bright); }
+.bx-headline em {
+  font-family: var(--font-accent);
+  font-style: italic; font-weight: 400;
+  color: var(--cream);
+  letter-spacing: 0;
+  font-size: 0.34em;
+  display: block;
+  margin-top: 0.4em;
+  line-height: 1.05;
+  text-transform: none;
+}
+.bx-subhead {
+  font-family: var(--font-body);
+  font-size: clamp(17px, 1.6vw, 21px);
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--cream);
+  max-width: 64ch;
+  margin: 0 auto;
+}
+.bx-subhead strong { color: var(--warm-white); font-weight: 500; }
 
 /* Scroll reveal */
 .reveal {
@@ -120,12 +152,6 @@ img { display: block; max-width: 100%; }
 .standard::after { bottom: 0; }
 .standard__header {
   text-align: center; margin-bottom: clamp(56px, 7vw, 90px);
-}
-.standard__sub {
-  font-family: var(--font-accent);
-  font-size: clamp(17px, 1.8vw, 20px);
-  font-style: italic; color: var(--light-slate);
-  max-width: 500px; margin: 0 auto; line-height: 1.6;
 }
 .standard__grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
@@ -169,9 +195,9 @@ img { display: block; max-width: 100%; }
 <section class="standard">
   <div class="container">
     <div class="standard__header reveal">
-      <div class="section-tag" style="justify-content: center;">Why Baxstar</div>
-      <h2 class="section-title">THE BAXSTAR <span>STANDARD.</span></h2>
-      <p class="standard__sub">
+      <div class="bx-eyebrow" style="justify-content: center;">Why Baxstar</div>
+      <h2 class="bx-headline">THE BAXSTAR <span class="accent">STANDARD.</span></h2>
+      <p class="bx-subhead">
         Three non-negotiables that separate a Baxstar trip from 
         every other guided experience in the region.
       </p>
