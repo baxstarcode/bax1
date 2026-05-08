@@ -3,8 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="robots" content="indexifembedded">
-<meta name="description" content="The waters Brady Baxter knows by heart. Six anchor lakes — Detroit, Sallie, Big Cormorant, Upper Cormorant, Pelican, and Lida — within a sixty-mile radius of Detroit Lakes, Minnesota. Charted depths, documented structure, three decades of pattern recognition.">
+<meta name="robots" content="indexifembedded, max-image-preview:large">
+
+<!-- ─── PRIMARY META ─── -->
+<meta name="description" content="Coverage map for Baxstar Fishing — 100+ lakes within 60 miles of Detroit Lakes, Minnesota. Six anchor waters: Detroit Lake, Lake Sallie, Big Cormorant, Upper Cormorant, Pelican Lake, and Lake Lida. Trophy walleye, smallmouth bass, northern pike, muskie, perch, and panfish — guided by 5x Minnesota Master Angler Brady Baxter aboard a Vexus DVX20S with Garmin LiveScope sonar.">
+<meta name="keywords" content="Detroit Lakes Minnesota fishing guide, Detroit Lake walleye, Lake Lida smallmouth, Pelican Lake walleye, Big Cormorant fishing, Lake Sallie panfish, Minnesota fishing charter, Becker County fishing guide, Otter Tail County fishing guide, Brady Baxter Master Angler, Vexus DVX20S, Garmin LiveScope guide">
+<meta name="author" content="Brady Baxter, Baxstar Fishing">
+
+<!-- ─── GEO META ─── -->
+<meta name="geo.region" content="US-MN">
+<meta name="geo.placename" content="Detroit Lakes, Minnesota">
+<meta name="geo.position" content="46.6519;-95.8453">
+<meta name="ICBM" content="46.6519, -95.8453">
+
+<!-- ─── OPEN GRAPH ─── -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Baxstar Fishing">
+<meta property="og:title" content="Ground Truth — The Detroit Lakes, Minnesota Fishing Coverage Map | Baxstar Fishing">
+<meta property="og:description" content="100+ lakes within 60 miles of Detroit Lakes, MN. Six anchor waters guided by 5x Minnesota Master Angler Brady Baxter — trophy walleye, smallmouth, pike, and muskie aboard a Vexus DVX20S with Garmin LiveScope.">
+<meta property="og:url" content="https://www.baxstarfishing.com/coverage-map">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://static.wixstatic.com/media/a30e59_1C5A3483_SP_Baxstar_Fishing__HR.jpg">
+<meta property="og:image:alt" content="Brady Baxter guiding aboard the Vexus DVX20S on Detroit Lake, Minnesota at sunrise — water-level view through the reeds.">
+
+<!-- ─── TWITTER CARD ─── -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ground Truth — Detroit Lakes, MN Fishing Coverage | Baxstar Fishing">
+<meta name="twitter:description" content="100+ lakes within 60 miles. Six anchor waters guided by 5x Minnesota Master Angler Brady Baxter aboard the Vexus DVX20S with Garmin LiveScope.">
+<meta name="twitter:image" content="https://static.wixstatic.com/media/a30e59_1C5A3483_SP_Baxstar_Fishing__HR.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,9 +44,14 @@
       "@type": "LocalBusiness",
       "@id": "https://www.baxstarfishing.com/#business",
       "name": "Baxstar Fishing",
-      "description": "Premium private guided fishing charters across 100+ lakes within 60 miles of Detroit Lakes, Minnesota.",
-      "telephone": "+12185551234",
+      "alternateName": "Baxstar Guided Fishing",
+      "description": "Premium private guided fishing charters across 100+ lakes within 60 miles of Detroit Lakes, Minnesota. Walleye, smallmouth bass, northern pike, muskie, perch, and panfish aboard a Vexus DVX20S equipped with Garmin LiveScope sonar.",
       "url": "https://www.baxstarfishing.com/",
+      "telephone": "+12185551234",
+      "email": "brady@baxstarfishing.com",
+      "priceRange": "$$$",
+      "image": "https://static.wixstatic.com/media/a30e59_1C5A3483_SP_Baxstar_Fishing__HR.jpg",
+      "logo": "https://static.wixstatic.com/media/a30e59_Final_Baxstar_Fishing_Logo_White.png",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Detroit Lakes",
@@ -34,28 +65,159 @@
         "longitude": -95.8453
       },
       "areaServed": [
-        { "@type": "Place", "name": "Detroit Lake", "geo": { "@type": "GeoCoordinates", "latitude": 46.8167, "longitude": -95.8125 } },
-        { "@type": "Place", "name": "Lake Sallie", "geo": { "@type": "GeoCoordinates", "latitude": 46.7872, "longitude": -95.8825 } },
-        { "@type": "Place", "name": "Big Cormorant Lake", "geo": { "@type": "GeoCoordinates", "latitude": 46.7036, "longitude": -96.0656 } },
-        { "@type": "Place", "name": "Upper Cormorant Lake", "geo": { "@type": "GeoCoordinates", "latitude": 46.7589, "longitude": -96.0814 } },
-        { "@type": "Place", "name": "Pelican Lake", "geo": { "@type": "GeoCoordinates", "latitude": 46.5811, "longitude": -96.0431 } },
-        { "@type": "Place", "name": "Lake Lida", "geo": { "@type": "GeoCoordinates", "latitude": 46.5067, "longitude": -95.9008 } }
+        { "@id": "https://www.baxstarfishing.com/#detroit-lake" },
+        { "@id": "https://www.baxstarfishing.com/#lake-sallie" },
+        { "@id": "https://www.baxstarfishing.com/#big-cormorant" },
+        { "@id": "https://www.baxstarfishing.com/#upper-cormorant" },
+        { "@id": "https://www.baxstarfishing.com/#pelican-lake" },
+        { "@id": "https://www.baxstarfishing.com/#lake-lida" }
       ],
-      "founder": {
-        "@type": "Person",
-        "@id": "https://www.baxstarfishing.com/#brady",
-        "name": "Brady Baxter",
-        "jobTitle": "Master Angler & Fishing Guide",
-        "worksFor": { "@id": "https://www.baxstarfishing.com/#business" }
+      "founder": { "@id": "https://www.baxstarfishing.com/#brady" },
+      "employee":  { "@id": "https://www.baxstarfishing.com/#brady" },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "100",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "knowsAbout": [
+        "Walleye fishing",
+        "Smallmouth bass fishing",
+        "Northern pike fishing",
+        "Muskie fishing",
+        "Crappie fishing",
+        "Perch fishing",
+        "Detroit Lakes Minnesota fishing",
+        "Becker County fishing",
+        "Otter Tail County fishing",
+        "Lake structure mapping",
+        "Garmin LiveScope sonar"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.baxstarfishing.com/#brady",
+      "name": "Brady Baxter",
+      "jobTitle": "Master Angler & Fishing Guide",
+      "description": "Five-time Minnesota Master Angler with over thirty years on the water and seven years of professional guiding. Featured in Forbes, Faces of Fargo, KVLY-TV, and WDAY-TV.",
+      "worksFor": { "@id": "https://www.baxstarfishing.com/#business" },
+      "award": [
+        "5x Minnesota Master Angler",
+        "Featured in Forbes",
+        "Featured in Faces of Fargo magazine",
+        "Featured on KVLY-TV",
+        "Featured on WDAY-TV"
+      ],
+      "knowsAbout": [
+        "Walleye location patterns",
+        "Smallmouth bass structure fishing",
+        "Northern pike trolling",
+        "Garmin LiveScope interpretation",
+        "Detroit Lakes seasonal patterns"
+      ],
+      "homeLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Detroit Lakes",
+          "addressRegion": "MN",
+          "addressCountry": "US"
+        }
       }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.baxstarfishing.com/coverage-map#webpage",
+      "url": "https://www.baxstarfishing.com/coverage-map",
+      "name": "Ground Truth — The Detroit Lakes, Minnesota Fishing Coverage Map",
+      "description": "Interactive coverage map of the 100+ lakes within 60 miles of Detroit Lakes, Minnesota fished by Baxstar Fishing. Six anchor waters detailed with acreage, max depth, and primary species.",
+      "isPartOf": { "@id": "https://www.baxstarfishing.com/#website" },
+      "about": { "@id": "https://www.baxstarfishing.com/#business" },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://static.wixstatic.com/media/a30e59_1C5A3483_SP_Baxstar_Fishing__HR.jpg"
+      },
+      "breadcrumb": { "@id": "https://www.baxstarfishing.com/coverage-map#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.baxstarfishing.com/coverage-map#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.baxstarfishing.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Coverage Map", "item": "https://www.baxstarfishing.com/coverage-map" }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.baxstarfishing.com/#website",
+      "url": "https://www.baxstarfishing.com/",
+      "name": "Baxstar Fishing",
+      "description": "Private guided fishing charters in Detroit Lakes, Minnesota.",
+      "publisher": { "@id": "https://www.baxstarfishing.com/#business" }
     },
     {
       "@type": "Service",
       "@id": "https://www.baxstarfishing.com/#guided-service",
       "serviceType": "Private Guided Fishing Charter",
+      "name": "Private Guided Fishing Trips — Detroit Lakes, Minnesota",
+      "description": "100% private guided walleye, smallmouth bass, northern pike, muskie, perch, and panfish fishing across 100+ lakes within 60 miles of Detroit Lakes, Minnesota. Aboard the Vexus DVX20S equipped with Garmin LiveScope sonar.",
       "provider": { "@id": "https://www.baxstarfishing.com/#business" },
-      "areaServed": { "@id": "https://www.baxstarfishing.com/#business" },
-      "description": "Private guided fishing trips across 100+ lakes in the Detroit Lakes, Minnesota area. Aboard the Vexus DVX20S equipped with Garmin LiveScope sonar."
+      "areaServed": [
+        { "@id": "https://www.baxstarfishing.com/#detroit-lake" },
+        { "@id": "https://www.baxstarfishing.com/#lake-sallie" },
+        { "@id": "https://www.baxstarfishing.com/#big-cormorant" },
+        { "@id": "https://www.baxstarfishing.com/#upper-cormorant" },
+        { "@id": "https://www.baxstarfishing.com/#pelican-lake" },
+        { "@id": "https://www.baxstarfishing.com/#lake-lida" }
+      ],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Anglers, sportsmen, families, and corporate groups visiting the Detroit Lakes, Minnesota area"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://www.baxstarfishing.com/#detroit-lake",
+      "name": "Detroit Lake",
+      "alternateName": "Big Detroit Lake",
+      "description": "3,067-acre lake in Becker County, Minnesota with a maximum depth of 80 feet. Primary species: walleye and muskie.",
+      "geo": { "@type": "GeoCoordinates", "latitude": 46.8167, "longitude": -95.8125 }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://www.baxstarfishing.com/#lake-sallie",
+      "name": "Lake Sallie",
+      "description": "1,247-acre lake in Becker County, Minnesota with a maximum depth of 50 feet. Primary species: walleye and panfish.",
+      "geo": { "@type": "GeoCoordinates", "latitude": 46.7872, "longitude": -95.8825 }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://www.baxstarfishing.com/#big-cormorant",
+      "name": "Big Cormorant Lake",
+      "description": "6,107-acre lake in Becker County, Minnesota with a maximum depth of 57 feet. Primary species: trophy walleye and northern pike.",
+      "geo": { "@type": "GeoCoordinates", "latitude": 46.7036, "longitude": -96.0656 }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://www.baxstarfishing.com/#upper-cormorant",
+      "name": "Upper Cormorant Lake",
+      "description": "1,210-acre lake in Becker County, Minnesota with a maximum depth of 25 feet. Primary species: bass and sunfish.",
+      "geo": { "@type": "GeoCoordinates", "latitude": 46.7589, "longitude": -96.0814 }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://www.baxstarfishing.com/#pelican-lake",
+      "name": "Pelican Lake",
+      "description": "10,945-acre lake straddling Otter Tail and Becker counties, Minnesota with a maximum depth of 104 feet. Primary species: walleye and yellow perch.",
+      "geo": { "@type": "GeoCoordinates", "latitude": 46.5811, "longitude": -96.0431 }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://www.baxstarfishing.com/#lake-lida",
+      "name": "Lake Lida",
+      "description": "5,789-acre lake in Otter Tail County, Minnesota with a maximum depth of 106 feet. Primary species: smallmouth bass and walleye.",
+      "geo": { "@type": "GeoCoordinates", "latitude": 46.5067, "longitude": -95.9008 }
     }
   ]
 }
@@ -150,6 +312,12 @@
     padding: clamp(64px, 9vw, 120px) clamp(20px, 4vw, 56px) clamp(28px, 4vw, 48px);
     text-align: left;
   }
+  /* Heading order fix — h2 leads DOM, eyebrow rendered above via column-reverse */
+  .ops__intro-head {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
 
   .eyebrow {
     display: inline-flex;
@@ -222,6 +390,10 @@
   }
 
   /* ───────── MAP STAGE ───────── */
+  .ops__theater-wrap {
+    margin: 0;
+    padding: 0;
+  }
   .ops__theater {
     position: relative;
     z-index: 2;
@@ -602,10 +774,12 @@
   .intel__sub {
     font-family: var(--font-tactical);
     font-size: 11px;
+    font-weight: 500;
     letter-spacing: 0.28em;
     text-transform: uppercase;
     color: var(--bx-red);
-    margin-bottom: 14px;
+    margin: 0 0 14px;
+    line-height: 1.4;
   }
 
   /* ───────── BENEATH-MAP CTA STRIP ───────── */
@@ -632,6 +806,16 @@
     letter-spacing: 0.02em;
     color: var(--bx-pearl);
   }
+  .ops__cta-text h3 {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 400;
+    letter-spacing: inherit;
+    color: inherit;
+    margin: 0;
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
   .ops__cta-text em {
     font-family: var(--font-italic);
     font-style: italic;
@@ -655,21 +839,42 @@
     letter-spacing: 0.22em;
     text-transform: uppercase;
     border: 1px solid var(--bx-red);
-    transition: background 0.3s ease, transform 0.3s ease;
+    transform: skewX(-12deg);
+    white-space: nowrap;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
   }
-  .ops__cta-button:hover {
-    background: var(--bx-red-deep);
-    transform: translateY(-1px);
+  .ops__cta-button > * {
+    display: inline-flex;
+    align-items: center;
+    transform: skewX(12deg);
   }
-  .ops__cta-button::after {
-    content: "→";
-    font-family: var(--font-mono);
-    font-size: 16px;
+  .ops__cta-button svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    flex-shrink: 0;
     transition: transform 0.3s ease;
   }
-  .ops__cta-button:hover::after { transform: translateX(4px); }
+  .ops__cta-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.18), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.32s ease;
+    pointer-events: none;
+  }
+  .ops__cta-button:hover {
+    background: var(--bx-red-deep);
+    transform: skewX(-12deg) translateY(-2px);
+    box-shadow: 0 10px 30px var(--bx-red-glow);
+  }
+  .ops__cta-button:hover::after { opacity: 1; }
+  .ops__cta-button:hover svg { transform: skewX(12deg) translateX(4px); }
 
   /* ───────── RESPONSIVE ───────── */
   @media (max-width: 900px) {
@@ -724,23 +929,26 @@
 </head>
 <body>
 
-<section class="ops" id="ops-theater" aria-labelledby="ops-headline">
+<section class="ops" id="ops-theater" aria-labelledby="ops-headline" itemscope itemtype="https://schema.org/Place" role="region">
 
   <!-- ── Header / BLUF ── -->
-  <div class="ops__intro">
-    <h3 class="eyebrow"><span class="live-dot" aria-hidden="true"></span>Operating Theater · Active</h3>
-    <h2 class="ops__headline" id="ops-headline">
-      Ground Truth
-      <em>the waters Brady knows by heart</em>
-      <span class="sr-only"> — Detroit Lakes, Minnesota Guided Fishing Coverage Map: Detroit Lake, Lake Sallie, Big Cormorant, Upper Cormorant, Pelican Lake, Lake Lida</span>
-    </h2>
+  <header class="ops__intro">
+    <div class="ops__intro-head">
+      <h2 class="ops__headline" id="ops-headline">
+        Ground Truth
+        <em>the waters Brady knows by heart</em>
+        <span class="sr-only"> — Detroit Lakes, Minnesota Guided Fishing Coverage Map. Six anchor lakes within a sixty-mile radius: Detroit Lake (3,067 acres, walleye and muskie), Lake Sallie (1,247 acres, walleye and panfish), Big Cormorant Lake (6,107 acres, trophy walleye and northern pike), Upper Cormorant Lake (1,210 acres, bass and sunfish), Pelican Lake (10,945 acres, walleye and perch), and Lake Lida (5,789 acres, smallmouth bass and walleye).</span>
+      </h2>
+      <h3 class="eyebrow"><span class="live-dot" aria-hidden="true"></span>Operating Theater · Active</h3>
+    </div>
     <p class="ops__bluf">
-      <strong>Most guides know one or two lakes well.</strong> Brady Baxter operates a sixty-mile radius from Detroit Lakes, Minnesota — over a hundred lakes mapped across thirty years on the water. The six plotted here account for the majority of guided trips, each with documented structure, seasonal patterns, and depth charts most clients never see.
+      <strong>Most guides know one or two lakes well.</strong> Brady Baxter operates a sixty-mile radius from Detroit Lakes, Minnesota — over a hundred lakes mapped across thirty years on the water. The six plotted here account for the majority of guided trips, each with documented structure, seasonal patterns, and depth charts most clients never see. Coverage spans <strong>Becker County</strong> and <strong>Otter Tail County</strong>, with primary species including walleye, smallmouth bass, northern pike, muskie, perch, and panfish.
     </p>
-  </div>
+  </header>
 
   <!-- ── Map Theater (3D stage) ── -->
-  <div class="ops__theater" id="theater">
+  <figure class="ops__theater-wrap" aria-labelledby="ops-headline">
+  <div class="ops__theater" id="theater" role="img" aria-label="Interactive 3D coverage map of six anchor lakes within sixty miles of Detroit Lakes, Minnesota fished by Baxstar Fishing.">
 
     <!-- HUD frame (does not tilt — stays oriented) -->
     <div class="hud" aria-hidden="true">
@@ -907,9 +1115,9 @@
         </div>
 
         <!-- Markers / Lake callouts -->
-        <div class="markers">
+        <nav class="markers" aria-label="Detroit Lakes Minnesota anchor lakes">
           <!-- DETROIT LAKE -->
-          <div class="marker" style="left: 66%; top: 18%;">
+          <div class="marker" style="left: 66%; top: 18%;" role="article" aria-label="Detroit Lake — 3,067 acres, 80 foot maximum depth, walleye and muskie">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--up-left">
               <span class="marker__name">Detroit Lake</span>
@@ -922,7 +1130,7 @@
           </div>
 
           <!-- LAKE SALLIE -->
-          <div class="marker" style="left: 53%; top: 28%;">
+          <div class="marker" style="left: 53%; top: 28%;" role="article" aria-label="Lake Sallie — 1,247 acres, 50 foot maximum depth, walleye and panfish">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--right">
               <span class="marker__name">Lake Sallie</span>
@@ -935,7 +1143,7 @@
           </div>
 
           <!-- UPPER CORMORANT -->
-          <div class="marker" style="left: 19%; top: 19%;">
+          <div class="marker" style="left: 19%; top: 19%;" role="article" aria-label="Upper Cormorant Lake — 1,210 acres, 25 foot maximum depth, bass and sunfish">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--right">
               <span class="marker__name">Upper Cormorant</span>
@@ -948,7 +1156,7 @@
           </div>
 
           <!-- BIG CORMORANT -->
-          <div class="marker" style="left: 18%; top: 35%;">
+          <div class="marker" style="left: 18%; top: 35%;" role="article" aria-label="Big Cormorant Lake — 6,107 acres, 57 foot maximum depth, trophy walleye and northern pike">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--right">
               <span class="marker__name">Big Cormorant</span>
@@ -961,7 +1169,7 @@
           </div>
 
           <!-- PELICAN LAKE — center of E-W body -->
-          <div class="marker" style="left: 47%; top: 53%;">
+          <div class="marker" style="left: 47%; top: 53%;" role="article" aria-label="Pelican Lake — 10,945 acres, 104 foot maximum depth, walleye and yellow perch">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--right">
               <span class="marker__name">Pelican Lake</span>
@@ -974,7 +1182,7 @@
           </div>
 
           <!-- LAKE LIDA -->
-          <div class="marker" style="left: 66%; top: 69%;">
+          <div class="marker" style="left: 66%; top: 69%;" role="article" aria-label="Lake Lida — 5,789 acres, 106 foot maximum depth, smallmouth bass and walleye">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--left">
               <span class="marker__name">Lake Lida</span>
@@ -985,41 +1193,47 @@
               </span>
             </div>
           </div>
-        </div>
+        </nav>
 
       </div>
     </div>
 
   </div>
+  <figcaption class="ops__figcaption sr-only">
+    Detroit Lakes, Minnesota fishing coverage map showing six anchor lakes within a sixty-mile radius. Detroit Lake — 3,067 acres, 80 ft maximum depth, walleye and muskie. Lake Sallie — 1,247 acres, 50 ft maximum depth, walleye and panfish. Upper Cormorant Lake — 1,210 acres, 25 ft maximum depth, bass and sunfish. Big Cormorant Lake — 6,107 acres, 57 ft maximum depth, trophy walleye and northern pike. Pelican Lake — 10,945 acres, 104 ft maximum depth, walleye and perch. Lake Lida — 5,789 acres, 106 ft maximum depth, smallmouth bass and walleye. Operating coordinates 46.6519° N, 95.8453° W. Vessel: Vexus DVX20S. Sonar: Garmin LiveScope. Over one hundred lakes within sixty miles charted across three decades.
+  </figcaption>
+  </figure>
 
   <!-- ── Intel Panel ── -->
-  <div class="intel">
-    <div class="intel__col">
-      <div class="intel__sub">Why The Range Matters</div>
+  <aside class="intel" aria-labelledby="intel-heading">
+    <h3 id="intel-heading" class="sr-only">Why a Multi-Lake Coverage Area Matters for Detroit Lakes Fishing</h3>
+    <article class="intel__col" aria-labelledby="intel-q1">
+      <h4 id="intel-q1" class="intel__sub">Why does the range matter?</h4>
       <p class="intel__lede">
-        <strong>Sixty miles of options</strong> — chosen each morning against wind, water clarity, and what the fish are doing today.
+        <strong>Sixty miles of options</strong> — chosen each morning against wind, water clarity, and what the fish are doing today across the Detroit Lakes, Minnesota chain.
       </p>
-    </div>
-    <div class="intel__col">
-      <div class="intel__sub">The Difference</div>
+    </article>
+    <article class="intel__col" aria-labelledby="intel-q2">
+      <h4 id="intel-q2" class="intel__sub">What separates Baxstar from a single-lake guide?</h4>
       <p class="intel__copy">
-        Most operations run a single home lake. <strong>Baxstar runs a portfolio.</strong> If a cold front shuts down Detroit Lake, the boat is on Big Cormorant by 7 a.m. If walleyes are stacked deep on Lida, that's where the day starts. Decades of pattern recognition mean fewer slow days — and a calendar that reads like a working chart, not a sales sheet.
+        Most operations run a single home lake. <strong>Baxstar runs a portfolio.</strong> If a cold front shuts down Detroit Lake, the boat is on Big Cormorant by 7 a.m. If walleyes are stacked deep on Lake Lida, that's where the day starts. Three decades of pattern recognition across <strong>Becker</strong> and <strong>Otter Tail</strong> counties mean fewer slow days — and a calendar that reads like a working chart, not a sales sheet.
       </p>
-    </div>
-  </div>
+    </article>
+  </aside>
 
   <!-- ── CTA strip ── -->
-  <div class="ops__cta">
+  <aside class="ops__cta" id="reserve-coverage" aria-labelledby="cta-heading">
     <div class="ops__cta-inner">
       <div class="ops__cta-text">
-        Reserve A Day On The Water
-        <em>One group per day · Booked weeks in advance</em>
+        <h3 id="cta-heading">Reserve A Day On The Detroit Lakes Water</h3>
+        <em>One group per day · Booked weeks in advance · Detroit Lakes, Minnesota</em>
       </div>
-      <a class="ops__cta-button" href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" target="_top" rel="noopener" aria-label="Reserve a guided fishing trip with Baxstar Fishing">
-        Reserve This Day
+      <a class="ops__cta-button" href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" target="_top" rel="noopener" aria-label="Reserve a private guided fishing trip with Baxstar Fishing in Detroit Lakes, Minnesota — opens FareHarbor booking calendar">
+        <span>Reserve This Day</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
     </div>
-  </div>
+  </aside>
 
 </section>
 
