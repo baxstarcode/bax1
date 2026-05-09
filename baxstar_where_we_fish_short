@@ -6,27 +6,24 @@
 <meta name="robots" content="indexifembedded, max-image-preview:large">
 
 <!-- ─── PRIMARY META ─── -->
-<meta name="description" content="Coverage map for Baxstar Fishing in Detroit Lakes, Minnesota — 'the 412,' famously home to 412 lakes within 25 miles of town and beyond. Six anchor waters detailed: Detroit Lake, Lake Sallie, Big Cormorant, Upper Cormorant, Pelican Lake, and Lake Lida. Trophy walleye, smallmouth bass, northern pike, muskie, and panfish — guided by 5x Minnesota Master Angler Brady Baxter aboard a Vexus DVX20S with Garmin LiveScope sonar.">
+<meta name="description" content="Coverage map for Baxstar Fishing in Detroit Lakes, Minnesota — 'the 412,' 412 lakes within 25 miles of town and beyond. Six anchor waters: Detroit Lake, Lake Sallie, Big Cormorant, Upper Cormorant, Pelican Lake, Lake Lida. Trophy walleye, smallmouth, pike, crappie, muskie — guided by 5x Minnesota Master Angler Brady Baxter aboard a Vexus DVX20S with Garmin LiveScope.">
 <meta name="keywords" content="Detroit Lakes Minnesota fishing guide, the 412, 412 lakes Detroit Lakes, Detroit Lake walleye, Lake Lida smallmouth, Pelican Lake walleye, Pelican Lake smallmouth, Big Cormorant fishing, Lake Sallie panfish, Minnesota fishing charter, Becker County fishing guide, Otter Tail County fishing guide, Brady Baxter Master Angler, Vexus DVX20S, Garmin LiveScope guide">
 <meta name="author" content="Brady Baxter, Baxstar Fishing">
 
-<!-- ─── GEO META ─── -->
 <meta name="geo.region" content="US-MN">
 <meta name="geo.placename" content="Detroit Lakes, Minnesota">
 <meta name="geo.position" content="46.6519;-95.8453">
 <meta name="ICBM" content="46.6519, -95.8453">
 
-<!-- ─── OPEN GRAPH ─── -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Baxstar Fishing">
 <meta property="og:title" content="Ground Truth in the 412 — The Detroit Lakes, Minnesota Fishing Coverage Map | Baxstar Fishing">
-<meta property="og:description" content="Detroit Lakes, MN — known as 'the 412' for the 412 lakes within 25 miles of town and beyond. Six anchor waters guided by 5x Minnesota Master Angler Brady Baxter — trophy walleye, largemouth and smallmouth, pike, crappie,  and muskie aboard a Vexus DVX20S with Garmin LiveScope.">
+<meta property="og:description" content="Detroit Lakes, MN — known as 'the 412' for the 412 lakes within 25 miles of town and beyond. Six anchor waters guided by 5x Minnesota Master Angler Brady Baxter — trophy walleye, largemouth and smallmouth, pike, crappie, and muskie aboard a Vexus DVX20S with Garmin LiveScope.">
 <meta property="og:url" content="https://www.baxstarfishing.com/coverage-map">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://static.wixstatic.com/media/a30e59_1C5A3483_SP_Baxstar_Fishing__HR.jpg">
 <meta property="og:image:alt" content="Brady Baxter guiding aboard the Vexus DVX20S on Detroit Lake, Minnesota at sunrise — water-level view through the reeds.">
 
-<!-- ─── TWITTER CARD ─── -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ground Truth in the 412 — Detroit Lakes, MN Fishing Coverage | Baxstar Fishing">
 <meta name="twitter:description" content="Detroit Lakes, MN — 'the 412.' 412 lakes within 25 miles, plus more beyond. Six anchor waters guided by 5x Minnesota Master Angler Brady Baxter aboard the Vexus DVX20S with Garmin LiveScope.">
@@ -45,25 +42,15 @@
       "@id": "https://www.baxstarfishing.com/#business",
       "name": "Baxstar Fishing",
       "alternateName": "Baxstar Guided Fishing",
-      "description": "Premium private guided fishing charters in Detroit Lakes, Minnesota — known as 'the 412' for the 412 lakes within 25 miles of town and beyond. Walleye, largemouth and smallmouth bass, pike, crappie,  and muskie aboard a Vexus DVX20S equipped with Garmin LiveScope sonar.",
+      "description": "Premium private guided fishing charters in Detroit Lakes, Minnesota — 'the 412,' 412 lakes within 25 miles of town. Walleye, largemouth and smallmouth bass, pike, crappie, and muskie aboard a Vexus DVX20S with Garmin LiveScope.",
       "url": "https://www.baxstarfishing.com/",
       "telephone": "+12185551234",
       "email": "brady@baxstarfishing.com",
       "priceRange": "$$$",
       "image": "https://static.wixstatic.com/media/a30e59_1C5A3483_SP_Baxstar_Fishing__HR.jpg",
       "logo": "https://static.wixstatic.com/media/a30e59_Final_Baxstar_Fishing_Logo_White.png",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Detroit Lakes",
-        "addressRegion": "MN",
-        "postalCode": "56501",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 46.6519,
-        "longitude": -95.8453
-      },
+      "address": {"@type":"PostalAddress","addressLocality":"Detroit Lakes","addressRegion":"MN","postalCode":"56501","addressCountry":"US"},
+      "geo": {"@type":"GeoCoordinates","latitude":46.6519,"longitude":-95.8453},
       "areaServed": [
         { "@id": "https://www.baxstarfishing.com/#detroit-lake" },
         { "@id": "https://www.baxstarfishing.com/#lake-sallie" },
@@ -73,27 +60,9 @@
         { "@id": "https://www.baxstarfishing.com/#lake-lida" }
       ],
       "founder": { "@id": "https://www.baxstarfishing.com/#brady" },
-      "employee":  { "@id": "https://www.baxstarfishing.com/#brady" },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "100",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "knowsAbout": [
-        "Walleye fishing",
-        "Smallmouth bass fishing",
-        "Northern pike fishing",
-        "Muskie fishing",
-        "Crappie fishing",
-        "Largemouth bass fishing",
-        "Detroit Lakes Minnesota fishing",
-        "Becker County fishing",
-        "Otter Tail County fishing",
-        "Lake structure mapping",
-        "Garmin LiveScope sonar"
-      ]
+      "employee": { "@id": "https://www.baxstarfishing.com/#brady" },
+      "aggregateRating": {"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"100","bestRating":"5","worstRating":"1"},
+      "knowsAbout": ["Walleye fishing","Smallmouth bass fishing","Northern pike fishing","Muskie fishing","Crappie fishing","Largemouth bass fishing","Detroit Lakes Minnesota fishing","Becker County fishing","Otter Tail County fishing","Lake structure mapping","Garmin LiveScope sonar"]
     },
     {
       "@type": "Person",
@@ -102,42 +71,19 @@
       "jobTitle": "Master Angler & Fishing Guide",
       "description": "Five-time Minnesota Master Angler with over thirty years on the water and seven years of professional guiding. Featured in Forbes, Faces of Fargo, KVLY-TV, and WDAY-TV.",
       "worksFor": { "@id": "https://www.baxstarfishing.com/#business" },
-      "award": [
-        "5x Minnesota Master Angler",
-        "Featured in Forbes",
-        "Featured in Faces of Fargo magazine",
-        "Featured on KVLY-TV",
-        "Featured on WDAY-TV"
-      ],
-      "knowsAbout": [
-        "Walleye location patterns",
-        "Smallmouth bass structure fishing",
-        "Northern pike trolling",
-        "Garmin LiveScope interpretation",
-        "Detroit Lakes seasonal patterns"
-      ],
-      "homeLocation": {
-        "@type": "Place",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Detroit Lakes",
-          "addressRegion": "MN",
-          "addressCountry": "US"
-        }
-      }
+      "award": ["5x Minnesota Master Angler","Featured in Forbes","Featured in Faces of Fargo magazine","Featured on KVLY-TV","Featured on WDAY-TV"],
+      "knowsAbout": ["Walleye location patterns","Smallmouth bass structure fishing","Northern pike trolling","Garmin LiveScope interpretation","Detroit Lakes seasonal patterns"],
+      "homeLocation": {"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Detroit Lakes","addressRegion":"MN","addressCountry":"US"}}
     },
     {
       "@type": "WebPage",
       "@id": "https://www.baxstarfishing.com/coverage-map#webpage",
       "url": "https://www.baxstarfishing.com/coverage-map",
       "name": "Ground Truth in the 412 — The Detroit Lakes, Minnesota Fishing Coverage Map",
-      "description": "Interactive coverage map of Detroit Lakes, Minnesota — known as 'the 412' for the 412 lakes within 25 miles of town and beyond — fished by Baxstar Fishing. Six anchor waters detailed with acreage, max depth, and primary species.",
+      "description": "Interactive coverage map of Detroit Lakes, Minnesota — 'the 412' — fished by Baxstar Fishing. Six anchor waters detailed with acreage, max depth, and primary species.",
       "isPartOf": { "@id": "https://www.baxstarfishing.com/#website" },
       "about": { "@id": "https://www.baxstarfishing.com/#business" },
-      "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "https://static.wixstatic.com/media/a30e59_1C5A3483_SP_Baxstar_Fishing__HR.jpg"
-      },
+      "primaryImageOfPage": {"@type":"ImageObject","url":"https://static.wixstatic.com/media/a30e59_1C5A3483_SP_Baxstar_Fishing__HR.jpg"},
       "breadcrumb": { "@id": "https://www.baxstarfishing.com/coverage-map#breadcrumb" }
     },
     {
@@ -161,7 +107,7 @@
       "@id": "https://www.baxstarfishing.com/#guided-service",
       "serviceType": "Private Guided Fishing Charter",
       "name": "Private Guided Fishing Trips — Detroit Lakes, Minnesota",
-      "description": "100% private guided walleye, smallmouth bass, northern pike, muskie, and panfish fishing across Detroit Lakes, Minnesota — known as 'the 412' for the 412 lakes within 25 miles of town and beyond. Aboard the Vexus DVX20S equipped with Garmin LiveScope sonar.",
+      "description": "100% private guided walleye, smallmouth bass, northern pike, muskie, and panfish fishing across Detroit Lakes, Minnesota — 'the 412' — aboard the Vexus DVX20S with Garmin LiveScope.",
       "provider": { "@id": "https://www.baxstarfishing.com/#business" },
       "areaServed": [
         { "@id": "https://www.baxstarfishing.com/#detroit-lake" },
@@ -171,54 +117,14 @@
         { "@id": "https://www.baxstarfishing.com/#pelican-lake" },
         { "@id": "https://www.baxstarfishing.com/#lake-lida" }
       ],
-      "audience": {
-        "@type": "Audience",
-        "audienceType": "Anglers, sportsmen, families, and corporate groups visiting the Detroit Lakes, Minnesota area"
-      }
+      "audience": {"@type":"Audience","audienceType":"Anglers, sportsmen, families, and corporate groups visiting the Detroit Lakes, Minnesota area"}
     },
-    {
-      "@type": "Place",
-      "@id": "https://www.baxstarfishing.com/#detroit-lake",
-      "name": "Detroit Lake",
-      "alternateName": "Big Detroit Lake",
-      "description": "3,067-acre lake in Becker County, Minnesota with a maximum depth of 80 feet. Primary species: walleye and muskie.",
-      "geo": { "@type": "GeoCoordinates", "latitude": 46.8167, "longitude": -95.8125 }
-    },
-    {
-      "@type": "Place",
-      "@id": "https://www.baxstarfishing.com/#lake-sallie",
-      "name": "Lake Sallie",
-      "description": "1,247-acre lake in Becker County, Minnesota with a maximum depth of 50 feet. Primary species: walleye and panfish.",
-      "geo": { "@type": "GeoCoordinates", "latitude": 46.7872, "longitude": -95.8825 }
-    },
-    {
-      "@type": "Place",
-      "@id": "https://www.baxstarfishing.com/#big-cormorant",
-      "name": "Big Cormorant Lake",
-      "description": "6,107-acre lake in Becker County, Minnesota with a maximum depth of 57 feet. Primary species: trophy walleye and northern pike.",
-      "geo": { "@type": "GeoCoordinates", "latitude": 46.7036, "longitude": -96.0656 }
-    },
-    {
-      "@type": "Place",
-      "@id": "https://www.baxstarfishing.com/#upper-cormorant",
-      "name": "Upper Cormorant Lake",
-      "description": "1,210-acre lake in Becker County, Minnesota with a maximum depth of 25 feet. Primary species: bass and sunfish.",
-      "geo": { "@type": "GeoCoordinates", "latitude": 46.7589, "longitude": -96.0814 }
-    },
-    {
-      "@type": "Place",
-      "@id": "https://www.baxstarfishing.com/#pelican-lake",
-      "name": "Pelican Lake",
-      "description": "10,945-acre lake straddling Otter Tail and Becker counties, Minnesota with a maximum depth of 104 feet. Primary species: walleye and smallmouth bass.",
-      "geo": { "@type": "GeoCoordinates", "latitude": 46.5811, "longitude": -96.0431 }
-    },
-    {
-      "@type": "Place",
-      "@id": "https://www.baxstarfishing.com/#lake-lida",
-      "name": "Lake Lida",
-      "description": "5,789-acre lake in Otter Tail County, Minnesota with a maximum depth of 106 feet. Primary species: smallmouth bass and walleye.",
-      "geo": { "@type": "GeoCoordinates", "latitude": 46.5067, "longitude": -95.9008 }
-    }
+    {"@type":"Place","@id":"https://www.baxstarfishing.com/#detroit-lake","name":"Detroit Lake","alternateName":"Big Detroit Lake","description":"3,067-acre lake in Becker County, Minnesota with a maximum depth of 80 feet. Primary species: walleye and muskie.","geo":{"@type":"GeoCoordinates","latitude":46.8167,"longitude":-95.8125}},
+    {"@type":"Place","@id":"https://www.baxstarfishing.com/#lake-sallie","name":"Lake Sallie","description":"1,247-acre lake in Becker County, Minnesota with a maximum depth of 50 feet. Primary species: walleye and panfish.","geo":{"@type":"GeoCoordinates","latitude":46.7872,"longitude":-95.8825}},
+    {"@type":"Place","@id":"https://www.baxstarfishing.com/#big-cormorant","name":"Big Cormorant Lake","description":"6,107-acre lake in Becker County, Minnesota with a maximum depth of 57 feet. Primary species: trophy walleye and northern pike.","geo":{"@type":"GeoCoordinates","latitude":46.7036,"longitude":-96.0656}},
+    {"@type":"Place","@id":"https://www.baxstarfishing.com/#upper-cormorant","name":"Upper Cormorant Lake","description":"1,210-acre lake in Becker County, Minnesota with a maximum depth of 25 feet. Primary species: bass and sunfish.","geo":{"@type":"GeoCoordinates","latitude":46.7589,"longitude":-96.0814}},
+    {"@type":"Place","@id":"https://www.baxstarfishing.com/#pelican-lake","name":"Pelican Lake","description":"10,945-acre lake straddling Otter Tail and Becker counties, Minnesota with a maximum depth of 104 feet. Primary species: walleye and smallmouth bass.","geo":{"@type":"GeoCoordinates","latitude":46.5811,"longitude":-96.0431}},
+    {"@type":"Place","@id":"https://www.baxstarfishing.com/#lake-lida","name":"Lake Lida","description":"5,789-acre lake in Otter Tail County, Minnesota with a maximum depth of 106 feet. Primary species: smallmouth bass and walleye.","geo":{"@type":"GeoCoordinates","latitude":46.5067,"longitude":-95.9008}}
   ]
 }
 </script>
@@ -244,9 +150,9 @@
     --bx-cyan-4: #04434f;
     --bx-cyan-5: #022933;
 
+    /* Live-tilt CSS variables — JS writes these directly, no string concat */
     --bx-tilt: 0deg;
     --bx-spin: 0deg;
-    --bx-fade: 0;
 
     --font-display: 'Bebas Neue', 'Impact', sans-serif;
     --font-tactical: 'Barlow Condensed', 'Arial Narrow', sans-serif;
@@ -257,13 +163,12 @@
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; }
+  html, body { width: 100%; height: auto; overflow-x: hidden; overflow-y: visible; }
 
   body {
     background: var(--bx-black);
     color: var(--bx-pearl);
     font-family: var(--font-body);
-    overscroll-behavior: none;
-    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -276,6 +181,8 @@
     color: var(--bx-pearl);
     overflow: hidden;
     isolation: isolate;
+    /* Bound repaints to this section — huge perf win on scroll */
+    contain: layout style;
   }
 
   .ops::before {
@@ -312,7 +219,6 @@
     padding: clamp(64px, 9vw, 120px) clamp(20px, 4vw, 56px) clamp(28px, 4vw, 48px);
     text-align: left;
   }
-  /* Heading order fix — h2 leads DOM, eyebrow rendered above via column-reverse */
   .ops__intro-head {
     display: flex;
     flex-direction: column-reverse;
@@ -351,7 +257,6 @@
     50% { opacity: 0.45; transform: scale(0.8); }
   }
 
-  /* H2 sized to match site standard (pricing section parity) */
   .ops__headline {
     font-family: var(--font-display);
     font-weight: 400;
@@ -379,6 +284,7 @@
     white-space: nowrap;
   }
 
+  /* BLUF — tightened from 5 sentences to 2; figcaption + schema carry the rest */
   .ops__bluf {
     font-family: var(--font-body);
     font-size: clamp(17px, 1.6vw, 21px);
@@ -393,28 +299,40 @@
     font-weight: 500;
   }
 
-  /* ───────── MAP STAGE ───────── */
+  /* ───────── MAP STAGE ─────────
+     Perf moves here:
+     1. perspective dropped 2400 → 1600 (cheaper, still dramatic)
+     2. .ops__theater gets contain:strict + GPU layer
+     3. .stage uses CSS variables for tilt — no string concat per frame
+  ───────────────────────────── */
   .ops__theater-wrap {
     margin: 0;
     padding: 0;
+    /* Promote to compositor layer — tilt updates won't repaint surroundings */
+    will-change: transform;
+    transform: translateZ(0);
   }
   .ops__theater {
     position: relative;
     z-index: 2;
     width: 100%;
     height: clamp(600px, 95vh, 980px);
-    perspective: 2400px;
+    perspective: 1600px;
     perspective-origin: 50% 38%;
     margin: 0 auto;
+    /* Bound paint region to this box only */
+    contain: layout style paint;
   }
 
   .stage {
     position: absolute;
     inset: 0;
     transform-style: preserve-3d;
+    /* Read CSS variables — JS only mutates them, browser optimizes the path */
     transform: rotateX(var(--bx-tilt)) rotateZ(var(--bx-spin));
     transform-origin: 50% 50%;
     will-change: transform;
+    backface-visibility: hidden;
   }
 
   .stage__plate {
@@ -429,7 +347,7 @@
     transform-style: preserve-3d;
   }
 
-  /* ───────── HUD FRAME (lives outside the tilt — stays oriented) ───────── */
+  /* ───────── HUD FRAME (does not tilt) ───────── */
   .hud {
     position: absolute;
     inset: 0;
@@ -467,9 +385,7 @@
   .hud__strip--bottom-left { bottom: 28px; left: 60px; }
   .hud__strip--bottom-right { bottom: 28px; right: 60px; }
 
-  .hud__strip .key {
-    color: var(--bx-fog);
-  }
+  .hud__strip .key { color: var(--bx-fog); }
   .hud__strip .val {
     font-family: var(--font-mono);
     font-size: 11px;
@@ -477,17 +393,10 @@
     letter-spacing: 0.04em;
     text-transform: none;
   }
-  .hud__strip .val--accent {
-    color: var(--bx-red);
-  }
+  .hud__strip .val--accent { color: var(--bx-red); }
 
-  .hud__divider {
-    width: 1px;
-    height: 12px;
-    background: var(--bx-slate);
-  }
+  .hud__divider { width: 1px; height: 12px; background: var(--bx-slate); }
 
-  /* North arrow / compass */
   .hud__compass {
     position: absolute;
     bottom: 70px;
@@ -508,7 +417,6 @@
     100% { transform: rotate(360deg); }
   }
 
-  /* Scale bar */
   .hud__scale {
     position: absolute;
     bottom: 70px;
@@ -525,10 +433,7 @@
     height: 6px;
     border: 1px solid var(--bx-fog);
   }
-  .hud__scale-bar span {
-    flex: 1;
-    border-right: 1px solid var(--bx-fog);
-  }
+  .hud__scale-bar span { flex: 1; border-right: 1px solid var(--bx-fog); }
   .hud__scale-bar span:nth-child(odd) { background: var(--bx-fog); }
   .hud__scale-bar span:last-child { border-right: 0; }
   .hud__scale-labels {
@@ -539,19 +444,23 @@
     color: var(--bx-fog);
   }
 
-  /* ───────── 3D LAKE STACK ───────── */
+  /* ───────── 3D LAKE STACK ─────────
+     Perf moves:
+     1. drop-shadow filter REMOVED from CSS — replaced with SVG <filter> in defs (cached)
+     2. backface-visibility: hidden on each layer (skip back-facing rasterization)
+  ───────────────────────────── */
   .lakes {
     position: absolute;
     inset: 0;
     transform-style: preserve-3d;
   }
 
-  /* Each depth layer is a full SVG shifted in Z. We stack 5 layers per lake set. */
   .lakes__layer {
     position: absolute;
     inset: 0;
     transform-style: preserve-3d;
     pointer-events: none;
+    backface-visibility: hidden;
   }
   .lakes__layer svg {
     position: absolute;
@@ -565,11 +474,11 @@
   .lakes__layer--deep     { transform: translateZ(-55px); }
   .lakes__layer--abyss    { transform: translateZ(-100px); }
 
-  /* Land plate — sits behind everything, gives mass */
   .land-plate {
     position: absolute;
     inset: 0;
     transform: translateZ(-130px);
+    backface-visibility: hidden;
   }
   .land-plate svg {
     position: absolute;
@@ -578,16 +487,16 @@
     height: 100%;
   }
 
-  /* Lake outline visible at top — crisp */
+  /* Lake outline visible at top — crisp, no CSS drop-shadow filter */
   .lakes__layer--surface svg path {
     fill: var(--bx-cyan);
     fill-opacity: 0.10;
     stroke: var(--bx-cyan);
     stroke-width: 1.4;
     stroke-opacity: 0.95;
-    filter: drop-shadow(0 0 6px rgba(28, 227, 210, 0.35));
+    /* Use SVG filter for the glow — see <defs> in surface SVG */
+    filter: url(#lake-glow);
   }
-
   .lakes__layer--shallow svg path {
     fill: var(--bx-cyan-2);
     fill-opacity: 0.20;
@@ -608,7 +517,6 @@
     stroke: none;
   }
 
-  /* Secondary lakes (Floyd / Melissa / Lizzie / Prairie) — surface only, atmospheric */
   .lakes__layer--surface svg path.secondary {
     fill-opacity: 0.05;
     stroke-opacity: 0.45;
@@ -657,6 +565,7 @@
     border-radius: 50%;
     opacity: 0;
     animation: ring-pulse 3.2s ease-out infinite;
+    will-change: transform, opacity;
   }
   @keyframes ring-pulse {
     0% { transform: scale(0.5); opacity: 0.9; }
@@ -664,7 +573,6 @@
     100% { opacity: 0; }
   }
 
-  /* Tether line + label — counter-rotated to stay readable */
   .marker__label {
     position: absolute;
     transform: translateZ(40px);
@@ -680,7 +588,6 @@
   }
   .marker__label--right { left: 22px; top: -14px; }
   .marker__label--left  { right: 22px; top: -14px; border-left: 1px solid rgba(28, 227, 210, 0.28); border-right: 2px solid var(--bx-red); }
-  /* --up-left: label sits ABOVE-LEFT of pin (used where the side-by-side spot is crowded) */
   .marker__label--up-left { right: 22px; bottom: 18px; border-left: 1px solid rgba(28, 227, 210, 0.28); border-right: 2px solid var(--bx-red); }
   .marker__label--right::before {
     content: "";
@@ -701,7 +608,6 @@
     background: linear-gradient(270deg, var(--bx-red), rgba(230, 57, 70, 0));
   }
   .marker__label--up-left::before {
-    /* tether anchored at label's bottom-right (closer to pin since label is above) */
     content: "";
     position: absolute;
     right: -22px;
@@ -730,7 +636,7 @@
   }
   .marker__meta .accent { color: var(--bx-cyan); }
 
-  /* ───────── INTEL PANEL (below map) ───────── */
+  /* ───────── INTEL PANEL ───────── */
   .intel {
     position: relative;
     z-index: 3;
@@ -786,7 +692,7 @@
     line-height: 1.4;
   }
 
-  /* ───────── BENEATH-MAP CTA STRIP ───────── */
+  /* ───────── CTA STRIP ───────── */
   .ops__cta {
     position: relative;
     z-index: 3;
@@ -883,7 +789,7 @@
   /* ───────── RESPONSIVE ───────── */
   @media (max-width: 900px) {
     .ops__theater {
-      perspective: 1600px;
+      perspective: 1100px;
       height: clamp(480px, 75vh, 700px);
     }
     .stage__plate { height: 94%; max-width: 96%; }
@@ -896,19 +802,16 @@
     .marker__label--left { right: auto; left: 22px; top: 18px; border-right: 1px solid rgba(28, 227, 210, 0.28); border-left: 2px solid var(--bx-red); }
     .marker__label--left::before { right: auto; left: -22px; background: linear-gradient(90deg, var(--bx-red), rgba(230, 57, 70, 0)); width: 22px; }
     .marker__label--right::before { left: -22px; width: 22px; }
-    /* --up-left: keep above-left on mobile too — sits up and slightly left of pin */
     .marker__label--up-left { right: 22px; bottom: 14px; }
     .marker__label--up-left::before { right: -22px; width: 22px; }
     .marker__name { font-size: 14px; }
     .marker__meta { font-size: 9px; }
     .intel { grid-template-columns: 1fr; }
-
-    /* Hide markers flagged for mobile-only suppression — content still indexed via figcaption + schema */
     .marker[data-mobile-hide="true"] { display: none; }
   }
 
   @media (max-width: 560px) {
-    .ops__theater { height: clamp(440px, 68vh, 600px); perspective: 1200px; }
+    .ops__theater { height: clamp(440px, 68vh, 600px); perspective: 900px; }
     .hud__strip--top-left { font-size: 9px; gap: 8px; }
     .marker__label { min-width: 120px; padding: 6px 9px; }
     .marker__label::before { left: -22px; width: 22px; }
@@ -916,17 +819,14 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .stage { transform: rotateX(8deg) rotateZ(0deg) !important; }
+    :root { --bx-tilt: 8deg; --bx-spin: 0deg; }
     .ring-pulse, .compass-rotor, .live-dot { animation: none !important; }
   }
 
-  /* SR-only utility */
   .sr-only {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
@@ -944,16 +844,15 @@
       <h2 class="ops__headline" id="ops-headline">
         Ground Truth in <span class="bx-412">the 412</span>
         <em>the waters Brady knows by heart</em>
-        <span class="sr-only"> — Detroit Lakes, Minnesota Guided Fishing Coverage Map. The 412 — 412 lakes within 25 miles of Detroit Lakes, Minnesota — and beyond. Six anchor lakes detailed: Detroit Lake (3,067 acres, walleye and muskie), Lake Sallie (1,247 acres, walleye and panfish), Big Cormorant Lake (6,107 acres, trophy walleye and northern pike), Upper Cormorant Lake (1,210 acres, bass and sunfish), Pelican Lake (10,945 acres, walleye and smallmouth), and Lake Lida (5,789 acres, smallmouth bass and walleye).</span>
       </h2>
       <h3 class="eyebrow"><span class="live-dot" aria-hidden="true"></span>Operating Theater · Active</h3>
     </div>
     <p class="ops__bluf">
-      <strong> Detroit Lakes, Minnesota is famously known as "the 412"</strong> — 412 lakes within 25 miles of town. Brady Baxter has been mapping them, and the waters beyond, for over thirty years. The six plotted here are the anchor waters that account for the majority of guided trips, each with documented structure, seasonal patterns, and depth charts most clients never see. Coverage spans <strong>Becker County</strong> and <strong>Otter Tail County</strong>, with primary species including walleye, smallmouth bass, northern pike, muskie, and panfish.
+      <strong>Detroit Lakes, Minnesota is famously known as "the 412"</strong> — 412 lakes within 25 miles of town. The six plotted here are Brady's anchor waters across <strong>Becker</strong>, <strong>Otter Tail</strong>, and <strong>Clay</strong> counties — each charted with documented structure, seasonal patterns, and depth most clients never see.
     </p>
   </header>
 
-  <!-- ── Map Theater (3D stage) ── -->
+  <!-- ── Map Theater ── -->
   <figure class="ops__theater-wrap" aria-labelledby="ops-headline">
   <div class="ops__theater" id="theater" role="img" aria-label="Interactive 3D coverage map of six anchor lakes in Detroit Lakes, Minnesota — the 412 — fished by Baxstar Fishing.">
 
@@ -990,7 +889,6 @@
         <span class="val">GARMIN LIVESCOPE</span>
       </div>
 
-      <!-- Scale bar -->
       <div class="hud__scale">
         <div class="hud__scale-bar" aria-hidden="true">
           <span></span><span></span><span></span><span></span>
@@ -1000,7 +898,6 @@
         </div>
       </div>
 
-      <!-- Compass -->
       <div class="hud__compass" aria-label="North indicator">
         <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
           <circle cx="30" cy="30" r="28" fill="none" stroke="#4a5560" stroke-width="0.5"/>
@@ -1038,40 +935,29 @@
             </defs>
             <rect width="1000" height="1200" fill="url(#land-grad)"/>
             <rect width="1000" height="1200" fill="url(#topo)"/>
-
-            <!-- County boundaries (subtle) -->
             <line x1="0" y1="380" x2="1000" y2="320" stroke="rgba(74, 85, 96, 0.4)" stroke-width="0.6" stroke-dasharray="6 4"/>
             <line x1="80" y1="0" x2="80" y2="1200" stroke="rgba(74, 85, 96, 0.3)" stroke-width="0.5" stroke-dasharray="4 6"/>
-
-            <!-- Subtle river/water-flow indicator -->
             <path d="M730 100 Q700 200, 660 280 Q620 380, 540 460 Q480 540, 440 600 Q420 660, 380 760 Q340 840, 320 920"
                   fill="none" stroke="rgba(28, 227, 210, 0.10)" stroke-width="2" stroke-dasharray="3 8" stroke-linecap="round"/>
-
           </svg>
         </div>
 
-        <!-- 3D Lake Stack — 4 layers, paths derived by center-anchored scaling -->
+        <!-- 3D Lake Stack — 4 layers -->
         <div class="lakes" aria-hidden="true">
 
-          <!-- ABYSS layer (deepest cores, scale 0.55) -->
+          <!-- ABYSS layer -->
           <div class="lakes__layer lakes__layer--abyss">
             <svg viewBox="0 0 1000 1200" preserveAspectRatio="xMidYMid meet">
-              <!-- Pelican (~10,945 ac) -->
               <path d="M 404.0 607.0 C 420.5 601.5 438.1 600.4 452.4 605.9 C 460.1 608.6 463.4 615.2 464.5 623.5 C 465.6 630.1 470.0 635.6 478.2 637.2 C 494.8 640.0 512.9 635.6 526.1 642.8 C 536.0 648.8 541.5 657.6 536.0 667.5 C 530.5 675.8 516.8 678.5 501.9 677.4 C 487.6 675.8 474.4 670.2 467.2 664.8 C 463.4 660.9 460.1 657.6 454.6 657.6 C 443.6 656.5 431.5 657.6 419.4 656.5 C 408.4 655.4 402.9 649.9 401.2 641.1 C 400.1 630.1 401.2 616.9 404.0 607.0 Z"/>
-              <!-- Detroit (~3,067 ac) -->
               <path d="M 624.2 172.7 C 649.0 168.2 675.4 172.7 694.1 184.8 C 709.5 194.7 716.1 211.2 712.8 228.8 C 708.4 248.0 694.1 257.4 676.5 259.6 C 660.0 261.8 642.4 257.4 631.4 250.8 C 621.5 245.2 617.1 238.7 609.4 235.3 C 598.4 231.5 588.5 224.3 592.9 212.2 C 598.4 195.8 611.6 180.3 620.4 174.8 C 622.6 173.2 623.7 172.7 624.2 172.7 Z"/>
-              <!-- Sallie (~1,247 ac) -->
               <path d="M 500.5 311.6 C 523.6 306.7 550.0 313.3 561.0 326.5 C 568.7 337.5 562.1 351.8 546.7 357.3 C 526.4 362.8 506.0 358.4 495.0 347.4 C 487.3 337.5 490.6 321.0 500.5 311.6 Z"/>
-              <!-- Big Cormorant (~6,107 ac) -->
               <path d="M 150.5 373.9 C 187.3 366.1 214.8 377.1 222.0 400.2 C 228.6 423.4 226.4 454.1 215.4 469.6 C 203.3 482.8 184.6 487.1 167.0 481.6 C 146.1 475.1 134.0 456.4 132.9 434.4 C 131.8 414.0 136.2 393.6 142.8 382.6 C 146.1 377.1 148.3 374.9 150.5 373.9 Z"/>
-              <!-- Upper Cormorant (~1,210 ac) -->
               <path d="M 175.5 214.4 C 195.3 210.0 215.7 218.8 217.3 233.7 C 217.3 247.4 204.7 255.1 190.9 255.1 C 174.4 254.0 166.7 243.0 167.8 229.8 C 168.9 221.0 172.2 216.6 175.5 214.4 Z"/>
-              <!-- Lida (~5,789 ac) -->
               <path d="M 613.2 783.2 C 638.0 776.1 666.6 775.0 691.9 786.0 C 709.5 794.2 723.2 806.9 723.2 823.4 C 724.9 843.8 716.1 861.9 697.4 871.2 C 690.2 875.1 683.1 876.2 676.5 874.0 C 673.8 882.2 672.6 896.0 669.9 907.0 C 667.7 918.0 662.8 923.5 657.2 921.3 C 651.8 918.0 650.1 907.0 650.1 894.9 C 650.1 883.9 651.8 876.8 649.0 871.2 C 638.0 869.6 627.0 869.6 620.4 864.1 C 611.6 857.5 600.6 849.8 599.5 839.9 C 598.4 825.6 602.2 810.8 606.1 801.4 C 608.3 792.6 610.5 786.0 613.2 783.2 Z"/>
             </svg>
           </div>
 
-          <!-- DEEP layer (scale 0.76) -->
+          <!-- DEEP layer -->
           <div class="lakes__layer lakes__layer--deep">
             <svg viewBox="0 0 1000 1200" preserveAspectRatio="xMidYMid meet">
               <path d="M 378.8 594.4 C 401.6 586.8 425.9 585.3 445.7 592.9 C 456.3 596.7 460.9 605.8 462.4 617.2 C 463.9 626.3 470.0 633.9 481.4 636.2 C 504.2 640.0 529.3 633.9 547.5 643.8 C 561.2 652.2 568.8 664.3 561.2 678.0 C 553.6 689.4 534.6 693.2 514.1 691.7 C 494.3 689.4 476.1 681.8 466.2 674.2 C 460.9 668.9 456.3 664.3 448.7 664.3 C 433.5 662.8 416.8 664.3 400.1 662.8 C 384.9 661.3 377.3 653.7 375.0 641.5 C 373.5 626.3 375.0 608.1 378.8 594.4 Z"/>
@@ -1083,7 +969,7 @@
             </svg>
           </div>
 
-          <!-- SHALLOW layer (scale 0.92) -->
+          <!-- SHALLOW layer -->
           <div class="lakes__layer lakes__layer--shallow">
             <svg viewBox="0 0 1000 1200" preserveAspectRatio="xMidYMid meet">
               <path d="M 359.6 584.8 C 387.2 575.6 416.6 573.8 440.6 583.0 C 453.4 587.6 459.0 598.6 460.8 612.4 C 462.6 623.4 470.0 632.6 483.8 635.4 C 511.4 640.0 541.8 632.6 563.8 644.6 C 580.4 654.7 589.6 669.4 580.4 686.0 C 571.2 699.8 548.2 704.4 523.4 702.6 C 499.4 699.8 477.4 690.6 465.4 681.4 C 459.0 675.0 453.4 669.4 444.2 669.4 C 425.8 667.6 405.6 669.4 385.4 667.6 C 367.0 665.8 357.8 656.6 355.0 641.8 C 353.2 623.4 355.0 601.4 359.6 584.8 Z"/>
@@ -1095,23 +981,26 @@
             </svg>
           </div>
 
-          <!-- SURFACE layer (full size, with stroke + glow) -->
+          <!-- SURFACE layer — SVG <filter> replaces CSS drop-shadow (cached, GPU-friendly) -->
           <div class="lakes__layer lakes__layer--surface">
             <svg viewBox="0 0 1000 1200" preserveAspectRatio="xMidYMid meet">
-              <!-- PELICAN LAKE — long E-W with paired lobes and narrow waist -->
+              <defs>
+                <filter id="lake-glow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="2.4" result="blur"/>
+                  <feFlood flood-color="#1ce3d2" flood-opacity="0.35"/>
+                  <feComposite in2="blur" operator="in"/>
+                  <feMerge>
+                    <feMergeNode/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
               <path d="M 350.0 580.0 C 380.0 570.0 412.0 568.0 438.0 578.0 C 452.0 583.0 458.0 595.0 460.0 610.0 C 462.0 622.0 470.0 632.0 485.0 635.0 C 515.0 640.0 548.0 632.0 572.0 645.0 C 590.0 656.0 600.0 672.0 590.0 690.0 C 580.0 705.0 555.0 710.0 528.0 708.0 C 502.0 705.0 478.0 695.0 465.0 685.0 C 458.0 678.0 452.0 672.0 442.0 672.0 C 422.0 670.0 400.0 672.0 378.0 670.0 C 358.0 668.0 348.0 658.0 345.0 642.0 C 343.0 622.0 345.0 598.0 350.0 580.0 Z"/>
-              <!-- DETROIT LAKE — 3,067 ac · multi-lobed E-W -->
               <path d="M 595 138 C 640 130 688 138 722 160 C 750 178 762 208 756 240 C 748 275 722 292 690 296 C 660 300 628 292 608 280 C 590 270 582 258 568 252 C 548 245 530 232 538 210 C 548 180 572 152 588 142 C 592 139 594 138 595 138 Z"/>
-              <!-- LAKE SALLIE — 1,247 ac · kidney NE-SW connected to Detroit -->
               <path d="M 478 295 C 520 286 568 298 588 322 C 602 342 590 368 562 378 C 525 388 488 380 468 360 C 454 342 460 312 478 295 Z"/>
-              <!-- BIG CORMORANT — 6,107 ac · large irregular oval N-S -->
               <path d="M 128 332 C 195 318 245 338 258 380 C 270 422 266 478 246 506 C 224 530 190 538 158 528 C 120 516 98 482 96 442 C 94 405 102 368 114 348 C 120 338 124 334 128 332 Z"/>
-              <!-- UPPER CORMORANT — 1,210 ac · small irregular -->
               <path d="M 162 200 C 198 192 235 208 238 235 C 238 260 215 274 190 274 C 160 272 146 252 148 228 C 150 212 156 204 162 200 Z"/>
-              <!-- LAKE LIDA — 5,789 ac · main body with southern peninsula tail -->
               <path d="M 575.0 745.0 C 620.0 732.0 672.0 730.0 718.0 750.0 C 750.0 765.0 775.0 788.0 775.0 818.0 C 778.0 855.0 762.0 888.0 728.0 905.0 C 715.0 912.0 702.0 914.0 690.0 910.0 C 685.0 925.0 683.0 950.0 678.0 970.0 C 674.0 990.0 665.0 1000.0 655.0 996.0 C 645.0 990.0 642.0 970.0 642.0 948.0 C 642.0 928.0 645.0 915.0 640.0 905.0 C 620.0 902.0 600.0 902.0 588.0 892.0 C 572.0 880.0 552.0 866.0 550.0 848.0 C 548.0 822.0 555.0 795.0 562.0 778.0 C 566.0 762.0 570.0 750.0 575.0 745.0 Z"/>
-
-              <!-- Secondary atmospheric lakes (Floyd · Melissa · Lizzie · Prairie) -->
               <path class="secondary" d="M 735 88 C 762 84 782 100 780 120 C 776 138 752 142 738 134 C 722 124 720 92 735 88 Z"/>
               <path class="secondary" d="M 518 405 C 548 400 568 412 566 432 C 562 448 540 452 522 446 C 508 440 508 410 518 405 Z"/>
               <path class="secondary" d="M 488 712 C 518 706 552 712 590 762 C 562 776 528 776 495 768 C 472 760 470 720 488 712 Z"/>
@@ -1121,9 +1010,8 @@
 
         </div>
 
-        <!-- Markers / Lake callouts -->
+        <!-- Markers -->
         <nav class="markers" aria-label="Detroit Lakes Minnesota anchor lakes">
-          <!-- DETROIT LAKE -->
           <div class="marker" style="left: 66%; top: 18%;" role="article" aria-label="Detroit Lake — 3,067 acres, 80 foot maximum depth, walleye and muskie">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--up-left">
@@ -1136,7 +1024,6 @@
             </div>
           </div>
 
-          <!-- LAKE SALLIE -->
           <div class="marker" style="left: 53%; top: 28%;" role="article" aria-label="Lake Sallie — 1,247 acres, 50 foot maximum depth, walleye and panfish">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--right">
@@ -1149,7 +1036,6 @@
             </div>
           </div>
 
-          <!-- UPPER CORMORANT — hidden on mobile to reduce label crowding; data still in figcaption + schema -->
           <div class="marker" data-mobile-hide="true" style="left: 19%; top: 19%;" role="article" aria-label="Upper Cormorant Lake — 1,210 acres, 25 foot maximum depth, bass and sunfish">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--right">
@@ -1162,7 +1048,6 @@
             </div>
           </div>
 
-          <!-- BIG CORMORANT -->
           <div class="marker" style="left: 18%; top: 35%;" role="article" aria-label="Big Cormorant Lake — 6,107 acres, 57 foot maximum depth, trophy walleye and northern pike">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--right">
@@ -1175,7 +1060,6 @@
             </div>
           </div>
 
-          <!-- PELICAN LAKE — center of E-W body -->
           <div class="marker" style="left: 47%; top: 53%;" role="article" aria-label="Pelican Lake — 10,945 acres, 104 foot maximum depth, walleye and smallmouth bass">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--right">
@@ -1188,7 +1072,6 @@
             </div>
           </div>
 
-          <!-- LAKE LIDA -->
           <div class="marker" style="left: 66%; top: 69%;" role="article" aria-label="Lake Lida — 5,789 acres, 106 foot maximum depth, smallmouth bass and walleye">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--left">
@@ -1207,7 +1090,7 @@
 
   </div>
   <figcaption class="ops__figcaption sr-only">
-    Detroit Lakes, Minnesota — known as "the 412" for the 412 lakes within 25 miles of town and beyond — fishing coverage map showing six anchor lakes. Detroit Lake — 3,067 acres, 80 ft maximum depth, walleye and muskie. Lake Sallie — 1,247 acres, 50 ft maximum depth, walleye and panfish. Upper Cormorant Lake — 1,210 acres, 25 ft maximum depth, bass and sunfish. Big Cormorant Lake — 6,107 acres, 57 ft maximum depth, trophy walleye and northern pike. Pelican Lake — 10,945 acres, 104 ft maximum depth, walleye and smallmouth bass. Lake Lida — 5,789 acres, 106 ft maximum depth, smallmouth bass and walleye. Operating coordinates 46.6519° N, 95.8453° W. Vessel: Vexus DVX20S. Sonar: Garmin LiveScope. The 412 — 412 lakes within 25 miles of Detroit Lakes, Minnesota — and beyond, charted across three decades.
+    Detroit Lakes, Minnesota — known as "the 412" for the 412 lakes within 25 miles of town and beyond — fishing coverage map showing six anchor lakes. Detroit Lake — 3,067 acres, 80 ft maximum depth, walleye and muskie. Lake Sallie — 1,247 acres, 50 ft maximum depth, walleye and panfish. Upper Cormorant Lake — 1,210 acres, 25 ft maximum depth, bass and sunfish. Big Cormorant Lake — 6,107 acres, 57 ft maximum depth, trophy walleye and northern pike. Pelican Lake — 10,945 acres, 104 ft maximum depth, walleye and smallmouth bass. Lake Lida — 5,789 acres, 106 ft maximum depth, smallmouth bass and walleye. Operating coordinates 46.6519° N, 95.8453° W. Vessel: Vexus DVX20S. Sonar: Garmin LiveScope.
   </figcaption>
   </figure>
 
@@ -1217,13 +1100,13 @@
     <article class="intel__col" aria-labelledby="intel-q1">
       <h4 id="intel-q1" class="intel__sub">Why does the range matter?</h4>
       <p class="intel__lede">
-        <strong>The 412</strong> — 412 lakes within 25 miles of Detroit Lakes, Minnesota, and another stretch of waters beyond — chosen each morning against wind, water clarity, and what the fish are doing today.
+        <strong>The 412</strong> — chosen each morning against wind, water clarity, and what the fish are doing today.
       </p>
     </article>
     <article class="intel__col" aria-labelledby="intel-q2">
       <h4 id="intel-q2" class="intel__sub">What separates Baxstar from a single-lake guide?</h4>
       <p class="intel__copy">
-        <strong>Baxstar runs a portfolio of lakes.</strong> If a cold front shuts down Detroit Lake, the boat is on Big Cormorant by 7 a.m. If walleyes are stacked deep on Lake Lida, that's where the day starts. Three decades of pattern recognition across <strong>Becker</strong>, <strong>Otter Tail</strong> and <strong>Clay</strong> counties mean fewer slow days — and a calendar that reads like a working chart, not a sales sheet.
+        <strong>Baxstar runs a portfolio of lakes.</strong> If a cold front shuts down Detroit Lake, the boat is on Big Cormorant by 7 a.m. If walleyes are stacked deep on Lake Lida, that's where the day starts. Three decades of pattern recognition — fewer slow days, and a calendar that reads like a working chart, not a sales sheet.
       </p>
     </article>
   </aside>
@@ -1248,29 +1131,39 @@
 (function() {
   'use strict';
 
-  const section  = document.getElementById('ops-theater');
-  const theater  = document.getElementById('theater');
-  const stage    = document.getElementById('stage');
+  const section = document.getElementById('ops-theater');
+  const theater = document.getElementById('theater');
+  const stage   = document.getElementById('stage');
+  const root    = document.documentElement;
 
   if (!section || !theater || !stage) return;
 
-  // Respect reduced motion
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reducedMotion) {
-    stage.style.setProperty('--bx-tilt', '8deg');
-    stage.style.setProperty('--bx-spin', '0deg');
+    root.style.setProperty('--bx-tilt', '8deg');
+    root.style.setProperty('--bx-spin', '0deg');
     return;
   }
 
-  // ── Tunables ──
-  // Tilt: how much the map leans back to reveal depth. Tuned for premium feel — substantial but not extreme.
-  const MAX_TILT_DESKTOP = 30;   // degrees — increased per Brady, more dramatic depth reveal
-  const MAX_TILT_MOBILE  = 19;   // degrees
-  // Spin: clockwise rotation. Brady spec — "no more than 1/8 inch displacement" → barely perceptible.
-  const MAX_SPIN_DESKTOP = 2.6;  // degrees
-  const MAX_SPIN_MOBILE  = 1.8;  // degrees
-  // Lerp factor: lower = smoother/heavier, higher = more responsive. 0.10 is the Apple sweet spot.
-  const LERP = 0.14;  // bumped per Brady — faster response, still buttery
+  /* ════════════════════════════════════════════════════════════
+     PERFORMANCE-TUNED SCROLL-TILT ENGINE
+     Key changes vs. previous version:
+     1. Tilt range increased: 30° → 38° desktop, 19° → 24° mobile
+        — premium, more dramatic depth reveal
+     2. CSS variables instead of inline transform string concat
+        — browser GPU path is more efficient
+     3. Cached rect — refresh only on resize, not every scroll
+     4. Lerp idle threshold raised — loop stops sooner, idle CPU
+     5. requestAnimationFrame ticker pattern — only one rAF in flight
+     6. willChange flips off when idle to free compositor memory
+  ════════════════════════════════════════════════════════════ */
+
+  const MAX_TILT_DESKTOP = 38;
+  const MAX_TILT_MOBILE  = 24;
+  const MAX_SPIN_DESKTOP = 2.6;
+  const MAX_SPIN_MOBILE  = 1.8;
+  const LERP             = 0.16;
+  const IDLE_THRESHOLD   = 0.002;
 
   const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
 
@@ -1278,100 +1171,144 @@
   let scrollCurrent = 0;
   let inView        = false;
   let rafId         = null;
+  let cachedRect    = null;
+  let cachedVH      = window.innerHeight || 0;
+  let scrollDirty   = true;
 
-  // Compute scroll progress: 0 when section is fully below viewport, 1 when fully above.
-  // Apex at ~50% through the section's travel.
-  const computeProgress = () => {
-    const rect = theater.getBoundingClientRect();
-    const vh = window.innerHeight || document.documentElement.clientHeight;
-    // Travel range: from "section bottom touches viewport bottom" to "section top exits viewport top"
-    const total = vh + rect.height;
-    const traveled = vh - rect.top;
+  // Cache the theater's bounding rect — only invalidate on resize
+  function refreshRect() {
+    cachedRect = theater.getBoundingClientRect();
+    // Add scroll offset so we have an absolute-document-position frame
+    cachedRect = {
+      top: cachedRect.top + window.scrollY,
+      height: cachedRect.height
+    };
+    cachedVH = window.innerHeight || document.documentElement.clientHeight || 0;
+  }
+
+  function computeProgress() {
+    if (!cachedRect) refreshRect();
+    const docTop = window.scrollY;
+    // Section's top edge relative to viewport top
+    const relTop = cachedRect.top - docTop;
+    const total  = cachedVH + cachedRect.height;
+    const traveled = cachedVH - relTop;
     const raw = traveled / total;
-    return Math.max(0, Math.min(1, raw));
-  };
+    return raw < 0 ? 0 : raw > 1 ? 1 : raw;
+  }
 
-  const tick = () => {
-    // Lerp toward target — buttery
+  function tick() {
+    if (scrollDirty) {
+      scrollTarget = computeProgress();
+      scrollDirty = false;
+    }
+
     scrollCurrent += (scrollTarget - scrollCurrent) * LERP;
 
     const tiltMax = isMobile() ? MAX_TILT_MOBILE : MAX_TILT_DESKTOP;
     const spinMax = isMobile() ? MAX_SPIN_MOBILE : MAX_SPIN_DESKTOP;
 
-    // Easing: ease-in-out so the tilt feels weighted, not linear
+    // Ease-in-out — feels weighted
     const eased = scrollCurrent < 0.5
       ? 2 * scrollCurrent * scrollCurrent
       : 1 - Math.pow(-2 * scrollCurrent + 2, 2) / 2;
 
-    const tilt = eased * tiltMax;
-    const spin = eased * spinMax;
+    const tilt = (eased * tiltMax).toFixed(2);
+    const spin = (eased * spinMax).toFixed(3);
 
-    stage.style.transform = `rotateX(${tilt.toFixed(3)}deg) rotateZ(${spin.toFixed(3)}deg)`;
+    // Write CSS variables — much cheaper than re-creating transform strings
+    root.style.setProperty('--bx-tilt', tilt + 'deg');
+    root.style.setProperty('--bx-spin', spin + 'deg');
 
-    // Continue animating if delta is meaningful, otherwise idle
-    if (Math.abs(scrollTarget - scrollCurrent) > 0.0005) {
+    if (Math.abs(scrollTarget - scrollCurrent) > IDLE_THRESHOLD) {
       rafId = requestAnimationFrame(tick);
     } else {
-      rafId = null;
+      // Snap to target and idle
+      scrollCurrent = scrollTarget;
+      root.style.setProperty('--bx-tilt', (eased * tiltMax).toFixed(2) + 'deg');
+      root.style.setProperty('--bx-spin', (eased * spinMax).toFixed(3) + 'deg');
       stage.style.willChange = 'auto';
+      rafId = null;
     }
-  };
+  }
 
-  const onScroll = () => {
+  function onScroll() {
     if (!inView) return;
-    scrollTarget = computeProgress();
+    scrollDirty = true;
     if (rafId === null) {
       stage.style.willChange = 'transform';
       rafId = requestAnimationFrame(tick);
     }
-  };
+  }
+
+  function onResize() {
+    refreshRect();
+    onScroll();
+  }
 
   // IntersectionObserver — only animate when section is near viewport
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       inView = entry.isIntersecting;
       if (inView) {
-        // Prime values on entry
-        scrollTarget = computeProgress();
+        refreshRect();
+        scrollDirty = true;
         if (rafId === null) {
           stage.style.willChange = 'transform';
           rafId = requestAnimationFrame(tick);
         }
       }
     });
-  }, { rootMargin: '20% 0px 20% 0px', threshold: 0 });
+  }, { rootMargin: '15% 0px 15% 0px', threshold: 0 });
 
   io.observe(theater);
 
-  // Single passive scroll listener
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll, { passive: true });
+  window.addEventListener('resize', onResize, { passive: true });
 
-  // Prime on load
+  // Re-cache rect once fonts settle (height shifts)
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(refreshRect);
+  }
+  window.addEventListener('load', refreshRect);
+
+  // Prime with a partially-settled value so the section doesn't snap on first paint
+  refreshRect();
   scrollTarget = computeProgress();
-  scrollCurrent = scrollTarget * 0.4; // start partially settled to avoid initial snap
+  scrollCurrent = scrollTarget * 0.5;
   rafId = requestAnimationFrame(tick);
 
-  // ── Iframe height reporter (Wix Custom Embed) ──
-  const reportHeight = () => {
-    if (window.parent && window.parent !== window) {
-      try {
-        window.parent.postMessage({
-          type: 'baxstar:height',
-          section: 'ground-truth',
-          height: document.body.scrollHeight
-        }, '*');
-      } catch (e) { /* cross-origin — ignore */ }
-    }
-  };
+  /* ════════════════════════════════════════════════════════════
+     IFRAME HEIGHT REPORTER — Wix Custom Embed
+     Multi-format messages so any Wix listener variant catches it
+  ════════════════════════════════════════════════════════════ */
+  let lastH = 0;
+  function reportHeight() {
+    if (window.parent === window) return;
+    const h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body ? document.body.scrollHeight : 0,
+      document.documentElement.offsetHeight
+    );
+    if (!h || Math.abs(h - lastH) < 2) return;
+    lastH = h;
+    try { window.parent.postMessage({ type: 'baxstar:height', section: 'ground-truth', height: h }, '*'); } catch (e) {}
+    try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch (e) {}
+    try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch (e) {}
+    try { window.parent.postMessage('height:' + h, '*'); } catch (e) {}
+  }
   window.addEventListener('load', reportHeight);
   window.addEventListener('resize', reportHeight);
-  // Re-report after fonts load (height shifts)
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(reportHeight);
   }
+  if (window.ResizeObserver) {
+    try { new ResizeObserver(reportHeight).observe(document.body); } catch (e) {}
+  }
+  setTimeout(reportHeight, 1500);
+  setTimeout(reportHeight, 3500);
 })();
 </script>
 
 </body>
-</html> 
+</html>
