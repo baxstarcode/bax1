@@ -20,7 +20,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Baxstar Fishing">
 <meta property="og:title" content="Ground Truth in the 412 — The Detroit Lakes, Minnesota Fishing Coverage Map | Baxstar Fishing">
-<meta property="og:description" content="Detroit Lakes, MN — known as 'the 412' for the 412 lakes within 25 miles of town and beyond. Six anchor waters guided by 5x Minnesota Master Angler Brady Baxter — trophy walleye, smallmouth, pike, and muskie aboard a Vexus DVX20S with Garmin LiveScope.">
+<meta property="og:description" content="Detroit Lakes, MN — known as 'the 412' for the 412 lakes within 25 miles of town and beyond. Six anchor waters guided by 5x Minnesota Master Angler Brady Baxter — trophy walleye, largemouth and smallmouth, pike, crappie,  and muskie aboard a Vexus DVX20S with Garmin LiveScope.">
 <meta property="og:url" content="https://www.baxstarfishing.com/coverage-map">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://static.wixstatic.com/media/a30e59_1C5A3483_SP_Baxstar_Fishing__HR.jpg">
@@ -45,7 +45,7 @@
       "@id": "https://www.baxstarfishing.com/#business",
       "name": "Baxstar Fishing",
       "alternateName": "Baxstar Guided Fishing",
-      "description": "Premium private guided fishing charters in Detroit Lakes, Minnesota — known as 'the 412' for the 412 lakes within 25 miles of town and beyond. Walleye, smallmouth bass, northern pike, muskie, and panfish aboard a Vexus DVX20S equipped with Garmin LiveScope sonar.",
+      "description": "Premium private guided fishing charters in Detroit Lakes, Minnesota — known as 'the 412' for the 412 lakes within 25 miles of town and beyond. Walleye, largemouth and smallmouth bass, pike, crappie,  and muskie aboard a Vexus DVX20S equipped with Garmin LiveScope sonar.",
       "url": "https://www.baxstarfishing.com/",
       "telephone": "+12185551234",
       "email": "brady@baxstarfishing.com",
@@ -87,7 +87,7 @@
         "Northern pike fishing",
         "Muskie fishing",
         "Crappie fishing",
-        "Perch fishing",
+        "Largemouth bass fishing",
         "Detroit Lakes Minnesota fishing",
         "Becker County fishing",
         "Otter Tail County fishing",
@@ -949,7 +949,7 @@
       <h3 class="eyebrow"><span class="live-dot" aria-hidden="true"></span>Operating Theater · Active</h3>
     </div>
     <p class="ops__bluf">
-      <strong>Most guides know one or two lakes well.</strong> Detroit Lakes, Minnesota is famously known as <strong>"the 412"</strong> — 412 lakes within 25 miles of town. Brady Baxter has been mapping them, and the waters beyond, for over thirty years. The six plotted here are the anchor waters that account for the majority of guided trips, each with documented structure, seasonal patterns, and depth charts most clients never see. Coverage spans <strong>Becker County</strong> and <strong>Otter Tail County</strong>, with primary species including walleye, smallmouth bass, northern pike, muskie, and panfish.
+      <strong> Detroit Lakes, Minnesota is famously known as "the 412"</strong> — 412 lakes within 25 miles of town. Brady Baxter has been mapping them, and the waters beyond, for over thirty years. The six plotted here are the anchor waters that account for the majority of guided trips, each with documented structure, seasonal patterns, and depth charts most clients never see. Coverage spans <strong>Becker County</strong> and <strong>Otter Tail County</strong>, with primary species including walleye, smallmouth bass, northern pike, muskie, and panfish.
     </p>
   </header>
 
@@ -1223,7 +1223,7 @@
     <article class="intel__col" aria-labelledby="intel-q2">
       <h4 id="intel-q2" class="intel__sub">What separates Baxstar from a single-lake guide?</h4>
       <p class="intel__copy">
-        Most operations run a single home lake. <strong>Baxstar runs a portfolio.</strong> If a cold front shuts down Detroit Lake, the boat is on Big Cormorant by 7 a.m. If walleyes are stacked deep on Lake Lida, that's where the day starts. Three decades of pattern recognition across <strong>Becker</strong> and <strong>Otter Tail</strong> counties mean fewer slow days — and a calendar that reads like a working chart, not a sales sheet.
+        <strong>Baxstar runs a portfolio of lakes.</strong> If a cold front shuts down Detroit Lake, the boat is on Big Cormorant by 7 a.m. If walleyes are stacked deep on Lake Lida, that's where the day starts. Three decades of pattern recognition across <strong>Becker</strong>, <strong>Otter Tail</strong> and <strong>Clay</strong> counties mean fewer slow days — and a calendar that reads like a working chart, not a sales sheet.
       </p>
     </article>
   </aside>
@@ -1374,4 +1374,4 @@
 </script>
 
 </body>
-</html>
+</html> 
