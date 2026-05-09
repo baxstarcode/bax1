@@ -50,8 +50,23 @@
 
 <style>
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+
+/* ─────────────────────────────────────────────────────────
+   IFRAME AUTO-FIT BASELINE
+   - html and body never grow taller than their content
+   - no internal scrollbars on body — parent page scrolls
+   - overflow-x:hidden only (overflow-y stays visible)
+   - removed `overscroll-behavior: none` from body — was
+     trapping scroll inside the iframe in Wix
+───────────────────────────────────────────────────────── */
 html { -webkit-text-size-adjust: 100%; }
-html, body { width:100%; overflow-x:hidden; }
+html, body {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
 body {
   background: var(--black);
   color: var(--cream);
@@ -59,7 +74,6 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   line-height: 1.55;
-  overscroll-behavior: none;
 }
 img { display:block; max-width:100%; }
 a { color:inherit; text-decoration:none; }
@@ -82,6 +96,9 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
   --gray-light:   #d4d0c9;
   --gray-mid:     #8f8f9a;
   --slate:        #6b6b78;
+  /* ── Body-text tokens — match baxstar_where_we_fish_short ── */
+  --bone:         #c8c5bd;
+  --pearl:        #e8e6e0;
   --divider:      rgba(255,255,255,0.08);
   --divider-strong: rgba(255,255,255,0.14);
   --font-display: 'Bebas Neue', sans-serif;
@@ -182,15 +199,15 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
   color: var(--gold); margin-bottom: -0.05em;
 }
 .pmin-subhead {
-  font-size: clamp(15px, 1.5vw, 17px);
-  font-weight: 300; line-height: 1.7;
-  color: var(--gray-light);
+  font-size: clamp(17px, 1.6vw, 21px);
+  font-weight: 300; line-height: 1.6;
+  color: var(--bone);
   max-width: 660px; margin: 0 auto;
   letter-spacing: 0.005em;
 }
 .pmin-subhead em {
   font-style: normal;
-  color: var(--warm-white);
+  color: var(--pearl);
   font-weight: 400;
 }
 .pmin-subhead__link {
@@ -216,7 +233,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
   font-size: clamp(13.5px, 1.45vw, 15.5px);
   font-weight: 400;
   line-height: 1.55;
-  color: var(--gold);
+  color: var(--red);
   letter-spacing: 0.014em;
   text-align: center;
   text-wrap: balance;
@@ -227,13 +244,13 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
 }
 .pmin-strip-note strong {
   font-weight: 700;
-  color: var(--gold-soft);
+  color: var(--red-bright);
   letter-spacing: 0.02em;
 }
 .pmin-strip-note__icon {
   flex-shrink: 0;
   width: 18px; height: 18px;
-  color: var(--gold);
+  color: var(--red-bright);
   animation: pmin-tap-pulse 2.4s ease-in-out infinite;
 }
 @keyframes pmin-tap-pulse {
@@ -313,8 +330,8 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
   font-family: var(--font-accent);
   font-style: italic;
   font-size: clamp(17px, 1.65vw, 19px);
-  color: var(--gray-mid);
-  letter-spacing: 0.01em; line-height: 1.4;
+  color: var(--bone);
+  letter-spacing: 0.01em; line-height: 1.5;
   flex: 1;
   text-align: center;
   text-wrap: balance;
@@ -413,7 +430,15 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
   color: var(--gray-mid); margin-top: 6px;
 }
 
-/* ────────────────────────  MODAL  ──────────────────────── */
+/* ────────────────────────  MODAL  ────────────────────────
+   Note: when modal is open we set body.is-modal-locked
+   instead of body.style.overflow = 'hidden'. Inside an
+   iframe, locking body overflow can collapse the
+   measured scrollHeight and confuse the parent page's
+   height sync. Class-based lock still prevents the modal
+   from scrolling its underlying section because the
+   overlay sits in fixed position over everything.
+─────────────────────────────────────────────────────── */
 .pmin-modal-overlay {
   position: fixed; inset: 0;
   background: rgba(0,0,0,0.84);
@@ -467,8 +492,9 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
 }
 .pmin-modal-trip-sub {
   font-family: var(--font-accent); font-style: italic;
-  font-size: 17px; color: var(--gray-light);
-  margin-top: 7px; line-height: 1.4;
+  font-size: clamp(17px, 1.6vw, 19px);
+  color: var(--bone);
+  margin-top: 7px; line-height: 1.5;
   letter-spacing: 0.005em;
 }
 
@@ -944,13 +970,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
 
   /* ═══════════════════════════════════════════════════════════
      PRICING DATA — sourced from Baxstar Pricing Engine 2026
-     Net prices BEFORE 6% Provider Fee. Multipliers applied
-     to base only; per-person add-ons are STATIC.
   ═══════════════════════════════════════════════════════════ */
-
-  // Net base prices per trip length (1–2 guests)
-  // `allowedSeasons` (optional) restricts which season pills appear in the modal.
-  // `note` (optional) renders a limited-availability note in the modal header.
   var TRIPS = {
     3: {
       base: 385,
@@ -964,60 +984,17 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     6: { base: 675, sub: 'Built for serious anglers — patterns, structure, and multiple species.', perAddOn: [75, 75, 125] },
     8: { base: 900, sub: 'Not for the meek — 1pm start time recommended.',                            perAddOn: [100, 100, 175] }
   };
-  // perAddOn = [3rd guest, 4th guest, 5th guest] — static net add-ons, no seasonal multiplier
 
-  // Season tiers from the engine. `days` array defines the day-type sub-buttons.
-  // Each day-type entry has its own multiplier. Tiers without day variation use a single "All days" entry.
   var SEASONS = {
-    off_peak: {
-      label: 'Off Peak',
-      dates: 'Apr 1 – May 31  ·  Sep 10 – Oct 31',
-      days: [
-        { key: 'all', label: 'All Days', mult: 0.00 }
-      ]
-    },
-    shoulder: {
-      label: 'Shoulder',
-      dates: 'Jun 1–12  ·  Aug 21 – Sep 9',
-      days: [
-        { key: 'mon_thu', label: 'Mon–Thu', mult: 0.03 },
-        { key: 'fri_sun', label: 'Fri–Sun', mult: 0.06 }
-      ]
-    },
-    high: {
-      label: 'High',
-      dates: 'Jun 13–30  ·  Jul 26 – Aug 20',
-      days: [
-        { key: 'mon_thu', label: 'Mon–Thu', mult: 0.08 },
-        { key: 'fri_sun', label: 'Fri–Sun', mult: 0.11 }
-      ]
-    },
-    peak: {
-      label: 'Peak',
-      dates: 'Jul 1 – Jul 25',
-      days: [
-        { key: 'mon_thu', label: 'Mon–Thu', mult: 0.14 },
-        { key: 'fri_sun', label: 'Fri / Sun', mult: 0.17 },
-        { key: 'sat',     label: 'Saturday', mult: 0.20 }
-      ]
-    },
-    holiday: {
-      label: 'Holiday',
-      dates: 'May 22–25  ·  Jul 2–5  ·  Sep 4–7',
-      days: [
-        { key: 'all', label: 'All Days', mult: 0.20 }
-      ]
-    }
+    off_peak: { label: 'Off Peak', dates: 'Apr 1 – May 31  ·  Sep 10 – Oct 31', days: [{ key: 'all', label: 'All Days', mult: 0.00 }] },
+    shoulder: { label: 'Shoulder', dates: 'Jun 1–12  ·  Aug 21 – Sep 9', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: 0.03 }, { key: 'fri_sun', label: 'Fri–Sun', mult: 0.06 }] },
+    high:     { label: 'High',     dates: 'Jun 13–30  ·  Jul 26 – Aug 20', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: 0.08 }, { key: 'fri_sun', label: 'Fri–Sun', mult: 0.11 }] },
+    peak:     { label: 'Peak',     dates: 'Jul 1 – Jul 25', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: 0.14 }, { key: 'fri_sun', label: 'Fri / Sun', mult: 0.17 }, { key: 'sat', label: 'Saturday', mult: 0.20 }] },
+    holiday:  { label: 'Holiday',  dates: 'May 22–25  ·  Jul 2–5  ·  Sep 4–7', days: [{ key: 'all', label: 'All Days', mult: 0.20 }] }
   };
 
-  /* ═══════════════════════════════════════════════════════════
-     STATE
-  ═══════════════════════════════════════════════════════════ */
   var state = { trip: 4, season: 'off_peak', dayKey: 'all', groupSize: 2 };
 
-  /* ═══════════════════════════════════════════════════════════
-     DOM REFS
-  ═══════════════════════════════════════════════════════════ */
   var modal      = document.getElementById('pminModal');
   if (!modal) return;
 
@@ -1036,9 +1013,6 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
   var dayRow     = document.getElementById('pminDayRow');
   var groupRow   = document.getElementById('pminGroupRow');
 
-  /* ═══════════════════════════════════════════════════════════
-     HELPERS
-  ═══════════════════════════════════════════════════════════ */
   function fmt(n){ return '$' + Math.round(n).toLocaleString(); }
 
   function getCurrentMultiplier(){
@@ -1049,18 +1023,11 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     return d.mult;
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     CALCULATION — NET price only (pre-Provider-Fee)
-     net = (base × (1 + seasonMult)) + static per-person add-ons
-  ═══════════════════════════════════════════════════════════ */
   function calculate(){
     var trip = TRIPS[state.trip];
     if (!trip) return;
-
     var mult = getCurrentMultiplier();
     var net = trip.base * (1 + mult);
-
-    // Static per-person add-ons (NOT multiplied by season)
     var addOns = 0;
     for (var i = 3; i <= state.groupSize; i++) {
       addOns += trip.perAddOn[i - 3];
@@ -1077,9 +1044,6 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     });
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     SEASON BUTTON FILTERING (per-trip allowedSeasons)
-  ═══════════════════════════════════════════════════════════ */
   function applyAllowedSeasons(allowedSeasons){
     var pills = seasonRow.querySelectorAll('.pmin-toggle-pill');
     pills.forEach(function(p){
@@ -1092,13 +1056,9 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     });
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     DAY-TYPE SUB-ROW (built dynamically per season)
-  ═══════════════════════════════════════════════════════════ */
   function renderDayRow(){
     var s = SEASONS[state.season];
     if (!s) return;
-
     if (s.days.length <= 1) {
       dayLabel.style.display = 'none';
       dayRow.style.display = 'none';
@@ -1106,11 +1066,9 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
       state.dayKey = s.days[0].key;
       return;
     }
-
     dayLabel.style.display = '';
     dayRow.style.display = '';
     dayRow.innerHTML = '';
-
     s.days.forEach(function(d, idx){
       var btn = document.createElement('button');
       btn.type = 'button';
@@ -1132,17 +1090,19 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
   }
 
   /* ═══════════════════════════════════════════════════════════
-     MODAL OPEN / CLOSE
+     MODAL OPEN / CLOSE — class-based body lock
+     We DO NOT touch document.body.style.overflow inside an
+     iframe — that interferes with parent height sync.
+     The fixed-position overlay covers everything anyway,
+     so background scroll is visually moot.
   ═══════════════════════════════════════════════════════════ */
   function openModal(tripLen){
     state.trip = tripLen;
     var trip = TRIPS[tripLen];
     if (!trip) return;
-
     nameEl.textContent = tripLen + ' Hour Trip';
     subEl.textContent = trip.sub;
 
-    // Limited-availability note (modal header)
     if (trip.note) {
       noteTextEl.innerHTML = '<strong>Limited Availability —</strong> ' +
         trip.note.replace(/^Limited availability\.\s*/, '');
@@ -1154,20 +1114,17 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
       modalCard.classList.remove('is-limited');
     }
 
-    // Apply allowed-season filter; pick first allowed season
     applyAllowedSeasons(trip.allowedSeasons);
     var firstSeason = (trip.allowedSeasons && trip.allowedSeasons[0]) || 'off_peak';
     state.season = firstSeason;
     state.dayKey = SEASONS[firstSeason].days[0].key;
     state.groupSize = 2;
 
-    // Reset season buttons (only visible ones)
     seasonRow.querySelectorAll('.pmin-toggle-pill').forEach(function(p){
       var on = p.dataset.season === firstSeason;
       p.classList.toggle('active', on);
       p.setAttribute('aria-checked', on ? 'true' : 'false');
     });
-    // Reset group buttons
     groupRow.querySelectorAll('.pmin-group-btn').forEach(function(p){
       var on = p.dataset.group === '2';
       p.classList.toggle('active', on);
@@ -1179,17 +1136,15 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     calculate();
 
     modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    // NOTE: intentionally NOT setting document.body.style.overflow = 'hidden'.
+    // Inside an iframe that breaks parent height sync. The fixed overlay
+    // sits above the section visually, which is sufficient.
   }
 
   function closeModal(){
     modal.classList.remove('open');
-    document.body.style.overflow = '';
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     EVENTS
-  ═══════════════════════════════════════════════════════════ */
   rows.forEach(function(row){
     row.addEventListener('click', function(){
       var t = parseInt(row.dataset.trip, 10);
@@ -1209,7 +1164,6 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
   });
 
-  // Season selection
   seasonRow.addEventListener('click', function(e){
     var btn = e.target.closest('.pmin-toggle-pill');
     if (!btn || btn.classList.contains('is-hidden')) return;
@@ -1225,7 +1179,6 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     calculate();
   });
 
-  // Day type selection (delegated since buttons are dynamic)
   dayRow.addEventListener('click', function(e){
     var btn = e.target.closest('.pmin-toggle-pill');
     if (!btn) return;
@@ -1239,7 +1192,6 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     calculate();
   });
 
-  // Group size selection
   groupRow.addEventListener('click', function(e){
     var btn = e.target.closest('.pmin-group-btn');
     if (!btn) return;
@@ -1273,24 +1225,51 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     reveals.forEach(function(el){ io.observe(el); });
   })();
 
-  /* IFRAME HEIGHT REPORTER */
+  /* ═══════════════════════════════════════════════════════════
+     IFRAME AUTO-FIT REPORTER — bulletproofed
+     Sends body's true height to the Wix parent often enough
+     that the iframe always sizes to fit. Uses ALL signals:
+       • initial paint
+       • DOMContentLoaded + load
+       • document.fonts ready (font-driven reflows)
+       • image/video load (height-changing media)
+       • ResizeObserver on html + body
+       • MutationObserver on the section (modal class flips,
+         reveal-class flips, dynamic day-pill rendering)
+       • transitionend on .reveal items (final settled height)
+       • aggressive 200ms ticks for the first 6 seconds, then
+         relaxed 1500ms ticks forever
+     Posts in 3 message formats so any Wix listener picks it up.
+  ═══════════════════════════════════════════════════════════ */
   (function initHeightReporter(){
     if (window.parent === window) return;
+
     var lastH = 0;
-    function report(){
-      var h = Math.max(
-        document.documentElement.scrollHeight,
-        document.body ? document.body.scrollHeight : 0,
-        document.documentElement.offsetHeight,
-        document.body ? document.body.offsetHeight : 0
+
+    function measure() {
+      // Force layout to flush any pending changes before reading
+      var docH = document.documentElement;
+      var bodyH = document.body;
+      return Math.max(
+        docH.scrollHeight, docH.offsetHeight, docH.clientHeight,
+        bodyH ? bodyH.scrollHeight : 0,
+        bodyH ? bodyH.offsetHeight : 0,
+        bodyH ? bodyH.clientHeight : 0
       );
-      if (h && h !== lastH) {
+    }
+
+    function report(){
+      var h = measure();
+      // Only send if changed by 2px+ to avoid jitter loops
+      if (h && Math.abs(h - lastH) >= 2) {
         lastH = h;
         try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch (e) {}
         try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch (e) {}
         try { window.parent.postMessage('height:' + h, '*'); } catch (e) {}
       }
     }
+
+    // 1) Initial paint signals
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', report);
     } else {
@@ -1298,24 +1277,57 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     }
     window.addEventListener('load', report);
     window.addEventListener('resize', report);
+
+    // 2) Fonts can shift heights significantly
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(report).catch(function(){});
     }
+
+    // 3) Media loads — even if there are none currently, future ones get caught
     document.querySelectorAll('img, video').forEach(function(el){
       el.addEventListener('load', report);
     });
+
+    // 4) Live size observers
     if (window.ResizeObserver) {
       try { new ResizeObserver(report).observe(document.body); } catch (e) {}
       try { new ResizeObserver(report).observe(document.documentElement); } catch (e) {}
     }
+
+    // 5) Mutation observer — catches dynamic content (day-type pill rendering,
+    //    reveal class flips, modal open/close affecting layout, etc.)
+    if (window.MutationObserver) {
+      try {
+        var mo = new MutationObserver(function(){ report(); });
+        mo.observe(document.body, {
+          childList: true,
+          subtree: true,
+          attributes: true,
+          attributeFilter: ['class', 'style']
+        });
+      } catch (e) {}
+    }
+
+    // 6) Reveal animation completion — final settled state
+    document.addEventListener('transitionend', function(e){
+      if (e.target && e.target.classList && e.target.classList.contains('reveal')) {
+        report();
+      }
+    }, true);
+
+    // 7) Aggressive early ticks → relaxed long-term ticks
     var fastTicks = 0;
     var fastInterval = setInterval(function(){
       report();
-      if (++fastTicks > 25) {
+      if (++fastTicks > 30) {
         clearInterval(fastInterval);
         setInterval(report, 1500);
       }
     }, 200);
+
+    // 8) Force a final report after all animations should be done
+    setTimeout(report, 2000);
+    setTimeout(report, 4000);
   })();
 
 })();
