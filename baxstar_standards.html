@@ -22,6 +22,9 @@
   --gold-dim: #9a7d3a;
   --slate: #6b6b78;
   --light-slate: #9a9aaa;
+  /* ── Body-text tokens — match baxstar_where_we_fish_short ── */
+  --bone: #c8c5bd;       /* primary body copy — warm light grey */
+  --pearl: #e8e6e0;      /* emphasis / strong — very light */
   --font-display: 'Bebas Neue', sans-serif;
   --font-body: 'Barlow', sans-serif;
   --font-accent: 'Cormorant Garamond', serif;
@@ -121,11 +124,16 @@ img { display: block; max-width: 100%; }
 .standard__header {
   text-align: center; margin-bottom: clamp(56px, 7vw, 90px);
 }
+/* ── Subhead — italic serif accent. Color/size matched to where_we_fish lede tone ── */
 .standard__sub {
   font-family: var(--font-accent);
-  font-size: clamp(17px, 1.8vw, 20px);
-  font-style: italic; color: var(--light-slate);
-  max-width: 500px; margin: 0 auto; line-height: 1.6;
+  font-size: clamp(18px, 1.9vw, 22px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bone);
+  max-width: 540px;
+  margin: 0 auto;
 }
 .standard__grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
@@ -154,9 +162,17 @@ img { display: block; max-width: 100%; }
   text-transform: uppercase; letter-spacing: 1px;
   color: var(--warm-white); margin-bottom: 16px; line-height: 1.1;
 }
+/* ── Body copy — matched to where_we_fish .intel__copy ── */
 .standard__text {
-  font-size: 15px; line-height: 1.8;
-  color: var(--slate); font-weight: 300; max-width: 320px;
+  font-size: clamp(15px, 1.3vw, 17px);
+  line-height: 1.65;
+  color: var(--bone);
+  font-weight: 300;
+  max-width: 320px;
+}
+.standard__text strong {
+  color: var(--pearl);
+  font-weight: 500;
 }
 @media (max-width: 1024px) { .standard__grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 640px) { .standard__grid { grid-template-columns: 1fr; } }
@@ -192,7 +208,7 @@ img { display: block; max-width: 100%; }
         <div class="standard__bar"></div>
         <div class="standard__title">Tournament-Grade<br>Equipment</div>
         <p class="standard__text">
-          The Vexus DVX20S. Humminbird MEGA Live sonar. Pro-grade rods, 
+          The Vexus DVX20S. Garmin LiveScope sonar. Pro-grade rods, 
           precision-rigged tackle, and fresh live bait for every trip. 
           The kind of setup most anglers only read about — standard here.
         </p>
@@ -202,9 +218,9 @@ img { display: block; max-width: 100%; }
         <div class="standard__bar"></div>
         <div class="standard__title">Thirty Years of<br>Local Intelligence</div>
         <p class="standard__text">
-          Brady has fished 100+ bodies of water in this region across every 
-          season, every condition, every weather pattern. He doesn't guess 
-          where the fish are. He knows. No algorithm replicates that.
+          Brady has fished the 412 — 412 lakes within 25 miles of Detroit Lakes — 
+          across every season, every condition, every weather pattern. He doesn't 
+          guess where the fish are. He knows. No algorithm replicates that.
         </p>
       </div>
     </div>
