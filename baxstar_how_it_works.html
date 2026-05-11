@@ -4,14 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Primary SEO -->
-  <title>How to Book a Detroit Lakes Guided Fishing Trip — 3 Steps | Baxstar Fishing</title>
+  <!--
+    Embed head — selective per Brady's standards:
+    - NO <title> (Wix parent page owns the title)
+    - NO <link rel="canonical"> (parent page owns canonicals)
+    - NO <meta name="keywords"> (deprecated/ignored signal)
+    - robots = indexifembedded for the DOM-flatten Google crawl signal
+    - Brief meta description because this section has unique HowTo content
+    - Geo signals retained — local SEO reinforcement
+  -->
+  <meta name="robots" content="indexifembedded">
   <meta name="description" content="Book a private guided fishing trip in Detroit Lakes, Minnesota in three steps: reserve online through FareHarbor, Brady handles gear and planning, you show up and focus on the fish.">
-  <meta name="keywords" content="how to book fishing guide Detroit Lakes, Minnesota fishing charter booking, FareHarbor fishing booking, private walleye trip process, Baxstar booking process">
-  <meta name="robots" content="index, follow">
   <meta name="geo.region" content="US-MN">
   <meta name="geo.placename" content="Detroit Lakes, Minnesota">
-  <link rel="canonical" href="https://www.baxstarfishing.com/#how-it-works">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
@@ -39,7 +44,7 @@
     ],
     "tool": [
       { "@type": "HowToTool", "name": "Vexus DVX20S tournament boat (provided by Baxstar Fishing)" },
-      { "@type": "HowToTool", "name": "Humminbird MEGA Live sonar (provided)" },
+      { "@type": "HowToTool", "name": "Garmin LiveScope live-imaging sonar (provided)" },
       { "@type": "HowToTool", "name": "Pro-grade rods, reels, and tackle (provided)" }
     ],
     "step": [
@@ -61,7 +66,7 @@
         "@type": "HowToStep",
         "position": 3,
         "name": "You Focus on the Fish",
-        "text": "Arrive at the public access for a quick chat, before the boat is launched.  From there, Brady runs the operation — positioning the boat, reading electronics, coaching technique, adapting to conditions. If requested, your catch is cleaned at the end of the trip.",
+        "text": "Arrive at the public access for a quick chat before the boat is launched. From there, Brady runs the operation — positioning the boat, reading the Garmin LiveScope, coaching technique, and adapting when conditions shift. While we promote catch-and-release, we're happy to clean and package fish when requested. The day's photos are awesome — sent over as soon as possible.",
         "url": "https://www.baxstarfishing.com/#step-fish"
       }
     ],
@@ -89,11 +94,13 @@
   :root {
     --black: #08080a; --charcoal: #111114; --red: #c1272d; --red-bright: #e63946;
     --cream: #f0ece4; --warm-white: #faf8f4; --slate: #6b6b78;
+    --bone: #c8c5bd; --pearl: #e8e6e0;
     --font-display: 'Bebas Neue', sans-serif; --font-body: 'Barlow', sans-serif;
     --max-w: 1320px; --section-pad: clamp(56px, 7vw, 98px);
   }
   html { scroll-behavior: smooth; }
-  body { font-family: var(--font-body); background: var(--black); color: var(--cream); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  html, body { width: 100%; height: auto; overflow-x: hidden; overflow-y: visible; }
+  body { font-family: var(--font-body); background: var(--black); color: var(--cream); -webkit-font-smoothing: antialiased; }
   .container { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(14px, 2.8vw, 42px); }
 
   .section-tag { font-family: var(--font-body); font-weight: 500; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--red-bright); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
@@ -102,30 +109,33 @@
   .section-title span { color: var(--red-bright); }
 
   .reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  will-change: transform, opacity;
-  transition: opacity 0.85s cubic-bezier(0.2,0.8,0.2,1), transform 0.85s cubic-bezier(0.2,0.8,0.2,1);
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-  will-change: auto;
-}
+    opacity: 0;
+    transform: translateY(28px);
+    will-change: transform, opacity;
+    transition: opacity 0.85s cubic-bezier(0.2,0.8,0.2,1), transform 0.85s cubic-bezier(0.2,0.8,0.2,1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+    will-change: auto;
+  }
   @media (prefers-reduced-motion: reduce){ .reveal{opacity:1;transform:none;transition:none} }
 
   .process { padding: var(--section-pad) 0; background: var(--black); position: relative; }
   .process__header { max-width: 640px; margin-bottom: clamp(60px, 7vw, 90px); }
   .process__layout { display: grid; grid-template-columns: 1fr 2fr; gap: clamp(40px, 6vw, 100px); align-items: start; }
   .process__left { position: sticky; top: 100px; }
-  .process__intro { font-size: 17px; line-height: 1.8; color: var(--slate); font-weight: 300; margin-top: 8px; }
+  /* Intro + step text — bone per body-text standard */
+  .process__intro { font-size: 17px; line-height: 1.65; color: var(--bone); font-weight: 300; margin-top: 8px; }
+  .process__intro strong { color: var(--pearl); font-weight: 500; }
   .process__steps { list-style: none; display: flex; flex-direction: column; gap: 0; counter-reset: none; padding: 0; }
   .process__step { padding: 25.2px 0; border-bottom: 1px solid rgba(240,236,228,0.06); display: grid; grid-template-columns: 60px 1fr; gap: 24px; align-items: start; transition: background 0.3s; }
   .process__step:first-child { border-top: 1px solid rgba(240,236,228,0.06); }
   .process__step-num { font-family: var(--font-display); font-size: 42px; color: rgba(193,39,45,0.25); line-height: 1; padding-top: 1.4px; transition: color 0.4s; }
   .process__step:hover .process__step-num { color: var(--red); }
   .process__step-title { font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 28px); text-transform: uppercase; letter-spacing: 1px; color: var(--warm-white); margin-bottom: 12px; line-height: 1.1; }
-  .process__step-text { font-size: 17px; line-height: 1.78; color: var(--slate); font-weight: 300; max-width: 480px; }
+  .process__step-text { font-size: 17px; line-height: 1.65; color: var(--bone); font-weight: 300; max-width: 480px; }
+  .process__step-text strong { color: var(--pearl); font-weight: 500; }
 
   @media (max-width: 1024px) {
     .process__layout { grid-template-columns: 1fr; gap: 48px; }
@@ -153,9 +163,9 @@
           <div>
             <h2 class="process__step-title">Reserve Your Date</h2>
             <p class="process__step-text">
-              Book online through in under two minutes — or call Brady directly
+              Book online in under two minutes — or call Brady directly
               if you have questions or want to discuss a custom trip. Your payment
-              locks you in to the date and time of the reservation. Prime summer weekends book out first, so planning ahead gives you a big advantage!
+              locks you in to the date and time of the reservation. Prime summer weekends book out first, so planning ahead gives you a big advantage.
             </p>
           </div>
         </li>
@@ -165,8 +175,8 @@
             <h2 class="process__step-title">We Handle Everything</h2>
             <p class="process__step-text">
               Brady plans the trip based on current lake conditions, scouting reports,
-              and weather across Detroit Lakes, Pelican, Sallie, Lida, the Cormorant lakes and many other waters.
-              The Vexus boat is fueled, rigged, and ready. Live bait is sourced fresh.
+              and weather across Detroit Lake, Pelican, Sallie, Lida, the Cormorant lakes, and many other area waters.
+              The Vexus DVX20S is fueled, rigged, and ready. Live bait is sourced fresh.
               All tackle and safety equipment is prepared. You receive a trip confirmation
               with everything you need to know.
             </p>
@@ -177,10 +187,7 @@
           <div>
             <h2 class="process__step-title">You Focus on the Fish</h2>
             <p class="process__step-text">
-              Arrive at the public access, and have a quick chat before deploying the boat. From there, Brady runs the operation — positioning
-              the boat, reading the electronics, coaching technique, and adapting when
-              conditions shift. If requested, your catch is cleaned, packed, and photos are
-              delivered same day. All you need to bring is a cooler and a valid Minnesota fishing license.
+              Arrive at the public access for a quick chat before the boat is launched. From there, Brady runs the operation — positioning the boat, reading the Garmin LiveScope, coaching technique, and adapting when conditions shift. While we promote catch-and-release, we're happy to clean and package fish when requested. The day's photos are awesome — sent over as soon as possible. All you need to bring is a cooler and a valid Minnesota fishing license.
             </p>
           </div>
         </li>
@@ -196,7 +203,6 @@
   var reveals = document.querySelectorAll('.reveal');
   if (!reveals.length) return;
 
-  // Stamp transitionDelay once at init — no setTimeout in observer
   var STAGGER_MS = 80;
   reveals.forEach(function(el, i){
     el.style.transitionDelay = (i * STAGGER_MS) + 'ms';
@@ -220,6 +226,47 @@
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
   reveals.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+<!-- IFRAME HEIGHT REPORTER — multi-signal (Wix Custom Embed auto-resize) -->
+<script>
+(function(){
+  if (window.parent === window) return;
+  var lastH = 0;
+  function report(){
+    var h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body ? document.body.scrollHeight : 0,
+      document.documentElement.offsetHeight,
+      document.body ? document.body.offsetHeight : 0
+    );
+    if (h && Math.abs(h - lastH) >= 2) {
+      lastH = h;
+      try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage('height:' + h, '*'); } catch(e){}
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', report);
+  else report();
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(report);
+  if (window.ResizeObserver) {
+    try { var ro = new ResizeObserver(report); ro.observe(document.documentElement); if (document.body) ro.observe(document.body); } catch(e){}
+  }
+  if (window.MutationObserver && document.body) {
+    try { new MutationObserver(report).observe(document.body, { subtree:true, childList:true, attributes:true, attributeFilter:['class','style'] }); } catch(e){}
+  }
+  document.addEventListener('transitionend', function(e){
+    if (e.target && e.target.classList && e.target.classList.contains('reveal')) report();
+  }, true);
+  var ticks = 0;
+  var early = setInterval(function(){
+    report(); ticks++;
+    if (ticks >= 30) { clearInterval(early); setInterval(report, 1500); }
+  }, 200);
 })();
 </script>
 </body>
