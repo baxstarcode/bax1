@@ -1,194 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="indexifembedded">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@300;400&display=swap">
+<meta charset="UTF-8"/>
+<meta name="robots" content="indexifembedded"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://www.baxstarfishing.com"/>
+<meta property="og:site_name" content="Baxstar Fishing"/>
+<meta property="og:title" content="Baxstar Fishing — Detroit Lakes Private Guided Fishing"/>
+<meta property="og:description" content="Detroit Lakes' only 100% private guided fishing experience. 4.9★ rated, 5× Master Angler, 30+ years on the water."/>
+<meta property="og:image" content="https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg"/>
+<meta property="og:locale" content="en_US"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Baxstar Fishing — Detroit Lakes Private Guided Fishing"/>
+<meta name="twitter:description" content="Detroit Lakes' only 100% private guided fishing experience. 4.9★ rated, 5× Master Angler, 30+ years on the water."/>
+<meta name="twitter:image" content="https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg"/>
+<meta name="description" content="Book a private guided walleye and bass fishing trip on Detroit Lakes, Minnesota with Brady Baxter — 5x Master Angler, 7 years guiding, 4.9-star rated. 100% private. Trips from $451."/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;background:#08080a;overflow-x:hidden}
 :root{
-  --red:#c1272d;
-  --red-glow:rgba(193,39,45,0.55);
-  --bg:#08080a;
-  --white:#fff;
-  --white-60:rgba(255,255,255,0.6);
-  --white-14:rgba(255,255,255,0.14);
+  --bone:#c8c5bd;
+  --pearl:#e8e6e0;
 }
-.hero{position:relative;width:100%;min-height:100svh;overflow:hidden;display:flex;background:var(--bg);font-family:'Barlow',sans-serif}
-.hero__video{position:absolute;inset:0;z-index:1;opacity:0;transition:opacity 0.6s cubic-bezier(0.4,0,0.2,1);pointer-events:none;transform:translateZ(0);backface-visibility:hidden;background:var(--bg)}
-.hero__video video{width:100%;height:100%;object-fit:cover;object-position:center 25%;transform:translateZ(0);display:block}
-.hero__video.is-ready{opacity:1}
-.hero__veil{position:absolute;inset:0;z-index:3;background:linear-gradient(105deg,rgba(8,8,10,0.93) 0%,rgba(8,8,10,0.78) 35%,rgba(8,8,10,0.35) 62%,rgba(8,8,10,0.08) 100%)}
-.hero__vignette{position:absolute;bottom:0;left:0;right:0;height:220px;z-index:4;background:linear-gradient(to bottom,transparent,rgba(8,8,10,0.9));pointer-events:none}
-.bracket{position:absolute;width:48px;height:48px;z-index:8;pointer-events:none;opacity:0;animation:bIn 0.5s cubic-bezier(0.4,0,0.2,1) forwards}
-.bracket--tl{top:24px;left:24px;border-top:1.5px solid var(--red);border-left:1.5px solid var(--red);animation-delay:0.3s}
-.bracket--tr{top:24px;right:24px;border-top:1.5px solid var(--red);border-right:1.5px solid var(--red);animation-delay:0.42s}
-.bracket--bl{bottom:24px;left:24px;border-bottom:1.5px solid var(--red);border-left:1.5px solid var(--red);animation-delay:0.54s}
-.bracket--br{bottom:24px;right:24px;border-bottom:1.5px solid var(--red);border-right:1.5px solid var(--red);animation-delay:0.66s}
-@keyframes bIn{to{opacity:1}}
-.hero__inner{position:relative;z-index:10;width:100%;max-width:680px;padding:clamp(80px,10vh,120px) clamp(32px,5vw,72px) clamp(60px,8vh,100px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
-.hero__eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.42em;text-transform:uppercase;color:var(--red);margin-bottom:20px;opacity:0;animation:fU 0.6s ease forwards;animation-delay:0.18s}
-.hero__eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--red)}
-.hero__headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(58px,7.5vw,108px);line-height:0.9;letter-spacing:0.01em;color:var(--white);opacity:0;animation:fU 0.7s cubic-bezier(0.2,0,0,1) forwards;animation-delay:0.3s}
-.hero__headline .accent{color:var(--red);display:block}
-.hero__headline .ghost{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,0.22);display:block}
-.hero__divider{display:flex;align-items:center;gap:14px;margin:22px 0 26px;opacity:0;animation:fU 0.5s ease forwards;animation-delay:0.45s}
-.hero__divider-line{height:1px;width:60px;background:linear-gradient(90deg,var(--red),transparent)}
-.hero__divider-dot{width:5px;height:5px;background:var(--red);transform:rotate(45deg);box-shadow:0 0 8px 2px var(--red-glow)}
-.hero__body{font-weight:300;font-size:clamp(14px,1.5vw,17px);line-height:1.75;color:var(--white-60);max-width:480px;margin-bottom:40px;letter-spacing:0.025em;opacity:0;animation:fU 0.6s ease forwards;animation-delay:0.55s}
-.hero__cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px;opacity:0;animation:fU 0.6s ease forwards;animation-delay:0.7s}
-.btn{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;text-decoration:none;padding:16px 38px;display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:none;position:relative;overflow:hidden;transition:background 0.25s ease,box-shadow 0.25s ease,border-color 0.25s ease;white-space:nowrap}
-.btn svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2.5;transition:transform 0.25s ease}
-.btn:hover svg{transform:translateX(4px)}
-.btn--primary{background:var(--red);color:var(--white);clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%)}
-.btn--primary:hover{box-shadow:0 0 32px var(--red-glow),0 8px 24px rgba(0,0,0,0.4)}
-.btn--ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.28);clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%)}
-.btn--ghost:hover{border-color:rgba(255,255,255,0.65);background:rgba(255,255,255,0.07)}
-.stat-strip{display:flex;align-items:center;opacity:0;animation:fU 0.6s ease forwards;animation-delay:0.85s}
-.stat{display:flex;flex-direction:column;padding:0 26px;position:relative}
+html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background:transparent}
+
+.hero{
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:url('https://static.wixstatic.com/media/a30e59_93bafbb18e744ad199419475a66fe62a~mv2.jpg') center center/cover no-repeat;
+}
+
+.hero__veil{
+  position:absolute;inset:0;
+  background:linear-gradient(100deg,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0.72) 40%,rgba(0,0,0,0.30) 70%,rgba(0,0,0,0.10) 100%);
+  z-index:1;
+}
+
+.hero__grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(212,18,26,0.055) 1px,transparent 1px),linear-gradient(90deg,rgba(212,18,26,0.055) 1px,transparent 1px);
+  background-size:65px 65px;
+  z-index:2;pointer-events:none;
+}
+
+.hero__scan{
+  position:absolute;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent 0%,transparent 15%,rgba(212,18,26,0.85) 50%,transparent 85%,transparent 100%);
+  z-index:3;animation:scan 6s linear infinite;pointer-events:none;
+}
+@keyframes scan{
+  0%{top:-2px;opacity:0}4%{opacity:1}96%{opacity:1}100%{top:100%;opacity:0}
+}
+
+.bracket{position:absolute;width:56px;height:56px;z-index:6;pointer-events:none}
+.bracket--tl{top:28px;left:28px;border-top:2px solid #D4121A;border-left:2px solid #D4121A}
+.bracket--tr{top:28px;right:28px;border-top:2px solid #D4121A;border-right:2px solid #D4121A}
+.bracket--bl{bottom:28px;left:28px;border-bottom:2px solid #D4121A;border-left:2px solid #D4121A}
+.bracket--br{bottom:28px;right:28px;border-bottom:2px solid #D4121A;border-right:2px solid #D4121A}
+
+.bracket::after{
+  content:'';position:absolute;width:6px;height:6px;
+  background:#D4121A;border-radius:50%;
+  box-shadow:0 0 10px 4px rgba(212,18,26,0.6);
+  animation:pulse 2.8s ease-in-out infinite;
+}
+.bracket--tl::after{top:-3px;left:-3px}
+.bracket--tr::after{top:-3px;right:-3px}
+.bracket--bl::after{bottom:-3px;left:-3px}
+.bracket--br::after{bottom:-3px;right:-3px}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.2;transform:scale(0.7)}}
+
+.hud{
+  position:absolute;font-family:'Barlow Condensed',monospace;
+  font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(255,255,255,0.22);z-index:6;pointer-events:none;
+}
+.hud--tl{top:40px;left:96px}
+.hud--tr{top:40px;right:96px;text-align:right}
+.hud--bl{bottom:40px;left:96px}
+.hud--br{bottom:40px;right:96px;text-align:right}
+
+.hero__rule{
+  position:absolute;left:50%;top:8%;bottom:8%;width:1px;
+  background:linear-gradient(180deg,transparent 0%,rgba(212,18,26,0.25) 30%,rgba(212,18,26,0.25) 70%,transparent 100%);
+  z-index:4;pointer-events:none;
+}
+
+.hero__inner{
+  position:relative;z-index:10;width:100%;max-width:760px;
+  margin:0 auto;padding:80px 60px;
+  display:flex;flex-direction:column;
+  align-items:flex-start;
+}
+
+.hero__logo{
+  width:clamp(160px,22vw,260px);margin-bottom:36px;
+  filter:drop-shadow(0 0 18px rgba(212,18,26,0.35));
+}
+
+.hero__h1{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;font-weight:600;letter-spacing:0.38em;
+  text-transform:uppercase;color:#D4121A;
+  margin-bottom:18px;
+}
+.hero__h1::before{content:'';display:block;width:26px;height:1px;background:#D4121A}
+
+.hero__headline{
+  font-family:'Barlow Condensed',sans-serif;font-weight:900;
+  font-size:clamp(52px,6.5vw,96px);line-height:0.88;
+  letter-spacing:-0.01em;text-transform:uppercase;color:#fff;margin-bottom:6px;
+}
+.hero__headline .line-red{color:#D4121A;display:block}
+.hero__headline .line-ghost{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,0.28);display:block}
+
+.hero__divider{display:flex;align-items:center;gap:12px;margin:26px 0}
+.hero__divider-line{height:1px;width:70px;background:linear-gradient(90deg,rgba(255,255,255,0.35),transparent)}
+.hero__divider-diamond{width:7px;height:7px;background:#D4121A;transform:rotate(45deg);box-shadow:0 0 10px 3px rgba(212,18,26,0.55)}
+
+/* Subhead — bone per body-text standard */
+.hero__h2{
+  font-family:'Barlow',sans-serif;font-weight:300;
+  font-size:clamp(15px,1.6vw,18px);line-height:1.65;
+  color:var(--bone);max-width:520px;
+  margin-bottom:38px;letter-spacing:0.02em;
+}
+.hero__h2 strong{color:var(--pearl);font-weight:500;}
+
+.hero__cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
+
+.btn{
+  font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:0.24em;text-transform:uppercase;text-decoration:none;
+  padding:15px 36px;display:inline-flex;align-items:center;gap:10px;
+  cursor:pointer;border:none;transition:all 0.25s ease;
+  position:relative;overflow:hidden;
+}
+.btn svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;flex-shrink:0}
+
+.btn--primary{
+  background:#D4121A;color:#fff;
+  clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
+}
+.btn--primary::before{
+  content:'';position:absolute;inset:0;
+  background:rgba(255,255,255,0.1);
+  transform:translateX(-100%);transition:transform 0.28s ease;
+}
+.btn--primary:hover::before{transform:translateX(0)}
+.btn--primary:hover{box-shadow:0 0 28px rgba(212,18,26,0.6)}
+
+.btn--ghost{
+  background:transparent;color:#fff;
+  border:1px solid rgba(255,255,255,0.32);
+  clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
+}
+.btn--ghost:hover{border-color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.06)}
+
+.stat-strip{display:flex;align-items:center}
+.stat{display:flex;flex-direction:column;padding:0 28px;position:relative}
 .stat:first-child{padding-left:0}
-.stat+.stat::before{content:'';position:absolute;left:0;top:10%;bottom:10%;width:1px;background:var(--white-14)}
-.stat__num{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(28px,3.2vw,42px);line-height:1;color:var(--white)}
-.stat__num em{color:var(--red);font-style:normal}
-.stat__lbl{font-size:9px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:5px}
-@keyframes fU{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
+.stat+.stat::before{
+  content:'';position:absolute;left:0;top:15%;bottom:15%;
+  width:1px;background:rgba(255,255,255,0.14);
 }
+.stat__num{
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;
+  font-size:clamp(26px,3vw,38px);line-height:1;color:#fff;
+}
+.stat__num span{color:#D4121A}
+.stat__lbl{
+  font-family:'Barlow',sans-serif;font-size:9.5px;font-weight:500;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(255,255,255,0.38);margin-top:5px;
+}
+
 @media(max-width:768px){
-  .hero{min-height:auto;padding-bottom:24px}
-  .hero__video video{object-position:50% 30%}
-  .hero__veil{background:linear-gradient(180deg,rgba(8,8,10,0.55) 0%,rgba(8,8,10,0.35) 30%,rgba(8,8,10,0.7) 55%,rgba(8,8,10,0.95) 78%,rgba(8,8,10,0.98) 100%)}
-  .hero__inner{max-width:100%;padding:18svh 24px 36px;justify-content:flex-start;align-items:center;text-align:center;min-height:auto}
-  .hero__eyebrow{display:none}
-  .hero__body{max-width:100%}
-  .hero__cta{justify-content:center;gap:12px;margin-bottom:36px}
-  .btn{font-size:10px;padding:14px 28px}
-  .stat-strip{justify-content:center}
-  .stat{padding:0 18px}
-  .bracket{width:32px;height:32px}
+  .hero__inner{padding:100px 28px 60px;align-items:center;text-align:center}
+  .hero__h1::before{display:none}
+  .hud{display:none}
+  .bracket{width:36px;height:36px}
   .bracket--tl,.bracket--tr{top:14px}
   .bracket--bl,.bracket--br{bottom:14px}
   .bracket--tl,.bracket--bl{left:14px}
   .bracket--tr,.bracket--br{right:14px}
+  .hero__rule{display:none}
+  .hero__h2{max-width:100%}
+  .stat-strip{justify-content:center}
 }
-@media(max-width:400px){
-  .hero__headline{font-size:clamp(42px,11vw,54px)}
-  .stat-strip{flex-wrap:wrap;gap:8px}
-  .stat{padding:0 14px}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__scan, .bracket::after { animation: none; }
+  .btn { transition: none; }
 }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.baxstarfishing.com/#business",
+      "name": "Baxstar Fishing",
+      "description": "Premium 100% private guided walleye, bass, and pike fishing on Detroit Lake, Pelican Lake, Lake Sallie, Lake Lida, Big Cormorant, and across the 412 lakes within 25 miles of Detroit Lakes, Minnesota. Guide Brady Baxter: 5x Master Angler, 30+ years experience, 7 years guiding, 4.9-star rated.",
+      "url": "https://www.baxstarfishing.com",
+      "telephone": "+12183256857",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Detroit Lakes",
+        "addressRegion": "MN",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 46.6519,
+        "longitude": -95.8453
+      },
+      "areaServed": [
+        {"@type": "City", "name": "Detroit Lakes", "containedInPlace": {"@type": "State", "name": "Minnesota"}},
+        {"@type": "State", "name": "Minnesota"}
+      ],
+      "priceRange": "$$$",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "100",
+        "bestRating": "5"
+      },
+      "image": "https://static.wixstatic.com/media/a30e59_413146f7cd6a496a823309aefc67e66c~mv2.png",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Private Guided Fishing Trips — Detroit Lakes, MN",
+        "itemListElement": [
+          {"@type": "Offer", "name": "4-Hour Private Guided Fishing Trip", "price": "451", "priceCurrency": "USD", "availability": "https://schema.org/InStock"},
+          {"@type": "Offer", "name": "8-Hour Private Guided Fishing Trip", "price": "1007", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}
+        ]
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Brady Baxter",
+      "jobTitle": "Owner and Head Fishing Guide",
+      "worksFor": {"@id": "https://www.baxstarfishing.com/#business"},
+      "award": "5x Minnesota Master Angler",
+      "description": "Brady Baxter is a 5x Master Angler with 30+ years fishing Detroit Lakes, Minnesota and 7 years professional guiding. Specializes in walleye, bass, pike, and crappie."
+    }
+  ]
+}
+</script>
+<link rel="preload" as="image" href="https://static.wixstatic.com/media/a30e59_93bafbb18e744ad199419475a66fe62a~mv2.jpg"/>
 </head>
 <body>
-<section class="hero" aria-label="Baxstar Fishing — Detroit Lakes Minnesota Private Guided Fishing">
-  <div class="hero__video" id="heroVideo" aria-hidden="true">
-    <video autoplay muted loop playsinline preload="auto" width="1920" height="1080"></video>
-  </div>
-  <div class="hero__veil" aria-hidden="true"></div>
-  <div class="hero__vignette" aria-hidden="true"></div>
-  <div class="bracket bracket--tl" aria-hidden="true"></div>
-  <div class="bracket bracket--tr" aria-hidden="true"></div>
-  <div class="bracket bracket--bl" aria-hidden="true"></div>
-  <div class="bracket bracket--br" aria-hidden="true"></div>
+<section class="hero">
+  <div class="hero__veil"></div>
+  <div class="hero__grid"></div>
+  <div class="hero__scan"></div>
+  <div class="hero__rule"></div>
+
+  <div class="bracket bracket--tl"></div>
+  <div class="bracket bracket--tr"></div>
+  <div class="bracket bracket--bl"></div>
+  <div class="bracket bracket--br"></div>
+
+  <div class="hud hud--tl">SYS.ONLINE // GPS LOCK</div>
+  <div class="hud hud--tr">BAXSTAR // ELITE GUIDE</div>
+  <div class="hud hud--bl">LAT 46.6519° N / LON 95.8453° W</div>
+  <div class="hud hud--br">SEASON ACTIVE // BOOK NOW</div>
+
   <div class="hero__inner">
-    <p class="hero__eyebrow">Detroit Lakes, Minnesota · Private Guided Fishing</p>
-    <h1 class="hero__headline">
-      <span class="ghost">Proven</span>
-      <span class="accent">On the Water.</span>
+
+    <img
+      src="https://static.wixstatic.com/media/a30e59_413146f7cd6a496a823309aefc67e66c~mv2.png"
+      alt="Baxstar Fishing logo — Private guided walleye and bass fishing trips, Detroit Lakes, Minnesota"
+      class="hero__logo"
+    />
+
+    <h1 class="hero__h1">Detroit Lakes Guided Fishing Trips<span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0"> — Private Guided Walleye and Bass Fishing, Detroit Lakes Minnesota, Brady Baxter 5x Master Angler</span></h1>
+
+    <div class="hero__headline">
+      <span class="line-ghost">Elite</span>
+      <span class="line-red">On the Water.</span>
       Every Time.
-    </h1>
-    <div class="hero__divider" aria-hidden="true">
+    </div>
+
+    <div class="hero__divider">
       <div class="hero__divider-line"></div>
-      <div class="hero__divider-dot"></div>
+      <div class="hero__divider-diamond"></div>
     </div>
-    <p class="hero__body">Detroit Lakes' only fully private guided fishing experience. Every trip is your group, your boat, and a 5× Master Angler with 30+ years on these waters — backed by a 4.9★ rating from 100+ verified clients.</p>
-    <nav class="hero__cta" aria-label="Primary booking actions">
-      <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" onclick="try{parent.postMessage({type:'baxstar_event',event:'book_now_click',location:'hero'},'*')}catch(e){}" target="_top" class="btn btn--primary" aria-label="Book a guided fishing trip">
+
+    <h2 class="hero__h2">
+      The Detroit Lakes Area's Premier Private Guided Fishing Experience — local knowledge, premium equipment, and personal attention that separates a good day from an unforgettable one.
+    </h2>
+
+    <div class="hero__cta">
+      <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/"
+         target="_top"
+         class="btn btn--primary"
+         onclick="try{window.parent.dataLayer=window.parent.dataLayer||[];window.parent.dataLayer.push({'event':'book_now_click','page_location':window.parent.location.href});}catch(e){}">
         Book Your Trip
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="https://www.baxstarfishing.com/aboutbaxstar" target="_top" class="btn btn--ghost" aria-label="Meet your guide Brady Baxter">Meet Your Guide</a>
-    </nav>
-    <div class="stat-strip" role="list" aria-label="Baxstar Fishing credentials">
-      <div class="stat" role="listitem"><div class="stat__num">30<em>+</em></div><div class="stat__lbl">Years Fishing</div></div>
-      <div class="stat" role="listitem"><div class="stat__num">5<em>×</em></div><div class="stat__lbl">Master Angler</div></div>
-      <div class="stat" role="listitem"><div class="stat__num">4.9<em>★</em></div><div class="stat__lbl">Google Rating</div></div>
-      <div class="stat" role="listitem"><div class="stat__num">100<em>%</em></div><div class="stat__lbl">Private Trips</div></div>
+      <!-- Secondary CTA: "Meet Your Guide" — replaces "View Pontoon Rentals" per fishing-only direction. Pattern matches baxstar_hero_video_banner. -->
+      <a href="https://www.baxstarfishing.com/aboutbaxstar"
+         target="_top"
+         class="btn btn--ghost"
+         aria-label="Meet your guide Brady Baxter">
+        Meet Your Guide
+      </a>
     </div>
+
+    <div class="stat-strip">
+      <div class="stat">
+        <div class="stat__num">7<span>+</span></div>
+        <div class="stat__lbl">Years Experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">800<span>+</span></div>
+        <div class="stat__lbl">Guided Trips</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">5<span>★</span></div>
+        <div class="stat__lbl">Client Rated</div>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<!-- IFRAME HEIGHT REPORTER — multi-signal (Wix Custom Embed auto-resize) -->
 <script>
 (function(){
-  var SD='https://video.wixstatic.com/video/a30e59_93c03ce571164cd2ba251848c2ea4671/720p/mp4/file.mp4';
-  var HD='https://video.wixstatic.com/video/a30e59_93c03ce571164cd2ba251848c2ea4671/1080p/mp4/file.mp4';
-  var w=document.getElementById('heroVideo'),v=w&&w.querySelector('video');
-  if(!v)return;
-
-  function addSrc(u){
-    var n=document.createElement('source');
-    n.src=u;
-    n.type='video/mp4';
-    v.appendChild(n);
-  }
-
-  // Bandwidth-aware source selection
-  var conn=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
-  var saveData=conn&&conn.saveData;
-  var slowNet=conn&&/2g|slow-2g/i.test(conn.effectiveType||'');
-  var isMobile=window.matchMedia('(max-width:768px)').matches;
-  var useSDOnly=saveData||slowNet||isMobile;
-
-  // HD-fail-to-SD fallback (safety net even when HD is selected)
-  v.addEventListener('error',function r(){
-    while(v.firstChild)v.removeChild(v.firstChild);
-    addSrc(SD);
-    v.removeEventListener('error',r);
-    v.load();
-    v.play().catch(function(){});
-  },{once:true,passive:true});
-
-  if(useSDOnly){
-    addSrc(SD);
-  }else{
-    addSrc(HD);
-    addSrc(SD);
-  }
-
-  // Reveal as soon as enough data exists to start playback
-  v.addEventListener('canplay',function r(){
-    v.removeEventListener('canplay',r);
-    requestAnimationFrame(function(){w.classList.add('is-ready')});
-  },{passive:true});
-
-  // Trigger immediately — video is now critical hero content
-  v.load();
-  v.play().catch(function(){});
-
-  // Pause when hero is offscreen (parent posts visibility messages)
-  window.addEventListener('message',function(e){
-    if(!e.data||e.data.type!=='baxstar_visibility')return;
-    try{e.data.hidden?v.pause():v.play().catch(function(){})}catch(err){}
-  },{passive:true});
-})();
-(function(){
-  if(window.parent===window)return;
-  var l=0,c=0,id=null;
-  function r(){
-    var h=Math.max(document.documentElement.scrollHeight,document.body?document.body.scrollHeight:0);
-    if(h&&h!==l){l=h;c=0;
-      try{parent.postMessage({type:'setHeight',height:h},'*')}catch(e){}
-      try{parent.postMessage({type:'embed-size',height:h},'*')}catch(e){}
-      try{parent.postMessage('height:'+h,'*')}catch(e){}
+  if (window.parent === window) return;
+  var lastH = 0;
+  function report(){
+    var h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body ? document.body.scrollHeight : 0,
+      document.documentElement.offsetHeight,
+      document.body ? document.body.offsetHeight : 0
+    );
+    if (h && Math.abs(h - lastH) >= 2) {
+      lastH = h;
+      try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage('height:' + h, '*'); } catch(e){}
     }
-    else if(++c>=20&&id){clearInterval(id);id=null}
   }
-  addEventListener('load',r,{passive:true});
-  addEventListener('resize',function(){c=0;if(!id)id=setInterval(r,1500);r()},{passive:true});
-  if(window.ResizeObserver)try{new ResizeObserver(function(){c=0;if(!id)id=setInterval(r,1500);r()}).observe(document.body)}catch(e){}
-  id=setInterval(r,1500);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', report);
+  else report();
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(report);
+  if (window.ResizeObserver) {
+    try { var ro = new ResizeObserver(report); ro.observe(document.documentElement); if (document.body) ro.observe(document.body); } catch(e){}
+  }
+  if (window.MutationObserver && document.body) {
+    try { new MutationObserver(report).observe(document.body, { subtree:true, childList:true, attributes:true, attributeFilter:['class','style'] }); } catch(e){}
+  }
+  var ticks = 0;
+  var early = setInterval(function(){
+    report(); ticks++;
+    if (ticks >= 30) { clearInterval(early); setInterval(report, 1500); }
+  }, 200);
 })();
 </script>
 </body>
