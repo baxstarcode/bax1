@@ -30,7 +30,7 @@
   "@context": "https://schema.org",
   "@type": "ImageGallery",
   "name": "Baxstar Fishing Catch Gallery — Detroit Lakes, Minnesota",
-  "description": "Real catches from real clients — walleye, bass, pike, crappie, sunfish, and panfish from private guided fishing trips on Detroit Lake, Pelican Lake, Lake Sallie, Big Cormorant, and 100+ Minnesota lakes with guide Brady Baxter.",
+  "description": "Real catches from real clients — walleye, bass, pike, crappie, sunfish, and panfish from private guided fishing trips on Detroit Lake, Pelican Lake, Lake Sallie, Big Cormorant, and the 412 lakes within 25 miles of Detroit Lakes with guide Brady Baxter.",
   "author": {
     "@type": "Person",
     "name": "Brady Baxter",
@@ -65,7 +65,7 @@
   --cream:       #f0ece4;
   --warm-white:  #faf8f4;
   --light-slate: #9a9aaa;
-  /* ── Body-text tokens — match baxstar_where_we_fish_short ── */
+  /* ── Body-text tokens ── */
   --bone:        #c8c5bd;
   --pearl:       #e8e6e0;
   --font-display: 'Bebas Neue', sans-serif;
@@ -78,13 +78,12 @@
 }
 
 html { scroll-behavior: smooth; }
+html, body { width: 100%; height: auto; overflow-x: hidden; overflow-y: visible; }
 body {
   font-family: var(--font-body);
   background: var(--black);
   color: var(--cream);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-  overscroll-behavior: none;
 }
 img { display: block; max-width: 100%; }
 
@@ -132,7 +131,7 @@ img { display: block; max-width: 100%; }
   margin-bottom: 14px;
 }
 .gallery-title span { color: var(--red-bright); }
-/* ── Subhead — italic serif accent. Color/size matched to where_we_fish lede tone ── */
+/* Italic sub — bone per body-text standard */
 .gallery-sub {
   font-family: var(--font-accent);
   font-style: italic;
@@ -319,6 +318,7 @@ img { display: block; max-width: 100%; }
   opacity: 0; pointer-events: none;
   transition: opacity 0.35s ease;
   backdrop-filter: blur(12px);
+  overscroll-behavior: contain;
 }
 .lightbox.open { opacity: 1; pointer-events: all; }
 .lightbox-inner {
@@ -383,7 +383,7 @@ img { display: block; max-width: 100%; }
   <div class="gallery-header reveal">
     <h3 class="section-tag">From The Water</h3>
     <h2 class="gallery-title" id="gallery-h2">REAL CATCHES. <span>REAL CLIENTS.</span><span class="sr-only"> — Walleye, Bass, Pike, Crappie, and Sunfish caught on Detroit Lakes, Minnesota Guided Fishing Trips with Baxstar Fishing</span></h2>
-    <p class="gallery-sub">Every photo is a day someone stepped off the water smiling — on Detroit Lake, Pelican Lake, Lake Sallie, Big Cormorant, or one of 100+ Minnesota waters.</p>
+    <p class="gallery-sub">Every photo is a day someone stepped off the water smiling — on Detroit Lake, Pelican Lake, Lake Sallie, Big Cormorant, or somewhere in the 412 lakes within 25 miles of Detroit Lakes.</p>
   </div>
 
   <div class="scroll-hint" aria-hidden="true">
@@ -429,68 +429,49 @@ img { display: block; max-width: 100%; }
 
 <script>
 // ════════════════════════════════════════════════════════════════
-// PHOTO LIBRARY — 12 NEW VERTICAL .WEBP FILES
-// ════════════════════════════════════════════════════════════════
-// FOR BRADY: After uploading each .webp file to your Wix Media
-// Manager, replace the placeholder URL below with the URL Wix
-// gives you. The "Local file:" comment shows which file each
-// line corresponds to. Paste the new Wix CDN URL after `src: "`
-// and remove the placeholder URL.
+// PHOTO LIBRARY — 10 vertical .webp files
 // ════════════════════════════════════════════════════════════════
 const IMAGES = [
   // 1. Sunset walleye — gallery hero
-  // Local file: Walleye_Sunset_Striker.webp
   { src: "https://static.wixstatic.com/media/a30e59_9047825d2e65443ba4927216b74d7f21~mv2.webp",
     alt: "Trophy walleye caught at sunset on Detroit Lakes guided fishing trip with Baxstar Fishing, Minnesota" },
 
   // 2. Limit of crappies on Pelican Lake
-  // Local file: Limit_of_Crappies_Pelican.webp
   { src: "https://static.wixstatic.com/media/a30e59_0593935fe07d44c5b325c7c0276440d9~mv2.webp",
     alt: "Limit of crappies caught on Pelican Lake private guided fishing trip — Baxstar Fishing, Detroit Lakes Minnesota" },
 
   // 3. Smallmouth bass on Pelican Lake
-  // Local file: Smallmouth_Bass_Pelican.webp
   { src: "https://static.wixstatic.com/media/a30e59_252055ccad4f411ebb87bf9bf4294cf7~mv2.webp",
     alt: "Client with smallmouth bass on Pelican Lake guided fishing trip — Baxstar Fishing, Detroit Lakes Minnesota" },
 
   // 4. Trophy northern pike on Pelican Lake
-  // Local file: Big_Pike_Pelican.webp
   { src: "https://static.wixstatic.com/media/a30e59_f28a239880aa4628a12e1e47cda9bfe3~mv2.webp",
     alt: "Trophy northern pike caught on Pelican Lake guided fishing trip — Baxstar Fishing, Detroit Lakes Minnesota" },
 
   // 5. Brothers with trophy bass
-  // Local file: Brothers_with_Bass.webp
   { src: "https://static.wixstatic.com/media/a30e59_c6973ac484bc4071a3f51428dcbb0780~mv2.webp",
     alt: "Brothers with trophy bass on private guided fishing trip — Baxstar Fishing, Detroit Lakes Minnesota" },
 
   // 6. Walleye in the Cormorant Lakes area
-  // Local file: Walleye_Cormorant_Lakes.webp
   { src: "https://static.wixstatic.com/media/a30e59_622c0b244b244beeac64eeb350a075e8~mv2.webp",
     alt: "Walleye caught in the Cormorant Lakes area on guided fishing trip — Baxstar Fishing, Detroit Lakes Minnesota" },
 
   // 7. Trophy walleye on Detroit Lakes
-  // Local file: Big_Walleye_Detroit_Lakes.webp
   { src: "https://static.wixstatic.com/media/a30e59_3bb545064d754f9298aa77d237626748~mv2.webp",
     alt: "Trophy walleye caught on Detroit Lakes private guided fishing trip — Baxstar Fishing, Minnesota" },
 
   // 8. Bass on private guided trip
-  // Local file: Bass_Fishing_Action.webp
   { src: "https://static.wixstatic.com/media/a30e59_4c1536268b9b43239f953e0ab3a6fd4c~mv2.webp",
     alt: "Bass caught on private guided fishing trip — Baxstar Fishing, Detroit Lakes Minnesota" },
 
   // 9. Woman with smallmouth bass
-  // Local file: Woman_with_Smallmouth.webp
   { src: "https://static.wixstatic.com/media/a30e59_2e3e0aef47d1440288546add9b6deff1~mv2.webp",
     alt: "Woman with smallmouth bass on private guided fishing trip — Baxstar Fishing, Detroit Lakes Minnesota" },
 
   // 10. Young angler with green sunfish
-  // Local file: Boy_with_Green_Sunfish.webp
   { src: "https://static.wixstatic.com/media/a30e59_a877f2b593fb4bd7ba7b57a3a82b502f~mv2.webp",
     alt: "Young angler with green sunfish on Baxstar Fishing Vexus DVX20S — Detroit Lakes, Minnesota" }
 ];
-// ════════════════════════════════════════════════════════════════
-// END PHOTO LIBRARY
-// ════════════════════════════════════════════════════════════════
 
 const track   = document.getElementById('trackScroll');
 const btnPrev = document.getElementById('btnPrev');
@@ -570,17 +551,19 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') scrollTo(currentIdx + 1);
 });
 
+// ════════════════════════════════════════════════════════════════
+// LIGHTBOX — iframe-safe (no body overflow lock — forbidden in Wix)
+// Lightbox stays fixed-positioned to cover viewport visually.
+// ════════════════════════════════════════════════════════════════
 function openLb(idx) {
   lbIdx = idx;
   lbImg.src = IMAGES[idx].src;
   lbImg.alt = IMAGES[idx].alt;
   lb.classList.add('open');
-  document.body.style.overflow = 'hidden';
   updateLbNav();
 }
 function closeLb() {
   lb.classList.remove('open');
-  document.body.style.overflow = '';
   setTimeout(() => lbImg.src = '', 400);
 }
 function updateLbNav() {
@@ -628,33 +611,44 @@ updateUI();
 }());
 </script>
 
-<!-- ════════════════════════════════════════════════════════════════
-     IFRAME HEIGHT REPORTER — Wix Custom Embed auto-resize
-     This tells the Wix parent page how tall this section actually is.
-     Without this, the iframe stays a fixed height and content gets cut off.
-════════════════════════════════════════════════════════════════════ -->
+<!-- IFRAME HEIGHT REPORTER — multi-signal (Wix Custom Embed auto-resize) -->
 <script>
-(function() {
+(function(){
   if (window.parent === window) return;
   var lastH = 0;
-  function report() {
+  function report(){
     var h = Math.max(
       document.documentElement.scrollHeight,
-      document.body ? document.body.scrollHeight : 0
+      document.body ? document.body.scrollHeight : 0,
+      document.documentElement.offsetHeight,
+      document.body ? document.body.offsetHeight : 0
     );
-    if (h && h !== lastH) {
+    if (h && Math.abs(h - lastH) >= 2) {
       lastH = h;
-      try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch (e) {}
-      try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch (e) {}
-      try { window.parent.postMessage('height:' + h, '*'); } catch (e) {}
+      try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage('height:' + h, '*'); } catch(e){}
     }
   }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', report);
+  else report();
   window.addEventListener('load', report);
   window.addEventListener('resize', report);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(report);
   if (window.ResizeObserver) {
-    try { new ResizeObserver(report).observe(document.body); } catch (e) {}
+    try { var ro = new ResizeObserver(report); ro.observe(document.documentElement); if (document.body) ro.observe(document.body); } catch(e){}
   }
-  setInterval(report, 1500);
+  if (window.MutationObserver && document.body) {
+    try { new MutationObserver(report).observe(document.body, { subtree:true, childList:true, attributes:true, attributeFilter:['class','style'] }); } catch(e){}
+  }
+  document.addEventListener('transitionend', function(e){
+    if (e.target && e.target.classList && e.target.classList.contains('reveal')) report();
+  }, true);
+  var ticks = 0;
+  var early = setInterval(function(){
+    report(); ticks++;
+    if (ticks >= 30) { clearInterval(early); setInterval(report, 1500); }
+  }, 200);
 })();
 </script>
 
