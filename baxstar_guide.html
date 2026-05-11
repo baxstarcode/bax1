@@ -40,6 +40,8 @@
   --gold-dim: #9a7d3a;
   --slate: #6b6b78;
   --light-slate: #9a9aaa;
+  --bone: #c8c5bd;
+  --pearl: #e8e6e0;
   --font-display: 'Bebas Neue', sans-serif;
   --font-body: 'Barlow', sans-serif;
   --font-accent: 'Cormorant Garamond', serif;
@@ -48,14 +50,13 @@
 }
 
 html { scroll-behavior: smooth; }
+html, body { width: 100%; height: auto; overflow-x: hidden; overflow-y: visible; }
 
 body {
   font-family: var(--font-body);
   background: var(--black);
   color: var(--cream);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-  overscroll-behavior: none;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -169,11 +170,13 @@ img { display: block; max-width: 100%; }
   font-size: 19px; font-style: italic;
   color: var(--red-bright); margin-bottom: 32px;
 }
+/* Body copy — bone per body-text standard */
 .guide__bio {
-  font-size: 16px; line-height: 1.88;
-  color: var(--light-slate); font-weight: 300; margin-bottom: 36px;
+  font-size: 16px; line-height: 1.65;
+  color: var(--bone); font-weight: 300; margin-bottom: 36px;
 }
 .guide__bio p + p { margin-top: 18px; }
+.guide__bio strong { color: var(--pearl); font-weight: 500; }
 .guide__credentials {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 16px; margin-bottom: 40px;
@@ -229,8 +232,8 @@ img { display: block; max-width: 100%; }
   "jobTitle": "Owner and Head Fishing Guide",
   "worksFor": { "@type": "LocalBusiness", "name": "Baxstar Fishing", "url": "https://www.baxstarfishing.com" },
   "award": "5x Minnesota Master Angler",
-  "description": "Brady Baxter is a 5x Master Angler with 30+ years fishing Detroit Lakes and 100+ Minnesota lakes, and 7 years professional guiding. Specializes in walleye, bass, pike, and perch on Detroit Lake, Pelican Lake, Lake Sallie, Big Cormorant, and Lake Lida.",
-  "knowsAbout": ["Walleye fishing", "Bass fishing", "Pike fishing", "Detroit Lakes fishing", "Minnesota fishing guide", "Ice fishing"],
+  "description": "Brady Baxter is a 5x Master Angler with 30+ years fishing the Detroit Lakes region and more than 7 years guiding professionally. Specializes in walleye, bass, pike, and crappie on Detroit Lake, Pelican Lake, Lake Sallie, Big Cormorant, Lake Lida, and the 412 lakes within 25 miles of Detroit Lakes.",
+  "knowsAbout": ["Walleye fishing", "Bass fishing", "Pike fishing", "Crappie fishing", "Detroit Lakes fishing", "Minnesota fishing guide", "Ice fishing"],
   "url": "https://www.baxstarfishing.com"
 }
 </script>
@@ -243,7 +246,7 @@ img { display: block; max-width: 100%; }
     <div class="guide__grid">
       <div class="guide__photo-stack reveal">
         <div class="guide__photo-main">
-          <img src="https://static.wixstatic.com/media/a30e59_d947a7ae2c0f47b59248b482efd16d08~mv2.jpeg" alt="Brady Baxter – Baxstar Fishing guide">
+          <img src="https://static.wixstatic.com/media/a30e59_e6e2828b9db1463aaea7ebe61d462125~mv2.webp" alt="Brady Baxter – Baxstar Fishing guide">
         </div>
         <div class="guide__photo-accent">
           <img src="https://static.wixstatic.com/media/a30e59_b99a0c5485364ed68a2222c99fc5ad1d~mv2.png" alt="Brady Baxter with trophy catch">
@@ -255,25 +258,21 @@ img { display: block; max-width: 100%; }
         <div class="guide__role">Owner & Head Guide — Baxstar Fishing</div>
         <div class="guide__bio">
           <p>
-            Brady Baxter doesn't need to introduce himself on these waters. 
-            The 5x Master Angler award. The Forbes feature. Over 20 TV appearances. 
-            The clients who rebook before they leave the dock. Thirty years on the 
-            Detroit Lakes region have made Brady something rarer than a skilled guide — 
-            he's the definitive authority on these waters — walleye, bass, pike, and panfish. That is why he authors the Detroit Lakes area fishing report every week
+            Brady Baxter doesn't need to introduce himself on these waters. Thirty-plus years fishing the Detroit Lakes region. More than seven years guiding professionally. Five Master Angler awards. The Forbes feature. Over 20 TV appearances. The clients who rebook before they leave the dock. He's the definitive authority on these waters — walleye, bass, pike, and panfish. That is why he authors the Detroit Lakes area fishing report every week.
           </p>
           <p>
-            He doesn't rely on one lake or one technique. With access to 100+ bodies 
-            of water and pattern knowledge built across every season and condition, 
-            Brady reads the water the way most people read a room — instantly, 
+            He doesn't rely on one lake or one technique. With access to the 412 lakes within 25 miles of Detroit Lakes
+            and pattern knowledge built across every season and condition,
+            Brady reads the water the way most people read a room — instantly,
             accurately, and with a clear plan.
           </p>
         </div>
 
         <div class="guide__credentials">
           <div class="cred"><div class="cred__value">5x</div><div class="cred__label">Master Angler</div></div>
-          <div class="cred"><div class="cred__value">30+</div><div class="cred__label">Years Experience</div></div>
-          <div class="cred"><div class="cred__value">100+</div><div class="cred__label">Lakes Access</div></div>
-          <div class="cred"><div class="cred__value">4.9★</div><div class="cred__label">Google Rating</div></div>
+          <div class="cred"><div class="cred__value">30+</div><div class="cred__label">Years Fishing</div></div>
+          <div class="cred"><div class="cred__value">7+</div><div class="cred__label">Years Guiding</div></div>
+          <div class="cred"><div class="cred__value">412</div><div class="cred__label">Lakes Within 25 Miles</div></div>
         </div>
 
         <div class="guide__media">
@@ -310,6 +309,47 @@ img { display: block; max-width: 100%; }
   }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
   reveals.forEach(function(el) { io.observe(el); });
 }());
+</script>
+
+<!-- IFRAME HEIGHT REPORTER — multi-signal (Wix Custom Embed auto-resize) -->
+<script>
+(function(){
+  if (window.parent === window) return;
+  var lastH = 0;
+  function report(){
+    var h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body ? document.body.scrollHeight : 0,
+      document.documentElement.offsetHeight,
+      document.body ? document.body.offsetHeight : 0
+    );
+    if (h && Math.abs(h - lastH) >= 2) {
+      lastH = h;
+      try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage('height:' + h, '*'); } catch(e){}
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', report);
+  else report();
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(report);
+  if (window.ResizeObserver) {
+    try { var ro = new ResizeObserver(report); ro.observe(document.documentElement); if (document.body) ro.observe(document.body); } catch(e){}
+  }
+  if (window.MutationObserver && document.body) {
+    try { new MutationObserver(report).observe(document.body, { subtree:true, childList:true, attributes:true, attributeFilter:['class','style'] }); } catch(e){}
+  }
+  document.addEventListener('transitionend', function(e){
+    if (e.target && e.target.classList && e.target.classList.contains('reveal')) report();
+  }, true);
+  var ticks = 0;
+  var early = setInterval(function(){
+    report(); ticks++;
+    if (ticks >= 30) { clearInterval(early); setInterval(report, 1500); }
+  }, 200);
+})();
 </script>
 
 </body>
