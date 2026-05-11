@@ -21,11 +21,8 @@
   NOTE: Open Graph + Twitter Card tags intentionally NOT here.
   OG/Twitter are page-specific (each Wix page has its own social preview)
   and belong on the parent page, not inside this site-wide embed.
-  Putting OG inside an iframe is functionally dead — social scrapers
-  read the parent page URL, never the iframe.
-
   Title tag and canonical also omitted on purpose — those belong on the
-  Wix native page only. Duplicates inside an embed cause crawl confusion.
+  Wix native page only.
 -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,9 +31,9 @@
 
 <!-- ════════════════════════════════════════
      STRUCTURED DATA — Compound @graph
-     Entities cross-linked via @id for entity recognition.
-     Includes: Person (Brady), Organization, WebSite,
-     LocalBusiness w/ OfferCatalog, Service[], SiteNavigationElement[].
+     Pontoon = cross-brand outbound (BaxstarOutdoors.com), NOT a
+     Baxstar Fishing service. Service entity removed; navigation
+     element preserved as outbound link.
 ════════════════════════════════════════ -->
 <script type="application/ld+json">
 {
@@ -93,7 +90,8 @@
       "sameAs": [
         "https://www.facebook.com/baxstarfishing",
         "https://www.instagram.com/baxstarfishing",
-        "https://www.youtube.com/@baxstarfishing"
+        "https://www.youtube.com/@baxstarfishing",
+        "https://baxstaroutdoors.com"
       ]
     },
 
@@ -127,7 +125,7 @@
       "telephone": "+12183256857",
       "email": "brady@baxstarfishing.com",
       "slogan": "Premium private guided fishing on Detroit Lakes.",
-      "description": "Premium private guided walleye, bass, and northern pike fishing on Detroit Lake, Pelican Lake, Lake Sallie, Lake Lida, Big Cormorant, and 100+ lakes across the Detroit Lakes, Minnesota region. 5× Minnesota Master Angler guide. 4.9-star rated with 100+ Google reviews.",
+      "description": "Premium private guided walleye, bass, and northern pike fishing on Detroit Lake, Pelican Lake, Lake Sallie, Lake Lida, Big Cormorant, and across the 412 lakes within 25 miles of Detroit Lakes, Minnesota. 5× Minnesota Master Angler guide. 4.9-star rated with 100+ Google reviews.",
       "founder": { "@id": "https://www.baxstarfishing.com/#brady" },
       "employee": { "@id": "https://www.baxstarfishing.com/#brady" },
       "address": {
@@ -194,7 +192,6 @@
         "itemListElement": [
           { "@type": "Offer", "itemOffered": { "@id": "https://www.baxstarfishing.com/#service-openwater" } },
           { "@type": "Offer", "itemOffered": { "@id": "https://www.baxstarfishing.com/#service-icefishing" } },
-          { "@type": "Offer", "itemOffered": { "@id": "https://www.baxstarfishing.com/#service-pontoon" } },
           { "@type": "Offer", "itemOffered": { "@id": "https://www.baxstarfishing.com/#service-icecastle" } },
           { "@type": "Offer", "itemOffered": { "@id": "https://www.baxstarfishing.com/#service-datenight" } }
         ]
@@ -226,15 +223,6 @@
     },
     {
       "@type": "Service",
-      "@id": "https://www.baxstarfishing.com/#service-pontoon",
-      "name": "Detroit Lakes Pontoon Rentals",
-      "serviceType": "Pontoon Boat Rental",
-      "url": "https://www.baxstarfishing.com/detroit-lakes-pontoon-rentals",
-      "provider": { "@id": "https://www.baxstarfishing.com/#business" },
-      "areaServed": { "@type": "City", "name": "Detroit Lakes, Minnesota" }
-    },
-    {
-      "@type": "Service",
       "@id": "https://www.baxstarfishing.com/#service-icecastle",
       "name": "Detroit Lakes Ice Castle Rentals",
       "serviceType": "Ice Castle Fish House Rental",
@@ -259,11 +247,6 @@
     },
     {
       "@type": "SiteNavigationElement",
-      "name": "Pontoon Rentals",
-      "url": "https://www.baxstarfishing.com/detroit-lakes-pontoon-rentals"
-    },
-    {
-      "@type": "SiteNavigationElement",
       "name": "Ice Fishing",
       "url": "https://www.baxstarfishing.com/icefishing"
     },
@@ -276,6 +259,11 @@
       "@type": "SiteNavigationElement",
       "name": "Date Night on Ice",
       "url": "https://www.baxstarfishing.com/datenight"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Pontoon Rentals at Baxstar Outdoors",
+      "url": "https://baxstaroutdoors.com"
     },
     {
       "@type": "SiteNavigationElement",
@@ -308,17 +296,19 @@
   --white: #ffffff;
   --gray-light: #d4d0c9;
   --gray-mid: #8f8f9a;
+  --bone: #c8c5bd;
+  --pearl: #e8e6e0;
   --divider: rgba(255,255,255,0.08);
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+html, body { width: 100%; height: auto; overflow-x: hidden; overflow-y: visible; }
 body {
   background: var(--black);
   font-family: 'Barlow', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overscroll-behavior: none;
 }
 
 /* Visually hidden, available to screen readers + bots — keyword expansion utility */
@@ -379,6 +369,7 @@ body {
   color: var(--red-bright);
   outline: none;
 }
+/* Footer tagline — gray-mid kept (footer is dim-by-design hierarchy) */
 .footer-tagline {
   font-size: 14.5px;
   font-weight: 400;
@@ -448,6 +439,26 @@ body {
   outline: none;
 }
 
+/* Cross-brand outbound link — subtle external marker */
+.footer-link-external {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.footer-link-external::after {
+  content: '';
+  width: 9px;
+  height: 9px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M6 3h7v7'/><path d='M13 3L4 12'/></svg>") center/contain no-repeat;
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M6 3h7v7'/><path d='M13 3L4 12'/></svg>") center/contain no-repeat;
+  opacity: 0.55;
+  flex-shrink: 0;
+  transition: opacity 0.18s var(--ease);
+}
+.footer-link-external:hover::after,
+.footer-link-external:focus-visible::after { opacity: 1; }
+
 /* Phone number */
 .footer-phone {
   font-family: 'Barlow', sans-serif;
@@ -508,7 +519,7 @@ body {
 /* ── REDUCED MOTION ─────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; will-change: auto; }
-  .social-link, .footer-links a, .footer-phone { transition: none; }
+  .social-link, .footer-links a, .footer-phone, .footer-link-external::after { transition: none; }
   .social-link:hover, .social-link:focus-visible { transform: none; }
 }
 </style>
@@ -538,7 +549,7 @@ body {
           <a href="https://www.baxstarfishing.com" target="_top" rel="home" aria-label="Baxstar Fishing — Detroit Lakes, Minnesota homepage">BAXSTAR FISHING<span class="sr-only"> — Detroit Lakes, Minnesota Private Guided Fishing</span></a>
         </h2>
         <p class="footer-tagline">
-          Premium private guided fishing on Detroit Lake, Pelican Lake, Lake Sallie, Lake Lida, Big Cormorant, and 100+ lakes across the Detroit Lakes, Minnesota region.
+          Premium private guided fishing on Detroit Lake, Pelican Lake, Lake Sallie, Lake Lida, Big Cormorant, and across the 412 lakes within 25 miles of Detroit Lakes, Minnesota.
         </p>
         <div class="footer-socials" role="list" aria-label="Baxstar Fishing on social media">
           <a href="https://www.facebook.com/baxstarfishing" class="social-link" target="_blank" rel="noopener noreferrer me" aria-label="Baxstar Fishing on Facebook">
@@ -558,10 +569,11 @@ body {
         <h3 class="footer-col-title">Experiences</h3>
         <ul class="footer-links">
           <li><a href="https://www.baxstarfishing.com/openwater" target="_top">Guided Fishing<span class="sr-only"> — Detroit Lakes Open Water Walleye, Bass &amp; Pike</span></a></li>
-          <li><a href="https://www.baxstarfishing.com/detroit-lakes-pontoon-rentals" target="_top">Pontoon Rentals<span class="sr-only"> — Detroit Lakes, Minnesota</span></a></li>
           <li><a href="https://www.baxstarfishing.com/icefishing" target="_top">Ice Fishing<span class="sr-only"> — Guided Ice Fishing Trips, Detroit Lakes</span></a></li>
           <li><a href="https://www.baxstarfishing.com/copy-of-ice-castle-rentals" target="_top">Ice Castle Rentals<span class="sr-only"> — Detroit Lakes Fish House Rentals</span></a></li>
           <li><a href="https://www.baxstarfishing.com/datenight" target="_top">Date Night on Ice<span class="sr-only"> — Couples Ice Fishing Experience</span></a></li>
+          <!-- Cross-brand outbound — pontoon and outdoor rentals live at BaxstarOutdoors.com -->
+          <li><a href="https://baxstaroutdoors.com" target="_blank" rel="noopener noreferrer" class="footer-link-external" aria-label="Pontoon Rentals at Baxstar Outdoors (opens in a new tab)">Pontoon Rentals at Baxstar Outdoors<span class="sr-only"> — Detroit Lakes, Minnesota Pontoon Boat Rentals (separate site)</span></a></li>
         </ul>
       </nav>
 
@@ -602,7 +614,7 @@ body {
 </footer>
 
 <!-- ════════════════════════════════════════
-     SCROLL REVEAL — Baxstar Performance Standard
+     SCROLL REVEAL
 ════════════════════════════════════════ -->
 <script>
 (function(){
@@ -660,26 +672,44 @@ body {
 })();
 </script>
 
-<!-- IFRAME HEIGHT REPORTER -->
+<!-- IFRAME HEIGHT REPORTER — multi-signal (Wix Custom Embed auto-resize) -->
 <script>
-(function() {
+(function(){
   if (window.parent === window) return;
   var lastH = 0;
-  function report() {
-    var h = Math.max(document.documentElement.scrollHeight, document.body ? document.body.scrollHeight : 0);
-    if (h && h !== lastH) {
+  function report(){
+    var h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body ? document.body.scrollHeight : 0,
+      document.documentElement.offsetHeight,
+      document.body ? document.body.offsetHeight : 0
+    );
+    if (h && Math.abs(h - lastH) >= 2) {
       lastH = h;
-      try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch (e) {}
-      try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch (e) {}
-      try { window.parent.postMessage('height:' + h, '*'); } catch (e) {}
+      try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage('height:' + h, '*'); } catch(e){}
     }
   }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', report);
+  else report();
   window.addEventListener('load', report);
   window.addEventListener('resize', report);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(report);
   if (window.ResizeObserver) {
-    try { new ResizeObserver(report).observe(document.body); } catch (e) {}
+    try { var ro = new ResizeObserver(report); ro.observe(document.documentElement); if (document.body) ro.observe(document.body); } catch(e){}
   }
-  setInterval(report, 1500);
+  if (window.MutationObserver && document.body) {
+    try { new MutationObserver(report).observe(document.body, { subtree:true, childList:true, attributes:true, attributeFilter:['class','style'] }); } catch(e){}
+  }
+  document.addEventListener('transitionend', function(e){
+    if (e.target && e.target.classList && e.target.classList.contains('reveal')) report();
+  }, true);
+  var ticks = 0;
+  var early = setInterval(function(){
+    report(); ticks++;
+    if (ticks >= 30) { clearInterval(early); setInterval(report, 1500); }
+  }, 200);
 })();
 </script>
 
