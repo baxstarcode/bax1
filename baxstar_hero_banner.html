@@ -25,7 +25,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;height:100%;overflow-x:hidden;background:transparent;overscroll-behavior:none}
+:root{
+  --bone:#c8c5bd;
+  --pearl:#e8e6e0;
+}
+html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background:transparent}
 
 .hero{
   position:relative;
@@ -126,12 +130,14 @@ html,body{width:100%;height:100%;overflow-x:hidden;background:transparent;oversc
 .hero__divider-line{height:1px;width:70px;background:linear-gradient(90deg,rgba(255,255,255,0.35),transparent)}
 .hero__divider-diamond{width:7px;height:7px;background:#D4121A;transform:rotate(45deg);box-shadow:0 0 10px 3px rgba(212,18,26,0.55)}
 
+/* Subhead — bone per body-text standard */
 .hero__h2{
   font-family:'Barlow',sans-serif;font-weight:300;
   font-size:clamp(15px,1.6vw,18px);line-height:1.65;
-  color:rgba(255,255,255,0.65);max-width:520px;
+  color:var(--bone);max-width:520px;
   margin-bottom:38px;letter-spacing:0.02em;
 }
+.hero__h2 strong{color:var(--pearl);font-weight:500;}
 
 .hero__cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
 
@@ -194,6 +200,11 @@ html,body{width:100%;height:100%;overflow-x:hidden;background:transparent;oversc
   .hero__h2{max-width:100%}
   .stat-strip{justify-content:center}
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__scan, .bracket::after { animation: none; }
+  .btn { transition: none; }
+}
 </style>
 
 <script type="application/ld+json">
@@ -204,7 +215,7 @@ html,body{width:100%;height:100%;overflow-x:hidden;background:transparent;oversc
       "@type": "LocalBusiness",
       "@id": "https://www.baxstarfishing.com/#business",
       "name": "Baxstar Fishing",
-      "description": "Premium 100% private guided walleye, bass, and pike fishing on Detroit Lakes and 100+ Minnesota lakes. Guide Brady Baxter: 5x Master Angler, 30+ years experience, 7 years guiding, 4.9-star rated.",
+      "description": "Premium 100% private guided walleye, bass, and pike fishing on Detroit Lake, Pelican Lake, Lake Sallie, Lake Lida, Big Cormorant, and across the 412 lakes within 25 miles of Detroit Lakes, Minnesota. Guide Brady Baxter: 5x Master Angler, 30+ years experience, 7 years guiding, 4.9-star rated.",
       "url": "https://www.baxstarfishing.com",
       "telephone": "+12183256857",
       "address": {
@@ -245,7 +256,7 @@ html,body{width:100%;height:100%;overflow-x:hidden;background:transparent;oversc
       "jobTitle": "Owner and Head Fishing Guide",
       "worksFor": {"@id": "https://www.baxstarfishing.com/#business"},
       "award": "5x Minnesota Master Angler",
-      "description": "Brady Baxter is a 5x Master Angler with 30+ years fishing Detroit Lakes, Minnesota and 7 years professional guiding. Specializes in walleye, bass, pike, and perch."
+      "description": "Brady Baxter is a 5x Master Angler with 30+ years fishing Detroit Lakes, Minnesota and 7 years professional guiding. Specializes in walleye, bass, pike, and crappie."
     }
   ]
 }
@@ -302,10 +313,12 @@ html,body{width:100%;height:100%;overflow-x:hidden;background:transparent;oversc
         Book Your Trip
         <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="https://www.baxstarfishing.com/detroit-lakes-pontoon-rentals"
+      <!-- Secondary CTA: "Meet Your Guide" — replaces "View Pontoon Rentals" per fishing-only direction. Pattern matches baxstar_hero_video_banner. -->
+      <a href="https://www.baxstarfishing.com/aboutbaxstar"
          target="_top"
-         class="btn btn--ghost">
-        View Pontoon Rentals
+         class="btn btn--ghost"
+         aria-label="Meet your guide Brady Baxter">
+        Meet Your Guide
       </a>
     </div>
 
@@ -326,5 +339,43 @@ html,body{width:100%;height:100%;overflow-x:hidden;background:transparent;oversc
 
   </div>
 </section>
+
+<!-- IFRAME HEIGHT REPORTER — multi-signal (Wix Custom Embed auto-resize) -->
+<script>
+(function(){
+  if (window.parent === window) return;
+  var lastH = 0;
+  function report(){
+    var h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body ? document.body.scrollHeight : 0,
+      document.documentElement.offsetHeight,
+      document.body ? document.body.offsetHeight : 0
+    );
+    if (h && Math.abs(h - lastH) >= 2) {
+      lastH = h;
+      try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage('height:' + h, '*'); } catch(e){}
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', report);
+  else report();
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(report);
+  if (window.ResizeObserver) {
+    try { var ro = new ResizeObserver(report); ro.observe(document.documentElement); if (document.body) ro.observe(document.body); } catch(e){}
+  }
+  if (window.MutationObserver && document.body) {
+    try { new MutationObserver(report).observe(document.body, { subtree:true, childList:true, attributes:true, attributeFilter:['class','style'] }); } catch(e){}
+  }
+  var ticks = 0;
+  var early = setInterval(function(){
+    report(); ticks++;
+    if (ticks >= 30) { clearInterval(early); setInterval(report, 1500); }
+  }, 200);
+})();
+</script>
 </body>
 </html>
