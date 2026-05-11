@@ -131,39 +131,48 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
 </section>
 <script>
 (function(){
-  var SD='https://video.wixstatic.com/video/a30e59_93c03ce571164cd2ba251848c2ea4671/720p/mp4/file.mp4';
-  var HD='https://video.wixstatic.com/video/a30e59_93c03ce571164cd2ba251848c2ea4671/1080p/mp4/file.mp4';
-  var w=document.getElementById('heroVideo'),v=w&&w.querySelector('video');
-  if(!v)return;
+  // ── HERO VIDEO SOURCES ─────────────────────────────────────────
+  // Mobile / Save-Data / slow networks keep the original 720p video
+  // (a30e59_93c03ce571164cd2ba251848c2ea4671).
+  // Desktop loads the new 1080p video
+  // (a30e59_b99096e69fe64b138bfd12acfcdebe76).
+  // If the new desktop source fails to load, fall back ONCE to the
+  // mobile/720p source so the hero never goes dark — wrong content
+  // beats no content.
+  var MOBILE_SRC  = 'https://video.wixstatic.com/video/a30e59_93c03ce571164cd2ba251848c2ea4671/720p/mp4/file.mp4';
+  var DESKTOP_SRC = 'https://video.wixstatic.com/video/a30e59_b99096e69fe64b138bfd12acfcdebe76/1080p/mp4/file.mp4';
+
+  var w = document.getElementById('heroVideo');
+  var v = w && w.querySelector('video');
+  if (!v) return;
 
   function addSrc(u){
-    var n=document.createElement('source');
-    n.src=u;
-    n.type='video/mp4';
+    var n = document.createElement('source');
+    n.src = u;
+    n.type = 'video/mp4';
     v.appendChild(n);
   }
 
   // Bandwidth-aware source selection
-  var conn=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
-  var saveData=conn&&conn.saveData;
-  var slowNet=conn&&/2g|slow-2g/i.test(conn.effectiveType||'');
-  var isMobile=window.matchMedia('(max-width:768px)').matches;
-  var useSDOnly=saveData||slowNet||isMobile;
+  var conn     = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  var saveData = conn && conn.saveData;
+  var slowNet  = conn && /2g|slow-2g/i.test(conn.effectiveType || '');
+  var isMobile = window.matchMedia('(max-width:768px)').matches;
+  var useMobileSrc = saveData || slowNet || isMobile;
 
-  // HD-fail-to-SD fallback (safety net even when HD is selected)
-  v.addEventListener('error',function r(){
-    while(v.firstChild)v.removeChild(v.firstChild);
-    addSrc(SD);
-    v.removeEventListener('error',r);
+  // One-shot fallback: swap to mobile/720p source if the primary fails.
+  v.addEventListener('error', function r(){
+    while (v.firstChild) v.removeChild(v.firstChild);
+    addSrc(MOBILE_SRC);
+    v.removeEventListener('error', r);
     v.load();
     v.play().catch(function(){});
-  },{once:true,passive:true});
+  }, { once: true, passive: true });
 
-  if(useSDOnly){
-    addSrc(SD);
-  }else{
-    addSrc(HD);
-    addSrc(SD);
+  if (useMobileSrc) {
+    addSrc(MOBILE_SRC);
+  } else {
+    addSrc(DESKTOP_SRC);
   }
 
   // Reveal as soon as enough data exists to start playback
