@@ -1,183 +1,398 @@
-I need you to surgically update my Baxstar FAQ HTML section for AI-search SEO and conversion.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="indexifembedded"/>
 
-Do not redesign anything. Do not change layout, CSS, animations, image URLs, button styling, section styling, fonts, class names, or Wix height reporter code. Only change the FAQ questions/answers and the matching FAQPage JSON-LD schema.
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://www.baxstarfishing.com"/>
+<meta property="og:site_name" content="Baxstar Fishing"/>
+<meta property="og:title" content="Baxstar Fishing — Detroit Lakes Private Guided Fishing"/>
+<meta property="og:description" content="Private guided fishing, ice fishing, Ice Castle sleeper rentals, pontoon rentals, and guided lake tours across Detroit Lakes and the 412 lakes within 25 miles."/>
+<meta property="og:image" content="https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg"/>
+<meta property="og:locale" content="en_US"/>
 
-Critical rule:
-The visible FAQ text and the FAQPage JSON-LD schema must match exactly in meaning and wording. After editing the visible FAQ, update the JSON-LD `mainEntity` array to match those exact questions and answers.
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Baxstar Fishing — Detroit Lakes Private Guided Fishing"/>
+<meta name="twitter:description" content="Private guided fishing, ice fishing, Ice Castle sleeper rentals, pontoon rentals, and guided lake tours across Detroit Lakes and the 412 lakes within 25 miles."/>
+<meta name="twitter:image" content="https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg"/>
+<meta name="description" content="Baxstar Fishing experiences in Detroit Lakes, MN — private guided fishing, ice fishing, Ice Castle sleeper rentals, pontoon rentals, and guided lake tours.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-Keep the existing visual structure:
-- same `<section class="faq">`
-- same header structure
-- same ordered list structure
-- same `.faq__item`, `.faq__num`, `.faq__question`, `.faq__answer` classes
-- same close CTA
-- same buttons
-- same JavaScript
+:root {
+  --black: #08080a;
+  --charcoal: #111114;
+  --dark: #18181c;
+  --mid-dark: #222228;
+  --red: #c1272d;
+  --red-bright: #e63946;
+  --red-deep: #8b1a1f;
+  --cream: #f0ece4;
+  --warm-white: #faf8f4;
+  --gold: #c9a84c;
+  --gold-dim: #9a7d3a;
+  --slate: #6b6b78;
+  --light-slate: #9a9aaa;
+  --bone: #c8c5bd;
+  --pearl: #e8e6e0;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+  --font-accent: 'Cormorant Garamond', serif;
+  --max-w: 1320px;
+  --section-pad: clamp(56px, 7vw, 98px);
+}
 
-TASK 1 — Fix obvious errors
+html { scroll-behavior: smooth; }
+html, body { width: 100%; height: auto; overflow-x: hidden; overflow-y: visible; }
 
-Fix the weather answer typo issues:
-- “exterme” → “extreme”
-- “will rescheduled” → “will be rescheduled”
-- “cancelled with refund..” → clean wording
-- “moderrate” → “moderate”
-- “neeeded” → “needed”
+body {
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
 
-Fix the email mismatch in the corporate/multi-day answer:
-- The visible email and the `mailto:` value must match.
-- Use: `info@baxstarfishing.com`
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
 
-TASK 2 — Remove fragile “only fully private” claim
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(14px, 2.8vw, 42px); }
 
-In the first FAQ, replace any claim that Baxstar is “the only fully private guided fishing service in the Detroit Lakes area.”
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 11.9px 26.6px;
+  background: var(--red); color: white;
+  font-family: var(--font-body); font-weight: 600; font-size: 13px;
+  letter-spacing: 2px; text-transform: uppercase;
+  border: none; cursor: pointer;
+  transition: all 0.3s ease; position: relative; overflow: hidden;
+}
+.btn-primary::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.btn-primary:hover {
+  background: var(--red-bright); transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(193, 39, 45, 0.45);
+}
+.btn-primary:hover::after { opacity: 1; }
 
-Use this safer positioning instead:
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 11.9px 22.4px;
+  background: transparent; color: var(--cream);
+  font-family: var(--font-body); font-weight: 500; font-size: 13px;
+  letter-spacing: 2px; text-transform: uppercase;
+  border: 1px solid rgba(240,236,228,0.2);
+  cursor: pointer; transition: all 0.3s ease;
+}
+.btn-ghost:hover {
+  border-color: rgba(240,236,228,0.55);
+  background: rgba(240,236,228,0.05);
+}
 
-Baxstar is built around fully private guided trips — your group gets the boat, the guide, and the day to yourselves.
+.section-tag {
+  font-family: var(--font-body); font-weight: 500;
+  font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--red-bright); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-tag::before {
+  content: ''; width: 24px; height: 1px; background: var(--red);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1; letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--warm-white);
+  margin-bottom: 28px;
+}
+.section-title span { color: var(--red-bright); }
 
-Keep the premium/private-trip advantage, but do not use the word “only.”
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+  will-change: transform, opacity;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); will-change: auto; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; will-change: auto; }
+}
 
-TASK 3 — Replace the current 10-question FAQ with this 16-question FAQ
 
-Use these questions and answers in this order.
+.experiences { padding: var(--section-pad) 0; position: relative; }
+.experiences__header {
+  text-align: center; margin-bottom: clamp(48px, 6vw, 76px);
+}
+.experiences__grid {
+  display: flex; flex-wrap: wrap; gap: 2px; justify-content: center;
+}
+.exp-card {
+  position: relative; aspect-ratio: 3/4;
+  overflow: hidden; cursor: pointer;
+  background: var(--dark); display: block;
+  flex: 0 0 calc((100% - 4px) / 3);
+}
+.exp-card__img {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  transition: transform 0.8s ease, filter 0.8s ease;
+}
+.exp-card:hover .exp-card__img {
+  transform: scale(1.09); filter: brightness(0.65);
+}
+.exp-card__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 35%, rgba(8,8,10,0.94) 100%);
+  display: flex; flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(16.8px, 2.1vw, 28px);
+  transition: background 0.5s ease;
+}
+.exp-card:hover .exp-card__overlay {
+  background: linear-gradient(180deg, rgba(193,39,45,0.06) 0%, rgba(8,8,10,0.96) 75%);
+}
+.exp-card__tag {
+  font-size: 11.5px; letter-spacing: 2.4px; text-transform: uppercase;
+  color: var(--red-bright); font-weight: 700; margin-bottom: 10px;
+  display: inline-flex; align-items: center; gap: 7px;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.85),
+    0 0 8px rgba(0, 0, 0, 0.55);
+}
+.exp-card__ext {
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+.exp-card__title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 2.8vw, 34px);
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--warm-white); margin-bottom: 10px; line-height: 1.05;
+}
+.exp-card__desc {
+  font-size: 14px; color: var(--bone); line-height: 1.65;
+  margin-bottom: 20px; max-width: 290px;
+  opacity: 0; transform: translateY(12px);
+  transition: all 0.45s ease 0.05s; font-weight: 300;
+}
+.exp-card__desc strong { color: var(--pearl); font-weight: 500; }
+.exp-card:hover .exp-card__desc { opacity: 1; transform: translateY(0); }
+.exp-card__price {
+  font-family: var(--font-body); font-weight: 600;
+  font-size: 14px; color: var(--cream);
+  display: flex; align-items: center; gap: 8px;
+  letter-spacing: 0.5px;
+}
+.exp-card__price span {
+  font-weight: 300; color: var(--slate); font-size: 12px;
+}
+/* Inquiry-only label — used when a card has no published rate yet */
+.exp-card__inquire {
+  font-family: var(--font-body); font-weight: 500;
+  font-size: 12px; color: var(--pearl);
+  letter-spacing: 0.16em; text-transform: uppercase;
+}
+.exp-card__arrow {
+  position: absolute; top: 24px; right: 24px;
+  width: 38px; height: 38px;
+  border: 1px solid rgba(240,236,228,0.15);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--cream);
+  opacity: 0; transform: translateY(10px);
+  transition: all 0.35s ease;
+}
+.exp-card:hover .exp-card__arrow { opacity: 1; transform: translateY(0); }
+@media (max-width: 1024px) { .exp-card { flex: 0 0 calc((100% - 2px) / 2); } }
+@media (max-width: 640px)  { .exp-card { flex: 0 0 100%; } }
 
-01
-Question:
-What makes Baxstar Fishing different from other Detroit Lakes guides?
+</style>
 
-Answer:
-Baxstar is built around fully private guided trips — your group gets the boat, the guide, and the day to yourselves. Guide Brady Baxter has 30+ years on these waters, 7+ years guiding professionally, 5 Minnesota Master Angler awards, and 100+ five-star reviews from clients who value a private, prepared, high-standard experience.
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Baxstar Fishing",
+  "url": "https://www.baxstarfishing.com",
+  "description": "Private guided fishing, ice fishing, Ice Castle sleeper rentals, pontoon rentals, and guided lake tours on Detroit Lakes, Minnesota.",
+  "address": { "@type": "PostalAddress", "addressLocality": "Detroit Lakes", "addressRegion": "MN", "addressCountry": "US" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Baxstar Fishing Experiences — Detroit Lakes, MN",
+    "itemListElement": [
+      { "@type": "Offer", "name": "Private Guided Fishing Trip", "price": "451", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://www.baxstarfishing.com/fishing-trips" },
+      { "@type": "Offer", "name": "Ice Fishing — Day House, Sleeper & Guided Trip", "price": "175", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://www.baxstarfishing.com/icefishing" },
+      { "@type": "Offer", "name": "Ice Castle Sleeper Rental — Multi-Day", "price": "795", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://www.baxstarfishing.com/ice-castle-rentals" },
+      { "@type": "Offer", "name": "Pontoon Rental — Detroit Lakes Area", "price": "450", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://www.baxstaroutdoors.com/detroit-lakes-pontoon-rentals" },
+      { "@type": "Offer", "name": "Guided Lake Tour", "price": "375", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://www.baxstaroutdoors.com/laketours" }
+    ]
+  }
+}
+</script>
+</head>
+<body>
 
-02
-Question:
-How much does a Baxstar guided fishing trip cost?
 
-Answer:
-Baxstar offers private guided fishing trips with pricing based on trip length, season, and group size. Most guests choose a four-hour private trip, with optional upgrades available at checkout. For current pricing and live availability, use the online booking calendar or call Brady directly at (218) 325-6857.
+<section class="experiences" id="experiences">
+  <div class="container">
+    <div class="experiences__header reveal">
+      <div class="section-tag" style="justify-content: center;">Select Your Experience</div>
+      <h2 class="section-title">ON THE WATER. <span>ON THE ICE.</span></h2>
+    </div>
+  </div>
+  <div class="container">
+    <div class="experiences__grid">
 
-03
-Question:
-What is included in a Baxstar guided fishing trip?
+      <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/&flow=576827" class="exp-card reveal" aria-label="Book a private guided fishing trip">
+        <div class="exp-card__img" style="background-image: url('https://static.wixstatic.com/media/a30e59_5340c17a5655428889cea27e9cf73e78~mv2.jpeg');"></div>
+        <div class="exp-card__overlay">
+          <div class="exp-card__tag">Signature Experience</div>
+          <div class="exp-card__title">Guided Fishing</div>
+          <div class="exp-card__desc">
+            Private guided walleye, bass, pike, and crappie trips across Detroit Lake, Pelican, Sallie, Lida, Big Cormorant — and <strong>the 412 lakes within 25 miles of Detroit Lakes</strong>. Vexus DVX20S boat, Garmin LiveScope, and a 5× Master Angler reading the water for you.
+          </div>
+          <div class="exp-card__price">From $451 <span>/ 4-hour trip</span></div>
+        </div>
+        <div class="exp-card__arrow">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </div>
+      </a>
 
-Answer:
-Baxstar provides the Vexus DVX20S boat, fuel, premium rods and reels, fresh live bait, full tackle, life jackets, Garmin LiveScope sonar, hands-on instruction, and catch cleaning when requested. Guests bring a cooler, weather-appropriate clothing, snacks and drinks if desired, and a valid Minnesota fishing license.
+      <a href="https://www.baxstarfishing.com/icefishing" class="exp-card reveal" aria-label="Explore ice fishing — day houses, sleepers, and guided trips">
+        <div class="exp-card__img" style="background-image: url('https://static.wixstatic.com/media/a30e59_02edfd9fd4eb4d3db01fa3856cccc1d8~mv2.webp');"></div>
+        <div class="exp-card__overlay">
+          <div class="exp-card__tag">Winter Season</div>
+          <div class="exp-card__title">Ice Fishing</div>
+          <div class="exp-card__desc">
+            Heated day houses, premium Ice Castle sleepers, and fully guided trips — <strong>pre-drilled, pre-heated, and placed on active fish</strong>. The only ice fishing service in the region owned and operated by an award-winning professional guide. Garmin LiveScope on every guided trip.
+          </div>
+          <div class="exp-card__price">From $175 <span>/ day house</span></div>
+        </div>
+        <div class="exp-card__arrow">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </div>
+      </a>
 
-04
-Question:
-Where do Baxstar fishing trips depart from?
+      <a href="https://www.baxstarfishing.com/ice-castle-rentals" class="exp-card reveal" aria-label="View Ice Castle sleeper rentals">
+        <div class="exp-card__img" style="background-image: url('https://static.wixstatic.com/media/a30e59_b6e35386c22e4f4488c6f4cfe26aac9e~mv2.webp');"></div>
+        <div class="exp-card__overlay">
+          <div class="exp-card__tag">Overnight On Ice</div>
+          <div class="exp-card__title">Ice Castle Rentals</div>
+          <div class="exp-card__desc">
+            Clean, comfortable, professionally maintained Ice Castle sleeper houses — <strong>insulated heated interior, private bathroom, kitchenette, generator, and 6 fishing holes with rattle reels</strong>. Stay warm, sleep on the lake, fish anytime the bite turns on. 17′ and 21′–24′ models available.
+          </div>
+          <div class="exp-card__price">From $795 <span>/ multi-day</span></div>
+        </div>
+        <div class="exp-card__arrow">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </div>
+      </a>
 
-Answer:
-Baxstar Fishing is based in Detroit Lakes, Minnesota. The exact launch location depends on the lake chosen for that day’s conditions. Brady confirms the meeting point before your trip based on weather, wind, water temperature, and the best current bite.
+      <a href="https://www.baxstaroutdoors.com/detroit-lakes-pontoon-rentals" class="exp-card reveal" target="_blank" rel="noopener" aria-label="Pontoon rentals on Baxstar Outdoors (opens in a new tab)">
+        <div class="exp-card__img" style="background-image: url('https://static.wixstatic.com/media/a30e59_78d6e531976c4c3bb6e3fc3cb9088c62~mv2.webp');"></div>
+        <div class="exp-card__overlay">
+          <div class="exp-card__tag">Summer · Baxstar Outdoors <svg class="exp-card__ext" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 3h6v6M10 14L21 3M21 14v7H3V3h7"/></svg></div>
+          <div class="exp-card__title">Pontoon Rentals</div>
+          <div class="exp-card__desc">
+            22′ Sylvan Mirage with a <strong>115 hp Yamaha, electric anchor with remote, Humminbird HD mapping</strong> with fishing hot spots, and a tow swing for tubes and skis. Delivered to your lake — no trailer, no hassle. Up to 12 guests.
+          </div>
+          <div class="exp-card__price">From $450 <span>/ day</span></div>
+        </div>
+        <div class="exp-card__arrow">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </div>
+      </a>
 
-05
-Question:
-Which lakes do you fish, and how do you choose where to go?
+      <a href="https://www.baxstaroutdoors.com/laketours" class="exp-card reveal" target="_blank" rel="noopener" aria-label="Guided lake tours on Baxstar Outdoors (opens in a new tab)">
+        <div class="exp-card__img" style="background-image: url('https://static.wixstatic.com/media/a30e59_0c9c641a24f64a5a9b9be1af42f53635~mv2.webp');"></div>
+        <div class="exp-card__overlay">
+          <div class="exp-card__tag">All Ages · Baxstar Outdoors <svg class="exp-card__ext" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 3h6v6M10 14L21 3M21 14v7H3V3h7"/></svg></div>
+          <div class="exp-card__title">Guided Lake Tours</div>
+          <div class="exp-card__desc">
+            A two-hour guided cruise with Brady — <strong>owner, fishing guide, and local history teacher</strong>. Hear the story of Detroit Lake, the town, and the area's lake country. Up to 11 guests, fully accessible, BYOB welcome.
+          </div>
+          <div class="exp-card__price">From $375 <span>/ 2-hour tour</span></div>
+        </div>
+        <div class="exp-card__arrow">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </div>
+      </a>
 
-Answer:
-Baxstar covers lakes across the Detroit Lakes region, including Detroit Lake, Pelican Lake, Lake Sallie, Lake Lida, Big Cormorant Lake, Upper Cormorant Lake, and other nearby waters. Brady chooses the lake based on weather, wind direction, water temperature, recent scouting, and the best chance to put your group on fish.
+    </div>
+  </div>
+</section>
 
-06
-Question:
-What fish species can we target?
 
-Answer:
-Baxstar trips commonly target walleye, bass, northern pike, and panfish depending on the season, weather, and group goals. Brady chooses the best species and lake based on current conditions, not a fixed script.
+<script>
+(function () {
+  var reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
+  reveals.forEach(function(el, i) { el.style.transitionDelay = (i * 65) + 'ms'; });
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    reveals.forEach(function(el) { el.style.transitionDelay = '0ms'; el.classList.add('visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        requestAnimationFrame(function() { entry.target.classList.add('visible'); });
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+  reveals.forEach(function(el) { io.observe(el); });
+}());
+</script>
 
-07
-Question:
-Is the boat private, or do I share it with other clients?
+<!-- IFRAME HEIGHT REPORTER — multi-signal (Wix Custom Embed auto-resize) -->
+<script>
+(function(){
+  if (window.parent === window) return;
+  var lastH = 0;
+  function report(){
+    var h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body ? document.body.scrollHeight : 0,
+      document.documentElement.offsetHeight,
+      document.body ? document.body.offsetHeight : 0
+    );
+    if (h && Math.abs(h - lastH) >= 2) {
+      lastH = h;
+      try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage('height:' + h, '*'); } catch(e){}
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', report);
+  else report();
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(report);
+  if (window.ResizeObserver) {
+    try { var ro = new ResizeObserver(report); ro.observe(document.documentElement); if (document.body) ro.observe(document.body); } catch(e){}
+  }
+  if (window.MutationObserver && document.body) {
+    try { new MutationObserver(report).observe(document.body, { subtree:true, childList:true, attributes:true, attributeFilter:['class','style'] }); } catch(e){}
+  }
+  document.addEventListener('transitionend', function(e){
+    if (e.target && e.target.classList && e.target.classList.contains('reveal')) report();
+  }, true);
+  var ticks = 0;
+  var early = setInterval(function(){
+    report(); ticks++;
+    if (ticks >= 30) { clearInterval(early); setInterval(report, 1500); }
+  }, 200);
+})();
+</script>
 
-Answer:
-Every Baxstar guided fishing trip is private. Your group has the boat, the guide, and Brady’s full attention for the full trip. There are no mixed parties, shared time blocks, or rotating clients.
-
-08
-Question:
-Do you guide first-time anglers, kids, or non-fishing partners?
-
-Answer:
-Yes. Many Baxstar trips include first-time anglers, children, or non-fishing partners along for the ride. Brady tailors the pace, technique, and species target so beginners feel comfortable and confident while experienced anglers can still enjoy a serious day on the water.
-
-09
-Question:
-What should I bring on a guided fishing trip?
-
-Answer:
-Bring a valid Minnesota fishing license, weather-appropriate clothing, sunglasses, sunscreen, snacks, drinks, and a cooler for fish if you plan to keep any. Baxstar provides the boat, fuel, rods, reels, tackle, bait, life jackets, sonar, and instruction.
-
-10
-Question:
-Do I need a Minnesota fishing license, and where do I get one?
-
-Answer:
-Every angler age 16 and over needs a valid Minnesota fishing license. You can buy one online through the Minnesota DNR, at Detroit Lakes bait shops, or at local outfitters. A 24-hour, 72-hour, or season license all qualify — bring a digital or printed copy to the boat.
-
-11
-Question:
-Can we keep the fish we catch?
-
-Answer:
-Yes, when fish are legal to keep and within Minnesota regulations. Brady helps guests understand current limits, slot restrictions, and what makes sense to harvest. Catch cleaning is available when requested.
-
-12
-Question:
-What boat and equipment does Baxstar Fishing use?
-
-Answer:
-Brady runs a Vexus DVX20S, a tournament-grade fiberglass walleye boat with Garmin LiveScope live-imaging sonar, dual livewells, comfortable seating, and a premium rod-and-reel setup. The boat is designed to handle changing conditions and give clients room to fish comfortably.
-
-13
-Question:
-What happens if weather changes the day of my trip?
-
-Answer:
-Safety comes first. If conditions are unsafe, Brady may reschedule the trip or cancel with a refund. Baxstar does fish in moderate rain and manageable wind, and rain gear is available when needed. If weather shifts, Brady may change lakes or adjust the plan to give your group the best safe opportunity instead of canceling too early.
-
-14
-Question:
-How far ahead should I book a private guided trip?
-
-Answer:
-Prime summer dates, weekends, and multi-day groups can book well in advance, especially from mid-June through August. For a specific date or weekend, booking two to three months ahead is safest. Last-minute openings do happen, so check the booking calendar or call Brady directly at (218) 325-6857.
-
-15
-Question:
-Can you arrange a multi-day trip or a corporate group?
-
-Answer:
-Yes. Baxstar can help with multi-day fishing trips, father-son and family weekends, small executive groups, and corporate outings. Brady can coordinate lake plans, recommend lodging near Detroit Lake or Pelican Lake, and help arrange additional guide support when needed. Email info@baxstarfishing.com to plan a private group.
-
-16
-Question:
-Does Baxstar offer ice fishing trips or winter rentals?
-
-Answer:
-Yes. Baxstar offers seasonal open-water guided fishing and winter ice fishing experiences in the Detroit Lakes area. Winter options may include guided ice fishing, Ice Castle rentals, and other cold-weather fishing experiences depending on availability and conditions.
-
-TASK 4 — Preserve useful links
-
-Keep clickable links where appropriate:
-- Phone number `(218) 325-6857` should link to `tel:+12183256857`
-- `info@baxstarfishing.com` should link to `mailto:info@baxstarfishing.com`
-- If “Minnesota DNR” is already linked elsewhere in the code, preserve or add a clean link. If not, leave it as text and do not introduce a new external URL unless you are confident.
-
-TASK 5 — Update meta description if needed
-
-Update the page meta description only if necessary to reflect the expanded FAQ.
-
-Use this:
-Common questions about private guided fishing trips with Baxstar Fishing in Detroit Lakes, Minnesota — pricing, what’s included, launch locations, species, licenses, weather policy, family trips, corporate groups, ice fishing, and winter rentals.
-
-Do not change Open Graph or Twitter metadata unless it is clearly inconsistent.
-
-TASK 6 — Final validation checklist
-
-Before you finish, verify all of the following:
-
-1. There are exactly 16 visible FAQ items.
-2. FAQ numbering runs 01 through 16.
-3. The JSON-LD FAQPage schema has exactly the same 16 questions in the same order.
-4. Each JSON-LD answer matches the visible answer text in wording and meaning.
-5. The phrase “only fully private guided fishing service” has been removed.
-6. Weather answer has no typos and clearly explains unsafe weather, moderate rain/wind, rain gear, lake changes, rescheduling, and refunds.
-7. The corporate/multi-day answer uses `info@baxstarfishing.com` visibly and in the `mailto:`.
-8. No CSS, layout, animation, class names, image assets, CTA buttons, or Wix height reporter code were changed.
+</body>
+</html>
