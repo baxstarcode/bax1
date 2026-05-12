@@ -123,8 +123,8 @@
     {"@type":"Place","@id":"https://www.baxstarfishing.com/#lake-sallie","name":"Lake Sallie","description":"1,247-acre lake in Becker County, Minnesota with a maximum depth of 50 feet. Primary species: walleye and panfish.","geo":{"@type":"GeoCoordinates","latitude":46.7872,"longitude":-95.8825}},
     {"@type":"Place","@id":"https://www.baxstarfishing.com/#big-cormorant","name":"Big Cormorant Lake","description":"6,107-acre lake in Becker County, Minnesota with a maximum depth of 57 feet. Primary species: trophy walleye and northern pike.","geo":{"@type":"GeoCoordinates","latitude":46.7036,"longitude":-96.0656}},
     {"@type":"Place","@id":"https://www.baxstarfishing.com/#upper-cormorant","name":"Upper Cormorant Lake","description":"1,210-acre lake in Becker County, Minnesota with a maximum depth of 25 feet. Primary species: bass and sunfish.","geo":{"@type":"GeoCoordinates","latitude":46.7589,"longitude":-96.0814}},
-    {"@type":"Place","@id":"https://www.baxstarfishing.com/#pelican-lake","name":"Pelican Lake","description":"10,945-acre lake straddling Otter Tail and Becker counties, Minnesota with a maximum depth of 104 feet. Primary species: walleye and smallmouth bass.","geo":{"@type":"GeoCoordinates","latitude":46.5811,"longitude":-96.0431}},
-    {"@type":"Place","@id":"https://www.baxstarfishing.com/#lake-lida","name":"Lake Lida","description":"5,789-acre lake in Otter Tail County, Minnesota with a maximum depth of 106 feet. Primary species: smallmouth bass and walleye.","geo":{"@type":"GeoCoordinates","latitude":46.5067,"longitude":-95.9008}}
+    {"@type":"Place","@id":"https://www.baxstarfishing.com/#pelican-lake","name":"Pelican Lake","description":"3,986-acre lake straddling Otter Tail and Becker counties, Minnesota with a maximum depth of 55 feet. Primary species: walleye and smallmouth bass.","geo":{"@type":"GeoCoordinates","latitude":46.5811,"longitude":-96.0431}},
+    {"@type":"Place","@id":"https://www.baxstarfishing.com/#lake-lida","name":"Lake Lida","description":"5,564-acre lake in Otter Tail County, Minnesota with a maximum depth of 58 feet. Primary species: smallmouth bass and walleye.","geo":{"@type":"GeoCoordinates","latitude":46.5067,"longitude":-95.9008}}
   ]
 }
 </script>
@@ -802,10 +802,30 @@
     .marker__label--left { right: auto; left: 22px; top: 18px; border-right: 1px solid rgba(28, 227, 210, 0.28); border-left: 2px solid var(--bx-red); }
     .marker__label--left::before { right: auto; left: -22px; background: linear-gradient(90deg, var(--bx-red), rgba(230, 57, 70, 0)); width: 22px; }
     .marker__label--right::before { left: -22px; width: 22px; }
-    /* Detroit Lake (--up-left) — drop label BELOW pin on mobile so it doesn't float above the illustration.
-       Pin stays at left:66%, top:18%. Label drops down to top:18px relative to pin, tether moves to top edge of card. */
-    .marker__label--up-left { right: 22px; top: 18px; bottom: auto; }
-    .marker__label--up-left::before { right: -22px; top: 0; bottom: auto; width: 22px; height: 1px; }
+    /* Detroit Lake (--up-left) on mobile:
+       - Card sits in upper-left/center of the plate (the lighter gray plane).
+       - Red vertical bar on LEFT side, matching the rhythm of the other mobile cards.
+       - Short flared red tether extends from the RIGHT edge of the card to
+         the Detroit Lake pin in the top-right of the illustration.
+       - top:-28px lifts the card above Sallie's card so they don't collide. */
+    .marker__label--up-left {
+      right: auto;
+      left: 0;
+      top: -28px;
+      bottom: auto;
+      transform: translateZ(40px) translateX(calc(-100% - 32px));
+      border-left: 2px solid var(--bx-red);
+      border-right: 1px solid rgba(28, 227, 210, 0.28);
+    }
+    .marker__label--up-left::before {
+      right: auto;
+      left: 100%;
+      top: 50%;
+      bottom: auto;
+      width: 36px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(230, 57, 70, 0), var(--bx-red));
+    }
     .marker__name { font-size: 14px; }
     .marker__meta { font-size: 9px; }
     .intel { grid-template-columns: 1fr; }
@@ -1014,14 +1034,14 @@
 
         <!-- Markers -->
         <nav class="markers" aria-label="Detroit Lakes Minnesota anchor lakes">
-          <div class="marker" style="left: 66%; top: 18%;" role="article" aria-label="Detroit Lake — 3,067 acres, 80 foot maximum depth, walleye and muskie">
+          <div class="marker" style="left: 66%; top: 18%;" role="article" aria-label="Detroit Lake — 3,067 acres, 80 foot maximum depth, bass and walleye">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--up-left">
               <span class="marker__name">Detroit Lake</span>
               <span class="marker__meta">
                 <span>3,067 AC</span>
                 <span class="accent">80 FT MAX</span>
-                <span>Walleye · Muskie</span>
+                <span>Bass · Walleye</span>
               </span>
             </div>
           </div>
@@ -1062,25 +1082,25 @@
             </div>
           </div>
 
-          <div class="marker" style="left: 47%; top: 53%;" role="article" aria-label="Pelican Lake — 10,945 acres, 104 foot maximum depth, walleye and smallmouth bass">
+          <div class="marker" style="left: 47%; top: 53%;" role="article" aria-label="Pelican Lake — 3,986 acres, 55 foot maximum depth, walleye and smallmouth bass">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--right">
               <span class="marker__name">Pelican Lake</span>
               <span class="marker__meta">
-                <span>10,945 AC</span>
-                <span class="accent">104 FT MAX</span>
+                <span>3,986 AC</span>
+                <span class="accent">55 FT MAX</span>
                 <span>Walleye · Smallmouth</span>
               </span>
             </div>
           </div>
 
-          <div class="marker" style="left: 66%; top: 69%;" role="article" aria-label="Lake Lida — 5,789 acres, 106 foot maximum depth, smallmouth bass and walleye">
+          <div class="marker" style="left: 66%; top: 69%;" role="article" aria-label="Lake Lida — 5,564 acres, 58 foot maximum depth, smallmouth bass and walleye">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--left">
               <span class="marker__name">Lake Lida</span>
               <span class="marker__meta">
-                <span>5,789 AC</span>
-                <span class="accent">106 FT MAX</span>
+                <span>5,564 AC</span>
+                <span class="accent">58 FT MAX</span>
                 <span>Smallmouth · Walleye</span>
               </span>
             </div>
@@ -1092,7 +1112,7 @@
 
   </div>
   <figcaption class="ops__figcaption sr-only">
-    Detroit Lakes, Minnesota — known as "the 412" for the 412 lakes within 25 miles of town and beyond — fishing coverage map showing six anchor lakes. Detroit Lake — 3,067 acres, 80 ft maximum depth, walleye and muskie. Lake Sallie — 1,247 acres, 50 ft maximum depth, walleye and panfish. Upper Cormorant Lake — 1,210 acres, 25 ft maximum depth, bass and sunfish. Big Cormorant Lake — 6,107 acres, 57 ft maximum depth, trophy walleye and northern pike. Pelican Lake — 10,945 acres, 104 ft maximum depth, walleye and smallmouth bass. Lake Lida — 5,789 acres, 106 ft maximum depth, smallmouth bass and walleye. Operating coordinates 46.6519° N, 95.8453° W. Vessel: Vexus DVX20S. Sonar: Garmin LiveScope.
+    Detroit Lakes, Minnesota — known as "the 412" for the 412 lakes within 25 miles of town and beyond — fishing coverage map showing six anchor lakes. Detroit Lake — 3,067 acres, 80 ft maximum depth, bass and walleye. Lake Sallie — 1,247 acres, 50 ft maximum depth, walleye and panfish. Upper Cormorant Lake — 1,210 acres, 25 ft maximum depth, bass and sunfish. Big Cormorant Lake — 6,107 acres, 57 ft maximum depth, trophy walleye and northern pike. Pelican Lake — 3,986 acres, 55 ft maximum depth, walleye and smallmouth bass. Lake Lida — 5,564 acres, 58 ft maximum depth, smallmouth bass and walleye. Operating coordinates 46.6519° N, 95.8453° W. Vessel: Vexus DVX20S. Sonar: Garmin LiveScope.
   </figcaption>
   </figure>
 
