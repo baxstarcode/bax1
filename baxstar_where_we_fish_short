@@ -802,8 +802,10 @@
     .marker__label--left { right: auto; left: 22px; top: 18px; border-right: 1px solid rgba(28, 227, 210, 0.28); border-left: 2px solid var(--bx-red); }
     .marker__label--left::before { right: auto; left: -22px; background: linear-gradient(90deg, var(--bx-red), rgba(230, 57, 70, 0)); width: 22px; }
     .marker__label--right::before { left: -22px; width: 22px; }
-    .marker__label--up-left { right: 22px; bottom: 14px; }
-    .marker__label--up-left::before { right: -22px; width: 22px; }
+    /* Detroit Lake (--up-left) — drop label BELOW pin on mobile so it doesn't float above the illustration.
+       Pin stays at left:66%, top:18%. Label drops down to top:18px relative to pin, tether moves to top edge of card. */
+    .marker__label--up-left { right: 22px; top: 18px; bottom: auto; }
+    .marker__label--up-left::before { right: -22px; top: 0; bottom: auto; width: 22px; height: 1px; }
     .marker__name { font-size: 14px; }
     .marker__meta { font-size: 9px; }
     .intel { grid-template-columns: 1fr; }
