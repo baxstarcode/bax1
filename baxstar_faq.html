@@ -21,6 +21,20 @@
 <meta name="twitter:description" content="Real answers about Baxstar Fishing private guided trips on Detroit Lakes, Minnesota."/>
 <meta name="twitter:image" content="https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg"/>
 
+<!-- PRE-RENDER HEIGHT HINT — posts an initial setHeight before body parses,
+     so Wix mobile editor doesn't categorize this iframe as a tiny floating
+     element before content renders. The full multi-signal reporter below
+     overrides this within ~200ms with the actual measured height. -->
+<script>
+(function(){
+  if (window.parent === window) return;
+  var hint = 1800;
+  try { window.parent.postMessage({ type: 'setHeight', height: hint }, '*'); } catch(e){}
+  try { window.parent.postMessage({ type: 'embed-size', height: hint }, '*'); } catch(e){}
+  try { window.parent.postMessage('height:' + hint, '*'); } catch(e){}
+})();
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -394,17 +408,13 @@ body {
   background-color: var(--red);
 }
 
-/* ─── Collapsing panel — grid-template-rows trick (no max-height hack) ─── */
+/* ─── Collapsing panel — JS-measured height (mobile-reliable, replaces grid-rows trick) ─── */
 .faq__panel {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.42s cubic-bezier(0.4,0,0.2,1);
-}
-.faq__panel-inner {
+  height: 0;
   overflow: hidden;
-  min-height: 0;
+  transition: height 0.42s cubic-bezier(0.4,0,0.2,1);
 }
-.faq__item.is-open .faq__panel { grid-template-rows: 1fr; }
+.faq__panel-inner { /* natural flow — JS reads scrollHeight from here */ }
 .faq__panel .faq__answer { padding-top: clamp(14px, 1.6vw, 22px); }
 
 @media (prefers-reduced-motion: reduce) {
@@ -900,18 +910,56 @@ body {
 }());
 </script>
 
-<!-- FAQ ACCORDION — tap to expand, multiple panels can be open at once -->
+<!-- FAQ ACCORDION — JS-measured height, mobile-reliable, fires explicit iframe height reports -->
 <script>
 (function () {
   var triggers = document.querySelectorAll('.faq__trigger');
   if (!triggers.length) return;
+
+  function ping() {
+    if (typeof window.__baxstarReport === 'function') window.__baxstarReport();
+  }
+
+  function openPanel(item, panel, inner) {
+    panel.style.height = inner.scrollHeight + 'px';
+    item.classList.add('is-open');
+    function onEnd(e) {
+      if (e.propertyName !== 'height') return;
+      panel.style.height = 'auto'; // let content reflow naturally when content/viewport changes
+      panel.removeEventListener('transitionend', onEnd);
+      ping();
+    }
+    panel.addEventListener('transitionend', onEnd);
+  }
+
+  function closePanel(item, panel) {
+    // From 'auto' must set explicit px first, force reflow, then transition to 0
+    panel.style.height = panel.scrollHeight + 'px';
+    void panel.offsetHeight; // force reflow
+    requestAnimationFrame(function () {
+      panel.style.height = '0px';
+      item.classList.remove('is-open');
+    });
+  }
+
   triggers.forEach(function (btn) {
     btn.addEventListener('click', function () {
       var item = btn.closest('.faq__item');
       if (!item) return;
+      var panel = item.querySelector('.faq__panel');
+      var inner = item.querySelector('.faq__panel-inner');
+      if (!panel || !inner) return;
       var expanded = btn.getAttribute('aria-expanded') === 'true';
       btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-      item.classList.toggle('is-open', !expanded);
+      if (expanded) closePanel(item, panel);
+      else openPanel(item, panel, inner);
+      // Multi-stage height reports during the ~420ms animation so the parent
+      // iframe grows smoothly and stays in sync (mobile Safari is finicky)
+      ping();
+      setTimeout(ping, 120);
+      setTimeout(ping, 260);
+      setTimeout(ping, 450);
+      setTimeout(ping, 650);
     });
   });
 }());
@@ -936,6 +984,8 @@ body {
       try { window.parent.postMessage('height:' + h, '*'); } catch(e){}
     }
   }
+  // Expose so the accordion (and any other UI) can force re-reports on layout change
+  window.__baxstarReport = report;
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', report);
   else report();
   window.addEventListener('load', report);
