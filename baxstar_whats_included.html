@@ -2,8 +2,26 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="robots" content="indexifembedded"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://www.baxstarfishing.com"/>
+<meta property="og:site_name" content="Baxstar Fishing"/>
+<meta property="og:title" content="Baxstar Fishing — Detroit Lakes Private Guided Fishing"/>
+<meta property="og:description" content="Detroit Lakes' only 100% private guided fishing experience. 4.9★ rated, 5× Master Angler, 30+ years on the water."/>
+<meta property="og:image" content="https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg"/>
+<meta property="og:locale" content="en_US"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Baxstar Fishing — Detroit Lakes Private Guided Fishing"/>
+<meta name="twitter:description" content="Detroit Lakes' only 100% private guided fishing experience. 4.9★ rated, 5× Master Angler, 30+ years on the water."/>
+<meta name="twitter:image" content="https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg"/>
+<meta name="description" content="Brady Baxter — 5x Master Angler, 30+ years fishing Detroit Lakes, Minnesota. Owner and head guide of Baxstar Fishing. 4.9-star Google rating, featured in Forbes, KVLY, and Faces of Fargo.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>What's Included — Baxstar Fishing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,7 +40,6 @@
   --gold-dim: #9a7d3a;
   --slate: #6b6b78;
   --light-slate: #9a9aaa;
-  /* ── Body-text tokens — match baxstar_where_we_fish_short ── */
   --bone: #c8c5bd;
   --pearl: #e8e6e0;
   --font-display: 'Bebas Neue', sans-serif;
@@ -33,13 +50,13 @@
 }
 
 html { scroll-behavior: smooth; }
+html, body { width: 100%; height: auto; overflow-x: hidden; overflow-y: visible; }
 
 body {
   font-family: var(--font-body);
   background: var(--black);
   color: var(--cream);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -105,135 +122,164 @@ img { display: block; max-width: 100%; }
 /* Scroll reveal */
 .reveal {
   opacity: 0; transform: translateY(28px);
-  transition: opacity 0.85s ease, transform 0.85s ease;
+  transition: opacity 0.75s ease, transform 0.75s ease;
+  will-change: transform, opacity;
 }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal.visible { opacity: 1; transform: translateY(0); will-change: auto; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; will-change: auto; }
+}
 
 
-.included { padding: var(--section-pad) 0; position: relative; }
-.included__grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: clamp(40px, 6vw, 100px); align-items: start;
+.guide {
+  padding: var(--section-pad) 0;
+  background: var(--charcoal);
+  position: relative; overflow: hidden;
 }
-.included__list { display: flex; flex-direction: column; gap: 0; }
-.incl-item {
-  padding: 18.2px 0;
-  border-bottom: 1px solid rgba(240,236,228,0.06);
-  display: grid; grid-template-columns: 44px 1fr;
-  gap: 20px; align-items: start;
-  transition: padding-left 0.3s;
+.guide::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(240,236,228,0.07), transparent);
 }
-.incl-item:first-child { border-top: 1px solid rgba(240,236,228,0.06); }
-.incl-item:hover { padding-left: 4.2px; }
-.incl-item__icon {
-  width: 44px; height: 44px;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--red-bright); font-size: 18px; margin-top: 2px;
+.guide__grid {
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  gap: clamp(40px, 6vw, 100px); align-items: center;
 }
-.incl-item__title {
-  font-family: var(--font-body); font-weight: 600;
-  font-size: 16px; color: var(--warm-white);
-  margin-bottom: 6px; letter-spacing: 0.3px;
+.guide__photo-stack { position: relative; }
+.guide__photo-main {
+  position: relative; aspect-ratio: 3/4; overflow: hidden;
 }
-/* ── Body copy — matched to where_we_fish .intel__copy ── */
-.incl-item__desc {
-  font-size: clamp(15px, 1.3vw, 17px);
-  line-height: 1.65;
-  color: var(--bone);
-  font-weight: 300;
+.guide__photo-main img {
+  width: 100%; height: 100%; object-fit: cover; filter: contrast(1.05);
 }
-.incl-item__desc strong {
-  color: var(--pearl);
-  font-weight: 500;
+.guide__photo-accent {
+  position: absolute; bottom: -30px; right: -30px;
+  width: 55%; aspect-ratio: 1;
+  border: 0px solid var(--charcoal);
+  overflow: hidden; z-index: 2;
 }
-.included__right { position: relative; }
-.included__image { aspect-ratio: 3/4; overflow: hidden; }
-.included__image img {
-  width: 100%; height: 100%; object-fit: cover;
+.guide__photo-accent img { width: 100%; height: 100%; object-fit: cover; }
+.guide__name {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 5.5vw, 64px);
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--warm-white); line-height: 1; margin-bottom: 8px;
 }
-/* ── Image caption — italic accent serif, bone tone ── */
-.included__caption {
-  margin-top: 20px;
+.guide__role {
   font-family: var(--font-accent);
-  font-style: italic;
-  font-size: clamp(17px, 1.6vw, 19px);
-  color: var(--bone);
-  line-height: 1.55;
-  padding-left: 11.2px;
-  border-left: 1px solid rgba(193,39,45,0.3);
+  font-size: 19px; font-style: italic;
+  color: var(--red-bright); margin-bottom: 32px;
 }
-@media (max-width: 1024px) { .included__grid { grid-template-columns: 1fr; gap: 48px; } }
+/* Body copy — bone per body-text standard */
+.guide__bio {
+  font-size: 16px; line-height: 1.65;
+  color: var(--bone); font-weight: 300; margin-bottom: 36px;
+}
+.guide__bio p + p { margin-top: 18px; }
+.guide__bio strong { color: var(--pearl); font-weight: 500; }
+.guide__credentials {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; margin-bottom: 40px;
+}
+.cred {
+  padding: 14px;
+  border: 1px solid rgba(240,236,228,0.06);
+  background: rgba(8,8,10,0.4);
+  transition: border-color 0.3s;
+}
+.cred:hover { border-color: rgba(193,39,45,0.25); }
+.cred__value {
+  font-family: var(--font-display);
+  font-size: 30px; color: var(--red-bright);
+  line-height: 1; margin-bottom: 6px;
+}
+.cred__label {
+  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--slate);
+}
+.guide__media {
+  display: flex; align-items: center; gap: 24px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(240,236,228,0.06);
+}
+.guide__media-label {
+  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--slate); white-space: nowrap;
+}
+.guide__media-logos { display: flex; gap: 28px; align-items: center; }
+.media-logo {
+  font-family: var(--font-body); font-weight: 700;
+  font-size: 15px; color: rgba(240,236,228,0.2);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  transition: color 0.35s;
+}
+.media-logo:hover { color: rgba(240,236,228,0.6); }
+@media (max-width: 1024px) {
+  .guide__grid { grid-template-columns: 1fr; gap: 48px; }
+  .guide__photo-accent { right: 0; bottom: -20px; }
+}
+@media (max-width: 640px) {
+  .guide__credentials { grid-template-columns: 1fr; }
+}
 
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Brady Baxter",
+  "jobTitle": "Owner and Head Fishing Guide",
+  "worksFor": { "@type": "LocalBusiness", "name": "Baxstar Fishing", "url": "https://www.baxstarfishing.com" },
+  "award": "5x Minnesota Master Angler",
+  "description": "Brady Baxter is a 5x Master Angler with 30+ years fishing the Detroit Lakes region and more than 7 years guiding professionally. Specializes in walleye, bass, pike, and crappie on Detroit Lake, Pelican Lake, Lake Sallie, Big Cormorant, Lake Lida, and the 412 lakes within 25 miles of Detroit Lakes.",
+  "knowsAbout": ["Walleye fishing", "Bass fishing", "Pike fishing", "Crappie fishing", "Detroit Lakes fishing", "Minnesota fishing guide", "Ice fishing"],
+  "url": "https://www.baxstarfishing.com"
+}
+</script>
 </head>
 <body>
 
 
-<section class="included" id="included">
+<section class="guide" id="guide">
   <div class="container">
-    <div class="included__grid">
-      <div class="reveal">
-        <div class="section-tag">What's Included</div>
-        <h2 class="section-title" style="margin-bottom: 40px;">EVERYTHING <span>HANDLED.</span></h2>
-
-        <div class="included__list">
-          <div class="incl-item">
-            <div class="incl-item__icon">⬥</div>
-            <div>
-              <div class="incl-item__title">World Class Vexus DVX20S Fiberglass Boat</div>
-              <div class="incl-item__desc">
-                The brand new Baxstar boat is more than a head-turner.  It's a 2026 Vexus DVX20S-the most advanced and luxurious boat in the industry.  It's loaded with the latest tournament-grade technology from Garmin, Humminbird, Mercury, and Power-pole to find fish others miss.
-              </div>
-            </div>
-          </div>
-          <div class="incl-item">
-            <div class="incl-item__icon">⬥</div>
-            <div>
-              <div class="incl-item__title">Pro-Grade Rods, Reels & Tackle</div>
-              <div class="incl-item__desc">
-                Quality rods, reels, and tackle are included with every trip — precision-rigged before you arrive, so you don’t need to bring a thing. Want access to the lightest, most sensitive setups from Brady's personal collection? Upgrade to premium rods at checkout. Highly recommended for serious anglers.
-              </div>
-            </div>
-          </div>
-          <div class="incl-item">
-            <div class="incl-item__icon">⬥</div>
-            <div>
-              <div class="incl-item__title">Fresh Live Bait & Custom Presentations</div>
-              <div class="incl-item__desc">
-                Live minnows,leeches,and/or crawlers provided, based on the what's catching fish.
-                Also equipt with custom-rigged artificials matched to species, depth, and conditions.
-              </div>
-            </div>
-          </div>
-          <div class="incl-item">
-            <div class="incl-item__icon">⬥</div>
-            <div>
-              <div class="incl-item__title">Fish Cleaning and Packaging</div>
-              <div class="incl-item__desc">
-                We promote catch and release, but we are happy to send you home with fresh, cleaned fish when reequested.
-              </div>
-            </div>
-          </div>
-          <div class="incl-item">
-            <div class="incl-item__icon">⬥</div>
-            <div>
-              <div class="incl-item__title">Same-Day Photo Package Available</div>
-              <div class="incl-item__desc">
-                Beautiful professional quality photos of your catches — edited to make them "next level" and within 24 hours.  Add this option at checkout. 
-                The best fish story always comes with proof.
-              </div>
-            </div>
-          </div>
+    <div class="guide__grid">
+      <div class="guide__photo-stack reveal">
+        <div class="guide__photo-main">
+          <img src="https://static.wixstatic.com/media/a30e59_e6e2828b9db1463aaea7ebe61d462125~mv2.webp" alt="Brady Baxter – Baxstar Fishing guide">
+        </div>
+        <div class="guide__photo-accent">
+          <img src="https://static.wixstatic.com/media/a30e59_b99a0c5485364ed68a2222c99fc5ad1d~mv2.png" alt="Brady Baxter with trophy catch">
         </div>
       </div>
-
-      <div class="included__right reveal">
-        <div class="included__image">
-          <img src="https://static.wixstatic.com/media/a30e59_d947a7ae2c0f47b59248b482efd16d08~mv2.jpeg" alt="Baxstar Fishing — Vexus DVX20S on Detroit Lakes">
+      <div class="guide__content reveal">
+        <div class="section-tag">Your Guide</div>
+        <h2 class="guide__name">Brady Baxter</h2>
+        <div class="guide__role">Owner & Head Guide — Baxstar Fishing</div>
+        <div class="guide__bio">
+          <p>
+            Brady Baxter has spent more than 30 years fishing the Detroit Lakes region and over seven years guiding professionally. With five Master Angler awards, a Forbes feature, more than 20 TV appearances, and clients who rebook before they leave the dock, Brady has earned his reputation as one of the area's most trusted voices on walleye, bass, pike, and panfish. That same local knowledge is why he authors the weekly Detroit Lakes area fishing report.
+          </p>
+          <p>
+            He does not rely on one lake, one pattern, or one technique. With access to more than 400 lakes within 25 miles of Detroit Lakes and a lifetime of experience across every season and condition, Brady reads the water the way most people read a room — quickly, accurately, and with a clear plan.
+          </p>
         </div>
-        <div class="included__caption">
-          The Vexus DVX20S — tournament-grade equipment on every trip, 
-          not as an upgrade.
+
+        <div class="guide__credentials">
+          <div class="cred"><div class="cred__value">5x</div><div class="cred__label">Master Angler</div></div>
+          <div class="cred"><div class="cred__value">30+</div><div class="cred__label">Years Fishing</div></div>
+          <div class="cred"><div class="cred__value">7+</div><div class="cred__label">Years Guiding</div></div>
+          <div class="cred"><div class="cred__value">412</div><div class="cred__label">Lakes Within 25 Miles</div></div>
+        </div>
+
+        <div class="guide__media">
+          <div class="guide__media-label">As Featured In</div>
+          <div class="guide__media-logos">
+            <span class="media-logo">Forbes</span>
+            <span class="media-logo">KVLY</span>
+            <span class="media-logo">WDAY</span>
+            <span class="media-logo">Faces of Fargo</span>
+          </div>
         </div>
       </div>
     </div>
@@ -242,16 +288,65 @@ img { display: block; max-width: 100%; }
 
 
 <script>
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+(function () {
+  var reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
+  reveals.forEach(function(el, i) { el.style.transitionDelay = (i * 65) + 'ms'; });
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    reveals.forEach(function(el) { el.style.transitionDelay = '0ms'; el.classList.add('visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        observer.unobserve(entry.target);
+        requestAnimationFrame(function() { entry.target.classList.add('visible'); });
+        io.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-  reveals.forEach(el => observer.observe(el));
+  }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+  reveals.forEach(function(el) { io.observe(el); });
+}());
+</script>
+
+<!-- IFRAME HEIGHT REPORTER — multi-signal (Wix Custom Embed auto-resize) -->
+<script>
+(function(){
+  if (window.parent === window) return;
+  var lastH = 0;
+  function report(){
+    var h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body ? document.body.scrollHeight : 0,
+      document.documentElement.offsetHeight,
+      document.body ? document.body.offsetHeight : 0
+    );
+    if (h && Math.abs(h - lastH) >= 2) {
+      lastH = h;
+      try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage('height:' + h, '*'); } catch(e){}
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', report);
+  else report();
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(report);
+  if (window.ResizeObserver) {
+    try { var ro = new ResizeObserver(report); ro.observe(document.documentElement); if (document.body) ro.observe(document.body); } catch(e){}
+  }
+  if (window.MutationObserver && document.body) {
+    try { new MutationObserver(report).observe(document.body, { subtree:true, childList:true, attributes:true, attributeFilter:['class','style'] }); } catch(e){}
+  }
+  document.addEventListener('transitionend', function(e){
+    if (e.target && e.target.classList && e.target.classList.contains('reveal')) report();
+  }, true);
+  var ticks = 0;
+  var early = setInterval(function(){
+    report(); ticks++;
+    if (ticks >= 30) { clearInterval(early); setInterval(report, 1500); }
+  }, 200);
+})();
 </script>
 
 </body>
