@@ -220,6 +220,31 @@ img { display: block; max-width: 100%; }
 }
 @media (max-width: 640px) {
   .guide__credentials { grid-template-columns: 1fr; }
+
+  /* Cap main photo width + center so it doesn't dominate mobile viewport */
+  .guide__photo-stack {
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Scale accent photo down proportionally so it stays inside the frame */
+  .guide__photo-accent {
+    width: 45%;
+    bottom: -16px;
+    right: 0;
+  }
+
+  /* Stack 'As Featured In' label above logos, and let logos wrap
+     so longer names like 'Faces of Fargo' stay fully on-screen */
+  .guide__media {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .guide__media-logos {
+    flex-wrap: wrap;
+    gap: 16px 22px;
+  }
 }
 
 </style>
