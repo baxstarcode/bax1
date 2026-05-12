@@ -395,6 +395,20 @@
     color: var(--bx-fog);
     margin-top: 24px;
   }
+  /* New: body copy under the origin quote */
+  .origin__body {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: clamp(16px, 1.4vw, 18px);
+    line-height: 1.65;
+    color: var(--bx-bone);
+    max-width: 56ch;
+    margin: 28px auto 0;
+  }
+  .origin__body + .origin__body { margin-top: 18px; }
+  .origin__body strong { color: var(--bx-pearl); font-weight: 500; }
+  /* New: spacing between adjacent connect__copy paragraphs */
+  .connect__copy + .connect__copy { margin-top: 18px; }
 
   /* ───────── SIX LIVES SECTION ───────── */
   .lives {
@@ -828,12 +842,20 @@
       </h1>
 
       <p class="hero__tagline reveal">
-        <strong>Six Lives.</strong><br>
+        <strong>Six chapters.</strong><br>
         One boat. One standard.
       </p>
 
       <p class="hero__bluf reveal">
-        <strong>Most fishing guides are one chapter deep. Brady is six.</strong> Thirty years on the water. Two bands, lead vocalist. A theatre lead. A college pole vaulter. A graduate-trained educator. A four-time small-business owner. Every chapter taught a different way to read people — which is exactly why every kind of client feels at home on this boat.
+        <strong>Most fishing guides are one chapter deep. Brady Baxter is not.</strong> Brady has spent more than 30 years fishing the Detroit Lakes region and over seven years guiding professionally. He is a five-time Minnesota Master Angler, author of the weekly Detroit Lakes area fishing report, and owner of Baxstar Fishing.
+      </p>
+
+      <p class="hero__bluf reveal">
+        But the difference is not just the fishing résumé. Before guiding, Brady lived several different chapters — performer, athlete, educator, business owner, outdoorsman, and guide. Each one taught him how to read people, lead a group, teach clearly, manage details, and create a day that feels easy for the people who booked it.
+      </p>
+
+      <p class="hero__bluf reveal">
+        <strong>Fishing skill matters. So does the person running the boat.</strong>
       </p>
     </div>
 
@@ -882,22 +904,27 @@
 
   <!-- ═══════════ ORIGIN ═══════════ -->
   <section class="origin" aria-labelledby="origin-head">
-    <h3 class="eyebrow reveal" id="origin-head">Origin · 1995</h3>
+    <h3 class="eyebrow reveal" id="origin-head">Origin · 1988</h3>
     <p class="origin__quote reveal">
       It started with a thermos, a tackle box, and a grandfather who believed quiet mornings on the water were a kind of education most kids never get.
     </p>
-    <p class="origin__attr reveal">— The way it began</p>
+    <p class="origin__body reveal">
+      <strong>Thirty years later, those lessons still show up.</strong>
+    </p>
+    <p class="origin__body reveal">
+      Wind, timing, seasonal patterns, subtle bites, boat control, pressure changes — none of it is random when you have spent a lifetime paying attention.
+    </p>
   </section>
 
   <!-- ═══════════ THE SIX LIVES ═══════════ -->
   <section class="lives" aria-labelledby="lives-title">
     <div class="lives__head">
       <h2 class="lives__title reveal" id="lives-title">
-        Six Lives
+        Six Chapters
         <em>The unexpected résumé behind your day on the water.</em>
       </h2>
       <p class="lives__head-tagline reveal">
-        <strong>Most guides are good at fishing.</strong> Brady is good at fishing because he's been good at six other things first — and every one of them shows up the moment you step onto the boat.
+        Brady's good at fishing because he's been good at several other things first. <strong>Every one of them shows up the moment you step onto the boat.</strong>
       </p>
     </div>
 
@@ -917,11 +944,14 @@
           <h3 class="chapter__title" id="ch-01-title">The Outdoorsman</h3>
           <p class="chapter__sub">Three decades. One classroom: the water.</p>
           <p class="chapter__copy">
-            <strong>Grandpa got him into it.</strong> A tackle box, a thermos, and the kind of patient mornings most kids never knew. Thirty years later, the lessons compound — you see things on the water that take a lifetime to learn to see.
+            Brady's fishing life started with his grandfather and grew into more than 30 years on the lakes around Detroit Lakes.
+          </p>
+          <p class="chapter__copy">
+            That kind of time matters. Every season adds another layer — spring walleyes, summer bass, fall transitions, ice fishing, tough bites, easy bites, and days when the first plan does not work.
           </p>
           <div class="chapter__connect">
             <span class="chapter__connect-label">On the boat</span>
-            <span class="chapter__connect-text">You're not paying for a hobby — you're paying for thirty years of pattern recognition you can't shortcut.</span>
+            <span class="chapter__connect-text">You get a guide who has seen these lakes in every mood and knows how to adjust.</span>
           </div>
         </div>
       </article>
@@ -938,13 +968,16 @@
         </div>
         <div class="chapter__body">
           <h3 class="chapter__title" id="ch-02-title">The Performer</h3>
-          <p class="chapter__sub">Front man · Two bands · Lead role as Danny Zuko in Grease.</p>
+          <p class="chapter__sub">Front man. Stage presence. Reading the room.</p>
           <p class="chapter__copy">
-            Years on stage and in front of crowds teach something nobody talks about — <strong>how to read a room in the first ten seconds and meet it where it is.</strong> That instinct doesn't switch off when the curtain comes down.
+            Years on stage taught Brady how to read a group quickly.
+          </p>
+          <p class="chapter__copy">
+            Some clients want quiet focus. Some want energy. Some are nervous. Some want details. Some groups need patience, and some need momentum.
           </p>
           <div class="chapter__connect">
             <span class="chapter__connect-label">On the boat</span>
-            <span class="chapter__connect-text">Whether your group is dialed-in anglers or first-timers — Brady reads the energy and adjusts the day to fit.</span>
+            <span class="chapter__connect-text">Brady adjusts the tone of the trip to fit the people in front of him.</span>
           </div>
         </div>
       </article>
@@ -961,13 +994,16 @@
         </div>
         <div class="chapter__body">
           <h3 class="chapter__title" id="ch-03-title">The Athlete</h3>
-          <p class="chapter__sub">Collegiate pole vaulter · Concert promoter on the side.</p>
+          <p class="chapter__sub">Collegiate pole vaulter. Repetition, discipline, precision.</p>
           <p class="chapter__copy">
-            <strong>Pole vault doesn't reward improvisation.</strong> It rewards ten thousand reps of the same precise motion. Promoting events teaches the other half — how to make complex logistics look effortless from the audience's seat.
+            Pole vaulting rewards preparation, timing, repetition, and small adjustments under pressure.
+          </p>
+          <p class="chapter__copy">
+            Guiding is similar. Boat position matters. Casting angles matter. Gear matters. Timing matters. The best trips look relaxed because the work was done before the client arrived.
           </p>
           <div class="chapter__connect">
             <span class="chapter__connect-label">On the boat</span>
-            <span class="chapter__connect-text">Discipline produces fish — not stories about the one that got away. Logistics produce a day that feels easy because the work was done before you arrived.</span>
+            <span class="chapter__connect-text">You get a guide who takes the details seriously.</span>
           </div>
         </div>
       </article>
@@ -984,13 +1020,16 @@
         </div>
         <div class="chapter__body">
           <h3 class="chapter__title" id="ch-04-title">The Educator</h3>
-          <p class="chapter__sub">Master's, Instructional Design &amp; Technology · K-12 Principal Licensure.</p>
+          <p class="chapter__sub">Master's in Instructional Design &amp; Technology. K-12 Principal Licensure.</p>
           <p class="chapter__copy">
-            Most people don't realize: he <strong>trained as a teacher, then trained the teachers.</strong> There's a science to making complex things learnable — and a separate skill in leading mixed groups of strangers toward the same goal.
+            Brady is trained in how people learn.
+          </p>
+          <p class="chapter__copy">
+            That matters on the boat. A beginner should not feel overwhelmed. A kid should not feel lectured. A serious angler may want the "why" behind every decision.
           </p>
           <div class="chapter__connect">
             <span class="chapter__connect-label">On the boat</span>
-            <span class="chapter__connect-text">If you've never held a rod — or you're rusty — you'll leave more capable than you arrived. That's by design, not luck.</span>
+            <span class="chapter__connect-text">If you are new, you will feel comfortable. If you want to learn, you will leave better than you arrived.</span>
           </div>
         </div>
       </article>
@@ -1007,13 +1046,16 @@
         </div>
         <div class="chapter__body">
           <h3 class="chapter__title" id="ch-05-title">The Builder</h3>
-          <p class="chapter__sub">Founder &amp; owner of four small businesses.</p>
+          <p class="chapter__sub">Founder and owner of multiple small businesses.</p>
           <p class="chapter__copy">
-            <strong>Service isn't a department — it's a discipline.</strong> Running four businesses teaches what "taken care of" actually feels like, and what falls apart the moment a client has to ask twice.
+            Running service businesses teaches you that the little things are not little.
+          </p>
+          <p class="chapter__copy">
+            Clear communication, clean gear, being on time, having a plan, and handling problems before clients feel them — that is part of the experience.
           </p>
           <div class="chapter__connect">
             <span class="chapter__connect-label">On the boat</span>
-            <span class="chapter__connect-text">Every detail handled before you arrive: gear loaded, livewell ready, truck staged, route picked against the wind. You step on, you fish.</span>
+            <span class="chapter__connect-text">The gear is ready. The boat is ready. The route is thought through. You step on, and you fish.</span>
           </div>
         </div>
       </article>
@@ -1030,13 +1072,16 @@
         </div>
         <div class="chapter__body">
           <h3 class="chapter__title" id="ch-06-title">The Guide</h3>
-          <p class="chapter__sub">Seven years professional · Five-time MN Master Angler · 100+ five-star reviews.</p>
+          <p class="chapter__sub">Seven-plus years professional. Five-time Minnesota Master Angler. Local authority.</p>
           <p class="chapter__copy">
-            <strong>All of it — every chapter — collapses into a few hours with you.</strong> Vexus DVX20S. Garmin LiveScope. Shields Pro Series rods. The gear is precise because the standard is.
+            This is where it all comes together.
+          </p>
+          <p class="chapter__copy">
+            Brady does not rely on one lake, one pattern, or one technique. With access to more than 400 lakes within 25 miles of Detroit Lakes, he builds each trip around the best opportunity that day.
           </p>
           <div class="chapter__connect">
             <span class="chapter__connect-label">On the boat</span>
-            <span class="chapter__connect-text">This is what you booked. This is exactly what you get.</span>
+            <span class="chapter__connect-text">You get a prepared, professional guide who knows the area, knows the fish, and knows how to lead the day.</span>
           </div>
         </div>
       </article>
@@ -1052,41 +1097,28 @@
         <em>The hidden value of a guide who has lived more than one life.</em>
       </h2>
       <p class="connect__copy reveal">
-        <strong>Affluent clients don't book guides — they book days.</strong> A great day on the water has very little to do with rods and reels and almost everything to do with the person running the boat. Brady's the rare guide whose past lives translate, one for one, into things that actually matter when the boat leaves the dock.
+        <strong>The best clients do not just book guides.</strong>
       </p>
 
-      <div class="connect__pairs">
-        <div class="pair reveal">
-          <span class="pair__client">A first-time angler, nervous about looking foolish</span>
-          <span class="pair__arrow">→</span>
-          <span class="pair__life">The Educator</span>
-        </div>
-        <div class="pair reveal">
-          <span class="pair__client">A corporate group that needs to feel hosted, not herded</span>
-          <span class="pair__arrow">→</span>
-          <span class="pair__life">The Performer</span>
-        </div>
-        <div class="pair reveal">
-          <span class="pair__client">A serious angler chasing a trophy walleye</span>
-          <span class="pair__arrow">→</span>
-          <span class="pair__life">The Outdoorsman</span>
-        </div>
-        <div class="pair reveal">
-          <span class="pair__client">A high-net-worth client used to white-glove service</span>
-          <span class="pair__arrow">→</span>
-          <span class="pair__life">The Builder</span>
-        </div>
-        <div class="pair reveal">
-          <span class="pair__client">A father teaching his kids — patience required</span>
-          <span class="pair__arrow">→</span>
-          <span class="pair__life">The Educator</span>
-        </div>
-        <div class="pair reveal">
-          <span class="pair__client">A buddy trip that wants the day to feel effortless</span>
-          <span class="pair__arrow">→</span>
-          <span class="pair__life">The Performer</span>
-        </div>
-      </div>
+      <p class="connect__copy reveal">
+        They book days.
+      </p>
+
+      <p class="connect__copy reveal">
+        A great trip is not only about rods, reels, electronics, or even the fish. The person running the boat sets the tone, makes the decisions, teaches, adjusts, encourages, hosts, and solves problems before the client notices them.
+      </p>
+
+      <p class="connect__copy reveal">
+        <strong>That is where Brady's background matters.</strong>
+      </p>
+
+      <p class="connect__copy reveal">
+        First-timers need patience. Serious anglers need credibility. Corporate groups need polish. Families need the day to stay fun. Returning clients expect the same high standard every time.
+      </p>
+
+      <p class="connect__copy reveal">
+        Different groups need different versions of a great day. Brady's job is to read that quickly and build the trip around it.
+      </p>
     </div>
   </section>
 
@@ -1104,8 +1136,8 @@
   <!-- ═══════════ FINAL CTA ═══════════ -->
   <section class="cta-final" aria-labelledby="cta-final-head">
     <div class="cta-final__inner">
-      <p class="cta-final__lede reveal">Six lives, in service of one day.</p>
-      <h2 class="cta-final__head reveal" id="cta-final-head">Reserve Yours</h2>
+      <p class="cta-final__lede reveal">The best dates do not stay open long.</p>
+      <h2 class="cta-final__head reveal" id="cta-final-head">Reserve Your Day</h2>
       <a class="cta-button reveal"
          href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/"
          target="_top"
@@ -1113,7 +1145,7 @@
          aria-label="Reserve a private guided fishing trip with Brady Baxter">
         Reserve This Day
       </a>
-      <p class="cta-final__sub reveal">One group per day · Booked weeks in advance</p>
+      <p class="cta-final__sub reveal">One group per trip · One boat · One standard</p>
     </div>
   </section>
 
