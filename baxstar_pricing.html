@@ -49,7 +49,7 @@
 </script>
 
 <style>
-*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+*,*::before,*::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 /* ─────────────────────────────────────────────────────────
    IFRAME AUTO-FIT BASELINE
@@ -969,7 +969,9 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
   'use strict';
 
   /* ═══════════════════════════════════════════════════════════
-     PRICING DATA — sourced from Baxstar Pricing Engine 2026
+     PRICING DATA — sourced from Baxstar Pricing Engine 2026 v2
+     (Settings tab, "SEASON TIER ADJUSTMENT PERCENTAGES",
+      reconciled 2026-05-21)
   ═══════════════════════════════════════════════════════════ */
   var TRIPS = {
     3: {
@@ -985,12 +987,19 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     8: { base: 900, sub: 'Not for the meek — 1pm start time recommended.',                            perAddOn: [100, 100, 175] }
   };
 
+  /* SEASONS percentages reconciled against Pricing Engine v2 (2026-05-20)
+     Changes from prior values:
+       high.fri_sun:  0.11 → 0.10
+       peak.mon_thu:  0.14 → 0.10
+       peak.fri_sun:  0.17 → 0.13
+       peak.sat:      0.20 → 0.15
+       holiday.all:   0.20 → 0.12 */
   var SEASONS = {
     off_peak: { label: 'Off Peak', dates: 'Apr 1 – May 31  ·  Sep 10 – Oct 31', days: [{ key: 'all', label: 'All Days', mult: 0.00 }] },
     shoulder: { label: 'Shoulder', dates: 'Jun 1–12  ·  Aug 21 – Sep 9', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: 0.03 }, { key: 'fri_sun', label: 'Fri–Sun', mult: 0.06 }] },
-    high:     { label: 'High',     dates: 'Jun 13–30  ·  Jul 26 – Aug 20', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: 0.08 }, { key: 'fri_sun', label: 'Fri–Sun', mult: 0.11 }] },
-    peak:     { label: 'Peak',     dates: 'Jul 1 – Jul 25', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: 0.14 }, { key: 'fri_sun', label: 'Fri / Sun', mult: 0.17 }, { key: 'sat', label: 'Saturday', mult: 0.20 }] },
-    holiday:  { label: 'Holiday',  dates: 'May 22–25  ·  Jul 2–5  ·  Sep 4–7', days: [{ key: 'all', label: 'All Days', mult: 0.20 }] }
+    high:     { label: 'High',     dates: 'Jun 13–30  ·  Jul 26 – Aug 20', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: 0.08 }, { key: 'fri_sun', label: 'Fri–Sun', mult: 0.10 }] },
+    peak:     { label: 'Peak',     dates: 'Jul 1 – Jul 25', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: 0.10 }, { key: 'fri_sun', label: 'Fri / Sun', mult: 0.13 }, { key: 'sat', label: 'Saturday', mult: 0.15 }] },
+    holiday:  { label: 'Holiday',  dates: 'May 22–25  ·  Jul 2–5  ·  Sep 4–7', days: [{ key: 'all', label: 'All Days', mult: 0.12 }] }
   };
 
   var state = { trip: 4, season: 'off_peak', dayKey: 'all', groupSize: 2 };
@@ -1247,7 +1256,6 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     var lastH = 0;
 
     function measure() {
-      // Force layout to flush any pending changes before reading
       var docH = document.documentElement;
       var bodyH = document.body;
       return Math.max(
@@ -1260,7 +1268,6 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
 
     function report(){
       var h = measure();
-      // Only send if changed by 2px+ to avoid jitter loops
       if (h && Math.abs(h - lastH) >= 2) {
         lastH = h;
         try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch (e) {}
@@ -1269,7 +1276,6 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
       }
     }
 
-    // 1) Initial paint signals
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', report);
     } else {
@@ -1278,24 +1284,19 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     window.addEventListener('load', report);
     window.addEventListener('resize', report);
 
-    // 2) Fonts can shift heights significantly
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(report).catch(function(){});
     }
 
-    // 3) Media loads — even if there are none currently, future ones get caught
     document.querySelectorAll('img, video').forEach(function(el){
       el.addEventListener('load', report);
     });
 
-    // 4) Live size observers
     if (window.ResizeObserver) {
       try { new ResizeObserver(report).observe(document.body); } catch (e) {}
       try { new ResizeObserver(report).observe(document.documentElement); } catch (e) {}
     }
 
-    // 5) Mutation observer — catches dynamic content (day-type pill rendering,
-    //    reveal class flips, modal open/close affecting layout, etc.)
     if (window.MutationObserver) {
       try {
         var mo = new MutationObserver(function(){ report(); });
@@ -1308,14 +1309,12 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
       } catch (e) {}
     }
 
-    // 6) Reveal animation completion — final settled state
     document.addEventListener('transitionend', function(e){
       if (e.target && e.target.classList && e.target.classList.contains('reveal')) {
         report();
       }
     }, true);
 
-    // 7) Aggressive early ticks → relaxed long-term ticks
     var fastTicks = 0;
     var fastInterval = setInterval(function(){
       report();
@@ -1325,7 +1324,6 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
       }
     }, 200);
 
-    // 8) Force a final report after all animations should be done
     setTimeout(report, 2000);
     setTimeout(report, 4000);
   })();
