@@ -78,10 +78,18 @@
 }
 
 html { scroll-behavior: smooth; }
-html, body { width: 100%; height: auto; overflow-x: hidden; overflow-y: visible; }
+
+/* PATCH 1: Baxstar iframe scroll standard — bg on BOTH html and body so any
+   sub-pixel seam between Wix container and iframe blends invisibly. */
+html, body {
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: visible;
+  background: var(--black);
+}
 body {
   font-family: var(--font-body);
-  background: var(--black);
   color: var(--cream);
   -webkit-font-smoothing: antialiased;
 }
@@ -611,19 +619,25 @@ updateUI();
 }());
 </script>
 
-<!-- IFRAME HEIGHT REPORTER — multi-signal (Wix Custom Embed auto-resize) -->
+<!-- IFRAME HEIGHT REPORTER — multi-signal (Wix Custom Embed auto-resize)
+     PATCH 2: report() now uses Math.ceil() so sub-pixel content height rounds
+     UP (never under-reports → no stale-tall gap below). Threshold dropped
+     2 → 1 so any height change (including reveal-driven shifts) reaches Wix
+     instead of being ignored. Added 5th source (getBoundingClientRect) for
+     browsers that disagree on scrollHeight. -->
 <script>
 (function(){
   if (window.parent === window) return;
   var lastH = 0;
   function report(){
-    var h = Math.max(
+    var h = Math.ceil(Math.max(
       document.documentElement.scrollHeight,
       document.body ? document.body.scrollHeight : 0,
       document.documentElement.offsetHeight,
-      document.body ? document.body.offsetHeight : 0
-    );
-    if (h && Math.abs(h - lastH) >= 2) {
+      document.body ? document.body.offsetHeight : 0,
+      document.documentElement.getBoundingClientRect().height
+    ));
+    if (h && Math.abs(h - lastH) >= 1) {
       lastH = h;
       try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch(e){}
       try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch(e){}
