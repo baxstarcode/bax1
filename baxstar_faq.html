@@ -21,14 +21,19 @@
 <meta name="twitter:description" content="Real answers about Baxstar Fishing private guided trips on Detroit Lakes, Minnesota."/>
 <meta name="twitter:image" content="https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg"/>
 
-<!-- PRE-RENDER HEIGHT HINT — posts an initial setHeight before body parses,
-     so Wix mobile editor doesn't categorize this iframe as a tiny floating
+<!-- PATCH 1: PRE-RENDER HEIGHT HINT — reduced from 1800 to 600.
+     Background: this script posts an initial setHeight before body parses,
+     so Wix mobile editor doesn't classify the iframe as a tiny floating
      element before content renders. The full multi-signal reporter below
-     overrides this within ~200ms with the actual measured height. -->
+     overrides this within ~200ms with the actual measured height.
+     The OLD value (1800) anchored Wix high; if real content settled below
+     1800, some Wix configs wouldn't shrink the iframe, leaving a black gap
+     below the visible content. 600 is the safe floor that survives the
+     editor check without overcommitting. -->
 <script>
 (function(){
   if (window.parent === window) return;
-  var hint = 1800;
+  var hint = 600;
   try { window.parent.postMessage({ type: 'setHeight', height: hint }, '*'); } catch(e){}
   try { window.parent.postMessage({ type: 'embed-size', height: hint }, '*'); } catch(e){}
   try { window.parent.postMessage('height:' + hint, '*'); } catch(e){}
@@ -965,19 +970,25 @@ body {
 }());
 </script>
 
-<!-- IFRAME HEIGHT REPORTER — multi-signal (Wix Custom Embed auto-resize) -->
+<!-- IFRAME HEIGHT REPORTER — multi-signal (Wix Custom Embed auto-resize)
+     PATCH 2: report() now uses Math.ceil() so sub-pixel content height rounds
+     UP (never under-reports → no stale-tall gap below). Threshold dropped
+     2 → 1 so any height change (including shrinks from accordion close)
+     reaches Wix instead of being ignored. Added 5th source
+     (getBoundingClientRect) for browsers that disagree on scrollHeight. -->
 <script>
 (function(){
   if (window.parent === window) return;
   var lastH = 0;
   function report(){
-    var h = Math.max(
+    var h = Math.ceil(Math.max(
       document.documentElement.scrollHeight,
       document.body ? document.body.scrollHeight : 0,
       document.documentElement.offsetHeight,
-      document.body ? document.body.offsetHeight : 0
-    );
-    if (h && Math.abs(h - lastH) >= 2) {
+      document.body ? document.body.offsetHeight : 0,
+      document.documentElement.getBoundingClientRect().height
+    ));
+    if (h && Math.abs(h - lastH) >= 1) {
       lastH = h;
       try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch(e){}
       try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch(e){}
