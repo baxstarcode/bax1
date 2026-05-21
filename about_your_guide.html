@@ -2,1217 +2,389 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="robots" content="indexifembedded">
-<meta name="description" content="Brady Baxter — five-time Minnesota Master Angler and owner of Baxstar Fishing in Detroit Lakes, MN. Thirty years on the water, plus a life lived in six chapters: outdoorsman, performer, athlete, educator, builder, guide.">
+<meta name="robots" content="indexifembedded"/>
 
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://www.baxstarfishing.com"/>
+<meta property="og:site_name" content="Baxstar Fishing"/>
+<meta property="og:title" content="Baxstar Fishing — Detroit Lakes Private Guided Fishing"/>
+<meta property="og:description" content="Detroit Lakes' only 100% private guided fishing experience. 4.9★ rated, 5× Master Angler, 30+ years on the water."/>
+<meta property="og:image" content="https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg"/>
+<meta property="og:locale" content="en_US"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Baxstar Fishing — Detroit Lakes Private Guided Fishing"/>
+<meta name="twitter:description" content="Detroit Lakes' only 100% private guided fishing experience. 4.9★ rated, 5× Master Angler, 30+ years on the water."/>
+<meta name="twitter:image" content="https://static.wixstatic.com/media/a30e59_3f9317aa58dc475e9684360413f33ba8~mv2.jpg"/>
+<meta name="description" content="Brady Baxter — 5x Master Angler, 30+ years fishing Detroit Lakes, Minnesota. Owner and head guide of Baxstar Fishing. 4.9-star Google rating, featured in Forbes, KVLY, and Faces of Fargo.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600;700&family=Barlow:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #08080a;
+  --charcoal: #111114;
+  --dark: #18181c;
+  --mid-dark: #222228;
+  --red: #c1272d;
+  --red-bright: #e63946;
+  --red-deep: #8b1a1f;
+  --cream: #f0ece4;
+  --warm-white: #faf8f4;
+  --gold: #c9a84c;
+  --gold-dim: #9a7d3a;
+  --slate: #6b6b78;
+  --light-slate: #9a9aaa;
+  --bone: #c8c5bd;
+  --pearl: #e8e6e0;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+  --font-accent: 'Cormorant Garamond', serif;
+  --max-w: 1320px;
+  --section-pad: clamp(56px, 7vw, 98px);
+}
+
+html { scroll-behavior: smooth; }
+
+/* PATCH 1: Baxstar iframe scroll standard — bg on BOTH html and body so any
+   sub-pixel seam between Wix container and iframe blends invisibly. */
+html, body {
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: visible;
+  background: var(--black);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(14px, 2.8vw, 42px); }
+
+/* Shared buttons */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 11.9px 26.6px;
+  background: var(--red); color: white;
+  font-family: var(--font-body); font-weight: 600; font-size: 13px;
+  letter-spacing: 2px; text-transform: uppercase;
+  border: none; cursor: pointer;
+  transition: all 0.3s ease; position: relative; overflow: hidden;
+}
+.btn-primary::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.btn-primary:hover {
+  background: var(--red-bright); transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(193, 39, 45, 0.45);
+}
+.btn-primary:hover::after { opacity: 1; }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 11.9px 22.4px;
+  background: transparent; color: var(--cream);
+  font-family: var(--font-body); font-weight: 500; font-size: 13px;
+  letter-spacing: 2px; text-transform: uppercase;
+  border: 1px solid rgba(240,236,228,0.2);
+  cursor: pointer; transition: all 0.3s ease;
+}
+.btn-ghost:hover {
+  border-color: rgba(240,236,228,0.55);
+  background: rgba(240,236,228,0.05);
+}
+
+/* Shared section elements */
+.section-tag {
+  font-family: var(--font-body); font-weight: 500;
+  font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--red-bright); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-tag::before {
+  content: ''; width: 24px; height: 1px; background: var(--red);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1; letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--warm-white);
+  margin-bottom: 28px;
+}
+.section-title span { color: var(--red-bright); }
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+  will-change: transform, opacity;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); will-change: auto; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; will-change: auto; }
+}
+
+
+.guide {
+  padding: var(--section-pad) 0;
+  background: var(--charcoal);
+  position: relative; overflow: hidden;
+}
+.guide::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(240,236,228,0.07), transparent);
+}
+.guide__grid {
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  gap: clamp(40px, 6vw, 100px); align-items: center;
+}
+.guide__photo-stack { position: relative; }
+.guide__photo-main {
+  position: relative; aspect-ratio: 3/4; overflow: hidden;
+}
+.guide__photo-main img {
+  width: 100%; height: 100%; object-fit: cover; filter: contrast(1.05);
+}
+.guide__photo-accent {
+  position: absolute; bottom: -30px; right: -30px;
+  width: 55%; aspect-ratio: 1;
+  border: 0px solid var(--charcoal);
+  overflow: hidden; z-index: 2;
+}
+.guide__photo-accent img { width: 100%; height: 100%; object-fit: cover; }
+.guide__name {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 5.5vw, 64px);
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--warm-white); line-height: 1; margin-bottom: 8px;
+}
+.guide__role {
+  font-family: var(--font-accent);
+  font-size: 19px; font-style: italic;
+  color: var(--red-bright); margin-bottom: 32px;
+}
+/* Body copy — bone per body-text standard */
+.guide__bio {
+  font-size: 16px; line-height: 1.65;
+  color: var(--bone); font-weight: 300; margin-bottom: 36px;
+}
+.guide__bio p + p { margin-top: 18px; }
+.guide__bio strong { color: var(--pearl); font-weight: 500; }
+.guide__credentials {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; margin-bottom: 40px;
+}
+.cred {
+  padding: 14px;
+  border: 1px solid rgba(240,236,228,0.06);
+  background: rgba(8,8,10,0.4);
+  transition: border-color 0.3s;
+}
+.cred:hover { border-color: rgba(193,39,45,0.25); }
+.cred__value {
+  font-family: var(--font-display);
+  font-size: 30px; color: var(--red-bright);
+  line-height: 1; margin-bottom: 6px;
+}
+.cred__label {
+  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--slate);
+}
+.guide__media {
+  display: flex; align-items: center; gap: 24px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(240,236,228,0.06);
+}
+.guide__media-label {
+  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--slate); white-space: nowrap;
+}
+.guide__media-logos { display: flex; gap: 28px; align-items: center; }
+.media-logo {
+  font-family: var(--font-body); font-weight: 700;
+  font-size: 15px; color: rgba(240,236,228,0.2);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  transition: color 0.35s;
+}
+.media-logo:hover { color: rgba(240,236,228,0.6); }
+@media (max-width: 1024px) {
+  .guide__grid { grid-template-columns: 1fr; gap: 48px; }
+  .guide__photo-accent { right: 0; bottom: -20px; }
+}
+@media (max-width: 640px) {
+  .guide__credentials { grid-template-columns: 1fr; }
+
+  /* Cap main photo width + center so it doesn't dominate mobile viewport */
+  .guide__photo-stack {
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Scale accent photo down proportionally so it stays inside the frame */
+  .guide__photo-accent {
+    width: 45%;
+    bottom: -16px;
+    right: 0;
+  }
+
+  /* Stack 'As Featured In' label above logos, and let logos wrap
+     so longer names like 'Faces of Fargo' stay fully on-screen */
+  .guide__media {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .guide__media-logos {
+    flex-wrap: wrap;
+    gap: 16px 22px;
+  }
+}
+
+</style>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": "https://www.baxstarfishing.com/#brady",
-      "name": "Brady Baxter",
-      "givenName": "Brady",
-      "familyName": "Baxter",
-      "jobTitle": "Master Angler & Fishing Guide",
-      "description": "Owner and lead guide of Baxstar Fishing in Detroit Lakes, Minnesota. Five-time Minnesota Master Angler with thirty years of outdoor experience. Holds a Master's degree in Instructional Design and Technology and a K-12 Principal licensure. Former collegiate pole vaulter, lead vocalist in two bands, concert promoter, and lead role as Danny Zuko in Grease.",
-      "worksFor": {
-        "@type": "LocalBusiness",
-        "@id": "https://www.baxstarfishing.com/#business",
-        "name": "Baxstar Fishing"
-      },
-      "knowsAbout": [
-        "Walleye fishing",
-        "Muskie fishing",
-        "Ice fishing",
-        "Bass fishing",
-        "Detroit Lakes Minnesota",
-        "Live sonar (Garmin LiveScope)",
-        "Instructional Design",
-        "Education leadership",
-        "Small business operations"
-      ],
-      "hasCredential": [
-        {
-          "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "degree",
-          "name": "Master of Education in Instructional Design and Technology"
-        },
-        {
-          "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "license",
-          "name": "K-12 Principal Licensure"
-        }
-      ],
-      "award": [
-        "Five-time Minnesota Master Angler",
-        "Featured in Forbes",
-        "Featured in Faces of Fargo",
-        "Featured on KVLY-TV",
-        "Featured on WDAY-TV"
-      ]
-    },
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://www.baxstarfishing.com/#business",
-      "name": "Baxstar Fishing",
-      "founder": { "@id": "https://www.baxstarfishing.com/#brady" },
-      "employee": { "@id": "https://www.baxstarfishing.com/#brady" },
-      "telephone": "+12185551234",
-      "url": "https://www.baxstarfishing.com/",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Detroit Lakes",
-        "addressRegion": "MN",
-        "postalCode": "56501",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 46.6519,
-        "longitude": -95.8453
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "100",
-        "bestRating": "5"
-      }
-    }
-  ]
+  "@type": "Person",
+  "name": "Brady Baxter",
+  "jobTitle": "Owner and Head Fishing Guide",
+  "worksFor": { "@type": "LocalBusiness", "name": "Baxstar Fishing", "url": "https://www.baxstarfishing.com" },
+  "award": "5x Minnesota Master Angler",
+  "description": "Brady Baxter is a 5x Master Angler with 30+ years fishing the Detroit Lakes region and more than 7 years guiding professionally. Specializes in walleye, bass, pike, and crappie on Detroit Lake, Pelican Lake, Lake Sallie, Big Cormorant, Lake Lida, and the 412 lakes within 25 miles of Detroit Lakes.",
+  "knowsAbout": ["Walleye fishing", "Bass fishing", "Pike fishing", "Crappie fishing", "Detroit Lakes fishing", "Minnesota fishing guide", "Ice fishing"],
+  "url": "https://www.baxstarfishing.com"
 }
 </script>
-
-<style>
-  /* ───────── DESIGN TOKENS ───────── */
-  :root {
-    --bx-black: #08080a;
-    --bx-near-black: #0d0d11;
-    --bx-graphite: #14151a;
-    --bx-card: #17181e;
-    --bx-slate: #2a2d36;
-    --bx-fog: #4a5560;
-    --bx-bone: #c8c5bd;
-    --bx-pearl: #e8e6e0;
-
-    --bx-red: #e63946;
-    --bx-red-deep: #c1272d;
-    --bx-red-glow: rgba(230, 57, 70, 0.45);
-    --bx-cyan: #1ce3d2;
-
-    --font-display: 'Bebas Neue', 'Impact', sans-serif;
-    --font-tactical: 'Barlow Condensed', 'Arial Narrow', sans-serif;
-    --font-body: 'Barlow', 'Helvetica Neue', sans-serif;
-    --font-italic: 'Cormorant Garamond', Georgia, serif;
-    --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    background: var(--bx-black);
-    color: var(--bx-pearl);
-    font-family: var(--font-body);
-    font-weight: 300;
-    overscroll-behavior: none;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    line-height: 1.5;
-  }
-
-  .sr-only {
-    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-  }
-
-  /* ───────── REVEAL ENGINE ───────── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition:
-      opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: transform, opacity;
-  }
-  .reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-    will-change: auto;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-  }
-
-  /* ───────── DOSSIER SHELL ───────── */
-  .dossier {
-    position: relative;
-    width: 100%;
-    background: var(--bx-black);
-    color: var(--bx-pearl);
-    overflow: hidden;
-    isolation: isolate;
-  }
-  .dossier::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 40% at 80% 10%, rgba(230, 57, 70, 0.06), transparent 70%),
-      radial-gradient(ellipse 60% 50% at 20% 80%, rgba(28, 227, 210, 0.04), transparent 70%);
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  /* ───────── HERO ───────── */
-  .hero {
-    position: relative;
-    z-index: 2;
-    min-height: clamp(560px, 88vh, 920px);
-    padding: clamp(88px, 11vw, 160px) clamp(20px, 4vw, 56px) clamp(64px, 8vw, 120px);
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: clamp(32px, 4vw, 80px);
-    align-items: center;
-    max-width: 1440px;
-    margin: 0 auto;
-  }
-
-  .hero__copy { position: relative; z-index: 2; }
-
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    font-family: var(--font-tactical);
-    font-weight: 500;
-    font-size: clamp(11px, 1vw, 13px);
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--bx-red);
-    margin: 0 0 26px;
-  }
-  .eyebrow::before {
-    content: "";
-    width: 32px;
-    height: 1px;
-    background: var(--bx-red);
-    box-shadow: 0 0 10px var(--bx-red-glow);
-  }
-  .eyebrow .doc-id {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--bx-fog);
-    letter-spacing: 0.12em;
-    margin-left: auto;
-  }
-
-  .hero__name {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(64px, 12vw, 192px);
-    line-height: 0.84;
-    letter-spacing: -0.012em;
-    color: var(--bx-pearl);
-    text-transform: uppercase;
-    margin: 0;
-  }
-  .hero__name span {
-    display: block;
-  }
-  .hero__name .surname {
-    color: var(--bx-bone);
-  }
-
-  .hero__tagline {
-    font-family: var(--font-italic);
-    font-style: italic;
-    font-weight: 400;
-    font-size: clamp(20px, 2.4vw, 32px);
-    line-height: 1.25;
-    color: var(--bx-bone);
-    margin: clamp(28px, 3vw, 44px) 0 0;
-    max-width: 22ch;
-  }
-  .hero__tagline strong {
-    font-style: normal;
-    font-family: var(--font-display);
-    font-weight: 400;
-    color: var(--bx-pearl);
-    letter-spacing: 0.02em;
-  }
-
-  .hero__bluf {
-    font-size: clamp(16px, 1.4vw, 18px);
-    line-height: 1.6;
-    color: var(--bx-bone);
-    max-width: 52ch;
-    margin: clamp(28px, 3vw, 40px) 0 0;
-  }
-  .hero__bluf strong { color: var(--bx-pearl); font-weight: 500; }
-
-  /* Hero portrait frame */
-  .hero__portrait {
-    position: relative;
-    aspect-ratio: 4 / 5;
-    width: 100%;
-    max-width: 540px;
-    justify-self: end;
-    background: var(--bx-graphite);
-    overflow: hidden;
-  }
-  .hero__portrait img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
-    filter: contrast(1.05) saturate(0.92);
-  }
-  .hero__portrait::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 50%, rgba(8, 8, 10, 0.55) 100%);
-    z-index: 2;
-    pointer-events: none;
-  }
-  .hero__portrait::after {
-    content: "";
-    position: absolute;
-    inset: 12px;
-    border: 1px solid rgba(232, 230, 224, 0.12);
-    z-index: 3;
-    pointer-events: none;
-  }
-  .hero__portrait-tag {
-    position: absolute;
-    bottom: 24px;
-    left: 24px;
-    z-index: 4;
-    font-family: var(--font-tactical);
-    font-size: 10px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--bx-bone);
-  }
-  .hero__portrait-tag .key { color: var(--bx-fog); margin-right: 8px; }
-  .hero__portrait-tag .val { color: var(--bx-red); }
-
-  /* ───────── NUMBERS STRIP ───────── */
-  .numbers {
-    position: relative;
-    z-index: 2;
-    border-top: 1px solid var(--bx-slate);
-    border-bottom: 1px solid var(--bx-slate);
-    background: rgba(13, 13, 17, 0.6);
-  }
-  .numbers__inner {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: clamp(36px, 4vw, 56px) clamp(20px, 4vw, 56px);
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: clamp(16px, 2vw, 32px);
-  }
-  .stat { position: relative; }
-  .stat:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    right: -16px;
-    top: 8px;
-    bottom: 8px;
-    width: 1px;
-    background: var(--bx-slate);
-  }
-  .stat__num {
-    font-family: var(--font-display);
-    font-size: clamp(44px, 5.5vw, 84px);
-    line-height: 0.9;
-    color: var(--bx-pearl);
-    letter-spacing: 0;
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-  }
-  .stat__num sup {
-    font-size: 0.42em;
-    color: var(--bx-red);
-    font-family: var(--font-tactical);
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    top: -0.4em;
-    position: relative;
-  }
-  .stat__label {
-    font-family: var(--font-tactical);
-    font-size: clamp(10px, 0.95vw, 12px);
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--bx-bone);
-    margin-top: 8px;
-    line-height: 1.3;
-  }
-
-  /* ───────── ORIGIN CHAPTER ───────── */
-  .origin {
-    position: relative;
-    z-index: 2;
-    max-width: 880px;
-    margin: 0 auto;
-    padding: clamp(80px, 10vw, 140px) clamp(20px, 4vw, 56px);
-    text-align: center;
-  }
-  .origin__quote {
-    font-family: var(--font-italic);
-    font-style: italic;
-    font-weight: 300;
-    font-size: clamp(24px, 3.2vw, 42px);
-    line-height: 1.35;
-    color: var(--bx-pearl);
-    margin: 24px 0 0;
-  }
-  .origin__quote::before,
-  .origin__quote::after {
-    content: "";
-    display: block;
-    width: 40px;
-    height: 1px;
-    background: var(--bx-red);
-    margin: 32px auto;
-    opacity: 0.7;
-  }
-  .origin__attr {
-    font-family: var(--font-tactical);
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--bx-fog);
-    margin-top: 24px;
-  }
-  /* New: body copy under the origin quote */
-  .origin__body {
-    font-family: var(--font-body);
-    font-weight: 300;
-    font-size: clamp(16px, 1.4vw, 18px);
-    line-height: 1.65;
-    color: var(--bx-bone);
-    max-width: 56ch;
-    margin: 28px auto 0;
-  }
-  .origin__body + .origin__body { margin-top: 18px; }
-  .origin__body strong { color: var(--bx-pearl); font-weight: 500; }
-  /* New: spacing between adjacent connect__copy paragraphs */
-  .connect__copy + .connect__copy { margin-top: 18px; }
-
-  /* ───────── SIX LIVES SECTION ───────── */
-  .lives {
-    position: relative;
-    z-index: 2;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: clamp(64px, 8vw, 120px) clamp(20px, 4vw, 56px) clamp(80px, 9vw, 140px);
-  }
-  .lives__head {
-    display: grid;
-    grid-template-columns: 0.6fr 1.4fr;
-    gap: clamp(24px, 3vw, 56px);
-    margin-bottom: clamp(48px, 6vw, 88px);
-    align-items: end;
-  }
-  .lives__head-tagline {
-    font-family: var(--font-italic);
-    font-style: italic;
-    font-size: clamp(18px, 1.8vw, 22px);
-    line-height: 1.5;
-    color: var(--bx-bone);
-    max-width: 56ch;
-  }
-  .lives__head-tagline strong {
-    font-style: normal;
-    color: var(--bx-pearl);
-    font-weight: 500;
-  }
-  .lives__title {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(56px, 8vw, 116px);
-    line-height: 0.9;
-    letter-spacing: -0.005em;
-    color: var(--bx-pearl);
-    text-transform: uppercase;
-    margin: 0;
-  }
-  .lives__title em {
-    font-family: var(--font-italic);
-    font-style: italic;
-    color: var(--bx-bone);
-    font-size: 0.42em;
-    display: block;
-    text-transform: none;
-    letter-spacing: 0;
-    margin-top: 0.4em;
-    line-height: 1.1;
-  }
-
-  .lives__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(16px, 1.8vw, 28px);
-  }
-
-  /* ──── INDIVIDUAL CHAPTER CARDS ──── */
-  .chapter {
-    position: relative;
-    background: var(--bx-card);
-    border: 1px solid var(--bx-slate);
-    overflow: hidden;
-    transition:
-      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-      border-color 0.5s ease,
-      box-shadow 0.5s ease;
-  }
-  .chapter:hover {
-    transform: translateY(-4px);
-    border-color: var(--bx-fog);
-    box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(230, 57, 70, 0.18);
-  }
-  .chapter:hover .chapter__img img {
-    transform: scale(1.06);
-  }
-  .chapter:hover .chapter__num {
-    color: var(--bx-red);
-  }
-
-  .chapter__img {
-    position: relative;
-    aspect-ratio: 5 / 4;
-    background: var(--bx-near-black);
-    overflow: hidden;
-  }
-  .chapter__img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
-    filter: contrast(1.04) saturate(0.9);
-  }
-  .chapter__img::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(20, 21, 26, 0.85) 100%);
-    pointer-events: none;
-  }
-
-/* Image slot — hides cleanly when src=""  */
-  .chapter__photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
-    filter: contrast(1.04) saturate(0.9);
-    position: relative;
-    z-index: 1;
-  }
-  .chapter__photo[src=""],
-  .chapter__photo:not([src]) {
-    display: none;
-  }
-  .chapter:hover .chapter__photo {
-    transform: scale(1.06);
-  }
-  /* Soft branded fallback when no image is supplied — shown via the existing .chapter__placeholder structure */
-
-  .chapter__placeholder {
-    /* Used when an image isn't supplied — visible scaffold for Brady to drop assets in */
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background:
-      linear-gradient(135deg, var(--bx-graphite) 0%, var(--bx-near-black) 100%);
-  }
-  .chapter__placeholder svg { width: 64px; height: 64px; opacity: 0.18; }
-
-  .chapter__num {
-    position: absolute;
-    top: 18px;
-    left: 18px;
-    z-index: 2;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    color: var(--bx-bone);
-    background: rgba(8, 8, 10, 0.7);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    padding: 6px 10px;
-    border: 1px solid rgba(232, 230, 224, 0.12);
-    transition: color 0.5s ease;
-  }
-
-  .chapter__body {
-    padding: clamp(22px, 2.4vw, 32px);
-  }
-  .chapter__title {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(28px, 2.8vw, 36px);
-    line-height: 1;
-    letter-spacing: 0.02em;
-    color: var(--bx-pearl);
-    text-transform: uppercase;
-    margin: 0 0 8px;
-  }
-  .chapter__sub {
-    font-family: var(--font-italic);
-    font-style: italic;
-    font-size: clamp(14px, 1.2vw, 16px);
-    color: var(--bx-bone);
-    line-height: 1.4;
-    margin: 0 0 22px;
-  }
-  .chapter__copy {
-    font-size: clamp(14px, 1.05vw, 15px);
-    line-height: 1.65;
-    color: var(--bx-bone);
-    margin: 0 0 22px;
-  }
-  .chapter__copy strong { color: var(--bx-pearl); font-weight: 500; }
-
-  .chapter__connect {
-    border-top: 1px solid var(--bx-slate);
-    padding-top: 18px;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 12px;
-    align-items: start;
-  }
-  .chapter__connect-label {
-    font-family: var(--font-tactical);
-    font-size: 10px;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--bx-red);
-    line-height: 1.4;
-    padding-top: 2px;
-    white-space: nowrap;
-  }
-  .chapter__connect-text {
-    font-size: clamp(13px, 1vw, 14px);
-    line-height: 1.55;
-    color: var(--bx-pearl);
-    font-weight: 400;
-  }
-
-  /* ───────── CONNECTION PANEL ───────── */
-  .connect {
-    position: relative;
-    z-index: 2;
-    background: linear-gradient(180deg, transparent 0%, rgba(13, 13, 17, 0.7) 50%, transparent 100%);
-    padding: clamp(80px, 10vw, 140px) clamp(20px, 4vw, 56px);
-    border-top: 1px solid var(--bx-slate);
-    border-bottom: 1px solid var(--bx-slate);
-  }
-  .connect__inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .connect__title {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(40px, 5.5vw, 80px);
-    line-height: 1;
-    letter-spacing: 0;
-    color: var(--bx-pearl);
-    text-transform: uppercase;
-    margin: 0 0 28px;
-  }
-  .connect__title em {
-    font-family: var(--font-italic);
-    font-style: italic;
-    color: var(--bx-bone);
-    font-size: 0.5em;
-    display: block;
-    text-transform: none;
-    margin-top: 0.3em;
-    letter-spacing: 0;
-  }
-  .connect__copy {
-    font-size: clamp(16px, 1.4vw, 19px);
-    line-height: 1.65;
-    color: var(--bx-bone);
-    max-width: 64ch;
-    margin: 0 auto;
-  }
-  .connect__copy strong { color: var(--bx-pearl); font-weight: 500; }
-
-  .connect__pairs {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: clamp(16px, 2vw, 28px) clamp(24px, 3vw, 48px);
-    margin-top: clamp(48px, 5vw, 72px);
-    text-align: left;
-  }
-  .pair {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 16px;
-    align-items: center;
-    padding: 18px 0;
-    border-top: 1px solid var(--bx-slate);
-  }
-  .pair__client {
-    font-family: var(--font-italic);
-    font-style: italic;
-    font-size: clamp(14px, 1.2vw, 16px);
-    color: var(--bx-bone);
-    line-height: 1.4;
-  }
-  .pair__arrow {
-    font-family: var(--font-mono);
-    color: var(--bx-red);
-    font-size: 14px;
-  }
-  .pair__life {
-    font-family: var(--font-tactical);
-    font-size: clamp(11px, 1vw, 13px);
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--bx-pearl);
-    font-weight: 600;
-  }
-
-  /* ───────── PRESS STRIP ───────── */
-  .press {
-    position: relative;
-    z-index: 2;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: clamp(56px, 6vw, 88px) clamp(20px, 4vw, 56px);
-    text-align: center;
-  }
-  .press__label {
-    font-family: var(--font-tactical);
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--bx-fog);
-    margin-bottom: 28px;
-  }
-  .press__list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: clamp(24px, 4vw, 56px);
-    list-style: none;
-  }
-  .press__list li {
-    font-family: var(--font-display);
-    font-size: clamp(20px, 2vw, 28px);
-    color: var(--bx-bone);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    opacity: 0.65;
-    transition: opacity 0.4s ease, color 0.4s ease;
-  }
-  .press__list li:hover { opacity: 1; color: var(--bx-pearl); }
-
-  /* ───────── CTA ───────── */
-  .cta-final {
-    position: relative;
-    z-index: 2;
-    padding: clamp(72px, 9vw, 128px) clamp(20px, 4vw, 56px);
-    border-top: 1px solid var(--bx-slate);
-    background: linear-gradient(180deg, transparent 0%, rgba(13, 13, 17, 0.8) 100%);
-  }
-  .cta-final__inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .cta-final__lede {
-    font-family: var(--font-italic);
-    font-style: italic;
-    font-size: clamp(20px, 2vw, 26px);
-    color: var(--bx-bone);
-    margin: 0 0 16px;
-  }
-  .cta-final__head {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(40px, 5vw, 72px);
-    line-height: 1;
-    letter-spacing: 0;
-    color: var(--bx-pearl);
-    text-transform: uppercase;
-    margin: 0 0 32px;
-  }
-  .cta-final__sub {
-    font-family: var(--font-tactical);
-    font-size: 12px;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--bx-fog);
-    margin: 24px 0 0;
-  }
-  .cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    padding: 18px 36px;
-    background: var(--bx-red);
-    color: var(--bx-pearl);
-    text-decoration: none;
-    font-family: var(--font-tactical);
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    border: 1px solid var(--bx-red);
-    transition: background 0.4s ease, transform 0.4s ease;
-    position: relative;
-  }
-  .cta-button:hover {
-    background: var(--bx-red-deep);
-    transform: translateY(-1px);
-  }
-  .cta-button::after {
-    content: "→";
-    font-family: var(--font-mono);
-    font-size: 17px;
-    transition: transform 0.4s ease;
-  }
-  .cta-button:hover::after { transform: translateX(5px); }
-
-  /* ───────── RESPONSIVE ───────── */
-  @media (max-width: 1024px) {
-    .hero { grid-template-columns: 1fr; gap: 48px; }
-    .hero__portrait { max-width: 480px; justify-self: start; }
-    .lives__grid { grid-template-columns: repeat(2, 1fr); }
-    .lives__head { grid-template-columns: 1fr; gap: 32px; }
-    .numbers__inner { grid-template-columns: repeat(3, 1fr); gap: 32px 16px; }
-    .stat:nth-child(3)::after { display: none; }
-    .connect__pairs { grid-template-columns: 1fr; }
-  }
-
-  @media (max-width: 640px) {
-    .hero { padding-top: 72px; }
-    .lives__grid { grid-template-columns: 1fr; }
-    .numbers__inner { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; }
-    .stat:nth-child(2n)::after { display: none; }
-    .stat:not(:last-child)::after { right: -8px; }
-    .pair { grid-template-columns: 1fr; gap: 6px; padding: 14px 0; }
-    .pair__arrow { display: none; }
-    .pair__life { font-size: 12px; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .chapter, .chapter__img img, .cta-button, .cta-button::after { transition: none !important; }
-    .chapter:hover { transform: none; }
-    .chapter:hover .chapter__img img { transform: none; }
-  }
-</style>
 </head>
 <body>
 
-<section class="dossier" aria-labelledby="dossier-name">
 
-  <!-- ═══════════ HERO ═══════════ -->
-  <header class="hero">
-    <div class="hero__copy">
-      <p class="eyebrow reveal">
-        Meet Your Guide
-        <span class="doc-id">DOSSIER · 01</span>
-      </p>
-
-      <h1 class="hero__name reveal" id="dossier-name">
-        <span>Brady</span>
-        <span class="surname">Baxter</span>
-        <span class="sr-only"> — Owner and lead guide of Baxstar Fishing in Detroit Lakes, Minnesota</span>
-      </h1>
-
-      <p class="hero__tagline reveal">
-        <strong>Six chapters.</strong><br>
-        One boat. One standard.
-      </p>
-
-      <p class="hero__bluf reveal">
-        <strong>Most fishing guides are one chapter deep. Brady Baxter is not.</strong> Brady has spent more than 30 years fishing the Detroit Lakes region and over seven years guiding professionally. He is a five-time Minnesota Master Angler, author of the weekly Detroit Lakes area fishing report, and owner of Baxstar Fishing.
-      </p>
-
-      <p class="hero__bluf reveal">
-        But the difference is not just the fishing résumé. Before guiding, Brady lived several different chapters — performer, athlete, educator, business owner, outdoorsman, and guide. Each one taught him how to read people, lead a group, teach clearly, manage details, and create a day that feels easy for the people who booked it.
-      </p>
-
-      <p class="hero__bluf reveal">
-        <strong>Fishing skill matters. So does the person running the boat.</strong>
-      </p>
-    </div>
-
-    <figure class="hero__portrait reveal" aria-label="Brady Baxter — Master Angler, Detroit Lakes Minnesota">
-      <!-- Replace src with Brady's preferred portrait once selected. Suggestion: a working-on-the-boat shot with eye contact, not posed studio. -->
-      <img src="https://static.wixstatic.com/media/a30e59_3f38ef696d704b2fb29262fe2e221f22~mv2.webp"
-           alt="Brady Baxter, owner and lead guide of Baxstar Fishing, on the water at Detroit Lakes, Minnesota"
-           loading="eager"
-           decoding="async"
-           onerror="this.style.display='none'; this.parentElement.classList.add('no-image');">
-      <figcaption class="hero__portrait-tag" aria-hidden="true">
-        <span class="key">SUBJECT</span><span class="val">B. BAXTER</span>
-      </figcaption>
-    </figure>
-  </header>
-
-  <!-- ═══════════ NUMBERS STRIP ═══════════ -->
-  <div class="numbers" aria-label="Career statistics">
-    <div class="numbers__inner">
-      <div class="stat reveal">
-        <div class="stat__num">30<sup>YR</sup></div>
-        <div class="stat__label">On the water</div>
+<section class="guide" id="guide">
+  <div class="container">
+    <div class="guide__grid">
+      <div class="guide__photo-stack reveal">
+        <div class="guide__photo-main">
+          <img src="https://static.wixstatic.com/media/a30e59_e6e2828b9db1463aaea7ebe61d462125~mv2.webp" alt="Brady Baxter – Baxstar Fishing guide">
+        </div>
+        <div class="guide__photo-accent">
+          <img src="https://static.wixstatic.com/media/a30e59_b99a0c5485364ed68a2222c99fc5ad1d~mv2.png" alt="Brady Baxter with trophy catch">
+        </div>
       </div>
-      <div class="stat reveal">
-        <div class="stat__num">7<sup>YR</sup></div>
-        <div class="stat__label">Guiding professionally</div>
-      </div>
-      <div class="stat reveal">
-        <div class="stat__num">5<sup>×</sup></div>
-        <div class="stat__label">MN Master Angler</div>
-      </div>
-      <div class="stat reveal">
-        <div class="stat__num">100<sup>+</sup></div>
-        <div class="stat__label">Five-star reviews</div>
-      </div>
-      <div class="stat reveal">
-        <div class="stat__num">4</div>
-        <div class="stat__label">Businesses owned</div>
-      </div>
-      <div class="stat reveal">
-        <div class="stat__num">2</div>
-        <div class="stat__label">Graduate credentials</div>
+      <div class="guide__content reveal">
+        <div class="section-tag">Your Guide</div>
+        <h2 class="guide__name">Brady Baxter</h2>
+        <div class="guide__role">Owner & Head Guide — Baxstar Fishing</div>
+        <div class="guide__bio">
+          <p>
+            Brady Baxter has spent more than 30 years fishing the Detroit Lakes region and over seven years guiding professionally. With five Master Angler awards, a Forbes feature, more than 20 TV appearances, and clients who rebook before they leave the dock, Brady has earned his reputation as one of the area's most trusted voices on walleye, bass, pike, and panfish. That same local knowledge is why he authors the weekly Detroit Lakes area fishing report.
+          </p>
+          <p>
+            He does not rely on one lake, one pattern, or one technique. With access to more than 400 lakes within 25 miles of Detroit Lakes and a lifetime of experience across every season and condition, Brady reads the water the way most people read a room — quickly, accurately, and with a clear plan.
+          </p>
+        </div>
+
+        <div class="guide__credentials">
+          <div class="cred"><div class="cred__value">5x</div><div class="cred__label">Master Angler</div></div>
+          <div class="cred"><div class="cred__value">30+</div><div class="cred__label">Years Fishing</div></div>
+          <div class="cred"><div class="cred__value">7+</div><div class="cred__label">Years Guiding</div></div>
+          <div class="cred"><div class="cred__value">412</div><div class="cred__label">Lakes Within 25 Miles</div></div>
+        </div>
+
+        <div class="guide__media">
+          <div class="guide__media-label">As Featured In</div>
+          <div class="guide__media-logos">
+            <span class="media-logo">Forbes</span>
+            <span class="media-logo">KVLY</span>
+            <span class="media-logo">WDAY</span>
+            <span class="media-logo">Faces of Fargo</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-  <!-- ═══════════ ORIGIN ═══════════ -->
-  <section class="origin" aria-labelledby="origin-head">
-    <h3 class="eyebrow reveal" id="origin-head">Origin · 1988</h3>
-    <p class="origin__quote reveal">
-      It started with a thermos, a tackle box, and a grandfather who believed quiet mornings on the water were a kind of education most kids never get.
-    </p>
-    <p class="origin__body reveal">
-      <strong>Thirty years later, those lessons still show up.</strong>
-    </p>
-    <p class="origin__body reveal">
-      Wind, timing, seasonal patterns, subtle bites, boat control, pressure changes — none of it is random when you have spent a lifetime paying attention.
-    </p>
-  </section>
-
-  <!-- ═══════════ THE SIX LIVES ═══════════ -->
-  <section class="lives" aria-labelledby="lives-title">
-    <div class="lives__head">
-      <h2 class="lives__title reveal" id="lives-title">
-        Six Chapters
-        <em>The unexpected résumé behind your day on the water.</em>
-      </h2>
-      <p class="lives__head-tagline reveal">
-        Brady's good at fishing because he's been good at several other things first. <strong>Every one of them shows up the moment you step onto the boat.</strong>
-      </p>
-    </div>
-
-    <div class="lives__grid">
-
-      <!-- 01 — THE OUTDOORSMAN -->
-      <article class="chapter reveal" aria-labelledby="ch-01-title">
-        <div class="chapter__img">
-          <div class="chapter__placeholder" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--bx-fog);"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="11" r="2"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg>
-          </div>
-          <span class="chapter__num">01 / 06</span>
-          <!-- 👇 PASTE YOUR IMAGE URL BETWEEN THE QUOTES IN src="" BELOW.   (Vintage shot of Brady fishing as a kid with grandpa, OR a current B&W of him walking a shoreline) -->
-          <img class="chapter__photo" src="https://static.wixstatic.com/media/a30e59_7fc1b37df0f54c4d9b0c81de2dbfb111~mv2.webp" alt="Brady Baxter as a young angler — three decades of outdoor experience" loading="lazy" decoding="async">
-        </div>
-        <div class="chapter__body">
-          <h3 class="chapter__title" id="ch-01-title">The Outdoorsman</h3>
-          <p class="chapter__sub">Three decades. One classroom: the water.</p>
-          <p class="chapter__copy">
-            Brady's fishing life started with his grandfather and grew into more than 30 years on the lakes around Detroit Lakes.
-          </p>
-          <p class="chapter__copy">
-            That kind of time matters. Every season adds another layer — spring walleyes, summer bass, fall transitions, ice fishing, tough bites, easy bites, and days when the first plan does not work.
-          </p>
-          <div class="chapter__connect">
-            <span class="chapter__connect-label">On the boat</span>
-            <span class="chapter__connect-text">You get a guide who has seen these lakes in every mood and knows how to adjust.</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- 02 — THE PERFORMER -->
-      <article class="chapter reveal" aria-labelledby="ch-02-title">
-        <div class="chapter__img">
-          <div class="chapter__placeholder" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--bx-fog);"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="11" r="2"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg>
-          </div>
-          <span class="chapter__num">02 / 06</span>
-          <!-- 👇 PASTE YOUR IMAGE URL BETWEEN THE QUOTES IN src="" BELOW.   (Stage shot — singing, mic in hand, OR a Grease cast photo if available) -->
-          <img class="chapter__photo" src="https://static.wixstatic.com/media/a30e59_fa784a3daf214fc88508feda1afadb87~mv2.jpg" alt="Brady Baxter performing as lead vocalist on stage" loading="lazy" decoding="async">
-        </div>
-        <div class="chapter__body">
-          <h3 class="chapter__title" id="ch-02-title">The Performer</h3>
-          <p class="chapter__sub">Front man. Stage presence. Reading the room.</p>
-          <p class="chapter__copy">
-            Years on stage taught Brady how to read a group quickly.
-          </p>
-          <p class="chapter__copy">
-            Some clients want quiet focus. Some want energy. Some are nervous. Some want details. Some groups need patience, and some need momentum.
-          </p>
-          <div class="chapter__connect">
-            <span class="chapter__connect-label">On the boat</span>
-            <span class="chapter__connect-text">Brady adjusts the tone of the trip to fit the people in front of him.</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- 03 — THE PROMOTER & ATHLETE -->
-      <article class="chapter reveal" aria-labelledby="ch-03-title">
-        <div class="chapter__img">
-          <div class="chapter__placeholder" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--bx-fog);"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="11" r="2"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg>
-          </div>
-          <span class="chapter__num">03 / 06</span>
-          <!-- 👇 PASTE YOUR IMAGE URL BETWEEN THE QUOTES IN src="" BELOW.   (Pole vault action photo OR a concert/event behind-the-scenes shot) -->
-          <img class="chapter__photo" src="https://static.wixstatic.com/media/a30e59_5b9cda9f2b7d435d896aec7a3a9dadb3~mv2.png" alt="Brady Baxter as a collegiate pole vaulter" loading="lazy" decoding="async">
-        </div>
-        <div class="chapter__body">
-          <h3 class="chapter__title" id="ch-03-title">The Athlete</h3>
-          <p class="chapter__sub">Collegiate pole vaulter. Repetition, discipline, precision.</p>
-          <p class="chapter__copy">
-            Pole vaulting rewards preparation, timing, repetition, and small adjustments under pressure.
-          </p>
-          <p class="chapter__copy">
-            Guiding is similar. Boat position matters. Casting angles matter. Gear matters. Timing matters. The best trips look relaxed because the work was done before the client arrived.
-          </p>
-          <div class="chapter__connect">
-            <span class="chapter__connect-label">On the boat</span>
-            <span class="chapter__connect-text">You get a guide who takes the details seriously.</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- 04 — THE EDUCATOR -->
-      <article class="chapter reveal" aria-labelledby="ch-04-title">
-        <div class="chapter__img">
-          <div class="chapter__placeholder" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--bx-fog);"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="11" r="2"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg>
-          </div>
-          <span class="chapter__num">04 / 06</span>
-          <!-- 👇 PASTE YOUR IMAGE URL BETWEEN THE QUOTES IN src="" BELOW.   (Classroom or graduation shot, OR Brady showing a client how to work a setup) -->
-          <img class="chapter__photo" src="https://static.wixstatic.com/media/a30e59_b0506bf0e5f84eea8b2ff5279235668e~mv2_d_3264_2448_s_4_2.jpg" alt="Brady Baxter teaching and coaching anglers on the water" loading="lazy" decoding="async">
-        </div>
-        <div class="chapter__body">
-          <h3 class="chapter__title" id="ch-04-title">The Educator</h3>
-          <p class="chapter__sub">Master's in Instructional Design &amp; Technology. K-12 Principal Licensure.</p>
-          <p class="chapter__copy">
-            Brady is trained in how people learn.
-          </p>
-          <p class="chapter__copy">
-            That matters on the boat. A beginner should not feel overwhelmed. A kid should not feel lectured. A serious angler may want the "why" behind every decision.
-          </p>
-          <div class="chapter__connect">
-            <span class="chapter__connect-label">On the boat</span>
-            <span class="chapter__connect-text">If you are new, you will feel comfortable. If you want to learn, you will leave better than you arrived.</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- 05 — THE BUILDER -->
-      <article class="chapter reveal" aria-labelledby="ch-05-title">
-        <div class="chapter__img">
-          <div class="chapter__placeholder" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--bx-fog);"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="11" r="2"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg>
-          </div>
-          <span class="chapter__num">05 / 06</span>
-          <!-- 👇 PASTE YOUR IMAGE URL BETWEEN THE QUOTES IN src="" BELOW.   (Workshop or operations photo, OR Brady at the boat ramp staging gear) -->
-          <img class="chapter__photo" src="https://static.wixstatic.com/media/a30e59_834165efc15c4b7183bb552a910f312a~mv2.jpg" alt="Brady Baxter staging gear at the boat ramp before a guided fishing trip" loading="lazy" decoding="async">
-        </div>
-        <div class="chapter__body">
-          <h3 class="chapter__title" id="ch-05-title">The Builder</h3>
-          <p class="chapter__sub">Founder and owner of multiple small businesses.</p>
-          <p class="chapter__copy">
-            Running service businesses teaches you that the little things are not little.
-          </p>
-          <p class="chapter__copy">
-            Clear communication, clean gear, being on time, having a plan, and handling problems before clients feel them — that is part of the experience.
-          </p>
-          <div class="chapter__connect">
-            <span class="chapter__connect-label">On the boat</span>
-            <span class="chapter__connect-text">The gear is ready. The boat is ready. The route is thought through. You step on, and you fish.</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- 06 — THE GUIDE -->
-      <article class="chapter reveal" aria-labelledby="ch-06-title">
-        <div class="chapter__img">
-          <div class="chapter__placeholder" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--bx-fog);"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="11" r="2"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg>
-          </div>
-          <span class="chapter__num">06 / 06</span>
-          <!-- 👇 PASTE YOUR IMAGE URL BETWEEN THE QUOTES IN src="" BELOW.   (Hero working photo — Brady on the Vexus DVX20S, LiveScope visible, sunrise/sunset light) -->
-          <img class="chapter__photo" src="https://static.wixstatic.com/media/a30e59_1949bbf9960c4865a3b1edf5392ae364~mv2.webp" alt="Brady Baxter on the Vexus DVX20S with Garmin LiveScope, Detroit Lakes Minnesota" loading="lazy" decoding="async">
-        </div>
-        <div class="chapter__body">
-          <h3 class="chapter__title" id="ch-06-title">The Guide</h3>
-          <p class="chapter__sub">Seven-plus years professional. Five-time Minnesota Master Angler. Local authority.</p>
-          <p class="chapter__copy">
-            This is where it all comes together.
-          </p>
-          <p class="chapter__copy">
-            Brady does not rely on one lake, one pattern, or one technique. With access to more than 400 lakes within 25 miles of Detroit Lakes, he builds each trip around the best opportunity that day.
-          </p>
-          <div class="chapter__connect">
-            <span class="chapter__connect-label">On the boat</span>
-            <span class="chapter__connect-text">You get a prepared, professional guide who knows the area, knows the fish, and knows how to lead the day.</span>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- ═══════════ CONNECTION PANEL ═══════════ -->
-  <section class="connect" aria-labelledby="connect-title">
-    <div class="connect__inner">
-      <h2 class="connect__title reveal" id="connect-title">
-        Why It Matters
-        <em>The hidden value of a guide who has lived more than one life.</em>
-      </h2>
-      <p class="connect__copy reveal">
-        <strong>The best clients do not just book guides.</strong>
-      </p>
-
-      <p class="connect__copy reveal">
-        They book days.
-      </p>
-
-      <p class="connect__copy reveal">
-        A great trip is not only about rods, reels, electronics, or even the fish. The person running the boat sets the tone, makes the decisions, teaches, adjusts, encourages, hosts, and solves problems before the client notices them.
-      </p>
-
-      <p class="connect__copy reveal">
-        <strong>That is where Brady's background matters.</strong>
-      </p>
-
-      <p class="connect__copy reveal">
-        First-timers need patience. Serious anglers need credibility. Corporate groups need polish. Families need the day to stay fun. Returning clients expect the same high standard every time.
-      </p>
-
-      <p class="connect__copy reveal">
-        Different groups need different versions of a great day. Brady's job is to read that quickly and build the trip around it.
-      </p>
-    </div>
-  </section>
-
-  <!-- ═══════════ PRESS STRIP ═══════════ -->
-  <section class="press" aria-labelledby="press-head">
-    <h3 class="eyebrow reveal" id="press-head" style="justify-content: center;">As Featured In</h3>
-    <ul class="press__list reveal">
-      <li>Forbes</li>
-      <li>Faces of Fargo</li>
-      <li>KVLY-TV</li>
-      <li>WDAY-TV</li>
-    </ul>
-  </section>
-
-  <!-- ═══════════ FINAL CTA ═══════════ -->
-  <section class="cta-final" aria-labelledby="cta-final-head">
-    <div class="cta-final__inner">
-      <p class="cta-final__lede reveal">The best dates do not stay open long.</p>
-      <h2 class="cta-final__head reveal" id="cta-final-head">Reserve Your Day</h2>
-      <a class="cta-button reveal"
-         href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/"
-         target="_top"
-         rel="noopener"
-         aria-label="Reserve a private guided fishing trip with Brady Baxter">
-        Reserve This Day
-      </a>
-      <p class="cta-final__sub reveal">One group per trip · One boat · One standard</p>
-    </div>
-  </section>
-
 </section>
 
+
 <script>
-(function() {
-  'use strict';
-
-  // ─── REVEAL ENGINE ───
-  // Stagger via CSS transitionDelay stamped per-element at init (per project standard).
-  // No setTimeout inside IO; classList.add wrapped in rAF.
-
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const items = document.querySelectorAll('.reveal');
-
-  // Group reveals by their parent section so stagger restarts per section
-  const groups = new Map();
-  items.forEach((el) => {
-    const section = el.closest('section, header') || document.body;
-    if (!groups.has(section)) groups.set(section, []);
-    groups.get(section).push(el);
-  });
-
-  // Stamp delays
-  groups.forEach((els) => {
-    els.forEach((el, idx) => {
-      const delay = Math.min(idx * 70, 560); // cap stagger so late items don't lag too long
-      el.style.transitionDelay = reducedMotion ? '0ms' : delay + 'ms';
+(function () {
+  var reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
+  reveals.forEach(function(el, i) { el.style.transitionDelay = (i * 65) + 'ms'; });
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    reveals.forEach(function(el) { el.style.transitionDelay = '0ms'; el.classList.add('visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        requestAnimationFrame(function() { entry.target.classList.add('visible'); });
+        io.unobserve(entry.target);
+      }
     });
-  });
+  }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+  reveals.forEach(function(el) { io.observe(el); });
+}());
+</script>
 
-  if (reducedMotion) {
-    items.forEach((el) => el.classList.add('is-visible'));
-  } else {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          requestAnimationFrame(() => el.classList.add('is-visible'));
-          io.unobserve(el);
-        }
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
-
-    items.forEach((el) => io.observe(el));
-  }
-
-  // ─── IFRAME HEIGHT REPORTER (Wix Custom Embed) ───
-  const reportHeight = () => {
-    if (window.parent && window.parent !== window) {
-      try {
-        window.parent.postMessage({
-          type: 'baxstar:height',
-          section: 'about-guide',
-          height: document.body.scrollHeight
-        }, '*');
-      } catch (e) { /* cross-origin — ignore */ }
+<!-- IFRAME HEIGHT REPORTER — multi-signal (Wix Custom Embed auto-resize)
+     PATCH 2: report() now uses Math.ceil() so sub-pixel content height rounds
+     UP (never under-reports → no stale-tall gap below). Threshold dropped
+     2 → 1 so any height change (including shrinks from reveal/hover) reaches
+     Wix instead of being ignored. Added 5th source (getBoundingClientRect)
+     for browsers that disagree on scrollHeight. -->
+<script>
+(function(){
+  if (window.parent === window) return;
+  var lastH = 0;
+  function report(){
+    var h = Math.ceil(Math.max(
+      document.documentElement.scrollHeight,
+      document.body ? document.body.scrollHeight : 0,
+      document.documentElement.offsetHeight,
+      document.body ? document.body.offsetHeight : 0,
+      document.documentElement.getBoundingClientRect().height
+    ));
+    if (h && Math.abs(h - lastH) >= 1) {
+      lastH = h;
+      try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage('height:' + h, '*'); } catch(e){}
     }
-  };
-  window.addEventListener('load', reportHeight);
-  window.addEventListener('resize', reportHeight);
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(reportHeight);
   }
-  // Re-report after reveals settle (heights can shift slightly with transforms)
-  setTimeout(reportHeight, 1500);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', report);
+  else report();
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(report);
+  if (window.ResizeObserver) {
+    try { var ro = new ResizeObserver(report); ro.observe(document.documentElement); if (document.body) ro.observe(document.body); } catch(e){}
+  }
+  if (window.MutationObserver && document.body) {
+    try { new MutationObserver(report).observe(document.body, { subtree:true, childList:true, attributes:true, attributeFilter:['class','style'] }); } catch(e){}
+  }
+  document.addEventListener('transitionend', function(e){
+    if (e.target && e.target.classList && e.target.classList.contains('reveal')) report();
+  }, true);
+  var ticks = 0;
+  var early = setInterval(function(){
+    report(); ticks++;
+    if (ticks >= 30) { clearInterval(early); setInterval(report, 1500); }
+  }, 200);
 })();
 </script>
 
