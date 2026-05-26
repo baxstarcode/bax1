@@ -633,7 +633,6 @@
   }
 
   .intel__col {
-    border-top: 1px solid var(--bx-slate);
     padding-top: 28px;
   }
 
@@ -675,100 +674,6 @@
     margin: 0 0 14px;
     line-height: 1.4;
   }
-
-  /* ───────── CTA STRIP ───────── */
-  .ops__cta {
-    position: relative;
-    z-index: 3;
-    padding: clamp(40px, 5vw, 64px) clamp(20px, 4vw, 56px);
-    border-top: 1px solid var(--bx-slate);
-    border-bottom: 1px solid var(--bx-slate);
-    background: linear-gradient(180deg, rgba(13, 13, 17, 0) 0%, rgba(13, 13, 17, 0.6) 100%);
-  }
-  .ops__cta-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-  }
-  .ops__cta-text {
-    font-family: var(--font-display);
-    font-size: clamp(22px, 2.4vw, 32px);
-    letter-spacing: 0.02em;
-    color: var(--bx-pearl);
-  }
-  .ops__cta-text h3 {
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: 400;
-    letter-spacing: inherit;
-    color: inherit;
-    margin: 0;
-    line-height: 1.05;
-    text-transform: uppercase;
-  }
-  .ops__cta-text em {
-    font-family: var(--font-italic);
-    font-style: italic;
-    color: var(--bx-bone);
-    font-size: 0.7em;
-    display: block;
-    letter-spacing: 0;
-    margin-top: 4px;
-  }
-  .ops__cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    padding: 16px 28px;
-    background: var(--bx-red);
-    color: var(--bx-pearl);
-    text-decoration: none;
-    font-family: var(--font-tactical);
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    border: 1px solid var(--bx-red);
-    transform: skewX(-12deg);
-    white-space: nowrap;
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  .ops__cta-button > * {
-    display: inline-flex;
-    align-items: center;
-    transform: skewX(12deg);
-  }
-  .ops__cta-button svg {
-    width: 14px;
-    height: 14px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2.2;
-    flex-shrink: 0;
-    transition: transform 0.3s ease;
-  }
-  .ops__cta-button::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0.18), transparent 60%);
-    opacity: 0;
-    transition: opacity 0.32s ease;
-    pointer-events: none;
-  }
-  .ops__cta-button:hover {
-    background: var(--bx-red-deep);
-    transform: skewX(-12deg) translateY(-2px);
-    box-shadow: 0 10px 30px var(--bx-red-glow);
-  }
-  .ops__cta-button:hover::after { opacity: 1; }
-  .ops__cta-button:hover svg { transform: skewX(12deg) translateX(4px); }
 
   /* ═════════════════════════════════════════════════════════
      RESPONSIVE — MOBILE LAYOUT
@@ -1184,20 +1089,6 @@
         <strong>Baxstar runs a portfolio of lakes.</strong> If a cold front shuts down Detroit Lake, the boat is on Big Cormorant by 7 a.m. If walleyes are stacked deep on Lake Lida, that's where the day starts. Three decades of pattern recognition — fewer slow days, and a calendar that reads like a working chart, not a sales sheet.
       </p>
     </article>
-  </aside>
-
-  <!-- ── CTA strip ── -->
-  <aside class="ops__cta" id="reserve-coverage" aria-labelledby="cta-heading">
-    <div class="ops__cta-inner">
-      <div class="ops__cta-text">
-        <h3 id="cta-heading">Reserve A Day On The Detroit Lakes Water</h3>
-        <em>One group per day · Booked weeks in advance · Detroit Lakes, Minnesota</em>
-      </div>
-      <a class="ops__cta-button" href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" target="_top" rel="noopener" aria-label="Reserve a private guided fishing trip with Baxstar Fishing in Detroit Lakes, Minnesota — opens FareHarbor booking calendar">
-        <span>Reserve This Day</span>
-        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-      </a>
-    </div>
   </aside>
 
 </section>
