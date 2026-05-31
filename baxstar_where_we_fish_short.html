@@ -620,6 +620,58 @@
   }
   .marker__meta .accent { color: var(--bx-cyan); }
 
+  /* ───────── MOBILE LAKE LIST (shown below the map on phones) ───────── */
+  .lake-list {
+    display: none;
+    list-style: none;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: clamp(8px, 3vw, 20px) clamp(20px, 5vw, 40px) 0;
+  }
+  .lake-list__item {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 14px;
+    align-items: start;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(28, 227, 210, 0.14);
+  }
+  .lake-list__item:first-child { border-top: 1px solid rgba(28, 227, 210, 0.14); }
+  .lake-list__num {
+    font-family: var(--font-tactical);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--bx-pearl);
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bx-red);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--bx-red-glow);
+  }
+  .lake-list__name {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 21px;
+    letter-spacing: 0.05em;
+    color: var(--bx-pearl);
+    margin-bottom: 6px;
+  }
+  .lake-list__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 14px;
+    font-family: var(--font-tactical);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--bx-bone);
+  }
+  .lake-list__meta .accent { color: var(--bx-cyan); }
+
   /* ───────── INTEL PANEL ───────── */
   .intel {
     position: relative;
@@ -760,7 +812,35 @@
     .intel { grid-template-columns: 1fr; }
     .marker[data-mobile-hide="true"] { display: none; }
 
-    /* ─── Pin position overrides (mobile only) ─── */
+    /* ─── MOBILE: cards become a stacked list below the map ─── */
+    .marker__label { display: none !important; }   /* hide on-map cards */
+    .lake-list { display: block; }                  /* show the list below */
+
+    /* Numbered badge on each pin (matches the list numbers below) */
+    .marker[data-num]::after {
+      content: attr(data-num);
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      transform: translate(-50%, 0) translateZ(40px);
+      min-width: 20px;
+      height: 20px;
+      padding: 0 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-tactical);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--bx-pearl);
+      background: var(--bx-red);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--bx-red-glow);
+      pointer-events: none;
+    }
+
+    /* ─── Pin positions on the lakes (mobile) ─── */
     .marker[aria-label*="Detroit Lake"]  { top: 29% !important; left: 65% !important; }
     .marker[aria-label*="Lake Sallie"]   { top: 34% !important; left: 60% !important; }
     .marker[aria-label*="Big Cormorant"] { top: 44% !important; left: 19% !important; }
@@ -992,7 +1072,7 @@
 
         <!-- Markers — desktop positions inline; mobile overrides in CSS -->
         <nav class="markers" aria-label="Detroit Lakes Minnesota anchor lakes">
-          <div class="marker" style="left: 66%; top: 18%;" role="article" aria-label="Detroit Lake — 3,067 acres, 80 foot maximum depth, walleye, bass, and crappie">
+          <div class="marker" data-num="1" style="left: 66%; top: 18%;" role="article" aria-label="Detroit Lake — 3,067 acres, 80 foot maximum depth, walleye, bass, and crappie">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--up-left">
               <span class="marker__name">Detroit Lake</span>
@@ -1004,7 +1084,7 @@
             </div>
           </div>
 
-          <div class="marker" style="left: 53%; top: 28%;" role="article" aria-label="Lake Sallie — 1,247 acres, 50 foot maximum depth, all species">
+          <div class="marker" data-num="2" style="left: 53%; top: 28%;" role="article" aria-label="Lake Sallie — 1,247 acres, 50 foot maximum depth, all species">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--right">
               <span class="marker__name">Lake Sallie</span>
@@ -1028,7 +1108,7 @@
             </div>
           </div>
 
-          <div class="marker" style="left: 18%; top: 35%;" role="article" aria-label="Big Cormorant Lake — 6,107 acres, 57 foot maximum depth, walleye, northern pike, and sunfish">
+          <div class="marker" data-num="3" style="left: 18%; top: 35%;" role="article" aria-label="Big Cormorant Lake — 6,107 acres, 57 foot maximum depth, walleye, northern pike, and sunfish">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--right">
               <span class="marker__name">Big Cormorant</span>
@@ -1040,7 +1120,7 @@
             </div>
           </div>
 
-          <div class="marker" style="left: 47%; top: 53%;" role="article" aria-label="Pelican Lake — 3,986 acres, 55 foot maximum depth, walleye, trophy smallmouth, and bluegill">
+          <div class="marker" data-num="4" style="left: 47%; top: 53%;" role="article" aria-label="Pelican Lake — 3,986 acres, 55 foot maximum depth, walleye, trophy smallmouth, and bluegill">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--right">
               <span class="marker__name">Pelican Lake</span>
@@ -1052,7 +1132,7 @@
             </div>
           </div>
 
-          <div class="marker" style="left: 66%; top: 69%;" role="article" aria-label="Lake Lida — 5,564 acres, 58 foot maximum depth, smallmouth bass, walleye, and crappie">
+          <div class="marker" data-num="5" style="left: 66%; top: 69%;" role="article" aria-label="Lake Lida — 5,564 acres, 58 foot maximum depth, smallmouth bass, walleye, and crappie">
             <div class="marker__pin"><span class="ring-pulse"></span></div>
             <div class="marker__label marker__label--left">
               <span class="marker__name">Lake Lida</span>
@@ -1073,6 +1153,45 @@
     Detroit Lakes, Minnesota — known as "the 412" for the 412 lakes within 25 miles of town and beyond — fishing coverage map showing six anchor lakes. Detroit Lake — 3,067 acres, 80 ft maximum depth, walleye, bass, and crappie. Lake Sallie — 1,247 acres, 50 ft maximum depth, all species. Upper Cormorant Lake — 1,210 acres, 25 ft maximum depth, all species. Big Cormorant Lake — 6,107 acres, 57 ft maximum depth, walleye, northern pike, and sunfish. Pelican Lake — 3,986 acres, 55 ft maximum depth, walleye, trophy smallmouth, and bluegill. Lake Lida — 5,564 acres, 58 ft maximum depth, smallmouth bass, walleye, and crappie. Operating coordinates 46.6519° N, 95.8453° W. Vessel: Vexus DVX20S. Sonar: Garmin LiveScope.
   </figcaption>
   </figure>
+
+  <!-- ── Mobile lake list (cards stacked below the map; hidden on desktop) ── -->
+  <ul class="lake-list" aria-label="Anchor lake details">
+    <li class="lake-list__item">
+      <span class="lake-list__num" aria-hidden="true">1</span>
+      <div>
+        <span class="lake-list__name">Detroit Lake</span>
+        <span class="lake-list__meta"><span>3,067 AC</span><span class="accent">80 FT MAX</span><span>Walleye · Bass · Crappie</span></span>
+      </div>
+    </li>
+    <li class="lake-list__item">
+      <span class="lake-list__num" aria-hidden="true">2</span>
+      <div>
+        <span class="lake-list__name">Lake Sallie</span>
+        <span class="lake-list__meta"><span>1,247 AC</span><span class="accent">50 FT MAX</span><span>All Species</span></span>
+      </div>
+    </li>
+    <li class="lake-list__item">
+      <span class="lake-list__num" aria-hidden="true">3</span>
+      <div>
+        <span class="lake-list__name">Big Cormorant</span>
+        <span class="lake-list__meta"><span>6,107 AC</span><span class="accent">57 FT MAX</span><span>Walleye · Pike · Sunfish</span></span>
+      </div>
+    </li>
+    <li class="lake-list__item">
+      <span class="lake-list__num" aria-hidden="true">4</span>
+      <div>
+        <span class="lake-list__name">Pelican Lake</span>
+        <span class="lake-list__meta"><span>3,986 AC</span><span class="accent">55 FT MAX</span><span>Walleye · Trophy Smallmouth · Bluegill</span></span>
+      </div>
+    </li>
+    <li class="lake-list__item">
+      <span class="lake-list__num" aria-hidden="true">5</span>
+      <div>
+        <span class="lake-list__name">Lake Lida</span>
+        <span class="lake-list__meta"><span>5,564 AC</span><span class="accent">58 FT MAX</span><span>Smallmouth · Walleye · Crappie</span></span>
+      </div>
+    </li>
+  </ul>
 
   <!-- ── Intel Panel ── -->
   <aside class="intel" aria-labelledby="intel-heading">
