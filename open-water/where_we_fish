@@ -682,6 +682,8 @@ body{overscroll-behavior:none}
   .reveal{opacity:1;transform:none}
 }
 </style>
+  <!-- FareHarbor lightframe API — activates the booking overlay inside this Wix embed so same-frame booking clicks open the lightframe and fire GA4 purchase tracking -->
+  <script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
 </head>
 <body>
 
@@ -939,7 +941,7 @@ body{overscroll-behavior:none}
             -->
           </div>
           <p class="card-note">The flagship — multi-species range, structure-rich shoreline, and a proven walleye + muskie program steps from town.</p>
-          <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" target="_top" class="card-cta" data-track="reserve_detroit-lake">
+          <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" class="card-cta" data-track="reserve_detroit-lake">
             Reserve a Trip Here
             <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -980,7 +982,7 @@ body{overscroll-behavior:none}
             -->
           </div>
           <p class="card-note">Connected, deep, and consistent — a quiet muskie sleeper with a steady walleye bite. Often the right water on the wrong-wind day.</p>
-          <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" target="_top" class="card-cta" data-track="reserve_lake-sallie">
+          <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" class="card-cta" data-track="reserve_lake-sallie">
             Reserve a Trip Here
             <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -1021,7 +1023,7 @@ body{overscroll-behavior:none}
             -->
           </div>
           <p class="card-note">104 feet deep across nearly four thousand acres — the corridor's true trophy water. When the muskie program lights up, this is where it happens.</p>
-          <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" target="_top" class="card-cta" data-track="reserve_pelican-lake">
+          <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" class="card-cta" data-track="reserve_pelican-lake">
             Reserve a Trip Here
             <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -1069,7 +1071,7 @@ body{overscroll-behavior:none}
             -->
           </div>
           <p class="card-note">A clear-water gem. Smallmouth and walleye headline the program; pike run hard all season. The lake that rewards patience and a Garmin LiveScope read.</p>
-          <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" target="_top" class="card-cta" data-track="reserve_big-cormorant">
+          <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" class="card-cta" data-track="reserve_big-cormorant">
             Reserve a Trip Here
             <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -1110,7 +1112,7 @@ body{overscroll-behavior:none}
             -->
           </div>
           <p class="card-note">Five thousand five hundred acres of mixed structure. Lida's depth and diversity reward patient anglers — and read like a topo map for a guide who's run it a thousand times.</p>
-          <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" target="_top" class="card-cta" data-track="reserve_lake-lida">
+          <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" class="card-cta" data-track="reserve_lake-lida">
             Reserve a Trip Here
             <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -1128,7 +1130,7 @@ body{overscroll-behavior:none}
     </div>
     <p class="footer-body reveal">The Lake Atlas is a living map. Each season adds new waters, fresh structure intel, and trophy catches logged with Garmin LiveScope and a Vexus DVX20S. Reserve a date — Brady picks the lake.</p>
     <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/"
-       target="_top" class="footer-cta reveal" data-track="reserve_footer">
+       class="footer-cta reveal" data-track="reserve_footer">
       Check Availability
       <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
