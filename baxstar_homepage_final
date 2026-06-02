@@ -1998,6 +1998,8 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
   }
 }
 </style>
+  <!-- FareHarbor lightframe API — activates the booking overlay inside this Wix embed so same-frame booking clicks open the lightframe and fire GA4 purchase tracking -->
+  <script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
 </head>
 <body>
 
@@ -2053,7 +2055,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
 
     <nav class="hero__cta" aria-label="Primary booking actions">
       <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/"
-         target="_top" class="bx-btn bx-btn--primary"
+         class="bx-btn bx-btn--primary"
          aria-label="Book a guided fishing trip with Baxstar Fishing"
          onclick="try{window.parent.dataLayer=window.parent.dataLayer||[];window.parent.dataLayer.push({'event':'book_now_click','location':'hero','page_location':window.parent.location.href});}catch(e){}">
         <span>Book Your Trip</span>
@@ -2307,7 +2309,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
         </div>
       </div>
       <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/"
-         target="_top" class="bx-btn bx-btn--primary" aria-label="Check live availability on FareHarbor">
+         class="bx-btn bx-btn--primary" aria-label="Check live availability on FareHarbor">
         <span>Check Availability</span>
         <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
@@ -2365,7 +2367,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
 
     <div class="pmin-modal-cta-row">
       <a id="pminBookBtn" href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/"
-         target="_top" class="pmin-modal-book-btn" aria-label="Book this trip now">
+         class="pmin-modal-book-btn" aria-label="Book this trip now">
         <span>Book This Trip</span>
         <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
@@ -2488,7 +2490,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
       <p class="cta__sub reveal">Around half of trips are booked within 10 days — but prime times don't last that long. Check availability now and plan accordingly.</p>
       <div class="cta__actions reveal">
         <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/"
-           target="_top" class="bx-btn bx-btn--primary" aria-label="Check availability on FareHarbor">
+           class="bx-btn bx-btn--primary" aria-label="Check availability on FareHarbor">
           <span>Check Availability</span>
           <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </a>
@@ -2538,7 +2540,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
       <nav aria-label="Plan Your Trip">
         <p class="footer__col-title">Plan Your Trip</p>
         <ul class="footer__links">
-          <li><a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/&flow=576827" target="_blank" rel="noopener noreferrer">Book Online</a></li>
+          <li><a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/&flow=576827" rel="noopener noreferrer">Book Online</a></li>
           <li><a href="/fishing-report">Detroit Lakes Fishing Report</a></li>
           <li><a href="/what-to-bring">What to Bring</a></li>
           <li><a href="/lodging-partners">Lodging Partners</a></li>
@@ -4577,6 +4579,8 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
   }
 }
 </style>
+  <!-- FareHarbor lightframe API — activates the booking overlay inside this Wix embed so same-frame booking clicks open the lightframe and fire GA4 purchase tracking -->
+  <script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
 </head>
 <body>
 
@@ -4632,7 +4636,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
 
     <nav class="hero__cta" aria-label="Primary booking actions">
       <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/"
-         target="_top" class="bx-btn bx-btn--primary"
+         class="bx-btn bx-btn--primary"
          aria-label="Book a guided fishing trip with Baxstar Fishing"
          onclick="try{window.parent.dataLayer=window.parent.dataLayer||[];window.parent.dataLayer.push({'event':'book_now_click','location':'hero','page_location':window.parent.location.href});}catch(e){}">
         <span>Book Your Trip</span>
@@ -4886,7 +4890,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
         </div>
       </div>
       <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/"
-         target="_top" class="bx-btn bx-btn--primary" aria-label="Check live availability on FareHarbor">
+         class="bx-btn bx-btn--primary" aria-label="Check live availability on FareHarbor">
         <span>Check Availability</span>
         <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
@@ -4944,7 +4948,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
 
     <div class="pmin-modal-cta-row">
       <a id="pminBookBtn" href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/"
-         target="_top" class="pmin-modal-book-btn" aria-label="Book this trip now">
+         class="pmin-modal-book-btn" aria-label="Book this trip now">
         <span>Book This Trip</span>
         <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
@@ -5067,7 +5071,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
       <p class="cta__sub reveal">Around half of trips are booked within 10 days — but prime times don't last that long. Check availability now and plan accordingly.</p>
       <div class="cta__actions reveal">
         <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/"
-           target="_top" class="bx-btn bx-btn--primary" aria-label="Check availability on FareHarbor">
+           class="bx-btn bx-btn--primary" aria-label="Check availability on FareHarbor">
           <span>Check Availability</span>
           <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </a>
@@ -5117,7 +5121,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
       <nav aria-label="Plan Your Trip">
         <p class="footer__col-title">Plan Your Trip</p>
         <ul class="footer__links">
-          <li><a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/&flow=576827" target="_blank" rel="noopener noreferrer">Book Online</a></li>
+          <li><a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/&flow=576827" rel="noopener noreferrer">Book Online</a></li>
           <li><a href="/fishing-report">Detroit Lakes Fishing Report</a></li>
           <li><a href="/what-to-bring">What to Bring</a></li>
           <li><a href="/lodging-partners">Lodging Partners</a></li>
