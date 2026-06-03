@@ -91,8 +91,6 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
   .stat{padding:0 14px}
 }
 </style>
-  <!-- FareHarbor lightframe API — activates the booking overlay inside this Wix embed so same-frame booking clicks open the lightframe and fire GA4 purchase tracking -->
-  <script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
 </head>
 <body>
 <section class="hero" aria-label="Baxstar Fishing — Detroit Lakes Minnesota Private Guided Fishing">
@@ -118,7 +116,7 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
     </div>
     <p class="hero__body">Detroit Lakes' only fully private guided fishing experience. Every trip is your group, your boat, and a 5× Master Angler with 30+ years on these waters — backed by a 4.9★ rating from 100+ verified clients.</p>
     <nav class="hero__cta" aria-label="Primary booking actions">
-      <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" onclick="try{parent.postMessage({type:'baxstar_event',event:'book_now_click',location:'hero'},'*')}catch(e){}" class="btn btn--primary" aria-label="Book a guided fishing trip">
+      <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" class="btn btn--primary" aria-label="Book a guided fishing trip">
         Book Your Trip
         <svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -231,6 +229,25 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
     report(); ticks++;
     if (ticks >= 30) { clearInterval(early); setInterval(report, 1500); }
   }, 200);
+})();
+</script>
+<script>
+(function(){
+  'use strict';
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href*="fareharbor.com/embeds/book"]');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var item = (href.match(/\/items\/(\d+)/) || [])[1];
+    if (!item) return;
+    var flow = (href.match(/[?&]flow=(\d+)/) || [])[1];
+    e.preventDefault();
+    var open = { type:'baxstar_open_fareharbor', shortname:'baxstarfishing', item:item };
+    if (flow) open.flow = flow;
+    try { window.parent.postMessage(open, '*'); } catch(err){}
+    try { window.parent.postMessage({ type:'baxstar_event', event:'book_now_click',
+          location: a.getAttribute('data-track') || 'cta' }, '*'); } catch(err){}
+  }, false);
 })();
 </script>
 </body>
