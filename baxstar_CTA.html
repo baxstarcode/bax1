@@ -93,8 +93,6 @@ a { color: inherit; text-decoration: none; }
 }
 .btn-ghost:hover svg { transform: skewX(12deg) translateX(4px); }
 </style>
-  <!-- FareHarbor lightframe API — activates the booking overlay inside this Wix embed so same-frame booking clicks open the lightframe and fire GA4 purchase tracking -->
-  <script src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
 </head>
 <body>
 <section class="seasonal-cta">
@@ -120,5 +118,24 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 </section>
+<script>
+(function(){
+  'use strict';
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href*="fareharbor.com/embeds/book"]');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var item = (href.match(/\/items\/(\d+)/) || [])[1];
+    if (!item) return;
+    var flow = (href.match(/[?&]flow=(\d+)/) || [])[1];
+    e.preventDefault();
+    var open = { type:'baxstar_open_fareharbor', shortname:'baxstarfishing', item:item };
+    if (flow) open.flow = flow;
+    try { window.parent.postMessage(open, '*'); } catch(err){}
+    try { window.parent.postMessage({ type:'baxstar_event', event:'book_now_click',
+          location: a.getAttribute('data-track') || 'cta' }, '*'); } catch(err){}
+  }, false);
+})();
+</script>
 </body>
 </html>
