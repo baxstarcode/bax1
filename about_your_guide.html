@@ -47,6 +47,8 @@
   --font-accent: 'Cormorant Garamond', serif;
   --max-w: 1320px;
   --section-pad: clamp(56px, 7vw, 98px);
+  --red-glow: rgba(193,39,45,0.55);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html { scroll-behavior: smooth; }
@@ -72,26 +74,37 @@ img { display: block; max-width: 100%; }
 
 .container { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(14px, 2.8vw, 42px); }
 
-/* Shared buttons */
+/* Shared buttons — site-canonical slant pattern (matches CTA / pricing) */
 .btn-primary {
   display: inline-flex; align-items: center; gap: 10px;
-  padding: 11.9px 26.6px;
+  padding: 16px 36px;
   background: var(--red); color: white;
   font-family: var(--font-body); font-weight: 600; font-size: 13px;
-  letter-spacing: 2px; text-transform: uppercase;
+  letter-spacing: 0.18em; text-transform: uppercase;
   border: none; cursor: pointer;
-  transition: all 0.3s ease; position: relative; overflow: hidden;
+  transition: all 0.3s var(--ease); position: relative; overflow: hidden;
+  transform: skewX(-12deg); white-space: nowrap;
+}
+.btn-primary > * { display: inline-flex; align-items: center; transform: skewX(12deg); }
+.btn-primary svg {
+  width: 14px; height: 14px;
+  fill: none; stroke: currentColor; stroke-width: 2.2;
+  flex-shrink: 0;
+  transition: transform 0.3s var(--ease);
 }
 .btn-primary::after {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
-  opacity: 0; transition: opacity 0.3s;
+  background: linear-gradient(120deg, rgba(255,255,255,0.18), transparent 60%);
+  opacity: 0; transition: opacity 0.32s var(--ease);
+  pointer-events: none;
 }
 .btn-primary:hover {
-  background: var(--red-bright); transform: translateY(-2px);
-  box-shadow: 0 10px 36px rgba(193, 39, 45, 0.45);
+  background: var(--red-bright);
+  transform: skewX(-12deg) translateY(-2px);
+  box-shadow: 0 10px 30px var(--red-glow);
 }
 .btn-primary:hover::after { opacity: 1; }
+.btn-primary:hover svg { transform: skewX(12deg) translateX(4px); }
 
 .btn-ghost {
   display: inline-flex; align-items: center; gap: 10px;
@@ -185,6 +198,18 @@ img { display: block; max-width: 100%; }
 }
 .guide__bio p + p { margin-top: 18px; }
 .guide__bio strong { color: var(--pearl); font-weight: 500; }
+/* Closing personal pitch + CTA — matches bio type scale */
+.guide__closer {
+  margin-top: 36px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(240,236,228,0.06);
+}
+.guide__closer-text {
+  font-size: 16px; line-height: 1.65;
+  color: var(--bone); font-weight: 300;
+  margin-bottom: 28px;
+}
+.guide__closer-text strong { color: var(--pearl); font-weight: 500; }
 .guide__credentials {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 16px; margin-bottom: 40px;
@@ -313,6 +338,16 @@ img { display: block; max-width: 100%; }
             <span class="media-logo">WDAY</span>
             <span class="media-logo">Faces of Fargo</span>
           </div>
+        </div>
+
+        <div class="guide__closer">
+          <p class="guide__closer-text">
+            When you book with Baxstar, you are booking more than a fishing trip. You are booking an experience. Behind the fishing knowledge and local expertise is Brady Baxter — an athlete, coach, professional referee, high school history teacher, entrepreneur, and lead singer and guitarist of award-winning hard rock bands. Brady brings energy, instinct, humor, and a genuine passion for people into every trip. When you book with Baxstar, you are not just booking a fishing trip. You are booking time with Brady.
+          </p>
+          <a href="https://www.baxstarfishing.com/aboutbaxstar" class="btn-primary" aria-label="Learn more about your guide, Brady Baxter">
+            <span>Learn More About Your Guide</span>
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </a>
         </div>
       </div>
     </div>
