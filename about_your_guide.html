@@ -254,6 +254,18 @@ img { display: block; max-width: 100%; }
 @media (max-width: 640px) {
   .guide__credentials { grid-template-columns: 1fr; }
 
+  /* Keep the slanted CTA inside the viewport — the long label + skew was
+     overflowing horizontally on narrow phones. Cap width, lighten padding
+     and tracking, and let the label wrap if it still needs to. */
+  .guide__closer .btn-primary {
+    max-width: 100%;
+    padding: 14px 22px;
+    letter-spacing: 0.12em;
+    white-space: normal;
+    text-align: center;
+  }
+  .guide__closer .btn-primary > * { flex-wrap: wrap; justify-content: center; }
+
   /* Cap main photo width + center so it doesn't dominate mobile viewport */
   .guide__photo-stack {
     max-width: 380px;
