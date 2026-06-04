@@ -75,6 +75,8 @@
   --photo-ratio:  952 / 1288;
   --card-w: clamp(220px, 28vw, 310px);
   --gap: 10px;
+  --red-glow: rgba(193,39,45,0.55);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html { scroll-behavior: smooth; }
@@ -370,6 +372,44 @@ img { display: block; max-width: 100%; }
   .lb-nav.lb-next { right: 8px; }
 }
 
+/* CTA below gallery — site-canonical slant button (matches CTA / pricing) */
+.gallery-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(28px, 3.4vw, 44px);
+  padding: 0 clamp(14px, 3.5vw, 56px);
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 36px;
+  background: var(--red); color: #fff;
+  font-family: var(--font-body); font-weight: 600; font-size: 13px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  border: none; cursor: pointer;
+  transition: all 0.3s var(--ease); position: relative; overflow: hidden;
+  transform: skewX(-12deg); white-space: nowrap;
+}
+.btn-primary > * { display: inline-flex; align-items: center; transform: skewX(12deg); }
+.btn-primary svg {
+  width: 14px; height: 14px;
+  fill: none; stroke: currentColor; stroke-width: 2.2;
+  flex-shrink: 0;
+  transition: transform 0.3s var(--ease);
+}
+.btn-primary::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0.18), transparent 60%);
+  opacity: 0; transition: opacity 0.32s var(--ease);
+  pointer-events: none;
+}
+.btn-primary:hover {
+  background: var(--red-bright);
+  transform: skewX(-12deg) translateY(-2px);
+  box-shadow: 0 10px 30px var(--red-glow);
+}
+.btn-primary:hover::after { opacity: 1; }
+.btn-primary:hover svg { transform: skewX(12deg) translateX(4px); }
+
 .reveal {
   opacity: 0; transform: translateY(22px);
   transition: opacity 0.75s ease, transform 0.75s ease;
@@ -418,6 +458,13 @@ img { display: block; max-width: 100%; }
         <polyline points="6 3 11 8 6 13"/>
       </svg>
     </button>
+  </div>
+
+  <div class="gallery-cta reveal">
+    <a href="https://www.baxstarfishing.com/fishgallery" class="btn-primary" target="_top" aria-label="View the full fish gallery">
+      <span>View Full Gallery</span>
+      <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
   </div>
 
 </section>
