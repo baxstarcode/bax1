@@ -453,6 +453,17 @@ body {
   font-weight: 500;
 }
 
+/* Embedded pricing widget inside the "what does a trip cost" dropdown.
+   Height is auto-synced from the pricing iframe's postMessage (see script). */
+.faq__pricing-embed {
+  margin-top: clamp(18px, 2.2vw, 28px);
+}
+.faq__pricing-embed iframe {
+  width: 100%;
+  border: 0;
+  display: block;
+}
+
 /* ─── Closing CTA strip ─── */
 .faq__close {
   margin-top: clamp(50px, 6vw, 80px);
@@ -608,6 +619,14 @@ body {
               <p class="faq__answer" itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
                 <span itemprop="text"><strong>Baxstar offers private guided fishing trips with pricing based on trip length, season, and group size.</strong> Most guests choose a four-hour private trip, with optional upgrades available at checkout. For current pricing and live availability, use the online booking calendar or call Brady directly at <a href="tel:+12183256857">(218) 325-6857</a>.</span>
               </p>
+              <div class="faq__pricing-embed">
+                <iframe id="faqPricingFrame"
+                        src="baxstar_pricing.html"
+                        title="Baxstar 2026 guided trip pricing"
+                        loading="lazy"
+                        scrolling="no"
+                        style="width:100%;border:0;display:block;height:1400px;"></iframe>
+              </div>
             </div>
           </div>
         </div>
@@ -1039,6 +1058,32 @@ body {
           location: a.getAttribute('data-track') || 'cta' }, '*'); } catch(err){}
   }, false);
 })();
+</script>
+
+<!-- Auto-size the pricing widget embedded in FAQ #02. The pricing page
+     (baxstar_pricing.html) broadcasts its rendered height via postMessage;
+     we apply it to the iframe. An open accordion panel sits at height:auto,
+     so it regrows automatically and the existing reporter re-syncs Wix. -->
+<script>
+(function () {
+  var frame = document.getElementById('faqPricingFrame');
+  if (!frame) return;
+  function applyHeight(h) {
+    h = parseInt(h, 10);
+    if (!h || h < 200 || Math.abs(h - parseInt(frame.style.height, 10)) < 2) return;
+    frame.style.height = h + 'px';
+    if (typeof window.__baxstarReport === 'function') window.__baxstarReport();
+  }
+  window.addEventListener('message', function (e) {
+    if (frame.contentWindow && e.source !== frame.contentWindow) return;
+    var d = e.data, h = null;
+    if (typeof d === 'number') h = d;
+    else if (typeof d === 'string') { var m = /^height:(\d+)/.exec(d); if (m) h = m[1]; }
+    else if (d && typeof d === 'object' && d.height &&
+             (d.type === 'setHeight' || d.type === 'embed-size')) h = d.height;
+    if (h !== null) applyHeight(h);
+  });
+}());
 </script>
 </body>
 </html>
