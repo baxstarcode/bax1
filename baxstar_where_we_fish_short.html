@@ -635,6 +635,10 @@
   .intel__col {
     padding-top: 28px;
   }
+  .intel__col--wide {
+    grid-column: 1 / -1;
+    padding-top: 0;
+  }
 
   .intel__lede {
     font-family: var(--font-italic);
@@ -787,11 +791,16 @@
   }
 
   @media (max-width: 560px) {
-    .ops__theater { height: clamp(540px, 82vh, 712px); perspective: 1100px; }
+    /* Height trimmed (was 82vh/712px max): the plate's lake mass ends
+       ~70% down, so the old height left a dead band under the lakes
+       before the intel panel. */
+    .ops__theater { height: clamp(460px, 62vh, 560px); perspective: 1100px; }
     .stage__plate {
-      top: 39%;
+      top: 44%;
       transform: translate(-50%, -50%) scale(1.18);
     }
+    .hud__compass { bottom: 48px; }
+    .hud__scale { bottom: 48px; }
     .hud__strip--top-left { font-size: 9px; gap: 8px; }
     .marker__label { min-width: 120px; padding: 6px 9px; }
     .marker__label--right::before { left: -22px; width: 22px; }
@@ -1087,6 +1096,14 @@
       <h4 id="intel-q2" class="intel__sub">What separates Baxstar from a single-lake guide?</h4>
       <p class="intel__copy">
         <strong>Baxstar runs a portfolio of lakes.</strong> If a cold front shuts down Detroit Lake, the boat is on Big Cormorant by 7 a.m. If walleyes are stacked deep on Lake Lida, that's where the day starts. Three decades of pattern recognition — fewer slow days, and a calendar that reads like a working chart, not a sales sheet.
+      </p>
+    </article>
+    <article class="intel__col intel__col--wide" aria-labelledby="intel-q3">
+      <h4 id="intel-q3" class="intel__sub">More water in the rotation</h4>
+      <p class="intel__copy">
+        <strong>The six anchors are just the start.</strong> Brady guides on even more lakes, including
+        Melissa, Long, Ida, Big Floyd, Little Floyd, Pickerel, Cotton, Leek and Trowbridge, Franklin,
+        Big Pine, Little Pine, Otter Tail, and more — if it holds fish in the 412, it's in play.
       </p>
     </article>
   </aside>
