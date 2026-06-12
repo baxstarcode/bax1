@@ -559,7 +559,7 @@
 
   .marker__label {
     position: absolute;
-    transform: translateZ(40px);
+    transform: translateZ(0);
     transform-origin: 0 50%;
     min-width: 188px;
     padding: 10px 14px;
@@ -638,6 +638,9 @@
   .intel__col--wide {
     grid-column: 1 / -1;
     padding-top: 0;
+  }
+  .intel__lakes {
+    color: var(--bx-cyan);
   }
 
   .intel__lede {
@@ -745,7 +748,7 @@
       left: 0;
       top: -28px;
       bottom: auto;
-      transform: translateZ(40px) translateX(calc(-100% - 32px));
+      transform: translateZ(0) translateX(calc(-100% - 32px));
       border-left: 2px solid var(--bx-red);
       border-right: 1px solid rgba(28, 227, 210, 0.28);
     }
@@ -777,7 +780,7 @@
       right: auto;
       left: auto;
       top: 42px;
-      transform: translateZ(40px) translateX(calc(-100% - 22px));
+      transform: translateZ(0) translateX(calc(-100% - 22px));
       border-left: 1px solid rgba(28, 227, 210, 0.28);
       border-right: 2px solid var(--bx-red);
     }
@@ -802,9 +805,35 @@
     .hud__compass { bottom: 48px; }
     .hud__scale { bottom: 48px; }
     .hud__strip--top-left { font-size: 9px; gap: 8px; }
-    .marker__label { min-width: 120px; padding: 6px 9px; }
+    .marker__label {
+      min-width: 0;
+      max-width: 150px;
+      padding: 3px 8px;
+      background: rgba(8, 8, 10, 0.45);
+    }
     .marker__label--right::before { left: -22px; width: 22px; }
-    .marker__name { font-size: 13px; }
+    .marker__name { font-size: 10px; margin-bottom: 1px; }
+    .marker__meta { font-size: 7px; }
+    /* species only on phones — acreage + max depth dropped for room */
+    .marker__meta span { display: none; }
+    .marker__meta span:last-child { display: inline; }
+    /* pins restored to the true lake positions (desktop geometry);
+       the compact cards no longer need the big May-2026 offsets */
+    .marker[aria-label*="Detroit Lake"]  { top: 18% !important; left: 66% !important; }
+    .marker[aria-label*="Lake Sallie"]   { top: 28% !important; left: 53% !important; }
+    .marker[aria-label*="Big Cormorant"] { top: 35% !important; left: 18% !important; }
+    .marker[aria-label*="Pelican Lake"]  { top: 53% !important; left: 47% !important; }
+    .marker[aria-label*="Lake Lida"]     { top: 69% !important; left: 66% !important; }
+    /* Detroit card hangs below-left of its pin: below clears the HUD
+       top strip, the extra left offset clears Lake Sallie's pin + card */
+    .marker[aria-label*="Detroit Lake"] .marker__label--up-left {
+      top: 20px;
+      transform: translateZ(0) translateX(calc(-100% - 64px));
+    }
+    .marker[aria-label*="Detroit Lake"] .marker__label--up-left::before {
+      top: -20px;
+      width: 64px;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -1098,12 +1127,10 @@
         <strong>Baxstar runs a portfolio of lakes.</strong> If a cold front shuts down Detroit Lake, the boat is on Big Cormorant by 7 a.m. If walleyes are stacked deep on Lake Lida, that's where the day starts. Three decades of pattern recognition — fewer slow days, and a calendar that reads like a working chart, not a sales sheet.
       </p>
     </article>
-    <article class="intel__col intel__col--wide" aria-labelledby="intel-q3">
-      <h4 id="intel-q3" class="intel__sub">More water in the rotation</h4>
+    <article class="intel__col intel__col--wide">
       <p class="intel__copy">
-        <strong>The six anchors are just the start.</strong> Brady guides on even more lakes, including
-        Melissa, Long, Ida, Big Floyd, Little Floyd, Pickerel, Cotton, Leek and Trowbridge, Franklin,
-        Big Pine, Little Pine, Otter Tail, and more — if it holds fish in the 412, it's in play.
+        Baxstar also serves: <span class="intel__lakes">Melissa, Long, Ida, Big Floyd, Little Floyd,
+        Pickerel, Cotton, Leek and Trowbridge, Franklin, Big Pine, Little Pine, Otter Tail, and more.</span>
       </p>
     </article>
   </aside>
