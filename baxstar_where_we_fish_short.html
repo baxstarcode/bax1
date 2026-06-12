@@ -635,10 +635,6 @@
   .intel__col {
     padding-top: 28px;
   }
-  .intel__col--wide {
-    grid-column: 1 / -1;
-    padding-top: 0;
-  }
   .intel__lakes {
     color: var(--bx-cyan);
   }
@@ -680,6 +676,27 @@
     color: var(--bx-red);
     margin: 0 0 14px;
     line-height: 1.4;
+  }
+
+  /* ───────── ALSO-SERVES STRIP ─────────
+     Sits in the empty band of the theater below Lake Lida, above the
+     bottom HUD strip. The wrap's transform makes it the containing
+     block. On phones that band is gone, so it flows under the map. */
+  .also-serves {
+    position: absolute;
+    left: 50%;
+    bottom: 110px;
+    transform: translateX(-50%);
+    z-index: 6;
+    width: min(760px, 72%);
+    text-align: center;
+  }
+  .also-serves p {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.6;
+    font-weight: 300;
+    color: var(--bx-bone);
   }
 
   /* ═════════════════════════════════════════════════════════
@@ -833,6 +850,13 @@
     .marker[aria-label*="Detroit Lake"] .marker__label--up-left::before {
       top: -20px;
       width: 64px;
+    }
+    .also-serves {
+      position: static;
+      transform: none;
+      width: auto;
+      text-align: left;
+      padding: 16px 20px 0;
     }
   }
 
@@ -1110,6 +1134,10 @@
   <figcaption class="ops__figcaption sr-only">
     Detroit Lakes, Minnesota — known as "the 412" for the 412 lakes within 25 miles of town and beyond — fishing coverage map showing six anchor lakes. Detroit Lake — 3,067 acres, 80 ft maximum depth, walleye, bass, and crappie. Lake Sallie — 1,247 acres, 50 ft maximum depth, all species. Upper Cormorant Lake — 1,210 acres, 25 ft maximum depth, all species. Big Cormorant Lake — 6,107 acres, 57 ft maximum depth, walleye, northern pike, and sunfish. Pelican Lake — 3,986 acres, 55 ft maximum depth, walleye, trophy smallmouth, and bluegill. Lake Lida — 5,564 acres, 58 ft maximum depth, smallmouth bass, walleye, and crappie. Operating coordinates 46.6519° N, 95.8453° W. Vessel: Vexus DVX20S. Sonar: Garmin LiveScope.
   </figcaption>
+  <div class="also-serves">
+    <p>Baxstar also serves: <span class="intel__lakes">Melissa, Long, Ida, Big Floyd, Little Floyd,
+      Pickerel, Cotton, Leek and Trowbridge, Franklin, Big Pine, Little Pine, Otter Tail, and more.</span></p>
+  </div>
   </figure>
 
   <!-- ── Intel Panel ── -->
@@ -1125,12 +1153,6 @@
       <h4 id="intel-q2" class="intel__sub">What separates Baxstar from a single-lake guide?</h4>
       <p class="intel__copy">
         <strong>Baxstar runs a portfolio of lakes.</strong> If a cold front shuts down Detroit Lake, the boat is on Big Cormorant by 7 a.m. If walleyes are stacked deep on Lake Lida, that's where the day starts. Three decades of pattern recognition — fewer slow days, and a calendar that reads like a working chart, not a sales sheet.
-      </p>
-    </article>
-    <article class="intel__col intel__col--wide">
-      <p class="intel__copy">
-        Baxstar also serves: <span class="intel__lakes">Melissa, Long, Ida, Big Floyd, Little Floyd,
-        Pickerel, Cotton, Leek and Trowbridge, Franklin, Big Pine, Little Pine, Otter Tail, and more.</span>
       </p>
     </article>
   </aside>
