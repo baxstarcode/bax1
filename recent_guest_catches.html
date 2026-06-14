@@ -26,7 +26,8 @@
   --font-accent:    'Cormorant Garamond', serif;
   --red-glow: rgba(193,39,45,0.55);
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
-  --photo-ratio: 4 / 5;
+  /* Natural horizontal (landscape) catch photos */
+  --photo-ratio: 3 / 2;
 }
 
 html { scroll-behavior: smooth; }
@@ -97,12 +98,12 @@ img { display: block; max-width: 100%; }
   margin: 0 auto;
 }
 
-/* ── 6-photo grid: 3 columns desktop · 2 columns tablet · 1 column phone ── */
+/* ── 6-photo grid: 2 columns on desktop/tablet · 1 column on phone ── */
 .gc-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(10px, 1.4vw, 18px);
-  max-width: 1180px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(12px, 1.6vw, 22px);
+  max-width: 1060px;
   margin: 0 auto;
   padding: 0 clamp(16px, 4vw, 56px);
 }
@@ -220,11 +221,9 @@ img { display: block; max-width: 100%; }
   .reveal { opacity: 1; transform: none; transition: none; will-change: auto; }
 }
 
-@media (max-width: 880px) {
-  .gc-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 520px) {
-  .gc-grid { grid-template-columns: 1fr; max-width: 420px; }
+/* Phones only: stack to a single column */
+@media (max-width: 600px) {
+  .gc-grid { grid-template-columns: 1fr; max-width: 520px; }
 }
 </style>
 </head>
