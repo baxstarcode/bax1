@@ -2,12 +2,55 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- indexifembedded: allows Google to index this iframe's content as part of
+     the host page. Paired with the canonical below, which tells search engines
+     this content belongs to the /openwater page (not a standalone document). -->
 <meta name="robots" content="indexifembedded"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recent Guest Catches — Open Water Guided Fishing | Baxstar Fishing, Detroit Lakes MN</title>
 <meta name="description" content="Recent guest catches from private guided open water fishing trips with Baxstar Fishing — walleye, bass, pike, and panfish on Detroit Lakes, Minnesota.">
+<link rel="canonical" href="https://www.baxstarfishing.com/openwater">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Preconnect to the image host so the gallery photos start downloading sooner (LCP). -->
+<link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+<!-- ImageGallery structured data — describes the 6 guest-catch photos to
+     search engines so they can surface in Google Images / rich results. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "Recent Guest Catches — Baxstar Fishing, Detroit Lakes, Minnesota",
+  "description": "Recent catches from private guided open water fishing trips with Baxstar Fishing on Detroit Lakes, Minnesota — walleye, bass, pike, and panfish.",
+  "url": "https://www.baxstarfishing.com/openwater",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Baxstar Fishing",
+    "url": "https://www.baxstarfishing.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Detroit Lakes",
+      "addressRegion": "MN",
+      "addressCountry": "US"
+    }
+  },
+  "locationCreated": {
+    "@type": "Place",
+    "name": "Detroit Lakes, Minnesota",
+    "geo": { "@type": "GeoCoordinates", "latitude": 46.6519, "longitude": -95.8453 }
+  },
+  "image": [
+    { "@type": "ImageObject", "contentUrl": "https://static.wixstatic.com/media/a30e59_e375f06b2b5648f9a9eff691e772e330~mv2.webp", "caption": "Baxstar Fishing guest with a fresh catch on a private open water guided trip — Detroit Lakes, Minnesota" },
+    { "@type": "ImageObject", "contentUrl": "https://static.wixstatic.com/media/a30e59_968bf06d5a9644429cdd61254bac5fa8~mv2.webp", "caption": "Client showing off a fish caught on Detroit Lakes — Baxstar Fishing open water guided trip, Minnesota" },
+    { "@type": "ImageObject", "contentUrl": "https://static.wixstatic.com/media/a30e59_838af90d4cdc4586b89ffda7362a269d~mv2.webp", "caption": "Open water guided fishing success on Detroit Lakes — Baxstar Fishing guest catch, Minnesota" },
+    { "@type": "ImageObject", "contentUrl": "https://static.wixstatic.com/media/a30e59_67c2afbc00074d55909e09111d6549be~mv2.webp", "caption": "Guest holding a catch aboard the boat on a private Baxstar Fishing trip — Detroit Lakes, Minnesota" },
+    { "@type": "ImageObject", "contentUrl": "https://static.wixstatic.com/media/a30e59_f4b75d6f2dee43e8b47e6aeeaaca84eb~mv2.webp", "caption": "Happy guests with their catch from a guided open water trip — Baxstar Fishing, Detroit Lakes, Minnesota" },
+    { "@type": "ImageObject", "contentUrl": "https://static.wixstatic.com/media/a30e59_bb8b4f2f742d476b823a3108c656e684~mv2.webp", "caption": "Detroit Lakes open water guided fishing — recent guest catch with Baxstar Fishing, Minnesota" }
+  ]
+}
+</script>
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -232,17 +275,15 @@ img { display: block; max-width: 100%; }
 <section class="gc-section" aria-labelledby="gc-h2">
 
   <div class="gc-header reveal">
-    <h3 class="section-tag">Straight From The Boat</h3>
+    <p class="section-tag">Straight From The Boat</p>
     <h2 class="gc-title" id="gc-h2">RECENT GUEST <span>CATCHES.</span><span class="sr-only"> — Walleye, Bass, Pike, and Panfish from private guided open water fishing trips on Detroit Lakes, Minnesota with Baxstar Fishing</span></h2>
     <p class="gc-sub">The latest fish our guests have put in the boat — real trips, real smiles, real Detroit Lakes water.</p>
   </div>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       6 GUEST-CATCH PHOTOS — ▼ REPLACE EACH PLACEHOLDER URL ▼
-       In each card, paste your image URL into the src="" attribute
-       (replace PASTE_IMAGE_URL_#_HERE) and update the alt text to
-       describe the catch. Until you do, a numbered placeholder slot
-       shows in its place. Recommended: tall/portrait photos (4:5).
+       6 GUEST-CATCH PHOTOS — natural horizontal (3:2) cards, 2 per row.
+       To swap a photo later: replace the src URL and update both the
+       alt text and the <figcaption> to describe the new catch.
        ═══════════════════════════════════════════════════════════════ -->
   <div class="gc-grid">
 
@@ -252,8 +293,9 @@ img { display: block; max-width: 100%; }
         <span class="gc-slot-num">01</span>
         <span class="gc-slot-lbl">Replace Image</span>
       </div>
-      <img src="https://static.wixstatic.com/media/a30e59_e375f06b2b5648f9a9eff691e772e330~mv2.webp" alt="Recent guest catch — Baxstar Fishing, Detroit Lakes Minnesota" loading="eager" onerror="this.style.display='none'">
+      <img src="https://static.wixstatic.com/media/a30e59_e375f06b2b5648f9a9eff691e772e330~mv2.webp" width="1200" height="800" decoding="async" loading="eager" alt="Baxstar Fishing guest with a fresh catch on a private open water guided trip — Detroit Lakes, Minnesota" onerror="this.style.display='none'">
       <span class="card-bar"></span>
+      <figcaption class="sr-only">Baxstar Fishing guest with a fresh catch on a private open water guided trip — Detroit Lakes, Minnesota.</figcaption>
     </figure>
 
     <!-- PHOTO 2 -->
@@ -262,8 +304,9 @@ img { display: block; max-width: 100%; }
         <span class="gc-slot-num">02</span>
         <span class="gc-slot-lbl">Replace Image</span>
       </div>
-      <img src="https://static.wixstatic.com/media/a30e59_968bf06d5a9644429cdd61254bac5fa8~mv2.webp" alt="Recent guest catch — Baxstar Fishing, Detroit Lakes Minnesota" loading="eager" onerror="this.style.display='none'">
+      <img src="https://static.wixstatic.com/media/a30e59_968bf06d5a9644429cdd61254bac5fa8~mv2.webp" width="1200" height="800" decoding="async" loading="eager" alt="Client showing off a fish caught on Detroit Lakes — Baxstar Fishing open water guided trip, Minnesota" onerror="this.style.display='none'">
       <span class="card-bar"></span>
+      <figcaption class="sr-only">Client showing off a fish caught on Detroit Lakes — Baxstar Fishing open water guided trip, Minnesota.</figcaption>
     </figure>
 
     <!-- PHOTO 3 -->
@@ -272,8 +315,9 @@ img { display: block; max-width: 100%; }
         <span class="gc-slot-num">03</span>
         <span class="gc-slot-lbl">Replace Image</span>
       </div>
-      <img src="https://static.wixstatic.com/media/a30e59_838af90d4cdc4586b89ffda7362a269d~mv2.webp" alt="Recent guest catch — Baxstar Fishing, Detroit Lakes Minnesota" loading="eager" onerror="this.style.display='none'">
+      <img src="https://static.wixstatic.com/media/a30e59_838af90d4cdc4586b89ffda7362a269d~mv2.webp" width="1200" height="800" decoding="async" loading="eager" alt="Open water guided fishing success on Detroit Lakes — Baxstar Fishing guest catch, Minnesota" onerror="this.style.display='none'">
       <span class="card-bar"></span>
+      <figcaption class="sr-only">Open water guided fishing success on Detroit Lakes — Baxstar Fishing guest catch, Minnesota.</figcaption>
     </figure>
 
     <!-- PHOTO 4 -->
@@ -282,8 +326,9 @@ img { display: block; max-width: 100%; }
         <span class="gc-slot-num">04</span>
         <span class="gc-slot-lbl">Replace Image</span>
       </div>
-      <img src="https://static.wixstatic.com/media/a30e59_67c2afbc00074d55909e09111d6549be~mv2.webp" alt="Recent guest catch — Baxstar Fishing, Detroit Lakes Minnesota" loading="lazy" onerror="this.style.display='none'">
+      <img src="https://static.wixstatic.com/media/a30e59_67c2afbc00074d55909e09111d6549be~mv2.webp" width="1200" height="800" decoding="async" loading="lazy" alt="Guest holding a catch aboard the boat on a private Baxstar Fishing trip — Detroit Lakes, Minnesota" onerror="this.style.display='none'">
       <span class="card-bar"></span>
+      <figcaption class="sr-only">Guest holding a catch aboard the boat on a private Baxstar Fishing trip — Detroit Lakes, Minnesota.</figcaption>
     </figure>
 
     <!-- PHOTO 5 -->
@@ -292,8 +337,9 @@ img { display: block; max-width: 100%; }
         <span class="gc-slot-num">05</span>
         <span class="gc-slot-lbl">Replace Image</span>
       </div>
-      <img src="https://static.wixstatic.com/media/a30e59_f4b75d6f2dee43e8b47e6aeeaaca84eb~mv2.webp" alt="Recent guest catch — Baxstar Fishing, Detroit Lakes Minnesota" loading="lazy" onerror="this.style.display='none'">
+      <img src="https://static.wixstatic.com/media/a30e59_f4b75d6f2dee43e8b47e6aeeaaca84eb~mv2.webp" width="1200" height="800" decoding="async" loading="lazy" alt="Happy guests with their catch from a guided open water trip — Baxstar Fishing, Detroit Lakes, Minnesota" onerror="this.style.display='none'">
       <span class="card-bar"></span>
+      <figcaption class="sr-only">Happy guests with their catch from a guided open water trip — Baxstar Fishing, Detroit Lakes, Minnesota.</figcaption>
     </figure>
 
     <!-- PHOTO 6 -->
@@ -302,8 +348,9 @@ img { display: block; max-width: 100%; }
         <span class="gc-slot-num">06</span>
         <span class="gc-slot-lbl">Replace Image</span>
       </div>
-      <img src="https://static.wixstatic.com/media/a30e59_bb8b4f2f742d476b823a3108c656e684~mv2.webp" alt="Recent guest catch — Baxstar Fishing, Detroit Lakes Minnesota" loading="lazy" onerror="this.style.display='none'">
+      <img src="https://static.wixstatic.com/media/a30e59_bb8b4f2f742d476b823a3108c656e684~mv2.webp" width="1200" height="800" decoding="async" loading="lazy" alt="Detroit Lakes open water guided fishing — recent guest catch with Baxstar Fishing, Minnesota" onerror="this.style.display='none'">
       <span class="card-bar"></span>
+      <figcaption class="sr-only">Detroit Lakes open water guided fishing — recent guest catch with Baxstar Fishing, Minnesota.</figcaption>
     </figure>
 
   </div>

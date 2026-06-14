@@ -3,10 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- indexifembedded: allows Google to index this iframe's content as part of
+     the host page. Paired with the canonical below, which tells search engines
+     this content belongs to the /openwater page (not a standalone document). -->
 <meta name="robots" content="indexifembedded">
+<title>Open Water Guided Fishing — Detroit Lakes, Minnesota | Baxstar Fishing</title>
+<meta name="description" content="Detroit Lakes' only 100% private open water guided fishing. Walleye, bass, pike, and panfish from ice-out through fall with a 5× Master Angler — 4.9★ rated, 30+ years on the water.">
+<link rel="canonical" href="https://www.baxstarfishing.com/openwater">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Preconnect to the Wix media/video hosts so the poster + hero video start
+     loading sooner (helps LCP). -->
+<link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
+<link rel="preconnect" href="https://video.wixstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@300;400&display=swap">
+
+<!-- VideoObject structured data — describes the hero background video to search
+     engines (name, thumbnail, file URL). Update uploadDate if you re-shoot it. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Open Water Guided Fishing on Detroit Lakes — Baxstar Fishing",
+  "description": "Aerial footage of a private open water guided fishing trip on Detroit Lakes, Minnesota with Baxstar Fishing — walleye, bass, pike, and panfish from ice-out through fall.",
+  "thumbnailUrl": ["https://static.wixstatic.com/media/a30e59_f99144dec60b4cf4aa7bcc4f4762d2ff~mv2.webp"],
+  "contentUrl": "https://video.wixstatic.com/video/a30e59_5407852badf2476e9551855cb1323b0b/1080p/mp4/file.mp4",
+  "uploadDate": "2026-06-14",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Baxstar Fishing",
+    "url": "https://www.baxstarfishing.com"
+  }
+}
+</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background:#08080a}
