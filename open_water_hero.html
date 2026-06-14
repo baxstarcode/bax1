@@ -97,6 +97,14 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
 }
+/* Desktop/tablet only: open up the lower hero so it fills the frame —
+   CTA sits ~80px lower and the stat strip ~100px lower than the tight
+   top-anchored layout, with the added space spread across the gaps. */
+@media(min-width:769px){
+  .hero__divider{margin:40px 0 44px}   /* +36px above the body */
+  .hero__body{margin-bottom:84px}      /* +44px → CTA 80px lower overall */
+  .hero__cta{margin-bottom:72px}       /* +20px → stat strip 100px lower overall */
+}
 @media(max-width:768px){
   .hero{min-height:auto;padding-bottom:24px}
   .hero__video video{object-position:50% 30%}
