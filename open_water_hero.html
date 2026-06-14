@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="indexifembedded">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@300;400&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background:#08080a}
+:root{
+  --red:#c1272d;
+  --red-glow:rgba(193,39,45,0.55);
+  --bg:#08080a;
+  --white:#fff;
+  --white-60:rgba(255,255,255,0.6);
+  --white-14:rgba(255,255,255,0.14);
+  --bone:#c8c5bd;
+  --pearl:#e8e6e0;
+}
+.hero{position:relative;width:100%;min-height:100svh;overflow:hidden;display:flex;background:var(--bg);font-family:'Barlow',sans-serif}
+.hero__video{position:absolute;inset:0;z-index:1;opacity:0;transition:opacity 0.6s cubic-bezier(0.4,0,0.2,1);pointer-events:none;transform:translateZ(0);backface-visibility:hidden;background:var(--bg)}
+.hero__video video{width:100%;height:100%;object-fit:cover;object-position:center 25%;transform:translateZ(0);display:block}
+.hero__video.is-ready{opacity:1}
+.hero__veil{position:absolute;inset:0;z-index:3;background:linear-gradient(105deg,rgba(8,8,10,0.93) 0%,rgba(8,8,10,0.78) 35%,rgba(8,8,10,0.35) 62%,rgba(8,8,10,0.08) 100%)}
+.hero__vignette{position:absolute;bottom:0;left:0;right:0;height:220px;z-index:4;background:linear-gradient(to bottom,transparent,rgba(8,8,10,0.9));pointer-events:none}
+.bracket{position:absolute;width:48px;height:48px;z-index:8;pointer-events:none;opacity:0;animation:bIn 0.5s cubic-bezier(0.4,0,0.2,1) forwards}
+.bracket--tl{top:24px;left:24px;border-top:1.5px solid var(--red);border-left:1.5px solid var(--red);animation-delay:0.3s}
+.bracket--tr{top:24px;right:24px;border-top:1.5px solid var(--red);border-right:1.5px solid var(--red);animation-delay:0.42s}
+.bracket--bl{bottom:24px;left:24px;border-bottom:1.5px solid var(--red);border-left:1.5px solid var(--red);animation-delay:0.54s}
+.bracket--br{bottom:24px;right:24px;border-bottom:1.5px solid var(--red);border-right:1.5px solid var(--red);animation-delay:0.66s}
+@keyframes bIn{to{opacity:1}}
+.hero__inner{position:relative;z-index:10;width:100%;max-width:680px;padding:clamp(80px,10vh,120px) clamp(32px,5vw,72px) clamp(60px,8vh,100px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.hero__eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.42em;text-transform:uppercase;color:var(--red);margin-bottom:20px;opacity:0;animation:fU 0.6s ease forwards;animation-delay:0.18s}
+.hero__eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--red)}
+.hero__headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(58px,7.5vw,108px);line-height:0.9;letter-spacing:0.01em;color:var(--white);opacity:0;animation:fU 0.7s cubic-bezier(0.2,0,0,1) forwards;animation-delay:0.3s}
+.hero__headline .accent{color:var(--red);display:block}
+.hero__headline .ghost{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,0.22);display:block}
+.hero__divider{display:flex;align-items:center;gap:14px;margin:22px 0 26px;opacity:0;animation:fU 0.5s ease forwards;animation-delay:0.45s}
+.hero__divider-line{height:1px;width:60px;background:linear-gradient(90deg,var(--red),transparent)}
+.hero__divider-dot{width:5px;height:5px;background:var(--red);transform:rotate(45deg);box-shadow:0 0 8px 2px var(--red-glow)}
+/*
+  Hero body keeps --white-60 (rgba(255,255,255,0.6)) intentionally:
+  this section sits over a video/dark gradient where the body-text
+  bone token would visually muddy the contrast. Bone/pearl tokens are
+  still declared in :root so the rest of the page can pull them.
+*/
+.hero__body{font-weight:300;font-size:clamp(14px,1.5vw,17px);line-height:1.75;color:var(--white-60);max-width:480px;margin-bottom:40px;letter-spacing:0.025em;opacity:0;animation:fU 0.6s ease forwards;animation-delay:0.55s}
+.hero__body strong{color:var(--white);font-weight:500;}
+.hero__cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px;opacity:0;animation:fU 0.6s ease forwards;animation-delay:0.7s}
+.btn{font-family:'Barlow Condensed',sans-serif;font-size:12.65px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;text-decoration:none;padding:16px 38px;display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:none;position:relative;overflow:hidden;transition:background 0.25s ease,box-shadow 0.25s ease,border-color 0.25s ease;white-space:nowrap}
+.btn svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2.5;transition:transform 0.25s ease}
+.btn:hover svg{transform:translateX(4px)}
+.btn--primary{background:var(--red);color:var(--white);clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%)}
+.btn--primary:hover{box-shadow:0 0 32px var(--red-glow),0 8px 24px rgba(0,0,0,0.4)}
+.btn--ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.28);clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%)}
+.btn--ghost:hover{border-color:rgba(255,255,255,0.65);background:rgba(255,255,255,0.07)}
+.stat-strip{display:flex;align-items:center;opacity:0;animation:fU 0.6s ease forwards;animation-delay:0.85s}
+.stat{display:flex;flex-direction:column;padding:0 26px;position:relative}
+.stat:first-child{padding-left:0}
+.stat+.stat::before{content:'';position:absolute;left:0;top:10%;bottom:10%;width:1px;background:var(--white-14)}
+.stat__num{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(28px,3.2vw,42px);line-height:1;color:var(--white)}
+.stat__num em{color:var(--red);font-style:normal}
+.stat__lbl{font-size:9px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:5px}
+@keyframes fU{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
+}
+@media(max-width:768px){
+  .hero{min-height:auto;padding-bottom:24px}
+  .hero__video video{object-position:50% 30%}
+  .hero__veil{background:linear-gradient(180deg,rgba(8,8,10,0.55) 0%,rgba(8,8,10,0.35) 30%,rgba(8,8,10,0.7) 55%,rgba(8,8,10,0.95) 78%,rgba(8,8,10,0.98) 100%)}
+  .hero__inner{max-width:100%;padding:18svh 24px 36px;justify-content:flex-start;align-items:center;text-align:center;min-height:auto}
+  .hero__eyebrow{display:none}
+  .hero__body{max-width:100%}
+  .hero__cta{justify-content:center;gap:12px;margin-bottom:36px}
+  .btn{font-size:11.5px;padding:14px 28px}
+  .stat-strip{justify-content:center}
+  .stat{padding:0 18px}
+  .bracket{width:32px;height:32px}
+  .bracket--tl,.bracket--tr{top:14px}
+  .bracket--bl,.bracket--br{bottom:14px}
+  .bracket--tl,.bracket--bl{left:14px}
+  .bracket--tr,.bracket--br{right:14px}
+}
+@media(max-width:400px){
+  .hero__headline{font-size:clamp(42px,11vw,54px)}
+  .stat-strip{flex-wrap:wrap;gap:8px}
+  .stat{padding:0 14px}
+}
+</style>
+</head>
+<body>
+<section class="hero" aria-label="Baxstar Fishing — Detroit Lakes Minnesota Open Water Guided Fishing">
+  <div class="hero__video" id="heroVideo" aria-hidden="true">
+    <!-- ───────────────────────────────────────────────────────────────
+         POSTER FALLBACK (optional): the still image shown while the video
+         loads (and if it fails). Replace the placeholder below or remove
+         the poster attribute entirely. -->
+    <video autoplay muted loop playsinline preload="auto" width="1920" height="1080"
+           poster="PASTE_POSTER_IMAGE_URL_HERE.jpg"></video>
+  </div>
+  <div class="hero__veil" aria-hidden="true"></div>
+  <div class="hero__vignette" aria-hidden="true"></div>
+  <div class="bracket bracket--tl" aria-hidden="true"></div>
+  <div class="bracket bracket--tr" aria-hidden="true"></div>
+  <div class="bracket bracket--bl" aria-hidden="true"></div>
+  <div class="bracket bracket--br" aria-hidden="true"></div>
+  <div class="hero__inner">
+    <p class="hero__eyebrow">Detroit Lakes, Minnesota · Open Water Guided Fishing</p>
+    <h1 class="hero__headline">
+      <span class="ghost">Open Water.</span>
+      <span class="accent">Big Fish.</span>
+      Endless Days.
+    </h1>
+    <div class="hero__divider" aria-hidden="true">
+      <div class="hero__divider-line"></div>
+      <div class="hero__divider-dot"></div>
+    </div>
+    <p class="hero__body">From ice-out in spring through the last cast of fall, Detroit Lakes' open water season puts you on walleye, bass, pike, and panfish. Every trip is <strong>100% private</strong> aboard a fully rigged boat with a <strong>5× Master Angler</strong> who's spent 30+ years reading these waters.</p>
+    <nav class="hero__cta" aria-label="Primary booking actions">
+      <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" class="btn btn--primary" aria-label="Book a guided open water fishing trip">
+        Book Your Trip
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="https://www.baxstarfishing.com/detroitlakesfishingreport" target="_top" class="btn btn--ghost" aria-label="Read the Detroit Lakes fishing report by Brady Baxter">Read Fishing Report</a>
+    </nav>
+    <div class="stat-strip" role="list" aria-label="Baxstar Fishing credentials">
+      <div class="stat" role="listitem"><div class="stat__num">30<em>+</em></div><div class="stat__lbl">Years Fishing</div></div>
+      <div class="stat" role="listitem"><div class="stat__num">5<em>×</em></div><div class="stat__lbl">Master Angler</div></div>
+      <div class="stat" role="listitem"><div class="stat__num">4.9<em>★</em></div><div class="stat__lbl">Google Rating</div></div>
+      <div class="stat" role="listitem"><div class="stat__num">100<em>%</em></div><div class="stat__lbl">Private Trips</div></div>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  // ═══════════════════════════════════════════════════════════════
+  // HERO VIDEO SOURCE — ▼▼▼ REPLACE THE PLACEHOLDER BELOW ▼▼▼
+  // ───────────────────────────────────────────────────────────────
+  // Paste your open water hero video URL between the quotes. A Wix-
+  // hosted .mp4 looks like:
+  //   https://video.wixstatic.com/video/<id>/1080p/mp4/file.mp4
+  //
+  // OPTIONAL: if you have a smaller/lighter file for phones, paste it
+  // into MOBILE_SRC too. If you only have one video, leave MOBILE_SRC
+  // equal to HERO_VIDEO_URL and it will be used everywhere.
+  // ═══════════════════════════════════════════════════════════════
+  var HERO_VIDEO_URL = 'PASTE_YOUR_VIDEO_URL_HERE.mp4';
+  var MOBILE_SRC     = HERO_VIDEO_URL;
+  // ───────────────────────────────────────────────────────────────
+
+  var w = document.getElementById('heroVideo');
+  var v = w && w.querySelector('video');
+  if (!v) return;
+
+  // Until a real URL is pasted, leave the poster image showing and skip
+  // trying to load the placeholder (avoids a broken-video flash).
+  if (!HERO_VIDEO_URL || /PASTE_YOUR_VIDEO_URL_HERE/.test(HERO_VIDEO_URL)) {
+    w.classList.add('is-ready');
+    return;
+  }
+
+  function addSrc(u){
+    var n = document.createElement('source');
+    n.src = u;
+    n.type = 'video/mp4';
+    v.appendChild(n);
+  }
+
+  // Bandwidth-aware source selection
+  var conn     = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  var saveData = conn && conn.saveData;
+  var slowNet  = conn && /2g|slow-2g/i.test(conn.effectiveType || '');
+  var isMobile = window.matchMedia('(max-width:768px)').matches;
+  var useMobileSrc = (saveData || slowNet || isMobile) && MOBILE_SRC && MOBILE_SRC !== HERO_VIDEO_URL;
+
+  // One-shot fallback: swap to the mobile source if the primary fails,
+  // so the hero never goes dark.
+  v.addEventListener('error', function r(){
+    while (v.firstChild) v.removeChild(v.firstChild);
+    addSrc(MOBILE_SRC);
+    v.removeEventListener('error', r);
+    v.load();
+    v.play().catch(function(){});
+  }, { once: true, passive: true });
+
+  addSrc(useMobileSrc ? MOBILE_SRC : HERO_VIDEO_URL);
+
+  // Reveal as soon as enough data exists to start playback
+  v.addEventListener('canplay',function r(){
+    v.removeEventListener('canplay',r);
+    requestAnimationFrame(function(){w.classList.add('is-ready')});
+  },{passive:true});
+
+  // Trigger immediately — video is now critical hero content
+  v.load();
+  v.play().catch(function(){});
+
+  // Pause when hero is offscreen (parent posts visibility messages)
+  window.addEventListener('message',function(e){
+    if(!e.data||e.data.type!=='baxstar_visibility')return;
+    try{e.data.hidden?v.pause():v.play().catch(function(){})}catch(err){}
+  },{passive:true});
+})();
+</script>
+
+<!-- IFRAME HEIGHT REPORTER — multi-signal (Wix Custom Embed auto-resize) -->
+<script>
+(function(){
+  if (window.parent === window) return;
+  var lastH = 0;
+  function report(){
+    var h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body ? document.body.scrollHeight : 0,
+      document.documentElement.offsetHeight,
+      document.body ? document.body.offsetHeight : 0
+    );
+    if (h && Math.abs(h - lastH) >= 2) {
+      lastH = h;
+      try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage('height:' + h, '*'); } catch(e){}
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', report);
+  else report();
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(report);
+  if (window.ResizeObserver) {
+    try { var ro = new ResizeObserver(report); ro.observe(document.documentElement); if (document.body) ro.observe(document.body); } catch(e){}
+  }
+  if (window.MutationObserver && document.body) {
+    try { new MutationObserver(report).observe(document.body, { subtree:true, childList:true, attributes:true, attributeFilter:['class','style'] }); } catch(e){}
+  }
+  var ticks = 0;
+  var early = setInterval(function(){
+    report(); ticks++;
+    if (ticks >= 30) { clearInterval(early); setInterval(report, 1500); }
+  }, 200);
+})();
+</script>
+<script>
+(function(){
+  'use strict';
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href*="fareharbor.com/embeds/book"]');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var item = (href.match(/\/items\/(\d+)/) || [])[1];
+    if (!item) return;
+    var flow = (href.match(/[?&]flow=(\d+)/) || [])[1];
+    e.preventDefault();
+    var open = { type:'baxstar_open_fareharbor', shortname:'baxstarfishing', item:item };
+    if (flow) open.flow = flow;
+    try { window.parent.postMessage(open, '*'); } catch(err){}
+    try { window.parent.postMessage({ type:'baxstar_event', event:'book_now_click',
+          location: a.getAttribute('data-track') || 'cta' }, '*'); } catch(err){}
+  }, false);
+})();
+</script>
+</body>
+</html>
