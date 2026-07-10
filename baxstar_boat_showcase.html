@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <!-- Primary SEO -->
-<meta name="description" content="The Baxstar Fishing flagship — a 2026 Vexus DVX20S tournament fiberglass boat rigged with Garmin LiveScope, Humminbird MEGA Live, Mercury power, and Power-Pole anchoring. Every private guided trip on Detroit Lakes, Minnesota runs on this boat.">
+<meta name="description" content="The Baxstar Fishing flagship — a 2026 Vexus DVX20S with a 300 hp Mercury Pro XS, twin Garmin LiveScope units on 64 inches of touchscreen sonar, Minn Kota Ultrex, and Power-Pole anchoring. Every private guided trip on Detroit Lakes, Minnesota runs on this boat. Up to 5 guests.">
 <meta name="robots" content="indexifembedded">
 
 <!-- Open Graph -->
@@ -13,25 +13,25 @@
 <meta property="og:url" content="https://www.baxstarfishing.com">
 <meta property="og:site_name" content="Baxstar Fishing">
 <meta property="og:title" content="The Baxstar Flagship — 2026 Vexus DVX20S | Detroit Lakes, MN">
-<meta property="og:description" content="Tournament-grade Vexus DVX20S with Garmin LiveScope, Humminbird MEGA Live, Mercury power, and Power-Pole. The boat every private Baxstar trip runs on.">
-<meta property="og:image" content="https://static.wixstatic.com/media/a30e59_d947a7ae2c0f47b59248b482efd16d08~mv2.jpeg">
+<meta property="og:description" content="300 hp Mercury Pro XS. Twin Garmin LiveScope on 64 inches of touchscreens. Power-Pole. Up to 5 guests, 100% private. This is not a rental boat.">
+<meta property="og:image" content="https://static.wixstatic.com/media/a30e59_4da2697ac14e40ec92e70353acb11ee9~mv2.webp">
 <meta property="og:locale" content="en_US">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Baxstar Flagship — 2026 Vexus DVX20S">
-<meta name="twitter:description" content="Tournament-grade Vexus DVX20S with Garmin LiveScope, Humminbird MEGA Live, Mercury power, and Power-Pole — the boat every private Baxstar trip runs on.">
-<meta name="twitter:image" content="https://static.wixstatic.com/media/a30e59_d947a7ae2c0f47b59248b482efd16d08~mv2.jpeg">
+<meta name="twitter:description" content="300 hp Mercury Pro XS. Twin Garmin LiveScope on 64 inches of touchscreens. Power-Pole. Up to 5 guests, 100% private.">
+<meta name="twitter:image" content="https://static.wixstatic.com/media/a30e59_4da2697ac14e40ec92e70353acb11ee9~mv2.webp">
 
-<!-- JSON-LD: the boat as a Product offered as part of the guided service -->
+<!-- JSON-LD: the boat -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "2026 Vexus DVX20S — Baxstar Fishing Guide Boat",
   "brand": { "@type": "Brand", "name": "Vexus Boats" },
-  "description": "The 2026 Vexus DVX20S fiberglass tournament boat used on every Baxstar Fishing private guided trip in Detroit Lakes, Minnesota. Rigged with Garmin LiveScope, Humminbird MEGA Live, Mercury power, and Power-Pole shallow-water anchors. Seats up to 4 guests.",
-  "image": "https://static.wixstatic.com/media/a30e59_d947a7ae2c0f47b59248b482efd16d08~mv2.jpeg",
+  "description": "The 2026 Vexus DVX20S fiberglass tournament boat used on every Baxstar Fishing private guided trip in Detroit Lakes, Minnesota. 300 hp Mercury Pro XS outboard, twin Garmin LiveScope units across 64 inches of touchscreen electronics, Minn Kota Ultrex bow control, and Power-Pole shallow-water anchoring. Seats up to 5 guests.",
+  "image": "https://static.wixstatic.com/media/a30e59_4da2697ac14e40ec92e70353acb11ee9~mv2.webp",
   "subjectOf": {
     "@type": "Service",
     "name": "Private Guided Fishing — Detroit Lakes, MN",
@@ -48,6 +48,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://static.wixstatic.com">
+<link rel="preload" as="image" href="https://static.wixstatic.com/media/a30e59_a96ab98870c94fc0ae02d65bab3237f4~mv2.webp" fetchpriority="high">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@300;400;500&display=swap">
 
 <style>
@@ -72,295 +73,381 @@ html,body{width:100%;overflow-x:hidden;background:#08080a}
 }
 body{font-family:var(--font-body);color:var(--pearl);-webkit-font-smoothing:antialiased;overscroll-behavior:none}
 img{display:block;max-width:100%;height:auto}
-.container{max-width:1320px;margin:0 auto;padding:0 clamp(14px,2.8vw,42px)}
 
-/* ── SECTION SHELL ─────────────────────────────────────────── */
-.boat{position:relative;padding:clamp(64px,8vw,110px) 0 clamp(56px,7vw,96px);background:var(--bg);overflow:hidden}
-/* faint red radial wash behind the media stage */
-.boat::before{content:'';position:absolute;top:18%;left:50%;transform:translateX(-50%);width:min(1100px,120vw);height:60%;background:radial-gradient(ellipse at center,rgba(193,39,45,0.10),transparent 65%);pointer-events:none}
+/* ══ SCROLL FX PRIMITIVES ═══════════════════════════════════
+   .fx elements start offset/transparent and glide to place when
+   .fx-in lands (one-shot IntersectionObserver). Direction via
+   modifier class. The boat itself is ratio-driven (see JS). */
+.fx{opacity:0;transition:opacity 0.9s cubic-bezier(0.2,0,0,1),transform 0.9s cubic-bezier(0.2,0,0,1);will-change:transform,opacity}
+.fx--up{transform:translateY(34px)}
+.fx--down{transform:translateY(-26px)}
+.fx--left{transform:translateX(-56px)}
+.fx--right{transform:translateX(56px)}
+.fx--pop{transform:scale(0.92)}
+.fx-in{opacity:1;transform:none}
+.fx--d1{transition-delay:0.1s}.fx--d2{transition-delay:0.22s}.fx--d3{transition-delay:0.34s}.fx--d4{transition-delay:0.46s}.fx--d5{transition-delay:0.58s}
 
-/* ── HEADER ────────────────────────────────────────────────── */
-.boat__head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:clamp(34px,4.5vw,56px)}
-.boat__eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--font-cond);font-size:11px;font-weight:600;letter-spacing:0.42em;text-transform:uppercase;color:var(--red-bright);margin-bottom:18px}
-.boat__eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--red)}
-.boat__headline{font-family:var(--font-display);font-size:clamp(46px,6.5vw,92px);line-height:0.92;letter-spacing:0.01em;text-transform:uppercase;color:var(--white)}
-.boat__headline .ghost{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,0.22);display:block}
-.boat__headline .accent{color:var(--red-bright);display:block}
-.boat__model{flex-shrink:0;text-align:right;padding-bottom:6px}
-.boat__model-year{font-family:var(--font-cond);font-weight:800;font-size:clamp(30px,3.4vw,46px);line-height:1;color:var(--white)}
-.boat__model-year em{color:var(--red-bright);font-style:normal}
-.boat__model-lbl{font-size:10px;font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:var(--white-35);margin-top:6px}
+/* ══ SECTION SHELL — the second hero ════════════════════════ */
+.flagship{position:relative;background:var(--bg);overflow:hidden}
+.stage-wrap{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(40px,5.5svh,64px) clamp(16px,3.5vw,56px) clamp(30px,4svh,48px);max-width:1560px;margin:0 auto}
 
-/* ── MEDIA STAGE ───────────────────────────────────────────── */
-.stage{position:relative;width:100%;aspect-ratio:16/9;background:var(--charcoal);overflow:hidden;border:1px solid var(--white-08)}
-.stage__media{position:absolute;inset:0;opacity:0;transition:opacity 0.6s cubic-bezier(0.4,0,0.2,1)}
-.stage__media.is-ready{opacity:1}
-.stage__media img,.stage__media video{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
-/* subtle zoom-on-hover, image only */
-.stage__media img{transition:transform 1s ease}
-.stage:hover .stage__media img{transform:scale(1.03)}
-/* bottom vignette so the badge reads over any media */
-.stage::after{content:'';position:absolute;bottom:0;left:0;right:0;height:34%;background:linear-gradient(transparent,rgba(8,8,10,0.75));pointer-events:none;z-index:2}
-/* red corner brackets, hero language */
-.stage__bracket{position:absolute;width:38px;height:38px;z-index:5;pointer-events:none}
-.stage__bracket--tl{top:14px;left:14px;border-top:1.5px solid var(--red);border-left:1.5px solid var(--red)}
-.stage__bracket--tr{top:14px;right:14px;border-top:1.5px solid var(--red);border-right:1.5px solid var(--red)}
-.stage__bracket--bl{bottom:14px;left:14px;border-bottom:1.5px solid var(--red);border-left:1.5px solid var(--red)}
-.stage__bracket--br{bottom:14px;right:14px;border-bottom:1.5px solid var(--red);border-right:1.5px solid var(--red)}
-/* nameplate badge pinned to the stage */
-.stage__badge{position:absolute;left:clamp(16px,2.5vw,32px);bottom:clamp(14px,2.2vw,28px);z-index:6;display:flex;align-items:center;gap:14px}
-.stage__badge-mark{width:6px;height:44px;background:var(--red);box-shadow:0 0 14px 2px var(--red-glow)}
-.stage__badge-name{font-family:var(--font-display);font-size:clamp(22px,2.6vw,34px);line-height:1;letter-spacing:0.04em;color:var(--white);text-transform:uppercase}
-.stage__badge-sub{font-family:var(--font-cond);font-size:10.5px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--white-60);margin-top:5px}
-/* placeholder shown until real media URL is pasted (see BOAT_MEDIA below) */
-.stage__placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;z-index:1;background:
-  linear-gradient(rgba(193,39,45,0.045) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(193,39,45,0.045) 1px,transparent 1px);
-  background-size:44px 44px;background-position:center}
-.stage__placeholder svg{width:min(52%,420px);height:auto;opacity:0.5}
-.stage__placeholder-tag{font-family:var(--font-cond);font-size:11px;font-weight:600;letter-spacing:0.34em;text-transform:uppercase;color:var(--white-35);display:flex;align-items:center;gap:10px}
-.stage__placeholder-tag::before,.stage__placeholder-tag::after{content:'';width:26px;height:1px;background:var(--white-14)}
+/* header row */
+.flag-head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;position:relative;z-index:6}
+.flag-eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--font-cond);font-size:11px;font-weight:600;letter-spacing:0.42em;text-transform:uppercase;color:var(--red-bright);margin-bottom:16px}
+.flag-eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--red)}
+.flag-h2{font-family:var(--font-display);font-size:clamp(44px,5.6vw,84px);line-height:0.92;letter-spacing:0.01em;text-transform:uppercase;color:var(--white)}
+.flag-h2 .ghost{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,0.22);display:block}
+.flag-h2 .accent{color:var(--red-bright);display:block;text-shadow:0 6px 40px rgba(193,39,45,0.35)}
+.flag-model{flex-shrink:0;text-align:right}
+.flag-model-year{font-family:var(--font-cond);font-weight:800;font-size:clamp(28px,3vw,42px);line-height:1;color:var(--white)}
+.flag-model-year em{color:var(--red-bright);font-style:normal}
+.flag-model-lbl{font-size:10px;font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:var(--white-35);margin-top:6px}
 
-/* ── SPEC GRID ─────────────────────────────────────────────── */
-.specs{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--white-08);border:1px solid var(--white-08);border-top:none}
-.spec{background:var(--bg);padding:clamp(20px,2.6vw,32px) clamp(18px,2.2vw,28px);position:relative;overflow:hidden;transition:background 0.3s ease}
-.spec:hover{background:var(--charcoal)}
-.spec::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--red),transparent 70%);transform:scaleX(0);transform-origin:left;transition:transform 0.4s cubic-bezier(0.2,0,0,1)}
-.spec:hover::before{transform:scaleX(1)}
-.spec__num{font-family:var(--font-cond);font-weight:800;font-size:13px;letter-spacing:0.18em;color:var(--red-bright);margin-bottom:14px}
-.spec__title{font-family:var(--font-display);font-size:clamp(20px,1.9vw,26px);line-height:1.05;letter-spacing:0.03em;text-transform:uppercase;color:var(--white);margin-bottom:10px}
-.spec__body{font-size:13.5px;font-weight:300;line-height:1.65;color:var(--white-60);letter-spacing:0.02em}
-.spec__body strong{color:var(--pearl);font-weight:500}
+/* ══ THE STAGE — floating boat, no background, just light ═══ */
+.stage{position:relative;flex:1;display:flex;align-items:center;justify-content:center;min-height:0;z-index:4;padding:clamp(8px,2svh,24px) 0}
+.stage-inner{position:relative;width:min(1240px,94vw)}
+/* red aurora behind the hull */
+.stage-glow{position:absolute;left:50%;top:58%;transform:translate(-50%,-50%);width:110%;height:150%;background:radial-gradient(ellipse 55% 42% at 50% 52%,rgba(193,39,45,0.16),rgba(193,39,45,0.05) 55%,transparent 75%);pointer-events:none}
+/* boat + reflection + ground shadow move together, ratio-driven */
+.boat-rig{position:relative;will-change:transform,opacity}
+.boat-img{position:relative;z-index:3;width:100%;filter:drop-shadow(0 34px 44px rgba(0,0,0,0.6)) drop-shadow(0 8px 14px rgba(0,0,0,0.5));animation:hover-float 7s ease-in-out infinite}
+.boat-reflect{position:relative;z-index:1;width:100%;transform:scaleY(-1);margin-top:-1.5%;opacity:0.16;filter:blur(3px) saturate(0.8);-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,0) 42%,rgba(0,0,0,0.85) 100%);mask-image:linear-gradient(to bottom,rgba(0,0,0,0) 42%,rgba(0,0,0,0.85) 100%);animation:hover-float-r 7s ease-in-out infinite;pointer-events:none}
+.boat-shadow{position:absolute;left:50%;bottom:16%;transform:translateX(-50%);width:72%;height:34px;background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(0,0,0,0.75),transparent 70%);filter:blur(10px);z-index:0;animation:shadow-breathe 7s ease-in-out infinite}
+@keyframes hover-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes hover-float-r{0%,100%{transform:scaleY(-1) translateY(0)}50%{transform:scaleY(-1) translateY(9px)}}
+@keyframes shadow-breathe{0%,100%{transform:translateX(-50%) scale(1);opacity:1}50%{transform:translateX(-50%) scale(0.94);opacity:0.8}}
 
-/* ── FOOTER ROW: brand strip + CTA ─────────────────────────── */
-.boat__foot{display:flex;align-items:center;justify-content:space-between;gap:28px;margin-top:clamp(30px,4vw,48px);flex-wrap:wrap}
-.brand-strip{display:flex;align-items:center;gap:clamp(14px,2vw,26px);flex-wrap:wrap}
-.brand-strip__lbl{font-family:var(--font-cond);font-size:10px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--white-35)}
-.brand-strip__item{font-family:var(--font-cond);font-size:13px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--bone)}
-.brand-strip__dot{width:4px;height:4px;background:var(--red);transform:rotate(45deg)}
+/* ══ CALLOUTS — bare labels with hairlines, Apple-annotation style ══ */
+.callout{position:absolute;z-index:5;pointer-events:none}
+.callout-dot{position:absolute;width:7px;height:7px;background:var(--red-bright);border-radius:50%;box-shadow:0 0 10px 3px var(--red-glow)}
+.callout-line{position:absolute;background:linear-gradient(90deg,var(--red-bright),rgba(230,57,70,0.05));height:1px;transform-origin:left center}
+.callout-txt{position:absolute;white-space:nowrap;text-shadow:0 3px 14px rgba(0,0,0,0.9)}
+.callout-title{font-family:var(--font-cond);font-weight:700;font-size:clamp(13px,1.15vw,17px);letter-spacing:0.2em;text-transform:uppercase;color:var(--white)}
+.callout-sub{font-size:clamp(10.5px,0.85vw,12.5px);font-weight:300;letter-spacing:0.06em;color:var(--white-60);margin-top:3px}
+
+/* geometry per callout, tuned to the cutout — % of stage-inner.
+   Boat occupies the top ~50% of stage-inner; the mirror half below. */
+.callout--ultrex{left:3%;top:56%}
+.callout--ultrex .callout-dot{left:88px;top:-110px}
+.callout--ultrex .callout-line{left:60px;top:0;width:114px;transform:rotate(-76deg)}
+.callout--ultrex .callout-txt{left:0;top:8px}
+
+.callout--glass{left:46%;top:-1%}
+.callout--glass .callout-dot{left:84px;top:55px}
+.callout--glass .callout-line{left:16px;top:12px;width:83px;transform:rotate(33deg)}
+.callout--glass .callout-txt{left:0;top:-6px}
+
+.callout--merc{right:1%;top:2%}
+.callout--merc .callout-dot{left:-137px;top:70px}
+.callout--merc .callout-line{left:-180px;top:14px;width:72px;transform:rotate(51deg)}
+.callout--merc .callout-txt{right:0;top:-10px;text-align:right}
+
+.callout--pole{right:-1%;top:52%}
+.callout--pole .callout-dot{right:56px;top:-26px}
+.callout--pole .callout-line{right:20px;top:22px;width:58px;transform-origin:right center;transform:rotate(-33deg)}
+.callout--pole .callout-txt{right:-6px;top:26px;text-align:right}
+
+/* ══ STAT STRIP + CTA ═══════════════════════════════════════ */
+.flag-foot{position:relative;z-index:6;display:flex;align-items:flex-end;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.stat-strip{display:flex;align-items:center}
+.stat{display:flex;flex-direction:column;padding:0 clamp(16px,2.2vw,30px);position:relative}
+.stat:first-child{padding-left:0}
+.stat+.stat::before{content:'';position:absolute;left:0;top:12%;bottom:12%;width:1px;background:var(--white-14)}
+.stat-num{font-family:var(--font-cond);font-weight:800;font-size:clamp(26px,3vw,40px);line-height:1;color:var(--white)}
+.stat-num em{color:var(--red-bright);font-style:normal}
+.stat-lbl{font-size:9px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--white-35);margin-top:5px}
 .btn{font-family:var(--font-cond);font-size:12.65px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;text-decoration:none;padding:16px 38px;display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:none;position:relative;overflow:hidden;transition:background 0.25s ease,box-shadow 0.25s ease;white-space:nowrap}
 .btn svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2.5;transition:transform 0.25s ease}
 .btn:hover svg{transform:translateX(4px)}
 .btn--primary{background:var(--red);color:var(--white);clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%)}
 .btn--primary:hover{box-shadow:0 0 32px var(--red-glow),0 8px 24px rgba(0,0,0,0.4)}
 
-/* ── SCROLL REVEAL ─────────────────────────────────────────── */
-.rv{opacity:0;transform:translateY(18px);transition:opacity 0.65s ease,transform 0.65s cubic-bezier(0.2,0,0,1)}
-.rv.in-view{opacity:1;transform:translateY(0)}
-.rv--d1{transition-delay:0.08s}.rv--d2{transition-delay:0.16s}.rv--d3{transition-delay:0.24s}.rv--d4{transition-delay:0.32s}
+/* ══ DETAIL BAND — floating hardware, sliding photo card ═══ */
+.detail{position:relative;max-width:1320px;margin:0 auto;padding:clamp(48px,7vw,110px) clamp(16px,3.5vw,56px) clamp(64px,8vw,120px);display:flex;flex-direction:column;gap:clamp(64px,8vw,120px);z-index:5}
+.detail-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:center}
+.detail-media{position:relative}
+.detail-cut{width:min(400px,78%);margin:0 auto;filter:drop-shadow(0 30px 38px rgba(0,0,0,0.65)) drop-shadow(0 6px 12px rgba(0,0,0,0.5))}
+.detail-cut-glow{position:absolute;inset:-10% -20%;background:radial-gradient(ellipse 45% 40% at 50% 55%,rgba(193,39,45,0.13),transparent 70%);pointer-events:none}
+.detail-photo{position:relative;overflow:hidden;border:1px solid var(--white-08)}
+.detail-photo img{width:100%;transition:transform 0.9s ease}
+.detail-photo:hover img{transform:scale(1.04)}
+.detail-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(200deg,transparent 55%,rgba(8,8,10,0.55))}
+.ph-bracket{position:absolute;width:30px;height:30px;z-index:3}
+.ph-bracket--tl{top:10px;left:10px;border-top:1.5px solid var(--red);border-left:1.5px solid var(--red)}
+.ph-bracket--br{bottom:10px;right:10px;border-bottom:1.5px solid var(--red);border-right:1.5px solid var(--red)}
+.detail-tag{display:inline-flex;align-items:center;gap:12px;font-family:var(--font-cond);font-size:11px;font-weight:600;letter-spacing:0.42em;text-transform:uppercase;color:var(--red-bright);margin-bottom:16px}
+.detail-tag::before{content:'';display:block;width:22px;height:1px;background:var(--red)}
+.detail-h3{font-family:var(--font-display);font-size:clamp(30px,3.6vw,52px);line-height:0.95;letter-spacing:0.02em;text-transform:uppercase;color:var(--white);margin-bottom:18px}
+.detail-h3 span{color:var(--red-bright)}
+.detail-copy{font-size:clamp(14px,1.25vw,16px);font-weight:300;line-height:1.75;color:var(--white-60);letter-spacing:0.02em;max-width:480px}
+.detail-copy strong{color:var(--pearl);font-weight:500}
+.detail-list{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:10px}
+.detail-list li{display:flex;align-items:baseline;gap:12px;font-size:13.5px;font-weight:300;color:var(--white-60);letter-spacing:0.03em}
+.detail-list li::before{content:'';width:5px;height:5px;background:var(--red);transform:rotate(45deg) translateY(-1px);flex-shrink:0;box-shadow:0 0 8px 1px var(--red-glow)}
+.detail-list strong{color:var(--pearl);font-weight:500}
 
+/* optional action-reel slot (hidden until REEL_MP4 is set below) */
+.reel{display:none;position:relative;overflow:hidden;border:1px solid var(--white-08);aspect-ratio:16/9;background:var(--charcoal)}
+.reel.is-on{display:block}
+.reel video{width:100%;height:100%;object-fit:cover}
+
+/* ══ RESPONSIVE ═════════════════════════════════════════════ */
+@media(max-width:1100px){
+  .callout-title{font-size:12px}
+  .callout-sub{display:none}
+}
+@media(max-width:860px){
+  .stage-wrap{min-height:auto;gap:26px}
+  .flag-head{flex-direction:column;gap:14px}
+  .flag-model{text-align:left}
+  .stage-inner{width:100%}
+  /* callouts reflow into a chip grid under the boat */
+  .callout{position:static;pointer-events:auto}
+  .callout-dot,.callout-line{display:none}
+  .callout-txt{position:static;white-space:normal;text-align:left!important}
+  .callout-sub{display:block}
+  .callouts-mobile{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;margin-top:26px}
+  .flag-foot{flex-direction:column;align-items:stretch;gap:22px;margin-top:10px}
+  .stat-strip{justify-content:center;flex-wrap:wrap;gap:10px}
+  .stat{padding:0 14px}
+  .btn{justify-content:center}
+  .detail-row{grid-template-columns:1fr;gap:30px}
+  .detail-row--flip .detail-media{order:-1}
+  .detail-copy{max-width:100%}
+  .boat-reflect{display:none}
+}
+@media(min-width:861px){
+  .callouts-mobile .callout{position:absolute}
+}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
-  .rv{opacity:1;transform:none}
-}
-
-/* ── RESPONSIVE ────────────────────────────────────────────── */
-@media(max-width:900px){
-  .specs{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:768px){
-  .boat__head{flex-direction:column;align-items:flex-start;gap:18px}
-  .boat__model{text-align:left}
-  .stage{aspect-ratio:4/3}
-  .stage__bracket{width:26px;height:26px}
-  .stage__badge-mark{height:36px}
-  .boat__foot{flex-direction:column;align-items:flex-start}
-  .btn{width:100%;justify-content:center}
-}
-@media(max-width:480px){
-  .specs{grid-template-columns:1fr}
-  .brand-strip{gap:10px}
+  .fx{opacity:1;transform:none}
+  .boat-rig{opacity:1!important;transform:none!important}
 }
 </style>
 </head>
 <body>
-<section class="boat" id="baxstar-boat" aria-labelledby="boat-h2">
-  <div class="container">
+<section class="flagship" id="baxstar-boat" aria-labelledby="boat-h2">
 
-    <!-- Header -->
-    <div class="boat__head">
-      <div class="rv">
-        <p class="boat__eyebrow">The Baxstar Flagship</p>
-        <h2 class="boat__headline" id="boat-h2">
+  <!-- ═══ BEAT 1 · THE REVEAL — full viewport ═══ -->
+  <div class="stage-wrap">
+    <div class="flag-head">
+      <div class="fx fx--up">
+        <p class="flag-eyebrow">The Baxstar Flagship</p>
+        <h2 class="flag-h2" id="boat-h2">
           <span class="ghost">This Is Not</span>
           <span class="accent">A Rental Boat.</span>
         </h2>
       </div>
-      <div class="boat__model rv rv--d1" aria-label="2026 model year Vexus DVX20S">
-        <div class="boat__model-year">20<em>26</em></div>
-        <div class="boat__model-lbl">Vexus DVX20S</div>
+      <div class="flag-model fx fx--down fx--d2" aria-label="2026 Vexus DVX20S">
+        <div class="flag-model-year">20<em>26</em></div>
+        <div class="flag-model-lbl">Vexus DVX20S</div>
       </div>
     </div>
 
-    <!-- Media stage — photo / GIF / MP4 slot -->
-    <figure class="stage rv rv--d1" aria-label="The Baxstar Fishing Vexus DVX20S">
-      <div class="stage__placeholder" id="stagePlaceholder" aria-hidden="true">
-        <!-- blueprint-style bass boat line art (placeholder until Brady's media lands) -->
-        <svg viewBox="0 0 640 200" fill="none" stroke="rgba(232,230,224,0.55)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <!-- hull -->
-          <path d="M20 130 C60 122 120 116 200 113 L560 105 C590 104 612 112 620 124 L612 142 C600 152 570 158 530 160 L90 160 C55 158 30 148 20 130 Z"/>
-          <!-- deck line -->
-          <path d="M70 128 L560 116" stroke-dasharray="6 8" stroke-width="1.5"/>
-          <!-- console -->
-          <path d="M330 113 L338 88 L392 85 L404 110"/>
-          <!-- windshield -->
-          <path d="M348 88 L354 72 L386 70 L392 85" stroke-width="1.5"/>
-          <!-- outboard -->
-          <path d="M20 130 L8 118 L4 138 L14 152"/>
-          <!-- trolling motor, bow -->
-          <path d="M604 108 L622 84 M622 84 L636 88" stroke-width="1.5"/>
-          <!-- power-pole, stern -->
-          <path d="M36 150 L24 180" stroke-dasharray="4 6" stroke-width="1.5"/>
-          <!-- waterline -->
-          <path d="M0 176 C80 168 160 184 240 176 C320 168 400 184 480 176 C540 170 600 182 640 176" stroke="rgba(193,39,45,0.5)" stroke-width="1.5"/>
-        </svg>
-        <p class="stage__placeholder-tag">Boat Media Incoming</p>
+    <figure class="stage" aria-label="The Baxstar Fishing 2026 Vexus DVX20S floating on black">
+      <div class="stage-inner">
+        <div class="stage-glow" aria-hidden="true"></div>
+
+        <div class="boat-rig" id="boatRig">
+          <img class="boat-img" id="boatImg"
+            src="https://static.wixstatic.com/media/a30e59_a96ab98870c94fc0ae02d65bab3237f4~mv2.webp"
+            alt="2026 Vexus DVX20S — Baxstar Fishing's private guide boat in Detroit Lakes, Minnesota — black sparkle fiberglass with Minn Kota Ultrex, Mercury 300 Pro XS, and Power-Pole"
+            width="2200" height="725" fetchpriority="high" decoding="async">
+          <div class="boat-shadow" aria-hidden="true"></div>
+          <img class="boat-reflect" aria-hidden="true" alt=""
+            src="https://static.wixstatic.com/media/a30e59_a96ab98870c94fc0ae02d65bab3237f4~mv2.webp"
+            width="2200" height="725" loading="lazy" decoding="async">
+        </div>
+
+        <!-- feature annotations -->
+        <div class="callouts-mobile">
+          <div class="callout callout--ultrex fx fx--left fx--d2" role="note">
+            <span class="callout-dot" aria-hidden="true"></span>
+            <span class="callout-line" aria-hidden="true"></span>
+            <span class="callout-txt">
+              <span class="callout-title">Minn Kota Ultrex</span>
+              <span class="callout-sub">Spot-Lock bow control — parked on the school</span>
+            </span>
+          </div>
+          <div class="callout callout--glass fx fx--down fx--d3" role="note">
+            <span class="callout-dot" aria-hidden="true"></span>
+            <span class="callout-line" aria-hidden="true"></span>
+            <span class="callout-txt">
+              <span class="callout-title">64&Prime; of Live Glass</span>
+              <span class="callout-sub">Twin Garmin LiveScope — watch the bite happen</span>
+            </span>
+          </div>
+          <div class="callout callout--merc fx fx--right fx--d3" role="note">
+            <span class="callout-dot" aria-hidden="true"></span>
+            <span class="callout-line" aria-hidden="true"></span>
+            <span class="callout-txt">
+              <span class="callout-title">Mercury Pro XS 300</span>
+              <span class="callout-sub">300 horses to the next school</span>
+            </span>
+          </div>
+          <div class="callout callout--pole fx fx--right fx--d4" role="note">
+            <span class="callout-dot" aria-hidden="true"></span>
+            <span class="callout-line" aria-hidden="true"></span>
+            <span class="callout-txt">
+              <span class="callout-title">Power-Pole</span>
+              <span class="callout-sub">Silent hold + Drift Paddle drifts</span>
+            </span>
+          </div>
+        </div>
       </div>
-      <div class="stage__media" id="stageMedia"></div>
-      <span class="stage__bracket stage__bracket--tl" aria-hidden="true"></span>
-      <span class="stage__bracket stage__bracket--tr" aria-hidden="true"></span>
-      <span class="stage__bracket stage__bracket--bl" aria-hidden="true"></span>
-      <span class="stage__bracket stage__bracket--br" aria-hidden="true"></span>
-      <figcaption class="stage__badge">
-        <span class="stage__badge-mark" aria-hidden="true"></span>
-        <span>
-          <span class="stage__badge-name">Vexus DVX20S</span>
-          <span class="stage__badge-sub" style="display:block">Tournament Fiberglass · Detroit Lakes, MN</span>
-        </span>
-      </figcaption>
     </figure>
 
-    <!-- Spec grid -->
-    <div class="specs" role="list" aria-label="Boat equipment and capability">
-      <div class="spec rv rv--d1" role="listitem">
-        <div class="spec__num">01 / HULL</div>
-        <h3 class="spec__title">2026 Vexus DVX20S</h3>
-        <p class="spec__body">Brand-new <strong>tournament fiberglass</strong> — the most advanced and luxurious ride in the industry. A dry, stable platform built for serious water.</p>
+    <div class="flag-foot">
+      <div class="stat-strip fx fx--up" role="list" aria-label="Boat specs">
+        <div class="stat" role="listitem"><div class="stat-num">300<em>HP</em></div><div class="stat-lbl">Mercury Pro XS</div></div>
+        <div class="stat" role="listitem"><div class="stat-num">64<em>&Prime;</em></div><div class="stat-lbl">Touchscreen Sonar</div></div>
+        <div class="stat" role="listitem"><div class="stat-num">2<em>×</em></div><div class="stat-lbl">Garmin LiveScope</div></div>
+        <div class="stat" role="listitem"><div class="stat-num">5<em>+1</em></div><div class="stat-lbl">Guests + Your Guide</div></div>
       </div>
-      <div class="spec rv rv--d2" role="listitem">
-        <div class="spec__num">02 / ELECTRONICS</div>
-        <h3 class="spec__title">Live Sonar, Twice Over</h3>
-        <p class="spec__body"><strong>Garmin LiveScope</strong> and <strong>Humminbird MEGA Live</strong> — watch fish react to your bait in real time and find fish others miss.</p>
-      </div>
-      <div class="spec rv rv--d3" role="listitem">
-        <div class="spec__num">03 / CONTROL</div>
-        <h3 class="spec__title">Mercury + Power-Pole</h3>
-        <p class="spec__body"><strong>Mercury power</strong> to run lake to lake fast, <strong>Power-Pole anchoring</strong> to lock onto a spot silently the second it matters.</p>
-      </div>
-      <div class="spec rv rv--d4" role="listitem">
-        <div class="spec__num">04 / YOUR CREW</div>
-        <h3 class="spec__title">Up to 4 Guests, Private</h3>
-        <p class="spec__body">Every seat belongs to <strong>your group</strong> — never strangers. Pro-grade rods, tackle, and live bait are already rigged when you step aboard.</p>
-      </div>
-    </div>
-
-    <!-- Brand strip + CTA -->
-    <div class="boat__foot">
-      <div class="brand-strip rv" aria-label="Equipment brands on board">
-        <span class="brand-strip__lbl">Rigged With</span>
-        <span class="brand-strip__item">Garmin</span>
-        <span class="brand-strip__dot" aria-hidden="true"></span>
-        <span class="brand-strip__item">Humminbird</span>
-        <span class="brand-strip__dot" aria-hidden="true"></span>
-        <span class="brand-strip__item">Mercury</span>
-        <span class="brand-strip__dot" aria-hidden="true"></span>
-        <span class="brand-strip__item">Power-Pole</span>
-      </div>
-      <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" class="btn btn--primary rv rv--d1" data-track="boat_showcase" aria-label="Book your trip aboard the Vexus DVX20S">
+      <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/calendar/2026/04/?full-items=yes&back=https://www.baxstarfishing.com/" class="btn btn--primary fx fx--up fx--d2" data-track="boat_showcase" aria-label="Book your trip aboard the Vexus DVX20S">
         Fish This Boat
         <svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
+  </div>
+
+  <!-- ═══ BEAT 2 · THE HARDWARE ═══ -->
+  <div class="detail">
+
+    <div class="detail-row">
+      <div class="detail-media fx fx--left">
+        <div class="detail-cut-glow" aria-hidden="true"></div>
+        <img class="detail-cut"
+          src="https://static.wixstatic.com/media/a30e59_d149eff6e78a4eaab7273d745f4d3d39~mv2.webp"
+          alt="Mercury 300 Pro XS outboard with Power-Pole shallow-water anchor and Drift Paddle on the Baxstar Vexus DVX20S"
+          width="1300" height="1814" loading="lazy" decoding="async">
+      </div>
+      <div>
+        <p class="detail-tag fx fx--right">The Stern</p>
+        <h3 class="detail-h3 fx fx--right fx--d1">Rigged. <span>Not Decorated.</span></h3>
+        <p class="detail-copy fx fx--right fx--d2">
+          A <strong>300 hp Mercury Pro XS</strong> means more minutes with lines in the water and
+          fewer getting there. Twin <strong>Power-Poles</strong> pin the boat in the shallows without
+          a sound, and the <strong>Drift Paddle</strong> turns a windy day into a perfect drift.
+        </p>
+        <ul class="detail-list fx fx--right fx--d3">
+          <li><strong>300 hp Mercury Pro XS</strong> — tournament power, lake-to-lake range</li>
+          <li><strong>Power-Pole anchors</strong> — silent, instant, shallow-water hold</li>
+          <li><strong>Drift Paddle</strong> — controlled drifts when the walleye want it moving</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="detail-row detail-row--flip">
+      <div>
+        <p class="detail-tag fx fx--left">The Build</p>
+        <h3 class="detail-h3 fx fx--left fx--d1">Fiberglass, Flake &amp; <span>Five Seats.</span></h3>
+        <p class="detail-copy fx fx--left fx--d2">
+          Vexus builds the DVX20S like a tournament weapon — a dry, stable, deep-V fiberglass hull
+          that shrugs off big water. Baxstar runs it with <strong>up to 5 guests</strong> and
+          <strong>zero strangers</strong>: every seat on board belongs to your group, every rod is
+          pro-grade, and the live bait is already in the well when you step on.
+        </p>
+        <ul class="detail-list fx fx--left fx--d3">
+          <li><strong>2026 Vexus DVX20S</strong> — advanced deep-V tournament fiberglass</li>
+          <li><strong>Up to 5 guests</strong> — 100% private, never a shared boat</li>
+          <li><strong>Rods, tackle &amp; bait included</strong> — step on and fish</li>
+        </ul>
+      </div>
+      <div class="detail-media fx fx--right">
+        <figure class="detail-photo">
+          <span class="ph-bracket ph-bracket--tl" aria-hidden="true"></span>
+          <span class="ph-bracket ph-bracket--br" aria-hidden="true"></span>
+          <img src="https://static.wixstatic.com/media/a30e59_300c2658138a44aa9c48b133b5057be4~mv2.webp"
+            alt="VEXUS logo carved into the gunwale of the Baxstar Fishing DVX20S — metal-flake fiberglass detail"
+            width="1800" height="1200" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </div>
+
+    <!-- optional action reel — set REEL_MP4 in the script below and this appears -->
+    <figure class="reel fx fx--pop" id="reelBox" aria-label="Baxstar boat action reel">
+      <video muted loop playsinline preload="metadata"></video>
+    </figure>
 
   </div>
 </section>
 
 <script>
 (function(){
-  // ── BOAT MEDIA SLOT ────────────────────────────────────────
-  // Paste tomorrow's Wix CDN URL into `src` below and set `type`:
-  //   type: 'image'  → JPG / WebP / GIF (GIFs are just images)
-  //   type: 'video'  → MP4 (autoplays muted, loops, respects Save-Data)
-  // `poster` is optional and only used for video.
-  // Leave src EMPTY ('') to show the blueprint placeholder instead.
-  var BOAT_MEDIA = {
-    type: 'image',
-    src: 'https://static.wixstatic.com/media/a30e59_d947a7ae2c0f47b59248b482efd16d08~mv2.jpeg', // TEMP — existing site photo; swap with Brady's new boat media
-    poster: '',
-    alt: 'The Baxstar Fishing 2026 Vexus DVX20S tournament boat on Detroit Lakes, Minnesota'
-  };
+  'use strict';
 
-  var wrap = document.getElementById('stageMedia');
-  var ph = document.getElementById('stagePlaceholder');
-  if (!wrap) return;
-  if (!BOAT_MEDIA.src) return; // keep placeholder
+  /* ── MEDIA CONFIG ──────────────────────────────────────────
+     Swap any URL here (Wix CDN). REEL_MP4: paste an .mp4 URL to
+     light up the action-reel card in the detail band; leave ''
+     to keep it hidden. GIFs: just use them like images above. */
+  var REEL_MP4 = '';
+  var REEL_POSTER = '';
 
-  function ready(){
-    wrap.classList.add('is-ready');
-    if (ph) ph.style.display = 'none';
-  }
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (BOAT_MEDIA.type === 'video') {
-    var v = document.createElement('video');
-    v.autoplay = true; v.muted = true; v.loop = true;
-    v.setAttribute('muted',''); v.setAttribute('playsinline','');
-    v.preload = 'metadata';
-    if (BOAT_MEDIA.poster) v.poster = BOAT_MEDIA.poster;
-    var s = document.createElement('source');
-    s.src = BOAT_MEDIA.src; s.type = 'video/mp4';
-    v.appendChild(s);
-    v.addEventListener('canplay', function r(){
-      v.removeEventListener('canplay', r);
-      requestAnimationFrame(ready);
-    }, {passive:true});
-    // Save-Data / video failure → fall back to poster image if provided
-    var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-    if (conn && conn.saveData && BOAT_MEDIA.poster) {
-      addImg(BOAT_MEDIA.poster);
-    } else {
-      v.addEventListener('error', function(){
-        if (BOAT_MEDIA.poster) { wrap.removeChild(v); addImg(BOAT_MEDIA.poster); }
-      }, {once:true, passive:true});
-      wrap.appendChild(v);
-      v.load();
-      v.play().catch(function(){});
-      // pause when section is offscreen (parent posts visibility messages)
-      window.addEventListener('message', function(e){
-        if (!e.data || e.data.type !== 'baxstar_visibility') return;
-        try { e.data.hidden ? v.pause() : v.play().catch(function(){}); } catch(err){}
-      }, {passive:true});
-    }
+  /* ── one-shot glide-into-place reveals ── */
+  var els = [].slice.call(document.querySelectorAll('.fx'));
+  if (!('IntersectionObserver' in window) || reduced) {
+    els.forEach(function(el){ el.classList.add('fx-in'); });
   } else {
-    addImg(BOAT_MEDIA.src);
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { en.target.classList.add('fx-in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    els.forEach(function(el){ io.observe(el); });
   }
 
-  function addImg(url){
-    var img = document.createElement('img');
-    img.alt = BOAT_MEDIA.alt || '';
-    img.loading = 'lazy';
-    img.decoding = 'async';
-    img.addEventListener('load', function(){ requestAnimationFrame(ready); }, {passive:true, once:true});
-    img.src = url;
-    wrap.appendChild(img);
-    if (img.complete) requestAnimationFrame(ready);
-  }
-})();
-</script>
+  /* ── ratio-driven boat entrance: slides in from the right as
+     the stage scrolls into view, then hover-floats in place.
+     Cross-origin-iframe safe: uses only intersectionRatio. ── */
+  var rig = document.getElementById('boatRig');
+  if (rig && 'IntersectionObserver' in window && !reduced) {
+    var raw = 0, shown = 0, maxSeen = 0.42, latched = false, rafOn = false;
+    var thresholds = [];
+    for (var i = 0; i <= 50; i++) thresholds.push(i / 50);
+    var stage = rig.closest('.stage');
 
-<script>
-(function(){
-  // ── SCROLL REVEAL ──────────────────────────────────────────
-  var els = document.querySelectorAll('.rv');
-  if (!('IntersectionObserver' in window)) {
-    els.forEach ? els.forEach(function(el){ el.classList.add('in-view'); }) : null;
-    return;
+    function frame(){
+      var target = latched ? 1 : Math.min(1, raw / maxSeen);
+      shown += (target - shown) * 0.14;
+      if (shown > 0.995 && latched) { shown = 1; rafOn = false; }
+      var e = 1 - Math.pow(1 - shown, 3); /* easeOutCubic */
+      rig.style.opacity = (0.25 + 0.75 * e).toFixed(3);
+      rig.style.transform = 'translateX(' + ((1 - e) * 26).toFixed(2) + 'vw)';
+      if (rafOn) requestAnimationFrame(frame);
+      else { rig.style.opacity = ''; rig.style.transform = ''; }
+    }
+    var io2 = new IntersectionObserver(function(entries){
+      var en = entries[entries.length - 1];
+      raw = en.intersectionRatio || 0;
+      if (raw > maxSeen) maxSeen = Math.min(1, raw);
+      if (raw / maxSeen > 0.92) latched = true;
+      if (!rafOn) { rafOn = true; requestAnimationFrame(frame); }
+      if (latched) io2.unobserve(stage);
+    }, { threshold: thresholds });
+    rig.style.opacity = '0.25';
+    rig.style.transform = 'translateX(26vw)';
+    io2.observe(stage);
   }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if (en.isIntersecting) { en.target.classList.add('in-view'); io.unobserve(en.target); }
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  Array.prototype.forEach.call(els, function(el){ io.observe(el); });
+
+  /* ── optional action reel ── */
+  var reel = document.getElementById('reelBox');
+  if (reel && REEL_MP4) {
+    var v = reel.querySelector('video');
+    if (REEL_POSTER) v.poster = REEL_POSTER;
+    var s = document.createElement('source');
+    s.src = REEL_MP4; s.type = 'video/mp4';
+    v.appendChild(s);
+    reel.classList.add('is-on');
+    v.play().catch(function(){});
+    window.addEventListener('message', function(e){
+      if (!e.data || e.data.type !== 'baxstar_visibility') return;
+      try { e.data.hidden ? v.pause() : v.play().catch(function(){}); } catch(err){}
+    }, {passive:true});
+  }
 })();
 </script>
 
