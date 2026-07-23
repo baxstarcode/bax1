@@ -69,16 +69,21 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
   *,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
 }
 @media(max-width:768px){
-  .hero{min-height:auto;padding-bottom:24px}
+  .hero{min-height:auto;padding-bottom:20px}
   .hero__video video{object-position:50% 30%}
   .hero__veil{background:linear-gradient(180deg,rgba(8,8,10,0.55) 0%,rgba(8,8,10,0.35) 30%,rgba(8,8,10,0.7) 55%,rgba(8,8,10,0.95) 78%,rgba(8,8,10,0.98) 100%)}
-  .hero__inner{max-width:100%;padding:18svh 24px 36px;justify-content:flex-start;align-items:center;text-align:center;min-height:auto}
+  /* Compact vertical rhythm so both CTAs land above the first-load fold
+     on phones (incl. iPhone SE): the old 18svh top pad alone pushed the
+     buttons off-screen. */
+  .hero__inner{max-width:100%;padding:clamp(24px,4.5svh,40px) 22px 28px;justify-content:flex-start;align-items:center;text-align:center;min-height:auto}
   .hero__eyebrow{display:none}
-  .hero__body{max-width:100%}
-  .hero__cta{justify-content:center;gap:12px;margin-bottom:36px}
-  .btn{font-size:11.5px;padding:14px 28px}
+  .hero__headline{font-size:clamp(48px,10vw,58px)}
+  .hero__divider{margin:16px 0 18px}
+  .hero__body{max-width:100%;line-height:1.62;margin-bottom:24px}
+  .hero__cta{justify-content:center;gap:10px;margin-bottom:24px}
+  .btn{font-size:11px;padding:13px 24px}
   .stat-strip{justify-content:center}
-  .stat{padding:0 18px}
+  .stat{padding:0 16px}
   .bracket{width:32px;height:32px}
   .bracket--tl,.bracket--tr{top:14px}
   .bracket--bl,.bracket--br{bottom:14px}
@@ -86,7 +91,7 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
   .bracket--tr,.bracket--br{right:14px}
 }
 @media(max-width:400px){
-  .hero__headline{font-size:clamp(42px,11vw,54px)}
+  .hero__headline{font-size:clamp(42px,11.5vw,48px)}
   .stat-strip{flex-wrap:wrap;gap:8px}
   .stat{padding:0 14px}
 }
@@ -133,58 +138,71 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
 <script>
 (function(){
   // ── HERO VIDEO SOURCES ─────────────────────────────────────────
-  // Mobile / Save-Data / slow networks keep the original 720p video
-  // (a30e59_93c03ce571164cd2ba251848c2ea4671).
-  // Desktop loads the new 1080p video
-  // (a30e59_b99096e69fe64b138bfd12acfcdebe76).
-  // If the new desktop source fails to load, fall back ONCE to the
-  // mobile/720p source so the hero never goes dark — wrong content
-  // beats no content.
-  var MOBILE_SRC  = 'https://video.wixstatic.com/video/a30e59_93c03ce571164cd2ba251848c2ea4671/720p/mp4/file.mp4';
-  var DESKTOP_SRC = 'https://video.wixstatic.com/video/a30e59_b99096e69fe64b138bfd12acfcdebe76/1080p/mp4/file.mp4';
+  // Layout decides the ART (≤768px → vertical phone video, wider →
+  // horizontal video); network decides the QUALITY (Save-Data / 2g
+  // gets the 720p rendition of the SAME horizontal video, never the
+  // vertical one). The choice is re-evaluated whenever the breakpoint
+  // flips: during Wix SPA navigation the embed iframe can mount at a
+  // transient tiny width, and a one-shot check at that moment is what
+  // used to lock desktop onto the vertical mobile video.
+  var MOBILE_SRC       = 'https://video.wixstatic.com/video/a30e59_93c03ce571164cd2ba251848c2ea4671/720p/mp4/file.mp4';
+  var DESKTOP_SRC      = 'https://video.wixstatic.com/video/a30e59_b99096e69fe64b138bfd12acfcdebe76/1080p/mp4/file.mp4';
+  var DESKTOP_SRC_LITE = 'https://video.wixstatic.com/video/a30e59_b99096e69fe64b138bfd12acfcdebe76/720p/mp4/file.mp4';
 
   var w = document.getElementById('heroVideo');
   var v = w && w.querySelector('video');
   if (!v) return;
 
-  function addSrc(u){
-    var n = document.createElement('source');
-    n.src = u;
-    n.type = 'video/mp4';
-    v.appendChild(n);
+  var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  function netConstrained(){
+    return !!(conn && (conn.saveData || /2g/i.test(conn.effectiveType || '')));
   }
 
-  // Bandwidth-aware source selection
-  var conn     = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-  var saveData = conn && conn.saveData;
-  var slowNet  = conn && /2g|slow-2g/i.test(conn.effectiveType || '');
-  var isMobile = window.matchMedia('(max-width:768px)').matches;
-  var useMobileSrc = saveData || slowNet || isMobile;
+  var mq = window.matchMedia('(max-width:768px)');
+  var current = '';
+  var failed = {};
 
-  // One-shot fallback: swap to mobile/720p source if the primary fails.
-  v.addEventListener('error', function r(){
-    while (v.firstChild) v.removeChild(v.firstChild);
-    addSrc(MOBILE_SRC);
-    v.removeEventListener('error', r);
+  function pick(){
+    if (mq.matches) return MOBILE_SRC;
+    var d = netConstrained() ? DESKTOP_SRC_LITE : DESKTOP_SRC;
+    if (failed[d]) d = (d === DESKTOP_SRC) ? DESKTOP_SRC_LITE : DESKTOP_SRC;
+    if (failed[d]) d = MOBILE_SRC; // last resort: wrong art beats a dark hero
+    return d;
+  }
+
+  function apply(){
+    var src = pick();
+    if (src === current) return;
+    current = src;
+    w.classList.remove('is-ready');
+    v.src = src;
     v.load();
     v.play().catch(function(){});
-  }, { once: true, passive: true });
-
-  if (useMobileSrc) {
-    addSrc(MOBILE_SRC);
-  } else {
-    addSrc(DESKTOP_SRC);
   }
 
   // Reveal as soon as enough data exists to start playback
-  v.addEventListener('canplay',function r(){
-    v.removeEventListener('canplay',r);
-    requestAnimationFrame(function(){w.classList.add('is-ready')});
-  },{passive:true});
+  v.addEventListener('canplay', function(){
+    requestAnimationFrame(function(){ w.classList.add('is-ready'); });
+  }, {passive:true});
 
-  // Trigger immediately — video is now critical hero content
-  v.load();
-  v.play().catch(function(){});
+  // If a source fails, mark it and re-pick so the hero never goes dark
+  v.addEventListener('error', function(){
+    if (!current || failed[current]) return;
+    failed[current] = true;
+    apply();
+  }, {passive:true});
+
+  if (mq.addEventListener) mq.addEventListener('change', apply);
+  else if (mq.addListener) mq.addListener(apply);
+  // Belt and braces for iframe environments where the media-query
+  // listener is unreliable, and for bfcache restores
+  window.addEventListener('resize', apply, {passive:true});
+  window.addEventListener('pageshow', function(){
+    apply();
+    v.play().catch(function(){});
+  }, {passive:true});
+
+  apply();
 
   // Pause when hero is offscreen (parent posts visibility messages)
   window.addEventListener('message',function(e){
