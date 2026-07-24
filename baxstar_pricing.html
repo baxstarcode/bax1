@@ -1050,38 +1050,70 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
   'use strict';
 
   /* ═══════════════════════════════════════════════════════════
-     PRICING DATA — sourced from Baxstar Pricing Engine 2026 v2
-     (Settings tab, "SEASON TIER ADJUSTMENT PERCENTAGES",
-      reconciled 2026-05-21)
+     BAXSTAR-PRICING-SYNC:BEGIN
+     Machine-owned price variables. Single source of truth:
+     "Pricing Engine 2026 – LIVE" Google Sheet
+     (ID 13_Z2AiVk2sVT6RdoELd1RJo2nFgVt0KWPgDD--tyAjI).
+     Do NOT hand-edit numbers in this block — edit the Engine,
+     then the Pricing Sync Guardian regenerates this block only.
+     SOP: Drive → Baxstar Data Engine → Agent OS → 06 Agents →
+     "Agent — Pricing Sync Guardian (SOP)".
+     Copy, labels, and layout below the END marker are
+     hand-owned and never auto-touched.
   ═══════════════════════════════════════════════════════════ */
+  var PRICING = {
+    engineId: '13_Z2AiVk2sVT6RdoELd1RJo2nFgVt0KWPgDD--tyAjI',
+    synced: '2026-07-24',
+    feeMultiplier: 1.06,
+    /* Net base price, 1–2 guests — Engine › Settings › FISHING TRIP BASE PRICES */
+    base: { 3: 385, 4: 425, 5: 550, 6: 675, 8: 900 },
+    /* Static per-guest add-ons [3rd, 4th, 5th] — no seasonal % applied */
+    addons: { 3: [50, 50, 100], 4: [50, 50, 100], 5: [62.5, 62.5, 100], 6: [75, 75, 125], 8: [100, 100, 175] },
+    /* Season tier adjustment % — Engine › Settings › FISHING - SEASON TIER ADJUSTMENT PERCENTAGES */
+    tiers: {
+      off_peak: { all: -0.05 },
+      shoulder: { mon_thu: 0.00, fri_sun: 0.04 },
+      high:     { mon_thu: 0.02, fri_sun: 0.05 },
+      peak:     { mon_thu: 0.03, fri_sun: 0.05, sat: 0.08 },
+      holiday:  { all: 0.12 }
+    }
+  };
+  /* ═══ BAXSTAR-PRICING-SYNC:END ═══ */
+
   var TRIPS = {
     3: {
-      base: 385,
+      base: PRICING.base[3],
       sub: 'A streamlined trip designed around active low-light feeding periods and after-work flexibility.',
-      perAddOn: [50, 50, 100],
+      perAddOn: PRICING.addons[3],
       allowedSeasons: ['off_peak', 'shoulder'],
       note: 'Limited availability. Select 5–6 PM evening windows only. Offered during spring, fall, and early-season Sundays.'
     },
-    4: { base: 425, sub: 'Half-day on the water — perfect for an early bite or evening run.',     perAddOn: [50, 50, 100] },
-    5: { base: 550, sub: 'The sweet spot — extra time without making it a full-day commitment.',  perAddOn: [62.5, 62.5, 100] },
-    6: { base: 675, sub: 'Built for serious anglers — patterns, structure, and multiple species.', perAddOn: [75, 75, 125] },
-    8: { base: 900, sub: 'Not for the meek — 1pm start time recommended.',                            perAddOn: [100, 100, 175] }
+    4: { base: PRICING.base[4], sub: 'Half-day on the water — perfect for an early bite or evening run.',     perAddOn: PRICING.addons[4] },
+    5: { base: PRICING.base[5], sub: 'The sweet spot — extra time without making it a full-day commitment.',  perAddOn: PRICING.addons[5] },
+    6: { base: PRICING.base[6], sub: 'Built for serious anglers — patterns, structure, and multiple species.', perAddOn: PRICING.addons[6] },
+    8: { base: PRICING.base[8], sub: 'Not for the meek — 1pm start time recommended.',                            perAddOn: PRICING.addons[8] }
   };
 
-  /* SEASONS percentages reconciled against Pricing Engine v2 (2026-05-20)
-     Changes from prior values:
-       high.fri_sun:  0.11 → 0.10
-       peak.mon_thu:  0.14 → 0.10
-       peak.fri_sun:  0.17 → 0.13
-       peak.sat:      0.20 → 0.15
-       holiday.all:   0.20 → 0.12 */
   var SEASONS = {
-    off_peak: { label: 'Off Peak', dates: 'Apr 1 – May 31  ·  Sep 10 – Oct 31', days: [{ key: 'all', label: 'All Days', mult: 0.00 }] },
-    shoulder: { label: 'Shoulder', dates: 'Jun 1–12  ·  Aug 21 – Sep 9', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: 0.03 }, { key: 'fri_sun', label: 'Fri–Sun', mult: 0.06 }] },
-    high:     { label: 'High',     dates: 'Jun 13–30  ·  Jul 26 – Aug 20', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: 0.08 }, { key: 'fri_sun', label: 'Fri–Sun', mult: 0.10 }] },
-    peak:     { label: 'Peak',     dates: 'Jul 1 – Jul 25', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: 0.10 }, { key: 'fri_sun', label: 'Fri / Sun', mult: 0.13 }, { key: 'sat', label: 'Saturday', mult: 0.15 }] },
-    holiday:  { label: 'Holiday',  dates: 'May 22–25  ·  Jul 2–5  ·  Sep 4–7', days: [{ key: 'all', label: 'All Days', mult: 0.12 }] }
+    off_peak: { label: 'Off Peak', dates: 'Apr 1 – May 31  ·  Sep 10 – Oct 31', days: [{ key: 'all', label: 'All Days', mult: PRICING.tiers.off_peak.all }] },
+    shoulder: { label: 'Shoulder', dates: 'Jun 1–12  ·  Aug 21 – Sep 9', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: PRICING.tiers.shoulder.mon_thu }, { key: 'fri_sun', label: 'Fri–Sun', mult: PRICING.tiers.shoulder.fri_sun }] },
+    high:     { label: 'High',     dates: 'Jun 13–30  ·  Jul 26 – Aug 20', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: PRICING.tiers.high.mon_thu }, { key: 'fri_sun', label: 'Fri–Sun', mult: PRICING.tiers.high.fri_sun }] },
+    peak:     { label: 'Peak',     dates: 'Jul 1 – Jul 25', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: PRICING.tiers.peak.mon_thu }, { key: 'fri_sun', label: 'Fri / Sun', mult: PRICING.tiers.peak.fri_sun }, { key: 'sat', label: 'Saturday', mult: PRICING.tiers.peak.sat }] },
+    holiday:  { label: 'Holiday',  dates: 'May 22–25  ·  Jul 2–5  ·  Sep 4–7', days: [{ key: 'all', label: 'All Days', mult: PRICING.tiers.holiday.all }] }
   };
+
+  /* Variable containers: the menu "From" amounts always render from
+     PRICING.base, so a synced block update repaints the visible rows. */
+  (function hydrateRowAmounts(){
+    var menuRows = document.querySelectorAll('.pmin-row[data-trip]');
+    for (var i = 0; i < menuRows.length; i++) {
+      var key = menuRows[i].getAttribute('data-trip');
+      var amt = menuRows[i].querySelector('.pmin-row__amount');
+      if (amt && PRICING.base[key] != null) {
+        amt.textContent = '$' + Math.round(PRICING.base[key]).toLocaleString();
+      }
+    }
+  })();
 
   var state = { trip: 4, season: 'off_peak', dayKey: 'all', groupSize: 2 };
 
