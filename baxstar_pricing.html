@@ -1076,6 +1076,17 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
       high:     { mon_thu: 0.02, fri_sun: 0.05 },
       peak:     { mon_thu: 0.03, fri_sun: 0.05, sat: 0.08 },
       holiday:  { all: 0.12 }
+    },
+    /* Season date ranges as [startMMDD, endMMDD], year-agnostic —
+       Engine › Settings › FISHING tier Date Range column.
+       Resolution order: holiday first (overrides), then peak/high/shoulder/off_peak.
+       No match (Nov 1 – Mar 31) = off-season → default to off_peak (next bookable). */
+    seasonDates: {
+      holiday:  [[522, 525], [702, 705], [904, 907]],
+      peak:     [[701, 725]],
+      high:     [[613, 630], [726, 820]],
+      shoulder: [[601, 612], [821, 909]],
+      off_peak: [[401, 531], [910, 1031]]
     }
   };
   /* ═══ BAXSTAR-PRICING-SYNC:END ═══ */
@@ -1101,6 +1112,31 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     peak:     { label: 'Peak',     dates: 'Jul 1 – Jul 25', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: PRICING.tiers.peak.mon_thu }, { key: 'fri_sun', label: 'Fri / Sun', mult: PRICING.tiers.peak.fri_sun }, { key: 'sat', label: 'Saturday', mult: PRICING.tiers.peak.sat }] },
     holiday:  { label: 'Holiday',  dates: 'May 22–25  ·  Jul 2–5  ·  Sep 4–7', days: [{ key: 'all', label: 'All Days', mult: PRICING.tiers.holiday.all }] }
   };
+
+  /* Current-season resolution: the modal opens highlighting the season
+     (and day type) matching the visitor's date. Added 2026-07-24 per Brady. */
+  function resolveCurrentSeason(d){
+    var md = (d.getMonth() + 1) * 100 + d.getDate();
+    var order = ['holiday', 'peak', 'high', 'shoulder', 'off_peak'];
+    for (var i = 0; i < order.length; i++) {
+      var ranges = PRICING.seasonDates[order[i]] || [];
+      for (var j = 0; j < ranges.length; j++) {
+        if (md >= ranges[j][0] && md <= ranges[j][1]) return order[i];
+      }
+    }
+    return 'off_peak'; /* Nov–Mar off-season: next bookable season */
+  }
+  function resolveDayKey(seasonKey, d){
+    var s = SEASONS[seasonKey];
+    if (!s) return 'all';
+    var keys = [];
+    for (var i = 0; i < s.days.length; i++) keys.push(s.days[i].key);
+    if (keys.indexOf('all') > -1) return 'all';
+    var dow = d.getDay(); /* 0 Sun … 6 Sat */
+    if (dow === 6 && keys.indexOf('sat') > -1) return 'sat';
+    if (dow === 5 || dow === 6 || dow === 0) return 'fri_sun';
+    return 'mon_thu';
+  }
 
   /* Variable containers: the menu "From" amounts always render from
      PRICING.base, so a synced block update repaints the visible rows. */
@@ -1178,7 +1214,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     });
   }
 
-  function renderDayRow(){
+  function renderDayRow(preferredKey){
     var s = SEASONS[state.season];
     if (!s) return;
     if (s.days.length <= 1) {
@@ -1187,6 +1223,12 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
       dayRow.innerHTML = '';
       state.dayKey = s.days[0].key;
       return;
+    }
+    var activeIdx = 0;
+    if (preferredKey) {
+      for (var k = 0; k < s.days.length; k++) {
+        if (s.days[k].key === preferredKey) { activeIdx = k; break; }
+      }
     }
     dayLabel.style.display = '';
     dayRow.style.display = '';
@@ -1197,13 +1239,13 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
       btn.className = 'pmin-toggle-pill pmin-toggle-pill--sub';
       btn.dataset.day = d.key;
       btn.setAttribute('role', 'radio');
-      var isFirst = idx === 0;
-      btn.classList.toggle('active', isFirst);
-      btn.setAttribute('aria-checked', isFirst ? 'true' : 'false');
+      var isActive = idx === activeIdx;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-checked', isActive ? 'true' : 'false');
       btn.textContent = d.label;
       dayRow.appendChild(btn);
     });
-    state.dayKey = s.days[0].key;
+    state.dayKey = s.days[activeIdx].key;
   }
 
   function updateSeasonMeta(){
@@ -1237,7 +1279,18 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     }
 
     applyAllowedSeasons(trip.allowedSeasons);
-    var firstSeason = (trip.allowedSeasons && trip.allowedSeasons[0]) || 'off_peak';
+    /* Default to the season matching the visitor's date (added 2026-07-24).
+       If this trip doesn't offer the current season (e.g. 3-hour in summer),
+       fall back to its first allowed season — no false "current" highlight. */
+    var today = new Date();
+    var currentSeason = resolveCurrentSeason(today);
+    var firstSeason, preferredDay = null;
+    if (trip.allowedSeasons && trip.allowedSeasons.indexOf(currentSeason) === -1) {
+      firstSeason = trip.allowedSeasons[0];
+    } else {
+      firstSeason = currentSeason;
+      preferredDay = resolveDayKey(currentSeason, today);
+    }
     state.season = firstSeason;
     state.dayKey = SEASONS[firstSeason].days[0].key;
     state.groupSize = 2;
@@ -1254,7 +1307,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     });
 
     updateSeasonMeta();
-    renderDayRow();
+    renderDayRow(preferredDay);
     calculate();
 
     modal.classList.add('open');
