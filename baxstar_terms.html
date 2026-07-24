@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="indexifembedded"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Primary description (≤160 chars) -->
+<meta name="description" content="Terms & Conditions for Baxstar Fishing — booking, payment, cancellation, weather policy, licenses, and liability for private guided fishing trips in Detroit Lakes, MN.">
+
+<meta name="author" content="Brady Baxter, Baxstar Fishing">
+
+<!--
+  ══════════════════════════════════════════════════════════════
+  ATTORNEY REVIEW NOTES (not rendered — for counsel reading source)
+  ══════════════════════════════════════════════════════════════
+  This page is a generic charter/guide-service terms template drafted
+  2026-07-24 from common industry T&C patterns (NC/MA charter operators
+  + MN guide services). Items counsel should specifically confirm:
+  1. §4 Cancellation — no fixed customer-cancellation window is published
+     anywhere on the site today; this draft defers to "terms presented at
+     booking." Decide whether to codify a window (e.g. 72 hr / 14 day).
+  2. §9 Release/limitation — confirm whether a separately signed
+     liability waiver should be required per trip (this page is browse-wrap).
+  3. §16 Governing law — venue set to Becker County, Minnesota. Confirm.
+  4. §13 Minors — confirm age threshold and guardian-signature practice.
+  5. Confirm business entity name (page uses "Baxstar Fishing"; if an LLC
+     exists, substitute the registered entity name throughout).
+  ══════════════════════════════════════════════════════════════
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #08080a;
+  --red: #c1272d;
+  --red-bright: #e63946;
+  --cream: #f0ece4;
+  --white: #ffffff;
+  --gray-light: #d4d0c9;
+  --gray-mid: #8f8f9a;
+  --bone: #c8c5bd;
+  --pearl: #e8e6e0;
+  --divider: rgba(255,255,255,0.08);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+html, body { width: 100%; height: auto; overflow-x: hidden; overflow-y: visible; }
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: 'Barlow', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── SCROLL REVEAL ───────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: transform, opacity;
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+/* ── SHELL ───────────────────────────────────────────────── */
+.terms {
+  position: relative;
+  width: 100%;
+  background: var(--black);
+  padding: 64px 33.6px 72px;
+}
+.terms-inner { max-width: 860px; margin: 0 auto; }
+
+/* ── HEADER ──────────────────────────────────────────────── */
+.terms-kicker {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  color: var(--red-bright);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.terms-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(44px, 7vw, 68px);
+  letter-spacing: 0.045em;
+  line-height: 0.98;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+.terms-updated {
+  font-size: 13.5px;
+  color: var(--gray-mid);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 26px;
+}
+.terms-intro {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--gray-light);
+  max-width: 720px;
+  margin-bottom: 8px;
+}
+.terms-intro strong { color: var(--cream); font-weight: 600; }
+
+.terms-header-divider {
+  height: 1px;
+  background: var(--divider);
+  margin: 40px 0 46px;
+}
+
+/* ── SECTIONS ────────────────────────────────────────────── */
+.terms-section { margin-bottom: 44px; }
+.terms-section:last-of-type { margin-bottom: 0; }
+
+.terms-section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.terms-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--red);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+.terms-section h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 27px;
+  letter-spacing: 0.05em;
+  line-height: 1.05;
+  color: var(--white);
+  font-weight: 400;
+}
+.terms-section p {
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--gray-light);
+  margin-bottom: 12px;
+}
+.terms-section p:last-child { margin-bottom: 0; }
+.terms-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 12px;
+}
+.terms-section li {
+  position: relative;
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--gray-light);
+  padding-left: 22px;
+  margin-bottom: 8px;
+}
+.terms-section li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 8px;
+  height: 2px;
+  background: var(--red);
+}
+.terms-section a {
+  color: var(--pearl);
+  text-decoration: underline;
+  text-decoration-color: rgba(230,57,70,0.5);
+  text-underline-offset: 3px;
+  transition: color 0.18s var(--ease), text-decoration-color 0.18s var(--ease);
+}
+.terms-section a:hover, .terms-section a:focus-visible {
+  color: var(--red-bright);
+  text-decoration-color: var(--red-bright);
+  outline: none;
+}
+.terms-section strong { color: var(--cream); font-weight: 600; }
+
+/* ── CONTACT CARD ────────────────────────────────────────── */
+.terms-contact {
+  margin-top: 54px;
+  border: 1px solid var(--divider);
+  border-left: 3px solid var(--red);
+  padding: 28px 30px;
+  background: rgba(255,255,255,0.02);
+}
+.terms-contact h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+.terms-contact p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--gray-light);
+}
+.terms-contact a {
+  color: var(--pearl);
+  text-decoration: underline;
+  text-decoration-color: rgba(230,57,70,0.5);
+  text-underline-offset: 3px;
+}
+.terms-contact a:hover, .terms-contact a:focus-visible {
+  color: var(--red-bright);
+  outline: none;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .terms { padding: 52px 22.4px 60px; }
+}
+@media (max-width: 580px) {
+  .terms { padding: 44px 15.4px 52px; }
+  .terms-section h2 { font-size: 24px; }
+  .terms-section p, .terms-section li { font-size: 15px; }
+  .terms-contact { padding: 22px 20px; }
+  .terms-header-divider { margin: 32px 0 38px; }
+  .terms-section { margin-bottom: 38px; }
+}
+
+/* ── REDUCED MOTION ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; will-change: auto; }
+  .terms-section a, .terms-contact a { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<main class="terms" aria-label="Baxstar Fishing Terms and Conditions">
+  <div class="terms-inner">
+
+    <header class="reveal">
+      <p class="terms-kicker">Baxstar Fishing</p>
+      <h1 class="terms-title">Terms &amp; Conditions</h1>
+      <p class="terms-updated">Last updated: July 24, 2026</p>
+      <p class="terms-intro">
+        These Terms &amp; Conditions (the "<strong>Terms</strong>") govern your booking and participation in
+        guided fishing trips and related experiences offered by <strong>Baxstar Fishing</strong> of Detroit Lakes,
+        Minnesota ("<strong>Baxstar</strong>," "we," "us"), and your use of the website
+        <a href="https://www.baxstarfishing.com" target="_top">baxstarfishing.com</a>.
+        By booking a trip or using this website, you agree to these Terms.
+      </p>
+    </header>
+
+    <div class="terms-header-divider"></div>
+
+    <section class="terms-section reveal" id="agreement">
+      <div class="terms-section-head"><span class="terms-num">01</span><h2>Agreement to These Terms</h2></div>
+      <p>By reserving a trip, making payment, boarding the boat, or using this website, you accept these Terms on behalf of yourself and every member of your group, including minors in your care. If you are booking for a group, you are responsible for making sure every guest is aware of these Terms before the trip. If you do not agree, please do not book or use the site.</p>
+    </section>
+
+    <section class="terms-section reveal" id="services">
+      <div class="terms-section-head"><span class="terms-num">02</span><h2>Our Services</h2></div>
+      <p>Baxstar provides private guided fishing experiences in the Detroit Lakes, Minnesota area, including open-water guided trips, guided ice fishing, ice castle rentals, and related experiences. Trip details — duration, group size, meeting location, and what is included — are described on the relevant page of this website and confirmed in your booking confirmation. Lake selection and launch location are chosen by your guide based on conditions to give your group the best opportunity.</p>
+    </section>
+
+    <section class="terms-section reveal" id="booking">
+      <div class="terms-section-head"><span class="terms-num">03</span><h2>Booking &amp; Payment</h2></div>
+      <p>Reservations are made online through our booking provider, FareHarbor, or directly by phone. Payment is collected at the time of booking and secures your date and time. A provider fee disclosed at checkout is added to cover secure booking and reservation processing. Prices are in U.S. dollars. A reservation is not confirmed until you receive a booking confirmation.</p>
+    </section>
+
+    <section class="terms-section reveal" id="cancellation">
+      <div class="terms-section-head"><span class="terms-num">04</span><h2>Cancellations &amp; Rescheduling</h2></div>
+      <p>Plans change — contact us as early as possible if you need to cancel or move a trip. The cancellation and refund terms presented at the time of booking (in the checkout flow and your booking confirmation) govern your reservation. In general:</p>
+      <ul>
+        <li>Cancellations made with reasonable advance notice may be rescheduled to another available date.</li>
+        <li>Late cancellations and no-shows may forfeit amounts paid, at Baxstar's discretion.</li>
+        <li>If <strong>Baxstar</strong> cancels your trip for any reason other than guest conduct, you will be offered a reschedule or a refund of amounts paid for the trip.</li>
+      </ul>
+      <p>Undesirable fishing conditions, slow fishing, or ordinary weather are not grounds for a guest refund. Fishing success is never guaranteed.</p>
+    </section>
+
+    <section class="terms-section reveal" id="weather">
+      <div class="terms-section-head"><span class="terms-num">05</span><h2>Weather &amp; Safety Decisions</h2></div>
+      <p>Safety comes first, and weather calls belong to your guide. Baxstar fishes in moderate rain and manageable wind, and rain gear is available when needed. If conditions shift, your guide may change lakes, adjust the plan, or shorten the route to give your group the best safe opportunity rather than canceling early.</p>
+      <p>If your guide determines conditions are unsafe — before or during a trip — the trip may be delayed, moved, rescheduled, or canceled. If Baxstar cancels a trip for weather or safety, you will be offered a reschedule or a refund as described in Section 04.</p>
+    </section>
+
+    <section class="terms-section reveal" id="licenses">
+      <div class="terms-section-head"><span class="terms-num">06</span><h2>Fishing Licenses &amp; Regulations</h2></div>
+      <p>Every angler age 16 and over must carry a valid Minnesota fishing license. Licenses are <strong>not</strong> provided by Baxstar and are each guest's own responsibility. Licenses are available online through the Minnesota DNR, at Detroit Lakes bait shops, and at local outfitters; a 24-hour, 72-hour, or season license all qualify, in digital or printed form.</p>
+      <p>All fishing is subject to Minnesota DNR regulations, seasons, and limits. Your guide will help you identify what is legal to keep, but each guest is responsible for complying with applicable law. Guests without a required license may be unable to fish, without refund.</p>
+    </section>
+
+    <section class="terms-section reveal" id="conduct">
+      <div class="terms-section-head"><span class="terms-num">07</span><h2>Guest Responsibilities &amp; Conduct</h2></div>
+      <p>Your guide is in charge of the vessel and the trip. Guests agree to:</p>
+      <ul>
+        <li>Follow the guide's safety instructions at all times, including life jacket use where required.</li>
+        <li>Arrive on time at the confirmed meeting location; late arrival may shorten the trip without refund.</li>
+        <li>Disclose any medical conditions, mobility limitations, or swimming limitations that could affect safety.</li>
+        <li>Refrain from illegal drugs, excessive alcohol, weapons, and any unsafe, illegal, or disruptive behavior.</li>
+      </ul>
+      <p>The guide may refuse boarding to, or end the trip of, any guest whose condition or conduct puts safety at risk — without refund. Guests are responsible for damage to the boat or equipment caused by negligence or misuse.</p>
+    </section>
+
+    <section class="terms-section reveal" id="risk">
+      <div class="terms-section-head"><span class="terms-num">08</span><h2>Assumption of Risk</h2></div>
+      <p>Fishing, boating, and ice-based activities carry inherent risks that no amount of care fully removes — including weather, waves, slippery surfaces, hooks and fishing equipment, wildlife, cold water, and, for winter experiences, the inherent unpredictability of ice conditions. By participating, you voluntarily accept these inherent risks for yourself and for minors in your care.</p>
+      <p>Baxstar may additionally require a signed liability waiver before certain trips or rentals; that waiver supplements these Terms.</p>
+    </section>
+
+    <section class="terms-section reveal" id="liability">
+      <div class="terms-section-head"><span class="terms-num">09</span><h2>Limitation of Liability</h2></div>
+      <p>To the fullest extent permitted by law: Baxstar, its owner, guides, and representatives will not be liable for indirect, incidental, special, punitive, or consequential damages arising out of or connected with a trip, a rental, or use of this website; and Baxstar's total liability for any claim will not exceed the amount you paid to Baxstar for the trip or service giving rise to the claim.</p>
+      <p>Nothing in these Terms limits liability that cannot be limited under applicable law.</p>
+    </section>
+
+    <section class="terms-section reveal" id="indemnification">
+      <div class="terms-section-head"><span class="terms-num">10</span><h2>Indemnification</h2></div>
+      <p>You agree to indemnify and hold harmless Baxstar, its owner, guides, and representatives from claims, damages, and expenses (including reasonable attorneys' fees) arising from your violation of these Terms, your violation of applicable law or regulation, or your negligent or intentional misconduct during a trip or rental.</p>
+    </section>
+
+    <section class="terms-section reveal" id="property">
+      <div class="terms-section-head"><span class="terms-num">11</span><h2>Personal Property</h2></div>
+      <p>Guests are responsible for their own belongings — phones, cameras, sunglasses, coolers, and gear brought aboard. Baxstar is not responsible for personal items that are lost, damaged, or go overboard during a trip.</p>
+    </section>
+
+    <section class="terms-section reveal" id="media">
+      <div class="terms-section-head"><span class="terms-num">12</span><h2>Photos &amp; Media</h2></div>
+      <p>Trips are often photographed — trophy shots are part of the experience. Baxstar may use photos and video taken during trips, which may include your likeness, on its website and social media and in marketing materials, without compensation. If you prefer not to appear, tell us in writing (email is fine) before or promptly after your trip and we will honor it.</p>
+    </section>
+
+    <section class="terms-section reveal" id="minors">
+      <div class="terms-section-head"><span class="terms-num">13</span><h2>Minors</h2></div>
+      <p>Guests under 18 are welcome on family trips but must be accompanied by a parent or legal guardian, who accepts these Terms — including the assumption of risk in Section 08 — on the minor's behalf and remains responsible for the minor's supervision and conduct throughout the trip.</p>
+    </section>
+
+    <section class="terms-section reveal" id="website">
+      <div class="terms-section-head"><span class="terms-num">14</span><h2>Website Use &amp; Intellectual Property</h2></div>
+      <p>Content on this website — text, photos, video, graphics, and logos — belongs to Baxstar Fishing or its licensors and is protected by copyright and trademark law. You may view and share it for personal, non-commercial purposes; any other use requires written permission. The website is provided "as is," and while we work to keep information current, we do not warrant that every detail is error-free at all times.</p>
+    </section>
+
+    <section class="terms-section reveal" id="thirdparty">
+      <div class="terms-section-head"><span class="terms-num">15</span><h2>Third-Party Services</h2></div>
+      <p>Booking, payment processing, and certain website features are provided by third parties (including FareHarbor). Your use of those services is also governed by their own terms and privacy policies, which we encourage you to review. Links to outside websites are provided for convenience; Baxstar is not responsible for third-party content.</p>
+    </section>
+
+    <section class="terms-section reveal" id="law">
+      <div class="terms-section-head"><span class="terms-num">16</span><h2>Governing Law &amp; Disputes</h2></div>
+      <p>These Terms are governed by the laws of the State of Minnesota, without regard to conflict-of-law principles. Any dispute arising out of these Terms, a trip, or use of this website will be brought exclusively in the state or federal courts serving Becker County, Minnesota, and you consent to their jurisdiction. Before filing any claim, you agree to first contact us and give us a good-faith opportunity to resolve the issue.</p>
+    </section>
+
+    <section class="terms-section reveal" id="general">
+      <div class="terms-section-head"><span class="terms-num">17</span><h2>General Terms</h2></div>
+      <p>These Terms, together with your booking confirmation and any signed waiver, are the entire agreement between you and Baxstar for your trip. If any provision is found unenforceable, the rest remain in effect. Our failure to enforce a provision is not a waiver of it. We may update these Terms from time to time; the "Last updated" date above reflects the current version, and the version in effect on your booking date applies to your trip.</p>
+    </section>
+
+    <div class="terms-contact reveal" id="contact">
+      <h2>Questions About These Terms?</h2>
+      <p>
+        Contact Brady Baxter directly:<br>
+        Phone: <a href="tel:+12183256857" target="_top" aria-label="Call Brady Baxter at 218-325-6857">(218) 325-6857</a><br>
+        Email: <a href="mailto:brady@baxstarfishing.com" target="_top">brady@baxstarfishing.com</a><br>
+        Baxstar Fishing &mdash; Detroit Lakes, Minnesota 56501
+      </p>
+    </div>
+
+  </div>
+</main>
+
+<!-- ════════════════════════════════════════
+     SCROLL REVEAL
+════════════════════════════════════════ -->
+<script>
+(function(){
+  'use strict';
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    reveals.forEach(function(el){ el.classList.add('visible'); });
+    return;
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        var target = entry.target;
+        requestAnimationFrame(function(){
+          target.classList.add('visible');
+        });
+        io.unobserve(target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+  reveals.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+<!-- IFRAME HEIGHT REPORTER — multi-signal (Wix Custom Embed auto-resize) -->
+<script>
+(function(){
+  if (window.parent === window) return;
+  var lastH = 0;
+  function report(){
+    var h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body ? document.body.scrollHeight : 0,
+      document.documentElement.offsetHeight,
+      document.body ? document.body.offsetHeight : 0
+    );
+    if (h && Math.abs(h - lastH) >= 2) {
+      lastH = h;
+      try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage('height:' + h, '*'); } catch(e){}
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', report);
+  else report();
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(report);
+  if (window.ResizeObserver) {
+    try { var ro = new ResizeObserver(report); ro.observe(document.documentElement); if (document.body) ro.observe(document.body); } catch(e){}
+  }
+  if (window.MutationObserver && document.body) {
+    try { new MutationObserver(report).observe(document.body, { subtree:true, childList:true, attributes:true, attributeFilter:['class','style'] }); } catch(e){}
+  }
+  document.addEventListener('transitionend', function(e){
+    if (e.target && e.target.classList && e.target.classList.contains('reveal')) report();
+  }, true);
+  var ticks = 0;
+  var early = setInterval(function(){
+    report(); ticks++;
+    if (ticks >= 30) { clearInterval(early); setInterval(report, 1500); }
+  }, 200);
+})();
+</script>
+</body>
+</html>

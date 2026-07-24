@@ -279,6 +279,11 @@
       "@type": "SiteNavigationElement",
       "name": "Lodging Partners",
       "url": "https://www.baxstarfishing.com/lodging"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": "Terms & Conditions",
+      "url": "https://www.baxstarfishing.com/terms"
     }
 
   ]
@@ -487,6 +492,15 @@ body {
   color: var(--gray-mid);
   letter-spacing: 0.02em;
 }
+.footer-legal a {
+  color: var(--gray-mid);
+  text-decoration: none;
+  transition: color 0.18s var(--ease);
+}
+.footer-legal a:hover, .footer-legal a:focus-visible {
+  color: var(--red-bright);
+  outline: none;
+}
 
 /* ── RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width: 1024px) {
@@ -519,7 +533,7 @@ body {
 /* ── REDUCED MOTION ─────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; will-change: auto; }
-  .social-link, .footer-links a, .footer-phone, .footer-link-external::after { transition: none; }
+  .social-link, .footer-links a, .footer-phone, .footer-legal a, .footer-link-external::after { transition: none; }
   .social-link:hover, .social-link:focus-visible { transform: none; }
 }
 </style>
@@ -608,6 +622,9 @@ body {
 
     <div class="footer-bottom">
       <span>&copy; 2026 Baxstar Fishing. All rights reserved.</span>
+      <nav class="footer-legal" aria-label="Legal">
+        <a href="https://www.baxstarfishing.com/terms" target="_top">Terms &amp; Conditions<span class="sr-only"> — Baxstar Fishing Booking &amp; Trip Terms</span></a>
+      </nav>
       <span>Detroit Lakes, Minnesota</span>
     </div>
   </div>
