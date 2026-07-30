@@ -1,0 +1,28 @@
+<!-- Baxstar structured data loader (fallback variant): fetches the schema map
+     from GitHub main, so future schema updates deploy via git push alone. -->
+<script>
+(function(){
+function norm(p){p=(p||'/').toLowerCase();if(p.length>1&&p.slice(-1)==='/')p=p.slice(0,-1);return p||'/';}
+var D=null;
+function inject(){
+  if(!D)return;
+  var old=document.getElementById('bax-schema');if(old)old.remove();
+  var per=D.pages[norm(location.pathname)];if(!per)return;
+  var wpid=null;for(var i=0;i<per.length;i++){if(per[i]['@id']){wpid=per[i]['@id'];break;}}
+  if(wpid){var ex=document.querySelectorAll('script[type="application/ld+json"]:not(#bax-schema)');
+    for(var j=0;j<ex.length;j++){if(ex[j].textContent.indexOf(wpid)>-1)return;}}
+  var graph=per.slice();
+  var hasPerson=per.some(function(n){return n['@type']==='Person';});
+  graph.push(D.biz);if(!hasPerson)graph.push(D.brady);
+  var s=document.createElement('script');s.type='application/ld+json';s.id='bax-schema';
+  s.textContent=JSON.stringify({"@context":"https://schema.org","@graph":graph});
+  document.head.appendChild(s);
+}
+fetch('https://raw.githubusercontent.com/baxstarcode/bax1/refs/heads/main/seo/schema/schema-map.json')
+  .then(function(r){return r.json();}).then(function(d){D=d;inject();}).catch(function(){});
+var push=history.pushState,rep=history.replaceState;
+history.pushState=function(){push.apply(this,arguments);setTimeout(inject,80);};
+history.replaceState=function(){rep.apply(this,arguments);setTimeout(inject,80);};
+addEventListener('popstate',function(){setTimeout(inject,80);});
+})();
+</script>
