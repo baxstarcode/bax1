@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- indexifembedded: allows Google to index this iframe's content as part of
+     the host page. Paired with the canonical below, which tells search engines
+     this content belongs to the /openwater page (not a standalone document). -->
+<meta name="robots" content="indexifembedded"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recent Guest Catches — Open Water Guided Fishing | Baxstar Fishing, Detroit Lakes MN</title>
+<meta name="description" content="Recent guest catches from private guided open water fishing trips with Baxstar Fishing — walleye, bass, pike, and panfish on Detroit Lakes, Minnesota.">
+<link rel="canonical" href="https://www.baxstarfishing.com/openwater">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Preconnect to the image host so the gallery photos start downloading sooner (LCP). -->
+<link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+<!-- ImageGallery structured data — describes the 6 guest-catch photos to
+     search engines so they can surface in Google Images / rich results. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "Recent Guest Catches — Baxstar Fishing, Detroit Lakes, Minnesota",
+  "description": "Recent catches from private guided open water fishing trips with Baxstar Fishing on Detroit Lakes, Minnesota — walleye, bass, pike, and panfish.",
+  "url": "https://www.baxstarfishing.com/openwater",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Baxstar Fishing",
+    "url": "https://www.baxstarfishing.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Detroit Lakes",
+      "addressRegion": "MN",
+      "addressCountry": "US"
+    }
+  },
+  "locationCreated": {
+    "@type": "Place",
+    "name": "Detroit Lakes, Minnesota",
+    "geo": { "@type": "GeoCoordinates", "latitude": 46.6519, "longitude": -95.8453 }
+  },
+  "image": [
+    { "@type": "ImageObject", "contentUrl": "https://static.wixstatic.com/media/a30e59_e375f06b2b5648f9a9eff691e772e330~mv2.webp", "caption": "Baxstar Fishing guest with a fresh catch on a private open water guided trip — Detroit Lakes, Minnesota" },
+    { "@type": "ImageObject", "contentUrl": "https://static.wixstatic.com/media/a30e59_968bf06d5a9644429cdd61254bac5fa8~mv2.webp", "caption": "Client showing off a fish caught on Detroit Lakes — Baxstar Fishing open water guided trip, Minnesota" },
+    { "@type": "ImageObject", "contentUrl": "https://static.wixstatic.com/media/a30e59_838af90d4cdc4586b89ffda7362a269d~mv2.webp", "caption": "Open water guided fishing success on Detroit Lakes — Baxstar Fishing guest catch, Minnesota" },
+    { "@type": "ImageObject", "contentUrl": "https://static.wixstatic.com/media/a30e59_67c2afbc00074d55909e09111d6549be~mv2.webp", "caption": "Guest holding a catch aboard the boat on a private Baxstar Fishing trip — Detroit Lakes, Minnesota" },
+    { "@type": "ImageObject", "contentUrl": "https://static.wixstatic.com/media/a30e59_f4b75d6f2dee43e8b47e6aeeaaca84eb~mv2.webp", "caption": "Happy guests with their catch from a guided open water trip — Baxstar Fishing, Detroit Lakes, Minnesota" },
+    { "@type": "ImageObject", "contentUrl": "https://static.wixstatic.com/media/a30e59_bb8b4f2f742d476b823a3108c656e684~mv2.webp", "caption": "Detroit Lakes open water guided fishing — recent guest catch with Baxstar Fishing, Minnesota" }
+  ]
+}
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black:       #08080a;
+  --red:         #c1272d;
+  --red-bright:  #e63946;
+  --cream:       #f0ece4;
+  --warm-white:  #faf8f4;
+  --light-slate: #9a9aaa;
+  --bone:        #c8c5bd;
+  --pearl:       #e8e6e0;
+  --font-display:   'Bebas Neue', sans-serif;
+  --font-body:      'Barlow', sans-serif;
+  --font-condensed: 'Barlow Condensed', sans-serif;
+  --font-accent:    'Cormorant Garamond', serif;
+  --red-glow: rgba(193,39,45,0.55);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  /* Natural horizontal (landscape) catch photos */
+  --photo-ratio: 3 / 2;
+}
+
+html { scroll-behavior: smooth; }
+/* Baxstar iframe scroll standard — bg on BOTH html and body so any
+   sub-pixel seam between Wix container and iframe blends invisibly. */
+html, body {
+  width: 100%; height: auto;
+  overflow-x: hidden; overflow-y: visible;
+  background: var(--black);
+}
+body {
+  font-family: var(--font-body);
+  color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+.gc-section {
+  /* Bottom space below the CTA reduced by 100px from the original
+     clamp(56px,6vw,84px); since that maxed at ~84px, the trailing gap
+     bottoms out at 0. */
+  padding: clamp(56px, 6.3vw, 91px) 0 0;
+  background: var(--black);
+  position: relative;
+}
+.gc-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 40% at 50% 0%, rgba(193,39,45,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.gc-header {
+  text-align: center;
+  padding: 0 clamp(14px, 3.5vw, 56px);
+  margin-bottom: clamp(34px, 4vw, 52px);
+}
+.section-tag {
+  font-family: var(--font-condensed);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--red-bright);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.section-tag::before, .section-tag::after {
+  content: ''; width: 28px; height: 1px; background: var(--red);
+}
+.gc-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1; letter-spacing: 0.012em;
+  text-transform: uppercase;
+  color: var(--warm-white);
+  margin-bottom: 14px;
+}
+.gc-title span { color: var(--red-bright); }
+.gc-sub {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: clamp(17px, 1.7vw, 20px);
+  color: var(--bone);
+  line-height: 1.55;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── 6-photo grid: 2 columns on desktop/tablet · 1 column on phone ── */
+.gc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(12px, 1.6vw, 22px);
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 56px);
+}
+.gc-card {
+  position: relative;
+  aspect-ratio: var(--photo-ratio);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.05);
+  background: #111114;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+.gc-card:hover { border-color: rgba(193,39,45,0.4); }
+
+/* Placeholder slot — visible until a real image URL is pasted in.
+   The <img> stacks on top; once it loads it fully covers this label. */
+.gc-slot {
+  position: absolute; inset: 0; z-index: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 8px;
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.018) 0 12px, transparent 12px 24px),
+    #121216;
+  color: var(--light-slate);
+  text-align: center;
+  padding: 16px;
+}
+.gc-slot .gc-slot-num {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4vw, 46px);
+  line-height: 1;
+  color: rgba(240,236,228,0.18);
+}
+.gc-slot .gc-slot-lbl {
+  font-family: var(--font-condensed);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(154,154,170,0.7);
+}
+
+.gc-card img {
+  position: relative; z-index: 1;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.6s ease, filter 0.4s ease;
+  filter: brightness(0.92) saturate(1.05);
+}
+.gc-card:hover img {
+  transform: scale(1.04);
+  filter: brightness(1) saturate(1.12);
+}
+.gc-card::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(to bottom, transparent 60%, rgba(8,8,10,0.5) 100%);
+  pointer-events: none;
+}
+.card-bar {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
+  height: 3px; background: var(--red);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.gc-card:hover .card-bar { transform: scaleX(1); }
+
+/* CTA below grid — site-canonical slant button (matches CTA / pricing / gallery) */
+.gc-cta {
+  display: flex;
+  justify-content: center;
+  /* Button nudged down 30px from its original top margin */
+  margin-top: calc(clamp(34px, 4vw, 52px) + 30px);
+  padding: 0 clamp(14px, 3.5vw, 56px);
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 36px;
+  background: var(--red); color: #fff;
+  font-family: var(--font-body); font-weight: 600; font-size: 13px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  border: none; cursor: pointer; text-decoration: none;
+  transition: all 0.3s var(--ease); position: relative; overflow: hidden;
+  transform: skewX(-12deg); white-space: nowrap;
+}
+.btn-primary > * { display: inline-flex; align-items: center; transform: skewX(12deg); }
+.btn-primary svg {
+  width: 14px; height: 14px;
+  fill: none; stroke: currentColor; stroke-width: 2.2;
+  flex-shrink: 0;
+  transition: transform 0.3s var(--ease);
+}
+.btn-primary::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0.18), transparent 60%);
+  opacity: 0; transition: opacity 0.32s var(--ease);
+  pointer-events: none;
+}
+.btn-primary:hover {
+  background: var(--red-bright);
+  transform: skewX(-12deg) translateY(-2px);
+  box-shadow: 0 10px 30px var(--red-glow);
+}
+.btn-primary:hover::after { opacity: 1; }
+.btn-primary:hover svg { transform: skewX(12deg) translateX(4px); }
+
+.reveal {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+  will-change: transform, opacity;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); will-change: auto; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; will-change: auto; }
+}
+
+/* Phones only: stack to a single column */
+@media (max-width: 600px) {
+  .gc-grid { grid-template-columns: 1fr; max-width: 520px; }
+}
+</style>
+</head>
+<body>
+
+<section class="gc-section" aria-labelledby="gc-h2">
+
+  <div class="gc-header reveal">
+    <p class="section-tag">Straight From The Boat</p>
+    <h2 class="gc-title" id="gc-h2">RECENT GUEST <span>CATCHES.</span><span class="sr-only"> — Walleye, Bass, Pike, and Panfish from private guided open water fishing trips on the many lakes in the Detroit Lakes, Minnesota area with Baxstar Fishing</span></h2>
+    <p class="gc-sub">The latest fish our guests have put in the boat — real trips, real smiles, from the many lakes we fish.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       6 GUEST-CATCH PHOTOS — natural horizontal (3:2) cards, 2 per row.
+       To swap a photo later: replace the src URL and update both the
+       alt text and the <figcaption> to describe the new catch.
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="gc-grid">
+
+    <!-- PHOTO 1 -->
+    <figure class="gc-card reveal">
+      <div class="gc-slot" aria-hidden="true">
+        <span class="gc-slot-num">01</span>
+        <span class="gc-slot-lbl">Replace Image</span>
+      </div>
+      <img src="https://static.wixstatic.com/media/a30e59_e375f06b2b5648f9a9eff691e772e330~mv2.webp" width="1200" height="800" decoding="async" loading="eager" alt="Baxstar Fishing guest with a fresh catch on a private open water guided trip — Detroit Lakes, Minnesota" onerror="this.style.display='none'">
+      <span class="card-bar"></span>
+      <figcaption class="sr-only">Baxstar Fishing guest with a fresh catch on a private open water guided trip — Detroit Lakes, Minnesota.</figcaption>
+    </figure>
+
+    <!-- PHOTO 2 -->
+    <figure class="gc-card reveal">
+      <div class="gc-slot" aria-hidden="true">
+        <span class="gc-slot-num">02</span>
+        <span class="gc-slot-lbl">Replace Image</span>
+      </div>
+      <img src="https://static.wixstatic.com/media/a30e59_968bf06d5a9644429cdd61254bac5fa8~mv2.webp" width="1200" height="800" decoding="async" loading="eager" alt="Client showing off a fish caught on Detroit Lakes — Baxstar Fishing open water guided trip, Minnesota" onerror="this.style.display='none'">
+      <span class="card-bar"></span>
+      <figcaption class="sr-only">Client showing off a fish caught on Detroit Lakes — Baxstar Fishing open water guided trip, Minnesota.</figcaption>
+    </figure>
+
+    <!-- PHOTO 3 -->
+    <figure class="gc-card reveal">
+      <div class="gc-slot" aria-hidden="true">
+        <span class="gc-slot-num">03</span>
+        <span class="gc-slot-lbl">Replace Image</span>
+      </div>
+      <img src="https://static.wixstatic.com/media/a30e59_838af90d4cdc4586b89ffda7362a269d~mv2.webp" width="1200" height="800" decoding="async" loading="eager" alt="Open water guided fishing success on Detroit Lakes — Baxstar Fishing guest catch, Minnesota" onerror="this.style.display='none'">
+      <span class="card-bar"></span>
+      <figcaption class="sr-only">Open water guided fishing success on Detroit Lakes — Baxstar Fishing guest catch, Minnesota.</figcaption>
+    </figure>
+
+    <!-- PHOTO 4 -->
+    <figure class="gc-card reveal">
+      <div class="gc-slot" aria-hidden="true">
+        <span class="gc-slot-num">04</span>
+        <span class="gc-slot-lbl">Replace Image</span>
+      </div>
+      <img src="https://static.wixstatic.com/media/a30e59_67c2afbc00074d55909e09111d6549be~mv2.webp" width="1200" height="800" decoding="async" loading="lazy" alt="Guest holding a catch aboard the boat on a private Baxstar Fishing trip — Detroit Lakes, Minnesota" onerror="this.style.display='none'">
+      <span class="card-bar"></span>
+      <figcaption class="sr-only">Guest holding a catch aboard the boat on a private Baxstar Fishing trip — Detroit Lakes, Minnesota.</figcaption>
+    </figure>
+
+    <!-- PHOTO 5 -->
+    <figure class="gc-card reveal">
+      <div class="gc-slot" aria-hidden="true">
+        <span class="gc-slot-num">05</span>
+        <span class="gc-slot-lbl">Replace Image</span>
+      </div>
+      <img src="https://static.wixstatic.com/media/a30e59_f4b75d6f2dee43e8b47e6aeeaaca84eb~mv2.webp" width="1200" height="800" decoding="async" loading="lazy" alt="Happy guests with their catch from a guided open water trip — Baxstar Fishing, Detroit Lakes, Minnesota" onerror="this.style.display='none'">
+      <span class="card-bar"></span>
+      <figcaption class="sr-only">Happy guests with their catch from a guided open water trip — Baxstar Fishing, Detroit Lakes, Minnesota.</figcaption>
+    </figure>
+
+    <!-- PHOTO 6 -->
+    <figure class="gc-card reveal">
+      <div class="gc-slot" aria-hidden="true">
+        <span class="gc-slot-num">06</span>
+        <span class="gc-slot-lbl">Replace Image</span>
+      </div>
+      <img src="https://static.wixstatic.com/media/a30e59_bb8b4f2f742d476b823a3108c656e684~mv2.webp" width="1200" height="800" decoding="async" loading="lazy" alt="Detroit Lakes open water guided fishing — recent guest catch with Baxstar Fishing, Minnesota" onerror="this.style.display='none'">
+      <span class="card-bar"></span>
+      <figcaption class="sr-only">Detroit Lakes open water guided fishing — recent guest catch with Baxstar Fishing, Minnesota.</figcaption>
+    </figure>
+
+  </div>
+
+  <div class="gc-cta reveal">
+    <a href="https://www.baxstarfishing.com/fishgallery" class="btn-primary" target="_top" aria-label="View the full fish gallery">
+      <span>View Full Gallery</span>
+      <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+  </div>
+
+</section>
+
+<script>
+// Scroll reveal
+(function() {
+  var revs = document.querySelectorAll('.reveal');
+  if (!revs.length) return;
+  revs.forEach(function(el, i) { el.style.transitionDelay = (i * 65) + 'ms'; });
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    revs.forEach(function(el) { el.style.transitionDelay = '0ms'; el.classList.add('visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        requestAnimationFrame(function() { entry.target.classList.add('visible'); });
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  revs.forEach(function(el) { io.observe(el); });
+}());
+</script>
+
+<!-- IFRAME HEIGHT REPORTER — multi-signal (Wix Custom Embed auto-resize) -->
+<script>
+(function(){
+  if (window.parent === window) return;
+  var lastH = 0;
+  function report(){
+    var h = Math.ceil(Math.max(
+      document.documentElement.scrollHeight,
+      document.body ? document.body.scrollHeight : 0,
+      document.documentElement.offsetHeight,
+      document.body ? document.body.offsetHeight : 0,
+      document.documentElement.getBoundingClientRect().height
+    ));
+    if (h && Math.abs(h - lastH) >= 1) {
+      lastH = h;
+      try { window.parent.postMessage({ type: 'setHeight', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage({ type: 'embed-size', height: h }, '*'); } catch(e){}
+      try { window.parent.postMessage('height:' + h, '*'); } catch(e){}
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', report);
+  else report();
+  window.addEventListener('load', report);
+  window.addEventListener('resize', report);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(report);
+  if (window.ResizeObserver) {
+    try { var ro = new ResizeObserver(report); ro.observe(document.documentElement); if (document.body) ro.observe(document.body); } catch(e){}
+  }
+  if (window.MutationObserver && document.body) {
+    try { new MutationObserver(report).observe(document.body, { subtree:true, childList:true, attributes:true, attributeFilter:['class','style'] }); } catch(e){}
+  }
+  document.addEventListener('transitionend', function(e){
+    if (e.target && e.target.classList && e.target.classList.contains('reveal')) report();
+  }, true);
+  var ticks = 0;
+  var early = setInterval(function(){
+    report(); ticks++;
+    if (ticks >= 30) { clearInterval(early); setInterval(report, 1500); }
+  }, 200);
+})();
+</script>
+
+</body>
+</html>
