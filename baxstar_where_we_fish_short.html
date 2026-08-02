@@ -150,7 +150,10 @@
     --bx-cyan-4: #04434f;
     --bx-cyan-5: #022933;
 
-    /* Map tilt — static (scroll-tilt animation removed for load reliability) */
+    /* Map tilt — CSS default is the static settled pose (8°). On desktop
+       (≥901px, motion allowed) the JS tilt module animates these vars via
+       IntersectionObserver as the section passes through the viewport.
+       Mobile / reduced-motion / no-JS all keep this static default. */
     --bx-tilt: 8deg;
     --bx-spin: 0deg;
 
@@ -301,8 +304,10 @@
   .ops__theater-wrap {
     margin: 0;
     padding: 0;
-    will-change: transform;
-    transform: translateZ(0);
+    /* No permanent will-change / translateZ here: pinning this whole
+       subtree as a GPU layer for the entire visit was the real cost of
+       the old tilt build. The JS module promotes .stage only while the
+       tilt is actually moving, then releases it. */
   }
   .ops__theater {
     position: relative;
@@ -321,8 +326,16 @@
     transform-style: preserve-3d;
     transform: rotateX(var(--bx-tilt)) rotateZ(var(--bx-spin));
     transform-origin: 50% 50%;
-    will-change: transform;
+    /* will-change is set/released by the tilt JS during motion only */
     backface-visibility: hidden;
+  }
+
+  /* Offscreen: pause the infinite CSS animations (pulse rings, compass)
+     so the section costs nothing while out of view. Toggled by the same
+     IntersectionObserver that drives the tilt. */
+  .ops__theater.is-offscreen .ring-pulse,
+  .ops__theater.is-offscreen .compass-rotor {
+    animation-play-state: paused;
   }
 
   .stage__plate {
@@ -683,12 +696,14 @@
      bottom HUD strip. The wrap's transform makes it the containing
      block. On phones that band is gone, so it flows under the map. */
   .also-serves {
-    position: absolute;
-    left: 50%;
-    bottom: 110px;
-    transform: translateX(-50%);
+    /* In normal flow between the theater and the intel panel at ALL
+       widths. The old absolute bottom:110px pinned it relative to the
+       whole SECTION, which dropped it on top of the intel copy whenever
+       the Q&A text ran long. Flow can never overlap. */
+    position: relative;
     z-index: 6;
-    width: min(760px, 72%);
+    width: min(760px, 92%);
+    margin: 20px auto 0;
     text-align: center;
   }
   .also-serves p {
@@ -724,15 +739,30 @@
       height: clamp(640px, 92vh, 880px);
     }
     .stage__plate {
-      height: 100%;
-      max-width: 100%;
-      top: 45%;
+      /* Aspect-true sizing with NO horizontal crop and NO letterboxing:
+         the box width is whichever is smaller —
+           · viewport-fit: 100% / scale  (post-scale visual width = viewport)
+           · height-fit: theater-height × (1000/1200) / scale
+         height then derives from the base aspect-ratio (1000/1200), so
+         pin percentages always track the lake geometry, and the whole
+         map is always visible. (height:100% + max-width:100% was the
+         old letterbox bug; plain width:auto overflowed narrow screens.) */
+      width: min(calc(100% / 1.2), calc(clamp(640px, 92vh, 880px) * 0.8333 / 1.2));
+      height: auto;
+      max-width: none;
+      top: 52%;
       transform: translate(-50%, -50%) scale(1.20);
     }
 
     .hud__strip--top-left { top: 22px; left: 50px; }
     .hud__strip--top-right { display: none; }
     .hud__strip--bottom-right { display: none; }
+
+    /* The lake artwork is top-biased inside the SVG (mass spans ~7%–83%
+       of the viewBox). Shift lakes AND markers down together by the same
+       amount so the mass centers on the gray plate — pins stay locked to
+       their lakes because both containers move identically. */
+    .lakes, .markers { transform: translateY(6.5%); }
     .hud__compass { width: 44px; height: 44px; bottom: 60px; right: 50px; }
     .hud__scale { left: 50px; bottom: 60px; }
 
@@ -772,7 +802,7 @@
     .marker__label--up-left::before {
       right: auto;
       left: 100%;
-      top: 28px;
+      top: 24px;   /* measured: 28px landed ~5px below the pin center */
       bottom: auto;
       width: 36px;
       height: 1px;
@@ -784,19 +814,25 @@
     .intel { grid-template-columns: 1fr; }
     .marker[data-mobile-hide="true"] { display: none; }
 
-    /* ─── Pin position overrides (mobile only) ─── */
-    .marker[aria-label*="Detroit Lake"]  { top: 35% !important; left: 65% !important; }
-    .marker[aria-label*="Lake Sallie"]   { top: 41% !important; left: 60% !important; }
-    .marker[aria-label*="Big Cormorant"] { top: 44% !important; left: 19% !important; }
-    .marker[aria-label*="Pelican Lake"]  { top: 52% !important; left: 47% !important; }
-    .marker[aria-label*="Lake Lida"]     { top: 56% !important; left: 60% !important; }
+    /* ─── Pin position overrides (mobile only) ───
+       True lake-geometry positions (same as desktop inline styles).
+       The old May-2026 offsets compensated for the letterboxed plate
+       box above; with the aspect lock restored they are unnecessary
+       and were putting Detroit / Sallie / Big Cormorant off their lakes. */
+    .marker[aria-label*="Detroit Lake"]  { top: 18% !important; left: 66% !important; }
+    .marker[aria-label*="Lake Sallie"]   { top: 28% !important; left: 53% !important; }
+    .marker[aria-label*="Big Cormorant"] { top: 35% !important; left: 18% !important; }
+    .marker[aria-label*="Pelican Lake"]  { top: 53% !important; left: 47% !important; }
+    .marker[aria-label*="Lake Lida"]     { top: 69% !important; left: 66% !important; }
 
-    /* Lake Lida — extend card LEFT from pin (override the global
-       --left mobile flip so card doesn't clip the right edge) */
+    /* Lake Lida — card sits LEFT of the pin at pin height (same pattern
+       as Detroit), so the straight tether anchors to BOTH card and pin.
+       (The old below-the-pin placement left the tether floating 50px
+       above its own card.) */
     .marker[aria-label*="Lake Lida"] .marker__label--left {
       right: auto;
       left: auto;
-      top: 42px;
+      top: -28px;
       transform: translateZ(0) translateX(calc(-100% - 22px));
       border-left: 1px solid rgba(28, 227, 210, 0.28);
       border-right: 2px solid var(--bx-red);
@@ -805,7 +841,7 @@
       left: 100%;
       right: auto;
       width: 22px;
-      top: -42px;
+      top: 24px;
       background: linear-gradient(270deg, rgba(230, 57, 70, 0), var(--bx-red));
     }
   }
@@ -814,9 +850,13 @@
     /* Height trimmed (was 82vh/712px max): the plate's lake mass ends
        ~70% down, so the old height left a dead band under the lakes
        before the intel panel. */
-    .ops__theater { height: clamp(460px, 62vh, 560px); perspective: 1100px; }
+    .ops__theater { height: clamp(440px, 62vh, 500px); perspective: 1100px; }
     .stage__plate {
-      top: 44%;
+      /* Same width-capped aspect-true sizing, using this block's theater
+         height. Post-scale visual width never exceeds the viewport. */
+      width: min(calc(100% / 1.18), calc(clamp(440px, 62vh, 500px) * 0.8333 / 1.18));
+      height: auto;
+      top: 50%;
       transform: translate(-50%, -50%) scale(1.18);
     }
     .hud__compass { bottom: 48px; }
@@ -841,23 +881,24 @@
     .marker[aria-label*="Big Cormorant"] { top: 35% !important; left: 18% !important; }
     .marker[aria-label*="Pelican Lake"]  { top: 53% !important; left: 47% !important; }
     .marker[aria-label*="Lake Lida"]     { top: 69% !important; left: 66% !important; }
-    /* Detroit card hangs below-left of its pin: below clears the HUD
-       top strip, the extra left offset clears Lake Sallie's pin + card */
-    .marker[aria-label*="Detroit Lake"] .marker__label--up-left {
-      top: 20px;
-      transform: translateZ(0) translateX(calc(-100% - 64px));
-    }
-    .marker[aria-label*="Detroit Lake"] .marker__label--up-left::before {
-      top: -20px;
-      width: 64px;
-    }
+    /* Detroit Lake: no phone-specific override needed anymore — the
+       width-fitted plate puts the pin well below the HUD strip, so the
+       standard at-pin-height card (from the ≤900px rules) fits clean. */
+
+    /* Lake Lida: drop the card a few px so it clears Pelican's card
+       at phone widths; tether offset follows to stay on the pin. */
+    .marker[aria-label*="Lake Lida"] .marker__label--left { top: -10px; }
+    .marker[aria-label*="Lake Lida"] .marker__label--left::before { top: 6px; }
     .also-serves {
-      position: static;
-      transform: none;
       width: auto;
       text-align: left;
+      margin: 0;
       padding: 16px 20px 0;
     }
+    /* Tighten the theater → intel gap on phones (desktop paddings
+       left a dead black band under the map). */
+    .intel { padding: 24px 20px 56px; gap: 20px; }
+    .intel__col { padding-top: 10px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -1171,15 +1212,131 @@
   if (!section || !theater || !stage) return;
 
   /* ════════════════════════════════════════════════════════════
+     SCROLL TILT — IntersectionObserver-driven (Wix-iframe safe)
+
+     Why IO and not scroll events: inside a Wix Custom Embed the
+     iframe is sized to its full content by the height listener, so
+     the embed never scrolls internally and window 'scroll' never
+     fires. IntersectionObserver, however, reports intersection with
+     the TOP-LEVEL viewport even from a cross-origin iframe — entries
+     arrive as the parent page scrolls. That is the only reliable
+     scroll signal available in this environment.
+
+     Perf contract:
+     - Desktop only (≥901px) and only when motion is allowed.
+     - Zero work while offscreen (loop cancelled, CSS anims paused).
+     - rAF loop LERPs toward the target and SELF-TERMINATES at idle.
+     - will-change applied on motion start, released at idle.
+     - One CSS-variable write per frame; no layout reads anywhere.
+  ════════════════════════════════════════════════════════════ */
+  (function initTilt() {
+    var reducedMotion = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* Offscreen animation pause runs on ALL devices (phones benefit
+       most). The tilt runs everywhere motion is allowed — the IO-driven
+       loop is cheap enough for phones: it only animates while the
+       section crosses the viewport and fully idles otherwise. Mobile
+       gets a slightly gentler range around the 8° static default. */
+    if (!('IntersectionObserver' in window)) return;
+    if (reducedMotion) {
+      var ioLite = new IntersectionObserver(function (entries) {
+        theater.classList.toggle('is-offscreen', !entries[entries.length - 1].isIntersecting);
+      }, { threshold: 0 });
+      ioLite.observe(theater);
+      return;
+    }
+
+    var isDesktop = window.matchMedia && window.matchMedia('(min-width: 901px)').matches;
+    var TILT_MIN = isDesktop ? 2 : 4;
+    var TILT_MAX = isDesktop ? 12 : 11;
+    var SPIN_MAX = isDesktop ? 0.75 : 0.5;
+    var LERP = 0.16, IDLE = 0.004;   /* 0.004 progress ≈ 0.04° — sub-visual */
+
+    var current = 0.5, target = 0.5;   /* progress 0→1 through the viewport */
+    var rafId = null;
+
+    function easeInOut(p) {
+      return p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+    }
+
+    function apply(p) {
+      var e = easeInOut(p);
+      root.style.setProperty('--bx-tilt', (TILT_MIN + e * (TILT_MAX - TILT_MIN)).toFixed(2) + 'deg');
+      root.style.setProperty('--bx-spin', ((e - 0.5) * 2 * SPIN_MAX).toFixed(3) + 'deg');
+    }
+
+    function tick() {
+      current += (target - current) * LERP;
+      if (Math.abs(target - current) > IDLE) {
+        apply(current);
+        rafId = requestAnimationFrame(tick);
+      } else {
+        current = target;
+        apply(current);
+        stage.style.willChange = 'auto';   /* release the GPU layer at rest */
+        rafId = null;
+      }
+    }
+
+    function setTarget(p) {
+      target = p;
+      if (rafId === null && Math.abs(target - current) > IDLE) {
+        stage.style.willChange = 'transform';
+        rafId = requestAnimationFrame(tick);
+      }
+    }
+
+    /* Monotonic progress from IO geometry alone (rootBounds is null in
+       cross-origin iframes, so only ratio + rects are used):
+       entering from viewport bottom → the element's TOP slice is visible
+       (iRect.top == bRect.top)      → progress 0 → 0.5
+       exiting through viewport top  → the BOTTOM slice is visible
+       (iRect.bottom == bRect.bottom)→ progress 0.5 → 1                */
+    var thresholds = [];
+    for (var i = 0; i <= 40; i++) thresholds.push(i / 40);
+
+    var io = new IntersectionObserver(function (entries) {
+      var e = entries[entries.length - 1];
+      if (!e.isIntersecting) {
+        theater.classList.add('is-offscreen');
+        if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+        stage.style.willChange = 'auto';
+        return;
+      }
+      theater.classList.remove('is-offscreen');
+      var r = e.intersectionRatio;
+      var p;
+      if (r >= 0.995) {
+        p = 0.5;
+      } else if (Math.abs(e.intersectionRect.top - e.boundingClientRect.top) < 1) {
+        p = r * 0.5;          /* entering */
+      } else {
+        p = 1 - r * 0.5;      /* exiting  */
+      }
+      setTarget(p);
+    }, { threshold: thresholds });
+
+    io.observe(theater);
+  })();
+
+  /* ════════════════════════════════════════════════════════════
      IFRAME HEIGHT REPORTER — Wix Custom Embed
   ════════════════════════════════════════════════════════════ */
   let lastH = 0;
   function reportHeight() {
     if (window.parent === window) return;
+    /* Measure BODY content only. documentElement.scrollHeight (and
+       offsetHeight) equal the IFRAME's own height whenever the iframe
+       is taller than the content — including them creates a ratchet:
+       once Wix sizes the iframe too tall (e.g. right after replacing a
+       taller previous version), the old code read that inflated height
+       back and re-confirmed it forever, leaving a giant black void
+       under the content. body has height:auto, so its scrollHeight
+       tracks true content and lets the iframe shrink back down. */
     const h = Math.max(
-      document.documentElement.scrollHeight,
       document.body ? document.body.scrollHeight : 0,
-      document.documentElement.offsetHeight
+      document.body ? document.body.offsetHeight : 0
     );
     if (!h || Math.abs(h - lastH) < 2) return;
     lastH = h;
