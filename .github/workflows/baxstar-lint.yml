@@ -1,0 +1,129 @@
+name: Baxstar Lint
+
+# Checks every HTML file against Baxstar canonical brand facts and scroll-safety
+# rules. FAIL blocks the merge. WARN is informational only.
+# Profile: fishing-wix
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  baxstar-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Brand + safety checks
+        env:
+          BAXSTAR_PROFILE: fishing-wix
+        run: |
+          python3 - <<'BAXSTAR_LINT_EOF'
+          #!/usr/bin/env python3
+          """Baxstar brand + safety linter. Checks HTML files against canonical facts."""
+          import re, sys, pathlib, os
+
+          PROFILE = os.environ.get("BAXSTAR_PROFILE", "fishing-wix")
+
+          CANON_PHONE   = "2183256857"   # Baxstar Fishing (Quo)
+          PONTOON_PHONE = "2183259846"   # Baxstar Outdoors
+          FH_ITEM       = "309836"
+          FH_FLOW       = "576827"
+
+          fails, warns = [], []
+
+          _seen = set()
+          def add(bucket, path, line, msg):
+              entry = f"{path}:{line}  {msg}"
+              if entry in _seen:
+                  return
+              _seen.add(entry)
+              bucket.append(entry)
+
+          # (regex, message, severity) — severity: 'fail' or 'warn'
+          BANNED = [
+              (r'Humminbird',              'Sonar brand named. Guide boat runs Garmin LiveScope; '
+                                           'only OK on pontoon/cross-brand cards.',                 'warn'),
+              (r'MEGA\s*Live',             'Sonar brand named. Guide boat runs Garmin LiveScope.',  'warn'),
+              (r'one group per day',       'Banned phrasing. Use "private trip(s)".',               'fail'),
+              (r'100\+?\s*lakes',          'Superseded coverage claim. Use "the 412".',             'fail'),
+              (r'60\s*miles',              'Superseded coverage claim. Use "25 miles".',            'fail'),
+              (r'KARE\s*11',               'Not a Baxstar media placement. Use Forbes / Faces of '
+                                           'Fargo / KVLY / WDAY.',                                  'fail'),
+          ]
+
+          WIX_ONLY = [
+              (r'overscroll-behavior\s*:\s*none',
+               'Forbidden in Wix iframes — traps scroll. Use overscroll-behavior:contain on '
+               'modal cards only.', 'fail'),
+              (r'document\.body\.style\.overflow\s*=\s*[\'"]hidden',
+               'Body-level scroll lock traps scrolling inside the iframe.', 'fail'),
+          ]
+
+          PHONE_RE = re.compile(r'(?:\+?1[-.\s]?)?\(?(\d{3})\)?[-.\s](\d{3})[-.\s](\d{4})')
+          TEL_RE   = re.compile(r'tel:\+?1?[-.\s]?\(?(\d{3})\)?[-.\s]?(\d{3})[-.\s]?(\d{4})')
+          FH_ITEM_RE = re.compile(r'fareharbor\.com[^"\'\s]*?/items/(\d+)')
+          FH_FLOW_RE = re.compile(r'fareharbor\.com[^"\'\s]*?flow=(\d+)')
+
+          rules = BANNED + (WIX_ONLY if PROFILE == "fishing-wix" else [])
+
+          # Excluded: junk, other-business folders, and dead drafts (re-lint before reviving)
+          EXCLUDE = re.compile(r'(^|/)(DO NOT USE|Junk\.html|Golf/|ClaudeAlternatives/|blank/'
+                               r'|baxstar_homepage_final/|open-water/|docs/'
+                               r'|baxstar_intro\.html|baxstar_standards\.html'
+                               r'|baxstar_scrolling_banner\.html|baxstar_hero_banner\.html'
+                               r'|baxstar_how_it_works\.html|baxstar_media_library\.html)')
+
+          def strip_comments(t):
+              t = re.sub(r'<!--.*?-->', lambda m: '\n' * m.group(0).count('\n'), t, flags=re.S)
+              t = re.sub(r'/\*.*?\*/', lambda m: '\n' * m.group(0).count('\n'), t, flags=re.S)
+              t = re.sub(r'(?m)(^|\s)//(?![^\n]*https?:)[^\n]*', ' ', t)
+              return t
+
+          files = [f for f in sorted(pathlib.Path('.').rglob('*.html'))
+                   if not EXCLUDE.search(str(f))]
+          if not files:
+              print("No HTML files found — nothing to check.")
+              sys.exit(0)
+
+          for f in files:
+              text = f.read_text(encoding='utf-8', errors='ignore')
+              lines = strip_comments(text).splitlines()
+
+              for i, line in enumerate(lines, 1):
+                  for pattern, msg, sev in rules:
+                      if re.search(pattern, line, re.I):
+                          add(fails if sev == 'fail' else warns, f, i, msg)
+
+                  for m in list(PHONE_RE.finditer(line)) + list(TEL_RE.finditer(line)):
+                      digits = ''.join(m.groups())
+                      if digits == CANON_PHONE:
+                          continue
+                      if digits == PONTOON_PHONE:
+                          add(warns, f, i, f'Baxstar Outdoors number ({m.group(0)}) on a fishing '
+                                           f'surface. Confirm this is an intentional cross-brand '
+                                           f'reference.')
+                      else:
+                          add(fails, f, i, f'Unrecognized phone number "{m.group(0)}". '
+                                           f'Default CTA is 218-325-6857.')
+
+                  for m in FH_ITEM_RE.finditer(line):
+                      if m.group(1) != FH_ITEM:
+                          add(fails, f, i, f'FareHarbor item {m.group(1)} is not the canonical '
+                                           f'item {FH_ITEM}.')
+                  for m in FH_FLOW_RE.finditer(line):
+                      if m.group(1) != FH_FLOW:
+                          add(warns, f, i, f'FareHarbor flow {m.group(1)} is not the canonical '
+                                           f'flow {FH_FLOW}.')
+
+              if PROFILE == "fishing-wix" and 'indexifembedded' not in text:
+                  add(warns, f, 1, 'No indexifembedded meta tag — Wix embeds should carry it '
+                                   'unless deliberately excluded.')
+
+          for w in warns:
+              print(f"WARN  {w}")
+          for e in fails:
+              print(f"FAIL  {e}")
+
+          print(f"\n{len(files)} file(s) checked — {len(fails)} failure(s), {len(warns)} warning(s).")
+          sys.exit(1 if fails else 0)
+          BAXSTAR_LINT_EOF
