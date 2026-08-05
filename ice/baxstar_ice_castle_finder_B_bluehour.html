@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="indexifembedded">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   BAXSTAR — ICE CASTLE FINDER · VARIANT B "BLUE HOUR"
+   Winter theme: glacial blue night + warm lamplight CTAs.
+   Concept: cold outside, warm inside; booking = the lit window.
+   ============================================================ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#070d14;
+  --panel:#0b1420;
+  --red:#c1272d;
+  --frost:#9fd4e6;
+  --lamp:#e8963f;
+  --lamp-bright:#f5a94e;
+  --accent:var(--lamp);
+  --accent-hero:var(--frost);
+  --accent-more:var(--lamp-bright);
+  --accent-soft:rgba(159,212,230,0.10);
+  --accent-line:rgba(159,212,230,0.40);
+  --bone:#c8c5bd;
+  --pearl:#e8e6e0;
+  --white:#fff;
+  --white-60:rgba(255,255,255,0.6);
+  --white-14:rgba(255,255,255,0.14);
+  --dim:#8a8a96;
+  --font-display:'Bebas Neue',sans-serif;
+  --font-body:'Barlow',sans-serif;
+  --font-condensed:'Barlow Condensed',sans-serif;
+}
+html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background:var(--black)}
+body{font-family:var(--font-body);color:var(--bone);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:100%;background:var(--black)}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:78svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--black)}
+.hero__media{position:absolute;inset:0;z-index:1}
+.hero__media img,.hero__media video{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.hero__media video{opacity:0;transition:opacity .8s ease}
+.hero__media video.is-ready{opacity:1}
+.hero__veil{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(7,13,20,.62) 0%,rgba(10,26,40,.18) 40%,rgba(7,13,20,.58) 72%,rgba(7,13,20,.97) 100%)}
+.hero__inner{position:relative;z-index:3;width:100%;max-width:1180px;margin:0 auto;padding:110px 24px 64px}
+.eyebrow{font-family:var(--font-condensed);font-weight:600;font-size:12.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:26px;height:1.5px;background:var(--frost)}
+.hero h1{font-family:var(--font-display);font-weight:400;font-size:clamp(52px,8.5vw,104px);line-height:.96;letter-spacing:.015em;color:var(--white);margin:14px 0 16px}
+.hero h1 em{font-style:normal;color:var(--accent-hero,var(--red-bright))}
+.hero__sub{font-size:clamp(15px,1.3vw,17px);line-height:1.65;font-weight:300;color:var(--bone);max-width:520px}
+.hero__sub strong{color:var(--pearl);font-weight:500}
+.hero__ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.btn{font-family:var(--font-condensed);font-size:13px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;text-decoration:none;padding:16px 34px;display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:none;transition:transform .2s ease,background .25s ease,box-shadow .25s ease;min-height:48px}
+.btn svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2.5;transition:transform .25s ease}
+.btn:hover svg{transform:translateX(4px)}
+.btn--solid{background:var(--lamp);color:#12100a}
+.btn--solid:hover{background:var(--lamp-bright);box-shadow:0 8px 34px rgba(232,150,63,.35)}
+.btn--ghost{background:transparent;color:var(--pearl);border:1px solid var(--white-14)}
+.btn--ghost:hover{border-color:var(--accent-line)}
+
+/* ---------- FINDER ---------- */
+.finder{max-width:1180px;margin:0 auto;padding:72px 24px 8px}
+.sec-head{margin-bottom:34px;position:relative;padding-bottom:18px}
+.sec-head::after{content:"";position:absolute;left:0;bottom:0;width:120px;height:1px;background:linear-gradient(90deg,var(--frost),transparent)}
+.sec-head h2{font-family:var(--font-display);font-weight:400;font-size:clamp(34px,4.5vw,54px);letter-spacing:.02em;color:var(--white);line-height:1.02;margin:12px 0 10px}
+.sec-head p{font-size:clamp(15px,1.3vw,17px);line-height:1.65;font-weight:300;color:var(--bone);max-width:560px}
+.q{margin-bottom:26px}
+.q__label{font-family:var(--font-condensed);font-weight:600;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin-bottom:12px}
+.q__opts{display:flex;flex-wrap:wrap;gap:10px}
+.opt{font-family:var(--font-condensed);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--bone);background:var(--panel);border:1px solid var(--white-14);padding:13px 22px;cursor:pointer;transition:border-color .2s ease,color .2s ease,background .2s ease;min-height:44px}
+.opt:hover{border-color:var(--accent-line)}
+.opt[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--frost);color:var(--pearl)}
+.finder__note{font-size:13px;color:var(--dim);font-weight:300;margin-top:4px;min-height:20px}
+
+/* ---------- FLEET ---------- */
+.fleet{max-width:1180px;margin:0 auto;padding:36px 24px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:22px}
+.house{background:var(--panel);border:1px solid var(--white-14);display:flex;flex-direction:column;position:relative;transition:border-color .3s ease,transform .3s ease;order:var(--ord,0)}
+.house:hover{border-color:rgba(232,150,63,.55);transform:translateY(-4px);box-shadow:0 18px 50px rgba(232,150,63,.14)}
+.house__badge{position:absolute;top:14px;left:14px;z-index:2;font-family:var(--font-condensed);font-weight:700;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:#fff;background:var(--accent);padding:7px 14px;opacity:0;transform:translateY(-6px);transition:opacity .3s ease,transform .3s ease}
+.house.is-match .house__badge{opacity:1;transform:translateY(0)}
+.house.is-match{border-color:var(--frost);box-shadow:0 0 0 1px rgba(159,212,230,.25),0 14px 44px rgba(232,150,63,.10)}
+.house__img{aspect-ratio:4/3;overflow:hidden;background:#111}
+.house__img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.house:hover .house__img img{transform:scale(1.04)}
+.house__body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.house__meta{font-family:var(--font-condensed);font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);display:flex;justify-content:space-between;gap:8px;margin-bottom:8px}
+.house h3{font-family:var(--font-display);font-weight:400;font-size:clamp(24px,2.4vw,30px);letter-spacing:.02em;color:var(--white);line-height:1.05;margin-bottom:12px}
+.house ul{list-style:none;margin-bottom:18px;flex:1}
+.house li{font-size:14.5px;line-height:1.6;font-weight:300;color:var(--bone);padding-left:18px;position:relative;margin-bottom:5px}
+.house li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:1.5px;background:var(--frost)}
+.house__price{font-family:var(--font-condensed);font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--pearl);margin-bottom:16px}
+.house__price span{color:var(--dim);font-weight:500}
+.house .btn{width:100%;justify-content:center;padding:14px 20px;font-size:12px}
+
+/* ---------- MORE WAYS ---------- */
+.more{max-width:1180px;margin:0 auto;padding:44px 24px 84px}
+.more__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:26px}
+.way{position:relative;display:block;text-decoration:none;border:1px solid var(--white-14);overflow:hidden;min-height:190px;transition:border-color .3s ease}
+.way:hover{border-color:var(--accent-line)}
+.way img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;transition:opacity .4s ease,transform .6s ease}
+.way:hover img{opacity:.68;transform:scale(1.04)}
+.way__ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,10,.1) 0%,rgba(8,8,10,.88) 100%)}
+.way__txt{position:absolute;left:20px;right:20px;bottom:18px}
+.way__txt h3{font-family:var(--font-display);font-weight:400;font-size:26px;letter-spacing:.02em;color:var(--white);line-height:1.05}
+.way__txt p{font-size:13.5px;font-weight:300;color:var(--bone);margin-top:4px;line-height:1.5}
+.way__txt .go{font-family:var(--font-condensed);font-weight:700;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent-more,var(--red-bright));margin-top:10px;display:inline-block}
+
+@media (max-width:640px){
+  .hero{min-height:70svh}
+  .hero__inner{padding:90px 20px 48px}
+  .finder,.more{padding-left:20px;padding-right:20px}
+  .fleet{padding-left:20px;padding-right:20px;grid-template-columns:1fr 1fr;gap:14px}
+  .house__body{padding:16px 14px 18px}
+  .house li{font-size:13.5px}
+}
+@media (max-width:460px){.fleet{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .hero__media video{display:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ HERO / VIDEO BANNER ============ -->
+  <section class="hero" aria-label="Ice Castle rentals in Detroit Lakes, Minnesota">
+    <div class="hero__media">
+      <img src="https://static.wixstatic.com/media/a30e59_996cc7b9ca37406283c66b48df6efb8c~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_85/a30e59_996cc7b9ca37406283c66b48df6efb8c~mv2.jpg" alt="Baxstar Ice Castle sleeper house on the ice at Detroit Lakes, Minnesota" fetchpriority="high">
+      <!-- VIDEO: drop your hosted MP4/WebM URL into data-src below. Poster above stays as fallback. -->
+      <video muted loop playsinline preload="none" data-src="" aria-hidden="true"></video>
+    </div>
+    <div class="hero__veil"></div>
+    <div class="hero__inner">
+      <div class="eyebrow">Detroit Lakes, MN · Winter Season</div>
+      <h1>Ice Castle <em>Rentals</em></h1>
+      <p class="hero__sub"><strong>A heated cabin, parked over the fish.</strong> Four Ice Castle sleeper houses, delivered, drilled, and warm before you arrive. Answer three questions and we'll point you to yours.</p>
+      <div class="hero__ctas">
+        <a class="btn btn--solid" href="#finder" data-scroll="finder">Find Your House
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--ghost" href="tel:+12183256857">Call to Book</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINDER ============ -->
+  <section class="finder" id="finder" aria-label="Find the right ice house">
+    <div class="sec-head">
+      <div class="eyebrow">The Right House, Not Just A House</div>
+      <h2>Which Castle Is Yours?</h2>
+      <p>Every house is heated, pre-drilled, and set on fish before you pull up. The differences are space, finish, and layout — three answers narrows it down.</p>
+    </div>
+    <div class="q" role="group" aria-labelledby="q1">
+      <div class="q__label" id="q1">How many in your group?</div>
+      <div class="q__opts">
+        <button class="opt" type="button" data-q="size" data-v="small" aria-pressed="false">1–2</button>
+        <button class="opt" type="button" data-q="size" data-v="mid" aria-pressed="false">3–4</button>
+        <button class="opt" type="button" data-q="size" data-v="big" aria-pressed="false">5–6</button>
+      </div>
+    </div>
+    <div class="q" role="group" aria-labelledby="q2">
+      <div class="q__label" id="q2">What matters most?</div>
+      <div class="q__opts">
+        <button class="opt" type="button" data-q="style" data-v="lux" aria-pressed="false">Full Luxury</button>
+        <button class="opt" type="button" data-q="style" data-v="fish" aria-pressed="false">Fishing First</button>
+        <button class="opt" type="button" data-q="style" data-v="value" aria-pressed="false">Simple &amp; Warm</button>
+      </div>
+    </div>
+    <div class="q" role="group" aria-labelledby="q3">
+      <div class="q__label" id="q3">Private bathroom?</div>
+      <div class="q__opts">
+        <button class="opt" type="button" data-q="bath" data-v="must" aria-pressed="false">Must-Have</button>
+        <button class="opt" type="button" data-q="bath" data-v="flex" aria-pressed="false">Flexible</button>
+      </div>
+    </div>
+    <p class="finder__note" aria-live="polite"></p>
+  </section>
+
+  <!-- ============ FLEET ============ -->
+  <section class="fleet" aria-label="Ice Castle fleet">
+
+    <article class="house" data-size="big" data-style="lux" data-bath="must" style="--ord:0">
+      <span class="house__badge">Your Match</span>
+      <div class="house__img"><img loading="lazy" src="https://static.wixstatic.com/media/a30e59_996cc7b9ca37406283c66b48df6efb8c~mv2.jpg/v1/fill/w_900,h_675,al_c,q_85/a30e59_996cc7b9ca37406283c66b48df6efb8c~mv2.jpg" alt="21 foot Ice Castle RV Extreme Edition interior with fireplace and full kitchen"></div>
+      <div class="house__body">
+        <div class="house__meta"><span>Sleeps 6</span><span>Flagship</span></div>
+        <h3>21′ RV Extreme Edition</h3>
+        <ul>
+          <li>Fireplace, full kitchen &amp; shower</li>
+          <li>Arctic insulation for deep-winter nights</li>
+          <li>The most room in the fleet</li>
+        </ul>
+        <div class="house__price">From $595 <span>/ night</span></div>
+        <a class="btn btn--solid" href="https://www.baxstarfishing.com/21-ice-castle-rental">See Pricing &amp; Book
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </article>
+
+    <article class="house" data-size="small mid" data-style="lux" data-bath="must" style="--ord:1">
+      <span class="house__badge">Your Match</span>
+      <div class="house__img"><img loading="lazy" src="https://static.wixstatic.com/media/a30e59_98f216a806ff4fa9a82a7e36a5cabd5d~mv2.jpeg/v1/fill/w_900,h_675,al_c,q_85/a30e59_98f216a806ff4fa9a82a7e36a5cabd5d~mv2.jpeg" alt="17 foot Ice Castle RV Edition luxury interior with fireplace and high ceilings"></div>
+      <div class="house__body">
+        <div class="house__meta"><span>Sleeps 4</span><span>Most Loaded</span></div>
+        <h3>17′ RV Edition</h3>
+        <ul>
+          <li>Our most fully loaded house</li>
+          <li>Fireplace &amp; upgraded bathroom</li>
+          <li>High ceilings, premium finish</li>
+        </ul>
+        <div class="house__price">From $525 <span>/ night</span></div>
+        <a class="btn btn--solid" href="https://www.baxstarfishing.com/17-ice-castle-luxury-rv-edition-rental">See Pricing &amp; Book
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </article>
+
+    <article class="house" data-size="mid" data-style="fish" data-bath="must" style="--ord:2">
+      <span class="house__badge">Your Match</span>
+      <div class="house__img"><img loading="lazy" src="https://static.wixstatic.com/media/a30e59_d627ba832e064292a248f264c884966c~mv2.jpg/v1/fill/w_900,h_675,al_c,q_85/a30e59_d627ba832e064292a248f264c884966c~mv2.jpg" alt="17 foot Ice Castle Hybrid II RV Edition fishing-first layout with motorized bunk"></div>
+      <div class="house__body">
+        <div class="house__meta"><span>Sleeps 4–5</span><span>Angler's Pick</span></div>
+        <h3>17′ Hybrid II RV Edition</h3>
+        <ul>
+          <li>Fishing-first floor plan</li>
+          <li>Motorized bunk clears the holes</li>
+          <li>Tall ceilings, upgraded bathroom</li>
+        </ul>
+        <div class="house__price">From $475 <span>/ night</span></div>
+        <a class="btn btn--solid" href="https://www.baxstarfishing.com/17-hybrid-ii-ice-castle-detroit-lakes">See Pricing &amp; Book
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </article>
+
+    <article class="house" data-size="big mid" data-style="value" data-bath="flex must" style="--ord:3">
+      <span class="house__badge">Your Match</span>
+      <div class="house__img"><img loading="lazy" src="https://static.wixstatic.com/media/a30e59_62556551412445a29ed02707ef6a7bc2~mv2.jpeg/v1/fill/w_900,h_675,al_c,q_85/a30e59_62556551412445a29ed02707ef6a7bc2~mv2.jpeg" alt="17 foot Range Runner Ice Castle rental on Detroit Lakes at dusk"></div>
+      <div class="house__body">
+        <div class="house__meta"><span>Sleeps 5–6</span><span>Best Value</span></div>
+        <h3>17′ Range Runner</h3>
+        <ul>
+          <li>Heated, pre-drilled, ready to fish</li>
+          <li>Bathroom on board</li>
+          <li>Minutes from dining &amp; nightlife</li>
+        </ul>
+        <div class="house__price">From $325 <span>/ night</span></div>
+        <a class="btn btn--solid" href="https://www.baxstarfishing.com/ice-castle-range-runner">See Pricing &amp; Book
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ============ MORE WAYS ONTO THE ICE ============ -->
+  <section class="more" aria-label="More winter experiences">
+    <div class="sec-head">
+      <div class="eyebrow">Not Staying Overnight?</div>
+      <h2>More Ways Onto The Ice</h2>
+    </div>
+    <div class="more__grid">
+      <a class="way" href="https://www.baxstarfishing.com/icefishing/ice-house-rentals">
+        <img loading="lazy" src="https://static.wixstatic.com/media/a30e59_30e68789a5874be8ad836278e614ac2d~mv2.jpg/v1/fill/w_800,h_500,al_c,q_82/a30e59_30e68789a5874be8ad836278e614ac2d~mv2.jpg" alt="Heated day house rental on the ice near Detroit Lakes">
+        <div class="way__ov"></div>
+        <div class="way__txt"><h3>Day Houses</h3><p>Heated day rentals — fish sunrise to sunset, home by dark.</p><span class="go">See Day Houses →</span></div>
+      </a>
+      <a class="way" href="https://www.baxstarfishing.com/datenight">
+        <img loading="lazy" src="https://static.wixstatic.com/media/a30e59_bbffc03827b3488283536e02bddb6418%7Emv2.png/v1/fit/w_800,h_500,al_c,q_82/a30e59_bbffc03827b3488283536e02bddb6418%7Emv2.png" alt="Date night on the ice setup with warm lighting inside an ice house">
+        <div class="way__ov"></div>
+        <div class="way__txt"><h3>Date Night On The Ice</h3><p>A private, warm evening for two — unlike any dinner in town.</p><span class="go">Plan Date Night →</span></div>
+      </a>
+      <a class="way" href="https://www.baxstarfishing.com/copy-of-ice-castle-rentals">
+        <img loading="lazy" src="https://static.wixstatic.com/media/a30e59_996cc7b9ca37406283c66b48df6efb8c~mv2.jpg/v1/fill/w_800,h_500,al_c,q_82/a30e59_996cc7b9ca37406283c66b48df6efb8c~mv2.jpg" alt="Guided ice fishing trip with Brady Baxter near Detroit Lakes">
+        <div class="way__ov"></div>
+        <div class="way__txt"><h3>Guided Ice Trips</h3><p>Fish with Brady — 5x MN Master Angler, on the bite all winter.</p><span class="go">See Guided Trips →</span></div>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---------- Finder logic ---------- */
+  var answers={size:null,style:null,bath:null};
+  var houses=[].slice.call(document.querySelectorAll('.house'));
+  var note=document.querySelector('.finder__note');
+
+  function score(h){
+    var s=0;
+    if(answers.size){ s += (h.dataset.size.split(' ').indexOf(answers.size)>-1)?2:0; }
+    if(answers.style){ s += (h.dataset.style===answers.style)?3:0; }
+    if(answers.bath==='must'){ s += (h.dataset.bath.indexOf('must')>-1)?2:-2; }
+    return s;
+  }
+  function apply(){
+    var any=answers.size||answers.style||answers.bath;
+    var best=null,bestScore=-99;
+    houses.forEach(function(h){
+      var s=any?score(h):0;
+      h.dataset.score=s;
+      if(s>bestScore){bestScore=s;best=h;}
+      h.classList.remove('is-match');
+    });
+    houses.slice().sort(function(a,b){return b.dataset.score-a.dataset.score;})
+      .forEach(function(h,i){h.style.setProperty('--ord',i);});
+    if(any&&best&&bestScore>0){
+      best.classList.add('is-match');
+      note.textContent='Best fit first — tap any house for full photos, pricing, and booking.';
+    } else { note.textContent=''; }
+  }
+  document.querySelector('.finder').addEventListener('click',function(e){
+    var b=e.target.closest('.opt'); if(!b)return;
+    var q=b.dataset.q, v=b.dataset.v;
+    answers[q]=(answers[q]===v)?null:v;
+    [].forEach.call(document.querySelectorAll('.opt[data-q="'+q+'"]'),function(o){
+      o.setAttribute('aria-pressed', String(o.dataset.v===answers[q]));
+    });
+    apply();
+  });
+
+  /* ---------- Smooth in-iframe scroll (Wix-safe) ---------- */
+  [].forEach.call(document.querySelectorAll('[data-scroll]'),function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var t=document.getElementById(a.dataset.scroll);
+      if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+
+  /* ---------- Lazy video (only if a src is provided) ---------- */
+  var v=document.querySelector('.hero__media video');
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(v && v.dataset.src && !reduced){
+    var io=new IntersectionObserver(function(en){
+      en.forEach(function(x){
+        if(x.isIntersecting){
+          if(!v.src){ v.src=v.dataset.src; v.load(); v.addEventListener('canplay',function(){v.classList.add('is-ready');},{once:true}); }
+          v.play().catch(function(){});
+        } else { v.pause(); }
+      });
+    },{threshold:.15});
+    io.observe(v);
+  }
+
+  /* ---------- Wix iframe auto-fit height reporter ---------- */
+  var lastH=0;
+  function report(){
+    var h=document.documentElement.scrollHeight;
+    if(Math.abs(h-lastH)>2){ lastH=h; parent.postMessage({type:'iframe-height',height:h},'*'); }
+  }
+  var t;
+  function debounced(){ clearTimeout(t); t=setTimeout(report,120); }
+  window.addEventListener('load',report);
+  window.addEventListener('resize',debounced);
+  if('ResizeObserver' in window){ new ResizeObserver(debounced).observe(document.body); }
+  document.addEventListener('click',debounced);
+  setTimeout(report,600); setTimeout(report,1800);
+})();
+</script>
+</body>
+</html>
