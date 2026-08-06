@@ -1,6 +1,6 @@
 # Baxstar AI Actionable Phrases
 *Trigger phrases for AI-executed workflows across Claude, ChatGPT, and Gemini*
-*Updated: April 29, 2026*
+*Updated: August 5, 2026*
 
 ---
 
@@ -27,6 +27,7 @@ Say the phrase exactly as written. The AI will locate the corresponding instruct
 | `Baxstar sync` | Sync full context — brand standards, tech stack, current state — across AI sessions |
 | `Build new section` | Build a new Wix Custom Embed HTML section following brand standards, SEO standard, and frontend design skill |
 | `Run SEO check` | Audit current HTML section against SEO Optimization Standard — return list of gaps |
+| `Check schema` | Verify page-level JSON-LD. Confirm each page's Wix markup entry named `Baxstar Schema` matches the matching file in `seo/schema/`, and once the site is published, run the page URLs through validator.schema.org |
 
 ---
 
@@ -45,6 +46,8 @@ All instruction documents live in:
 | `Baxstar_Image_Video_Optimization_Guide.md` | Human-readable reference for Squoosh and Handbrake |
 | `Baxstar_AI_Asset_Pipeline_Instructions.md` | AI-executable step-by-step instructions |
 | `Baxstar_AI_Actionable_Phrases.md` | This file |
+| `seo/schema/README.md` | Page-level JSON-LD source of truth — page/file map, install steps, and install log |
+| `docs/BAXSTAR_SYNC_PROTOCOL.md` | Sync protocol + Site State Log (what is changed vs. what is published) |
 
 ---
 
@@ -52,6 +55,7 @@ All instruction documents live in:
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | April 29, 2026 | Initial document — asset pipeline phrases added |
+| 1.1 | August 5, 2026 | Added `Check schema` site phrase; added schema README and sync protocol to Reference Files |
 
 ---
 
