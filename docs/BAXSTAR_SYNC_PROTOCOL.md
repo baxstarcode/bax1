@@ -66,9 +66,9 @@ After Wix is updated, Claude sends an email via Gmail:
 - [x] Wix section names confirmed
 - [x] Baxstar Sync bookmark on Chrome bookmark bar
 - [x] Gmail notification step added
-- [x] Page-level JSON-LD schema installed on all 12 pages in the Wix editor
-  (2026-08-05, markup name `Baxstar Schema`) — saved but **not yet published**.
-  Full per-page log: `seo/schema/README.md`
+- [x] Page-level JSON-LD schema on all 12 remaining pages — installed
+  2026-08-05 under the markup name `Baxstar Schema`, **published and verified
+  live on all 12 URLs**. Full per-page log: `seo/schema/README.md`
 
 ---
 
@@ -77,9 +77,13 @@ Running record of what has been changed in Wix and whether it is live.
 
 | Date | Change | Live? |
 |---|---|---|
-| 2026-08-05 | JSON-LD structured data added to all 12 remaining pages via Page Settings -> Advanced SEO -> Structured data markup, each named `Baxstar Schema`. Pre-existing `SEO Scheme JSON` entry on /17-hybrid-ii-ice-castle-detroit-lakes left in place and flagged for a keep-or-remove decision. | Saved, **not published** |
+| 2026-08-05 | JSON-LD structured data added to all 12 remaining pages via Page Settings -> Advanced SEO -> Structured data markup, each named `Baxstar Schema`. Published same day; all 12 URLs verified serving the correct block. | **Live** |
 | 2026-07-30 | Homepage schema (schema-homepage.json) | Live |
 | 2026-07-29 | /faq schema (schema-faq.json) | Live |
+
+**Open item:** /17-hybrid-ii-ice-castle-detroit-lakes serves the same JSON-LD
+block twice. Delete one of the two entries in that page's Structured data markup
+list. Details in `seo/schema/README.md`.
 
 Note on schema installs: they are done in the **Wix editor** (Pages & Menu -> hover
 page -> ... -> SEO basics -> Advanced SEO), not the dashboard, and editor page names
