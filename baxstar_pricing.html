@@ -1072,7 +1072,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     /* Season tier adjustment % — Engine › Settings › FISHING - SEASON TIER ADJUSTMENT PERCENTAGES */
     tiers: {
       off_peak: { all: 0.00 },
-      shoulder: { mon_thu: 0.04, fri_sun: 0.04 },
+      shoulder: { mon_thu: 0.04, fri_sun: 0.06 },
       high:     { mon_thu: 0.06, fri_sun: 0.10 },
       peak:     { mon_thu: 0.08, fri_sun: 0.10, sat: 0.14 },
       holiday:  { all: 0.12 }
@@ -1099,7 +1099,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
       allowedSeasons: ['off_peak', 'shoulder'],
       /* FareHarbor prices the 3-Hour row above the item line on these tiers
          (read 2026-08-16). Keys mirror PRICING.tiers[season][dayKey]. */
-      tierOverride: { off_peak: { all: 0.03 }, shoulder: { mon_thu: 0.07, fri_sun: 0.07 } },
+      tierOverride: { off_peak: { all: 0.03 }, shoulder: { mon_thu: 0.07, fri_sun: 0.08 } },
       note: 'Limited availability. Select 5–6 PM evening windows only. Offered during spring, fall, and early-season Sundays.'
     },
     4: { base: PRICING.base[4], sub: 'Half-day on the water — perfect for an early bite or evening run.',     perAddOn: PRICING.addons[4] },
