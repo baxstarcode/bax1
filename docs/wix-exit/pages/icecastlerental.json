@@ -1,0 +1,88 @@
+{
+ "pageId": "yblw6",
+ "slug": "icecastlerental",
+ "title": "3rd Party Ice Castle Rental",
+ "jsonFile": "a30e59_afa500b3f885ec4413858049ad4bcb10_5374",
+ "blocks": [
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Heat is on.\n\nHoles are drilled.\n\nLife is good.",
+   "compId": "comp-kwwkaoq2",
+   "depth": 4
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_f001a795ca054345b4c55a2ae3333a25~mv2.png",
+   "alt": "Final Baxstar Fishing Logo Black.png",
+   "title": "",
+   "w": 1920,
+   "h": 1080,
+   "compId": "comp-kwwkovhg",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "3rd Party Ice Castle rentals in the Detroit Lakes Area\u00a0\n\nHere is how to rent an Ice Castle:\n\n\n\n1) Contact Darren with Rugged Rentals at 701-351-4606 to check availability & secure your rental.\n\n\n\n2) Once you confirm your rental, contact Baxstar at 701-261-3703 to set up a time to transport your rental.\n\n\n\n*If you would like to hire Baxstar to guide you in your Ice Castle at 50% off the normal rate, or if you would like to rent fishing equipment you can discuss it at this time.\n\n\n\n3) That it!\u00a0 Baxstar will do the rest.\u00a0 You can just show up the first day of your rental and start fishing!",
+   "compId": "comp-lasig9vq",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H1",
+   "text": "Friday-Sunday Packages: $750 - $875*",
+   "compId": "comp-kwwm7vzk",
+   "depth": 3
+  },
+  {
+   "kind": "text",
+   "level": "H1",
+   "text": "$135 - $175 for each additional day",
+   "compId": "comp-l8kaq7no",
+   "depth": 3
+  },
+  {
+   "kind": "text",
+   "level": "H1",
+   "text": "*17' & 21\" Ice Castles available.\u00a0 3-Day, 2-Night rental.\u00a0 Prices subject to change",
+   "compId": "comp-kx7t668l",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Ice Castle Amenities:",
+   "compId": "comp-k2w3g9pb",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Kitchen",
+   "compId": "comp-k2w3hxq7",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Satelite TV",
+   "compId": "comp-k2w3lbih",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Beds",
+   "compId": "comp-k2w3j2z8",
+   "depth": 2
+  },
+  {
+   "kind": "wix_app",
+   "appId": "14271d6f-ba62-d045-549b-ab972ae1f70e",
+   "widget": "comp-k2w0qchx",
+   "compId": "comp-k2w0qchx",
+   "depth": 2
+  }
+ ]
+}

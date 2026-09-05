@@ -1,0 +1,71 @@
+{
+ "pageId": "uiyz7",
+ "slug": "ice-house-services",
+ "title": "Ice House Services",
+ "jsonFile": "a30e59_a8e058704c88c15988f3c8820d7795b1_5374",
+ "blocks": [
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Fish House Services",
+   "compId": "comp-mi3xd6wr6",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Bringing your own house to Detroit Lakes?\u00a0 Let Baxstar make the experience even more memorable by putting you on proven fishing spot.\u00a0 All you have to do is show up!\u00a0 What's more, you get the spot's coordinates for life.\u00a0 The price listed below is for Detroit Lake.\u00a0 We offer plow and prep services on other lakes in the area.\u00a0 Prices vary based on a variety of factors.\u00a0 Contact us using the form below to get a quote.",
+   "compId": "comp-mi3xd6wt1",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Spot Prep Service\n\n\nPerfect for sleeper house owners visiting Detroit Lakes.\u00a0 We will lead you to a good fishing spot that is accessible by 1/2 ton --\u00a01 ton trucks pulling an Ice Castle. \u00a0\n\n\n\u200b\u200b\n\n\n$250\u200b\u200b",
+   "compId": "comp-mi3xd6wv4",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Equipment Rental Rates",
+   "compId": "comp-mi3xd6xi",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Garmin LiveScope 12\" Echomap Ultra: Starting at $150\n\n\n\u200b\n\n\nPro Pack:\u00a0 Starting at $95\u200b\n\n\nIncludes everything listed below, except generator.\n\n\n\u200b\u200b\n\n\nFish Finder:\u00a0 $35/day\n\n\n\u200b\u200b\n\n\nUnderwater Camera: $35/day\n\n\n\u200b\u200b\n\n\nUp to 6 Rods, Reels, and Fishing Tackle: $35/day\n\n\n\u200b\u200b\n\n\nLive Bait Delivery: $35/day\u200b\u200b\u200b\n\n\n\u00a0\n\n\nGenerator: $60/day\n\n\n\u00a0\n\n\nGenerator included with all Ice Castle Rentals.\u00a0 \n\n\nYou can rent one for Day House Rentals.",
+   "compId": "comp-mi3xd6xk3",
+   "depth": 4
+  },
+  {
+   "kind": "form",
+   "id": "comp-mi3xd6y23",
+   "compId": "comp-mi3xd6y23",
+   "depth": 3
+  },
+  {
+   "kind": "text",
+   "level": "H5",
+   "text": "Contact Baxstar",
+   "compId": "comp-mi3xd6y43",
+   "depth": 4
+  },
+  {
+   "kind": "button",
+   "label": "Submit",
+   "href": null,
+   "target": null,
+   "compId": "comp-mi3xd6yj2",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Thanks for submitting!",
+   "compId": "comp-mi3xd6yl4",
+   "depth": 4
+  }
+ ]
+}

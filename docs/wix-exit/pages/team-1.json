@@ -1,0 +1,222 @@
+{
+ "pageId": "azs6q",
+ "slug": "team-1",
+ "title": "Ice Safety",
+ "jsonFile": "a30e59_037ada70ed15b085ba8c0aec0276b641_5374",
+ "blocks": [
+  {
+   "kind": "text",
+   "level": "H1",
+   "text": "Ice Safety Tips",
+   "compId": "comp-lcp2u9vv",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Remember these tips when you are out on the ice this winter.",
+   "compId": "comp-lcp2u9w41",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_11ae06607fce4bb6b11eb19a54c41f77~mv2.png",
+   "alt": "",
+   "title": "Safe Ice Thickness Diagram.png",
+   "w": 848,
+   "h": 385,
+   "compId": "comp-lcp3a5qz",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Ice Picks",
+   "compId": "comp-lcp2u9xs",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Have ice picks with you at all times.\u00a0 These will help you crawl out of the ice if you fall in.\u00a0 Always crawl back, opposite the way you were traveling.\u00a0 When you get on solid ice, roll away from the dangerous area.",
+   "compId": "comp-lcp2u9xu",
+   "depth": 4
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_3ba70af672144790b486d49c6444f79c~mv2.png",
+   "alt": "Ice Picks_edited.png",
+   "title": "Ice Picks.png",
+   "w": 682,
+   "h": 1024,
+   "compId": "comp-lcp3m53y",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Floatation Device",
+   "compId": "comp-lcp39iyc",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "We recommend you wear a winter gear that floats or a life jacket.\u00a0 The Striker jacket floats and it is worn by our guides.",
+   "compId": "comp-lcp39iye1",
+   "depth": 4
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_1814b8e478764ff1b5c283b6b07e4767~mv2.png",
+   "alt": "Floating Striker Jacket_edited.png",
+   "title": "",
+   "w": 1002,
+   "h": 1088,
+   "compId": "comp-lcp3hhrg",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Avoid Slushy Ice",
+   "compId": "comp-lcp39mfr",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Areas of slush indicate areas with heavy snow.\u00a0 The snow pushes down on the ice, and the water floods up through the cracks.\n\n\n\u200b\n\n\nAvoid these areas.\u00a0 Instead travel on plowed roads whenever possible.",
+   "compId": "comp-lcp39mfv",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "123-456-7890",
+   "compId": "comp-lcp39mfy2",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "info@mysite.com",
+   "compId": "comp-lcp39mg01",
+   "depth": 4
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_c250870bb8fd4160802afaf9cf7f3671~mv2.png",
+   "alt": "",
+   "title": "Slush on Ice.png",
+   "w": 567,
+   "h": 325,
+   "compId": "comp-lcp3rvpy",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Drill Ahead",
+   "compId": "comp-lcp3q3mc",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "It is safest to drill ahead with an ice auger before you travel on the ice to ensure the ice is thick enough and consistent enough for travel.\u00a0 Drill a hole every 50'-75' until you reach your desired destination.",
+   "compId": "comp-lcp3q3md2",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "123-456-7890",
+   "compId": "comp-lcp3q3mf1",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "info@mysite.com",
+   "compId": "comp-lcp3q3mh",
+   "depth": 4
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_8e0f98075b7249dd96cd1b157d83d91f~mv2.png",
+   "alt": "drilling hole in ice.png",
+   "title": "",
+   "w": 341,
+   "h": 351,
+   "compId": "comp-lcp41eu8",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Avoid Moving Water",
+   "compId": "comp-lcpa1f40",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Areas near running water, such as spots where rivers enter or exit a lake can have thinner ice due to the constantly moving water.\u00a0 Avoid these spots unless you know the area very well and have experience on the ice.",
+   "compId": "comp-lcpa1f421",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "123-456-7890",
+   "compId": "comp-lcpa1f44",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "info@mysite.com",
+   "compId": "comp-lcpa1f452",
+   "depth": 4
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_3e1dfb5868be48e1b6b50de757ec85e3~mv2.png",
+   "alt": "River Outlet with Flowing water.png",
+   "title": "",
+   "w": 930,
+   "h": 560,
+   "compId": "comp-lcpa1f48",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Contact an Expert",
+   "compId": "comp-lcp2u9yh1",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Contact a local fishing guide or bait shop to get the latest information on area ice conditions.\u00a0 These experts are on the ice daily and they can help ensure you have a safe trip.\u00a0 In the Detroit Lakes area, you can call the experts listed below.",
+   "compId": "comp-lcp2u9yj",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Brady Baxter - Baxstar Fishing Guide Service\n\n\n701-261-3703\n\n\n\u200b\n\n\nMike Witt - Witt's Quality Bait and Tackle\n\n\n218-844-2248",
+   "compId": "comp-lcp2u9yk2",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "info@mysite.com",
+   "compId": "comp-lcp2u9yq",
+   "depth": 4
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "pageId": "gixql",
+ "slug": "followers",
+ "title": "Followers",
+ "jsonFile": "a30e59_ba55d8bd11beeabb0a7e377f38464a2a_5374",
+ "blocks": [
+  {
+   "kind": "wix_app",
+   "appId": "14ebe801-d78a-daa9-c9e5-0286a891e46f",
+   "widget": "TPASection_kfj2ad94",
+   "compId": "TPASection_kfj2ad94",
+   "depth": 2
+  }
+ ]
+}

@@ -1,0 +1,186 @@
+{
+ "pageId": "xke2t",
+ "slug": "ice-house-rentals",
+ "title": "Ice House Rentals",
+ "jsonFile": "a30e59_896a600d7f2a683bdfdf7992c4d5166e_5374",
+ "blocks": [
+  {
+   "kind": "image",
+   "uri": "a30e59_f445fd514566496391c9ce867073a705~mv2.png",
+   "alt": "Final Baxstar Fishing Logo White.png",
+   "title": "",
+   "w": 1920,
+   "h": 1080,
+   "compId": "comp-migbp8vl",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H1",
+   "text": "Ice House (Day House) Rentals \u2013 Detroit Lakes, MN",
+   "compId": "comp-mi17oghv",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Warm, clean, and ready to fish. Baxstar\u2019s Detroit Lakes day house rentals give you a comfortable ice fishing setup without the overnight stay.\u00a0 Perfect for families, groups, and anglers of all experience levels",
+   "compId": "comp-mi17oghx",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Included Amenities (Both Day Houses)",
+   "compId": "comp-mi17ogiq",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "\ud83d\udd25 Heated interior with full insulation\n\n \n\n \n \ud83d\udca5 Rattle Reels\n\n \n\n \n \ud83d\udcba Comfortable seating for your group\n\n \n\n \n \ud83e\ude9f Clean, well-maintained fish house interiors\n\n \n\n \n \u2744\ufe0f Safe placement on productive fishing spots\n\n \n\n \n \u26a1\ufe0f Includes 12v battery powered lights and fan",
+   "compId": "comp-mi17ogir3",
+   "depth": 4
+  },
+  {
+   "kind": "wix_app",
+   "appId": "14271d6f-ba62-d045-549b-ab972ae1f70e",
+   "widget": "comp-mi17ogiu2",
+   "compId": "comp-mi17ogiu2",
+   "depth": 4
+  },
+  {
+   "kind": "wix_app",
+   "appId": "14271d6f-ba62-d045-549b-ab972ae1f70e",
+   "widget": "comp-miwhur5j",
+   "compId": "comp-miwhur5j",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Wooden Day House",
+   "compId": "comp-miwhur5r3",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Spend the day in the warmth of our solid, permanent 16\u2032 x 8\u2032 wooden fish house\u2014our largest day-rental option and a long-time customer favorite. Built for comfort and reliability, this house features 12-volt power for lights and fan, a classic 6-hole perimeter layout, and a powerful heater that performs exceptionally well in cold and windy conditions.\n\n\n\u00a0\n\n\nThe open interior provides excellent tabletop space and room to move, making it ideal for relaxed fishing days, food, and gear organization. A bench seat plus multiple folding chairs allow customers to easily customize their seating and fishing setup to match their group size and style.\n\n\nThis is a great option for anglers looking for a warm, spacious, and affordable day on the ice without unnecessary extras.",
+   "compId": "comp-miwhur5t",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Sunday-Friday - Starts at $150/day\n\n\nSaturday - Starts at $225/day\n\n\nTwo-Day Weekend Special\n\n\n(Choose 2) Friday, Saturday, Sunday - Starts at $375\n\n\n\u00a0\n\n\n*Prices are for 1-2 people, $25/each additional guest\n\n\n**Tax as 6% Booking Fee Applies",
+   "compId": "comp-mkbey97k",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Aluminum Day House",
+   "compId": "comp-mi17ogj7",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Discover Detroit Lake from the comfort of our brand-new 14' x 6.5' Ambush Outdoors Explorer aluminum fish house.\u00a0 Proudly built right here in Detroit Lakes with a \u201cfishing first\u201d philosophy, this custom house has 8 holes and is optimized for live-imaging setups.\u00a0 With two large padded benches, it is spacious enough for the whole family.\u00a0\n\n\n\u00a0\n\n\nNEW THIS YEAR! The house includes a 43\" television--perfect for connecting to our underwater camera (rental required), compatible LiveScope units or to log in to your favorite streaming service. We recommend groups of up to 6 for the best experience, though the layout provides seating for as many as 8.\u200b",
+   "compId": "comp-mi17ogj81",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Sunday-Friday - Starts at $150/day\n\n\nSaturday - Starts at $275/day\n\n\nTwo-Day Weekend Special\n\n\n(Choose 2) Friday, Saturday, Sunday - Starts at $400\n\n\n\u00a0\n\n\n*Prices are for 1-2 people, $25/each additional guest\n\n\n**Tax as 6% Booking Fee Applies",
+   "compId": "comp-mkbelvez",
+   "depth": 4
+  },
+  {
+   "kind": "wix_app",
+   "appId": "14271d6f-ba62-d045-549b-ab972ae1f70e",
+   "widget": "comp-mi17ogj31",
+   "compId": "comp-mi17ogj31",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Rental Details",
+   "compId": "comp-mi17ogk47",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "\u200bStaffed check in any time Saturday and Sunday\n\n \n\n \n We can usually be flexible with weekday check in times.\u00a0 Please contact us to make arrangements.\n\n \n\n \n Daytime use only (no overnight stays)\n\n \n\n \n Multi-day rentals allowed, must book each day individually during the week.\u00a0\n\n \n\n \n 2-day weekend special available (click red \"See Prices and Book\" button to see all prices)\n\n \n\n \n It is preferred you have a 4 x 4 vehicle.\u00a0 We give rides but only if we're on the lake.\n\n \n\n \n Pets are allowed, but subject to damage deposit.",
+   "compId": "comp-mi17ogk61",
+   "depth": 2
+  },
+  {
+   "kind": "wix_app",
+   "appId": "14271d6f-ba62-d045-549b-ab972ae1f70e",
+   "widget": "comp-mi17ogjx",
+   "compId": "comp-mi17ogjx",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Available Add-Ons and Rentals",
+   "compId": "comp-mi17ogk02",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H3",
+   "text": "\u200b\ud83d\udd25 LiveScope Forward Facing Sonar\n\n \n\n \n \ud83c\udfa3 Rods, reels, tackle\n\n \n\n \n \ud83e\udeb1 Live Bait\n\n \n\n \n \ud83d\udcf7 Underwater camera\n\n \n\n \n \ud83d\udd0c Optional Generator with full tank of gas (extra gas available)\u200b\n\n \n\n\n\n\u00a0\n\n\nSee all options and pricing during the checkout process.\u200b",
+   "compId": "comp-mi17ogk16",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Ready to Reserve Your Day House?",
+   "compId": "comp-mi17ogic",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Click or tap the \u201cSee Prices & Book\u201d button at the bottom of your screen anytime to view all models, compare features, and reserve your date.",
+   "compId": "comp-mi17ogid3",
+   "depth": 2
+  },
+  {
+   "kind": "form",
+   "id": "comp-mi17ogla1",
+   "compId": "comp-mi17ogla1",
+   "depth": 3
+  },
+  {
+   "kind": "text",
+   "level": "H5",
+   "text": "Contact Baxstar",
+   "compId": "comp-mi17oglc3",
+   "depth": 4
+  },
+  {
+   "kind": "button",
+   "label": "Submit",
+   "href": null,
+   "target": null,
+   "compId": "comp-mi17ogmg1",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Thanks for submitting!",
+   "compId": "comp-mi17ogmn1",
+   "depth": 4
+  }
+ ]
+}

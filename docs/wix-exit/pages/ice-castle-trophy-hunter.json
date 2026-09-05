@@ -1,0 +1,227 @@
+{
+ "pageId": "gx10o",
+ "slug": "ice-castle-trophy-hunter",
+ "title": "17' Trophy Hunter",
+ "jsonFile": "a30e59_70b84075262883bb51014be8cfe96f56_5374",
+ "blocks": [
+  {
+   "kind": "text",
+   "level": "H1",
+   "text": "17' Trophy Hunter Ice Castle",
+   "compId": "comp-mi3kypnv2",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H3",
+   "text": "Affordable. Clean. Reliable. The perfect Ice Castle sleeper for small groups and families looking for a cozy night on Detroit Lake.",
+   "compId": "comp-mi3kypny2",
+   "depth": 4
+  },
+  {
+   "kind": "embed_html",
+   "url": "html/a30e59_396e011813bd636382ff033415d4ffe6.html",
+   "srcType": "htmlEmbedded",
+   "title": null,
+   "compId": "comp-miqyhizp",
+   "depth": 4
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_96b4d859fe224de29c0be11372d8ab12~mv2.jpg",
+   "alt": "IMG_1102 2.jpg",
+   "title": "",
+   "w": 4032,
+   "h": 3024,
+   "compId": "comp-mi3kypog",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Summary",
+   "compId": "comp-mi3kypor1",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "The 17' Trophy Hunter is our most affordable sleeper house \u2014 ideal for families and small groups who want a comfortable, clean, and warm Ice Castle experience without overcomplicating things. It\u2019s a great fit for budget-minded groups who still want the premium Baxstar Fishing service, great location, drilled holes, and full setup waiting for them when they arrive. \n\n\n\u00a0\n\n\nIf you want a simple, cozy house with everything you need for a fun night on the ice, the Trophy is your go-to.\u200b",
+   "compId": "comp-mi3kypou1",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Sleeping Setup",
+   "compId": "comp-mi3pybt53",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "The Trophy Hunter includes:\n\n\n\n \n Bottom bunk: 48\" wide (1-2 people)\n\n \n\n \n Top bunk: 44\" wide\n\n \n\n \n Front bunks: Two 30\" bunks\n\n \n\n \n Sleeps: Up 4-5 people total\n\n \n\n\n\nThis is a warm and functional setup that keeps everyone comfortable without sacrificing floor space for fishing.",
+   "compId": "comp-mi3pybt7",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_e4bb0cce3eb541c5a62e2c91a442fc1a~mv2.jpeg",
+   "alt": "Ice Castle Interior Rear",
+   "title": "",
+   "w": 4032,
+   "h": 3024,
+   "compId": "comp-mi3pybt4",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Comfort Features",
+   "compId": "comp-mi3q3xtw",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Forced-air furnace for reliable, all-night heat\n\n \n\n \n Included 2500w generator\n\n \n\n \n Blankets and pillows included\n\n \n\n \n Multiple lighting option\n\n \n\n \n CO\u2082 and smoke detectors\n\n \n\n\n\nThese features keep the house safe, warm, and dependable during overnight stays \u2014 even on the coldest winter nights.",
+   "compId": "comp-mi3q3xtx3",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_7774e70ea5754fecbedd8473ceaa8f8e~mv2.jpeg",
+   "alt": "Ice Castle Interior Bathroom.jpeg",
+   "title": "",
+   "w": 3024,
+   "h": 4032,
+   "compId": "comp-mi3qleow",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Bathroom",
+   "compId": "comp-mi3qleoy",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Bucket and toilet seat set up\n\n \n\n \n Garbage bag liners required\n\n \n\n \n Private bathroom enclosure\n\n \n\n \n Ventilation for comfort\n\n \n\n \n Easy and clean waste removal",
+   "compId": "comp-mi3qleoz",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "What's included",
+   "compId": "comp-mi3shdo3",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Turn key ready\n\n \n\n \n Pre-drilled holes\n\n \n\n \n Easy parking near the house\n\n \n\n \n Close access to Detroit Lakes dining and stores\n\n \n\n \n Guide support available if needed",
+   "compId": "comp-mi3shdo42",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_19907ddc94b042ecafae622d9c67747d~mv2.jpeg",
+   "alt": "Ice Castle Interior front",
+   "title": "",
+   "w": 4032,
+   "h": 3024,
+   "compId": "comp-mi3shdo55",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_cd6286b769704516b2b5fca0d4f65de6~mv2.jpg",
+   "alt": "Nice Ice Fishing Walleye.jpg",
+   "title": "",
+   "w": 756,
+   "h": 1008,
+   "compId": "comp-mi3rlllm",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Perfect For",
+   "compId": "comp-mi3rlllj",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Small groups\u00a0and families\n\n \n\n \n Those looking for the most affordable sleeper rental\n\n \n\n \n Anyone wanting to catch fish while staying close to Detroit Lakes restaurants and nightlife",
+   "compId": "comp-mi3rllll",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Swipe below to see all houses.\u00a0 Click Book & See Prices\u00a0button to book.",
+   "compId": "comp-mi3ugoao",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H3",
+   "text": "2024 Model \u00b7 Premium House",
+   "compId": "comp-miw1w2kl",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "17' Hybrid II RV Edition",
+   "compId": "comp-miw1w2kn1",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H3",
+   "text": "2024 Model \u00b7 Premium House",
+   "compId": "comp-miw1w2l8",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "17' Ranger Runner",
+   "compId": "comp-miw1w2la1",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H3",
+   "text": "2019 Model \u00b7 The Original Classic",
+   "compId": "comp-miw1w2lh",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "17' Trophy Hunter",
+   "compId": "comp-miw1w2li3",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H3",
+   "text": "2024 \u00b7 Our Largest and Most Luxurious Model",
+   "compId": "comp-miwfuhlc",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "21'\u00a0RV Extreme Edition",
+   "compId": "comp-miw1w2lo2",
+   "depth": 4
+  }
+ ]
+}

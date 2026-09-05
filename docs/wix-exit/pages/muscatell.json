@@ -1,0 +1,55 @@
+{
+ "pageId": "l8mro",
+ "slug": "muscatell",
+ "title": "Muscatell Automotive",
+ "jsonFile": "a30e59_4cf15dc01f081455e0a2f2708b61cbed_5374",
+ "blocks": [
+  {
+   "kind": "image",
+   "uri": "a30e59_e44c6a43c1314b36bebb9c079cb4bfa5~mv2.png",
+   "alt": "Untitled-2.png",
+   "title": "",
+   "w": 754,
+   "h": 446,
+   "compId": "comp-mf1gn1bk",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_4c60714053bd4ad1a4958b9700c53076~mv2.png",
+   "alt": "Untitled-2_edited_edited_edited.png",
+   "title": "",
+   "w": 754,
+   "h": 446,
+   "compId": "comp-mojk9z0f",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_eff1bf4577a943689f1dfc06b65de6a7~mv2_d_3600_1800_s_2.png",
+   "alt": "White Baxstar Logo Shirt 10in x 5in.png",
+   "title": "",
+   "w": 3600,
+   "h": 1800,
+   "compId": "comp-mf1gn1bm4",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_ba4be1d3ed1b4ab59bd4216f65286b94~mv2.jpg",
+   "alt": "Baxstar GMC Sierra from Muscatell with Veuxs.JPG",
+   "title": "",
+   "w": 4032,
+   "h": 3024,
+   "compId": "comp-mf1gn1bj",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "I work hard and demand equipment that can do the same.\u00a0 I work exclusively with Muscatell Automotive in Detroit Lakes and Hawley for all of my automotive needs.\u00a0 Case, Ward, Aaron, Carson and everyone else at Muscatell's dealerships work hard to support the Baxstar truck and they have my full trust.\u00a0 If you like the look of my GMC Elevation, contact the boys at Muscatell automotive today.\n\n\n\u200b\n\n\n-Brady Baxter,\n\n\nBaxstar Fishing",
+   "compId": "comp-mf1gn1bo1",
+   "depth": 2
+  }
+ ]
+}

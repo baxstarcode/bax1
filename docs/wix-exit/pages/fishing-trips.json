@@ -1,0 +1,32 @@
+{
+ "pageId": "yj4jp",
+ "slug": "fishing-trips",
+ "title": "Fishing Trips",
+ "jsonFile": "a30e59_a4cffe01a2b217d42f13401357c35b78_5374",
+ "blocks": [
+  {
+   "kind": "embed_html",
+   "url": "html/a30e59_d13572a7ba6ded6047aa1e36060632fe.html",
+   "srcType": "htmlEmbedded",
+   "title": null,
+   "compId": "comp-mqe5euai",
+   "depth": 2
+  },
+  {
+   "kind": "embed_html",
+   "url": "html/a30e59_afe1d3c3863343425428c468715eb0c5.html",
+   "srcType": "htmlEmbedded",
+   "title": null,
+   "compId": "comp-mqe67f04",
+   "depth": 2
+  },
+  {
+   "kind": "embed_html",
+   "url": "html/a30e59_65583ade5ca518325df9310859017a5d.html",
+   "srcType": "htmlEmbedded",
+   "title": null,
+   "compId": "comp-mqe983m61",
+   "depth": 2
+  }
+ ]
+}

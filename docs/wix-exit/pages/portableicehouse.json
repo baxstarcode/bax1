@@ -1,0 +1,39 @@
+{
+ "pageId": "xt0ls",
+ "slug": "portableicehouse",
+ "title": "Portable Ice House",
+ "jsonFile": "a30e59_5223a52e0639e8517606fbdd49e93479_5374",
+ "blocks": [
+  {
+   "kind": "text",
+   "level": "H3",
+   "text": "Portable \u00a0House",
+   "compId": "comp-k2wfkpq6",
+   "depth": 2
+  },
+  {
+   "kind": "wix_app",
+   "appId": "14271d6f-ba62-d045-549b-ab972ae1f70e",
+   "widget": "comp-k2wg09ea",
+   "compId": "comp-k2wg09ea",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_eff1bf4577a943689f1dfc06b65de6a7~mv2_d_3600_1800_s_2.png",
+   "alt": "Baxstar Fishing LLC Logo",
+   "title": "",
+   "w": 3600,
+   "h": 1800,
+   "compId": "comp-k2wfkppu",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Baxstar deploys Otter Outdoors portable fish houses in many shapes and sizes for guided ice fishing trips.\u00a0 Portable trips are a necessity early in the season due to their light weight and portability, but ours are utilized all winter.\u00a0 With lights, heat, elevated footrests, fish finders and more, guided fishing trips in Baxstar's portable houses are are all-inclusive. Clients only need to bring snacks and beverages along with them.\u00a0 Baxstar has capacity for up to 20 anglers in multiple houses at any given time, and up to 6 people can fit in our largest portable house.",
+   "compId": "comp-k2wgw4v8",
+   "depth": 2
+  }
+ ]
+}

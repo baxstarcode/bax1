@@ -1,0 +1,458 @@
+[
+ {
+  "page": "17-hybrid-ii-ice-castle-detroit-lakes",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_36e9f85892eb8abad293da9627cbd85a.html",
+  "liveTitle": null,
+  "liveBytes": 187,
+  "liveSha256": "c05572b12de2a729",
+  "match": null,
+  "matchScore": 0.0,
+  "runnersUp": [
+   {
+    "file": "seo/schema/bax-schema-injector.html",
+    "score": 0.0
+   },
+   {
+    "file": "open-water/index.html",
+    "score": 0.0
+   }
+  ]
+ },
+ {
+  "page": "17-ice-castle-luxury-rv-edition-rental",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_0d461c48af2ad3b2de144c5fd66b77ba.html",
+  "liveTitle": null,
+  "liveBytes": 187,
+  "liveSha256": "cc7f6adcd6f9d0b1",
+  "match": null,
+  "matchScore": 0.0,
+  "runnersUp": [
+   {
+    "file": "seo/schema/bax-schema-injector.html",
+    "score": 0.0
+   },
+   {
+    "file": "open-water/index.html",
+    "score": 0.0
+   }
+  ]
+ },
+ {
+  "page": "17-lake-of-the-woods-edition",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_36e9f85892eb8abad293da9627cbd85a.html",
+  "liveTitle": null,
+  "liveBytes": 187,
+  "liveSha256": "c05572b12de2a729",
+  "match": null,
+  "matchScore": 0.0,
+  "runnersUp": [
+   {
+    "file": "seo/schema/bax-schema-injector.html",
+    "score": 0.0
+   },
+   {
+    "file": "open-water/index.html",
+    "score": 0.0
+   }
+  ]
+ },
+ {
+  "page": "21-ice-castle-rental",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_94af253d2cd8acf1c917e8ffbb128227.html",
+  "liveTitle": null,
+  "liveBytes": 187,
+  "liveSha256": "fa1e84aec4135d69",
+  "match": null,
+  "matchScore": 0.0,
+  "runnersUp": [
+   {
+    "file": "seo/schema/bax-schema-injector.html",
+    "score": 0.0
+   },
+   {
+    "file": "open-water/index.html",
+    "score": 0.0
+   }
+  ]
+ },
+ {
+  "page": "about",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_73c7b1751b71b4d986c7006e20da6f91.html",
+  "liveTitle": null,
+  "liveBytes": 46634,
+  "liveSha256": "cd5da7afd57a32c4",
+  "match": "about_your_guide_full.html",
+  "matchScore": 0.99,
+  "runnersUp": [
+   {
+    "file": "DO NOT USE baxstar_full_page.html",
+    "score": 0.882
+   },
+   {
+    "file": "baxstar_faq.html",
+    "score": 0.075
+   }
+  ]
+ },
+ {
+  "page": "bradybaxter",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_419bbaf6038170db4efb6a7f3976c278.html",
+  "liveTitle": null,
+  "liveBytes": 15495,
+  "liveSha256": "9fa657f2cd254ccb",
+  "match": "baxstar_hero_video_banner.html",
+  "matchScore": 1.0,
+  "runnersUp": [
+   {
+    "file": "baxstar_experiences_fishing_trips.html",
+    "score": 0.865
+   },
+   {
+    "file": "baxstar_experiences.html",
+    "score": 0.864
+   }
+  ]
+ },
+ {
+  "page": "bradybaxter",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_34ce2ef4e747e0398ad55e253940f567.html",
+  "liveTitle": null,
+  "liveBytes": 17416,
+  "liveSha256": "3eb1ee029e6d9350",
+  "match": "baxstar_guide.html",
+  "matchScore": 1.0,
+  "runnersUp": [
+   {
+    "file": "about_your_guide.html",
+    "score": 0.999
+   },
+   {
+    "file": "baxstar_hero_banner.html",
+    "score": 0.899
+   }
+  ]
+ },
+ {
+  "page": "bradybaxter",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_8bb211e1959c7c175b23355ed62de2dc.html",
+  "liveTitle": null,
+  "liveBytes": 155,
+  "liveSha256": "58a2c1909f083390",
+  "match": null,
+  "matchScore": 0.0,
+  "runnersUp": [
+   {
+    "file": "seo/schema/bax-schema-injector.html",
+    "score": 0.0
+   },
+   {
+    "file": "open-water/index.html",
+    "score": 0.0
+   }
+  ]
+ },
+ {
+  "page": "bradybaxter",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_e588956956e83338424589bfafaca1d6.html",
+  "liveTitle": null,
+  "liveBytes": 19823,
+  "liveSha256": "4a569afd677b3339",
+  "match": "baxstar_experiences.html",
+  "matchScore": 1.0,
+  "runnersUp": [
+   {
+    "file": "ice/baxstar_ice_castle_finder_A_midnight.html",
+    "score": 0.895
+   },
+   {
+    "file": "ice/baxstar_ice_castle_finder_B_bluehour.html",
+    "score": 0.889
+   }
+  ]
+ },
+ {
+  "page": "bradybaxter",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_1ad15a5c8e1d1920c5b45a1a8661ffcf.html",
+  "liveTitle": null,
+  "liveBytes": 26454,
+  "liveSha256": "8799f0ed1e6f3ebf",
+  "match": "baxstar_fish_gallery.html",
+  "matchScore": 1.0,
+  "runnersUp": [
+   {
+    "file": "baxstar_footer.html",
+    "score": 0.896
+   },
+   {
+    "file": "baxstar_terms.html",
+    "score": 0.87
+   }
+  ]
+ },
+ {
+  "page": "bradybaxter",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_0afc43f11d40522dfd8c07a7594bdfec.html",
+  "liveTitle": null,
+  "liveBytes": 21448,
+  "liveSha256": "6044a8a354453e24",
+  "match": "baxstar_testimonials.html",
+  "matchScore": 0.997,
+  "runnersUp": [
+   {
+    "file": "baxstar_hero_video_banner_fishing_trips.html",
+    "score": 0.895
+   },
+   {
+    "file": "baxstar_faq_light.html",
+    "score": 0.884
+   }
+  ]
+ },
+ {
+  "page": "bradybaxter",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_edf6596a75f81e5256d04286eb191ccb.html",
+  "liveTitle": "What's Included \u2014 Baxstar Fishing",
+  "liveBytes": 9026,
+  "liveSha256": "6ca31810cd7ce1cc",
+  "match": "baxstar_whats_included.html",
+  "matchScore": 1.0,
+  "runnersUp": [
+   {
+    "file": "baxstar_standards.html",
+    "score": 0.346
+   },
+   {
+    "file": "baxstar_press_strip.html",
+    "score": 0.226
+   }
+  ]
+ },
+ {
+  "page": "bradybaxter",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_48bc1bd52f2cc3a563a53aeadeb017d5.html",
+  "liveTitle": null,
+  "liveBytes": 62447,
+  "liveSha256": "afcb29524bdc1881",
+  "match": "baxstar_where_we_fish_short.html",
+  "matchScore": 1.0,
+  "runnersUp": [
+   {
+    "file": "baxstar_pricing.html",
+    "score": 0.85
+   },
+   {
+    "file": "DO NOT USE baxstar_full_page.html",
+    "score": 0.85
+   }
+  ]
+ },
+ {
+  "page": "bradybaxter",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_bd26f55ab41a76de389391eee7cfa82c.html",
+  "liveTitle": null,
+  "liveBytes": 61089,
+  "liveSha256": "2a4d961f2f7ba023",
+  "match": "baxstar_pricing.html",
+  "matchScore": 1.0,
+  "runnersUp": [
+   {
+    "file": "DO NOT USE baxstar_full_page.html",
+    "score": 0.889
+   },
+   {
+    "file": "baxstar_where_we_fish_short.html",
+    "score": 0.85
+   }
+  ]
+ },
+ {
+  "page": "bradybaxter",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_5b6c3641083cec33cebd4bda198a4523.html",
+  "liveTitle": null,
+  "liveBytes": 24148,
+  "liveSha256": "18003e515dc9ffef",
+  "match": "baxstar_faq_light.html",
+  "matchScore": 1.0,
+  "runnersUp": [
+   {
+    "file": "baxstar_terms.html",
+    "score": 0.896
+   },
+   {
+    "file": "baxstar_experiences.html",
+    "score": 0.886
+   }
+  ]
+ },
+ {
+  "page": "bradybaxter",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_65583ade5ca518325df9310859017a5d.html",
+  "liveTitle": null,
+  "liveBytes": 6436,
+  "liveSha256": "9bfdad1f27d3d022",
+  "match": "baxstar_CTA.html",
+  "matchScore": 1.0,
+  "runnersUp": [
+   {
+    "file": "baxstar_press_strip.html",
+    "score": 0.884
+   },
+   {
+    "file": "baxstar_standards.html",
+    "score": 0.878
+   }
+  ]
+ },
+ {
+  "page": "bradybaxter",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_882b3034f78ce1e88d2b02fb49103a69.html",
+  "liveTitle": "Press Strip \u2014 Baxstar Fishing",
+  "liveBytes": 5331,
+  "liveSha256": "f3906f4c08a4bc25",
+  "match": "baxstar_press_strip.html",
+  "matchScore": 1.0,
+  "runnersUp": [
+   {
+    "file": "baxstar_CTA.html",
+    "score": 0.884
+   },
+   {
+    "file": "baxstar_standards.html",
+    "score": 0.24
+   }
+  ]
+ },
+ {
+  "page": "faq",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_fad928a47a77ca822690dadb5c66cc84.html",
+  "liveTitle": null,
+  "liveBytes": 112109,
+  "liveSha256": "edcdb0de223a0940",
+  "match": "baxstar_faq.html",
+  "matchScore": 1.0,
+  "runnersUp": [
+   {
+    "file": "baxstar_faq_light.html",
+    "score": 0.24
+   },
+   {
+    "file": "baxstar_pricing.html",
+    "score": 0.166
+   }
+  ]
+ },
+ {
+  "page": "fishing-trips",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_d13572a7ba6ded6047aa1e36060632fe.html",
+  "liveTitle": "Open Water Guided Fishing \u2014 Detroit Lakes, Minnesota | Baxstar Fishing",
+  "liveBytes": 17818,
+  "liveSha256": "73caf02821f4a0b1",
+  "match": "baxstar_hero_video_banner_fishing_trips.html",
+  "matchScore": 1.0,
+  "runnersUp": [
+   {
+    "file": "baxstar_testimonials.html",
+    "score": 0.897
+   },
+   {
+    "file": "ice/baxstar_ice_castle_finder_A_midnight.html",
+    "score": 0.873
+   }
+  ]
+ },
+ {
+  "page": "fishing-trips",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_afe1d3c3863343425428c468715eb0c5.html",
+  "liveTitle": "Recent Guest Catches \u2014 Open Water Guided Fishing | Baxstar Fishing, Detroit Lakes MN",
+  "liveBytes": 18716,
+  "liveSha256": "55119f1bc6e32eb8",
+  "match": "baxstar_experiences_fishing_trips.html",
+  "matchScore": 1.0,
+  "runnersUp": [
+   {
+    "file": "baxstar_hero_banner.html",
+    "score": 0.881
+   },
+   {
+    "file": "baxstar_faq_light.html",
+    "score": 0.875
+   }
+  ]
+ },
+ {
+  "page": "fishing-trips",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_65583ade5ca518325df9310859017a5d.html",
+  "liveTitle": null,
+  "liveBytes": 6436,
+  "liveSha256": "9bfdad1f27d3d022",
+  "match": "baxstar_CTA.html",
+  "matchScore": 1.0,
+  "runnersUp": [
+   {
+    "file": "baxstar_press_strip.html",
+    "score": 0.884
+   },
+   {
+    "file": "baxstar_standards.html",
+    "score": 0.878
+   }
+  ]
+ },
+ {
+  "page": "ice-castle-range-runner",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_31c43509cee9c3b61de10bc829bff6af.html",
+  "liveTitle": null,
+  "liveBytes": 187,
+  "liveSha256": "8c2081b82981445d",
+  "match": null,
+  "matchScore": 0.0,
+  "runnersUp": [
+   {
+    "file": "seo/schema/bax-schema-injector.html",
+    "score": 0.0
+   },
+   {
+    "file": "open-water/index.html",
+    "score": 0.0
+   }
+  ]
+ },
+ {
+  "page": "ice-castle-trophy-hunter",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_396e011813bd636382ff033415d4ffe6.html",
+  "liveTitle": null,
+  "liveBytes": 224,
+  "liveSha256": "efc39ab92f189f29",
+  "match": null,
+  "matchScore": 0.0,
+  "runnersUp": [
+   {
+    "file": "seo/schema/bax-schema-injector.html",
+    "score": 0.0
+   },
+   {
+    "file": "open-water/index.html",
+    "score": 0.0
+   }
+  ]
+ },
+ {
+  "page": "terms",
+  "embedUrl": "https://www-baxstarfishing-com.filesusr.com/html/a30e59_f4d5d65a98d7b963ab2b025a672d6395.html",
+  "liveTitle": null,
+  "liveBytes": 22486,
+  "liveSha256": "11622af2366667af",
+  "match": "baxstar_terms.html",
+  "matchScore": 1.0,
+  "runnersUp": [
+   {
+    "file": "baxstar_faq_light.html",
+    "score": 0.896
+   },
+   {
+    "file": "baxstar_fish_gallery.html",
+    "score": 0.87
+   }
+  ]
+ }
+]

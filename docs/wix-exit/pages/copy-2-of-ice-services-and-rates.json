@@ -1,0 +1,132 @@
+{
+ "pageId": "osr7e",
+ "slug": "copy-2-of-ice-services-and-rates",
+ "title": "Aluminum House",
+ "jsonFile": "a30e59_2f208faa9293df0dc8d4757988f239ac_5374",
+ "blocks": [
+  {
+   "kind": "image",
+   "uri": "a30e59_a7a961c954404393acfcc8e1d3648cb7~mv2.jpeg",
+   "alt": "Ambush Outdoors Explorer Day House 14' x 6.5'",
+   "title": "",
+   "w": 4032,
+   "h": 3024,
+   "compId": "comp-mi3x6k8y9",
+   "depth": 4
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_b2edb3dde9b44997b23d2f21f3744aff~mv2.jpg",
+   "alt": "Ambush Explorer Front Interior 2.jpg",
+   "title": "",
+   "w": 4032,
+   "h": 3024,
+   "compId": "comp-mi3x6k90",
+   "depth": 4
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_32aad30ed8f74dc9883513fc95ef1df7~mv2.jpg",
+   "alt": "Ambush Explorer Back Interior 2.jpg",
+   "title": "",
+   "w": 4032,
+   "h": 3024,
+   "compId": "comp-mi3x6k911",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Aluminum Day House",
+   "compId": "comp-mi3x6k946",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Our Ambush aluminum house is 6.5' wide and 14' long, with 8 holes.\u200b\u200b\u200b \u00a0The heat will be on and the holes will be drilled when you arrive.\u00a0 The house is located on Little Detroit Lake.\u00a0 With 2 spacious padded benches, this house comfortably fits 6 people, with a 8 person maximum, and it's available 7 days a week.\u00a0 The bench seats even fold down into a bed so you can take it easy while you fish! \u00a0There is 12v lighting, plug ins, and two fans.\u00a0 \n\n\n\u200b\n\n\nWhat's more the house still has the perfect layout to support live imaging.\u00a0 Want to try out live imaging?\u00a0 You're in luck, Baxstar offers the only live Imaging rental in Minnesota.\u00a0 To rent Live Imaging, choose \"1\" from the dropdown menu, at the top of the booking page.\n\n\n\u200b\u200b\u200b\u200b\u200b\u200b\u200b\u200b\n\n\n\u200b\u200b\n\n\nAvailable add ons:\u00a0 \u00a0\n\n\n\u200b\n\n\n\n \n \ud83d\udd25 Live Imaging\ud83d\udd25\n\n \n\n \n Rods & reels\n\n \n\n \n Tackle and/or live bait\n\n \n\n \n Fish finders\n\n \n\n \n Underwater camera\u200b\u200b\u200b",
+   "compId": "comp-mi3x6k96",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Starts at $150/day",
+   "compId": "comp-mi3x6k993",
+   "depth": 5
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "*taxes and fees apply",
+   "compId": "comp-mi3x6k9b",
+   "depth": 5
+  },
+  {
+   "kind": "text",
+   "level": "H1",
+   "text": "\ud83d\udd25NEW\ud83d\udd25\n\nRent the best gear.\n\nPeriod.",
+   "compId": "comp-mi3x6kae5",
+   "depth": 4
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_eff1bf4577a943689f1dfc06b65de6a7~mv2_d_3600_1800_s_2.png",
+   "alt": "White Baxstar Logo Shirt 10in x 5in.png",
+   "title": "",
+   "w": 3600,
+   "h": 1800,
+   "compId": "comp-mi3x6kag",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "\ud83d\udd25NEW\ud83d\udd25 You can now add a Mega Live Imaging sonar to your rental!",
+   "compId": "comp-mi3x6kaj",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Equipment Rental Rates",
+   "compId": "comp-mi3x6kar",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "\ud83d\udd25New\ud83d\udd25Mega Live Live Imaging: Starting at $150\n\n\n\u200b\n\n\nPro Pack:\u00a0 Starting at $95\u200b\n\n\nIncludes everything listed below, except generator.\n\n\n\u200b\u200b\n\n\nFish Finder:\u00a0 $35/day\n\n\n\u200b\u200b\n\n\nUnderwater Camera: $35/day\n\n\n\u200b\u200b\n\n\nUp to 6 Rods, Reels, and Fishing Tackle: $35/day\n\n\n\u200b\u200b\n\n\nLive Bait Delivery: $35/day\u200b\u200b\u200b\n\n\n\u00a0\n\n\nGenerator: $60/day\n\n\n\u00a0\n\n\nGenerator included with all Ice Castle Rentals.\u00a0 \n\n\nYou can rent one for Day House Rentals.",
+   "compId": "comp-mi3x6kau",
+   "depth": 4
+  },
+  {
+   "kind": "form",
+   "id": "comp-mi3x6kbi3",
+   "compId": "comp-mi3x6kbi3",
+   "depth": 3
+  },
+  {
+   "kind": "text",
+   "level": "H5",
+   "text": "Contact Baxstar",
+   "compId": "comp-mi3x6kbk3",
+   "depth": 4
+  },
+  {
+   "kind": "button",
+   "label": "Submit",
+   "href": null,
+   "target": null,
+   "compId": "comp-mi3x6kbx2",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Thanks for submitting!",
+   "compId": "comp-mi3x6kbz4",
+   "depth": 4
+  }
+ ]
+}

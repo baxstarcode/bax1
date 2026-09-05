@@ -1,0 +1,111 @@
+{
+ "pageId": "o1q56",
+ "slug": "bradybaxter",
+ "title": "Home",
+ "jsonFile": "a30e59_41a8973c0ee6fdcb24dd4edfdf0082f7_5375",
+ "blocks": [
+  {
+   "kind": "embed_html",
+   "url": "html/a30e59_419bbaf6038170db4efb6a7f3976c278.html",
+   "srcType": "htmlEmbedded",
+   "title": null,
+   "compId": "comp-mno6n7q1",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H1",
+   "text": "DETROIT LAKES, MINNESOTA \u00b7 PRIVATE GUIDED FISHING",
+   "compId": "comp-mrdwwnkr",
+   "depth": 2
+  },
+  {
+   "kind": "embed_html",
+   "url": "html/a30e59_34ce2ef4e747e0398ad55e253940f567.html",
+   "srcType": "htmlEmbedded",
+   "title": null,
+   "compId": "comp-mp27mao7",
+   "depth": 2
+  },
+  {
+   "kind": "embed_html",
+   "url": "html/a30e59_8bb211e1959c7c175b23355ed62de2dc.html",
+   "srcType": "htmlEmbedded",
+   "title": null,
+   "compId": "comp-mrg4br7y",
+   "depth": 2
+  },
+  {
+   "kind": "embed_html",
+   "url": "html/a30e59_e588956956e83338424589bfafaca1d6.html",
+   "srcType": "htmlEmbedded",
+   "title": null,
+   "compId": "comp-mp27hkzs",
+   "depth": 2
+  },
+  {
+   "kind": "embed_html",
+   "url": "html/a30e59_1ad15a5c8e1d1920c5b45a1a8661ffcf.html",
+   "srcType": "htmlEmbedded",
+   "title": null,
+   "compId": "comp-moommdxt",
+   "depth": 2
+  },
+  {
+   "kind": "embed_html",
+   "url": "html/a30e59_0afc43f11d40522dfd8c07a7594bdfec.html",
+   "srcType": "htmlEmbedded",
+   "title": null,
+   "compId": "comp-mo5ho1dp",
+   "depth": 2
+  },
+  {
+   "kind": "embed_html",
+   "url": "html/a30e59_edf6596a75f81e5256d04286eb191ccb.html",
+   "srcType": "htmlEmbedded",
+   "title": null,
+   "compId": "comp-mod8wiuu",
+   "depth": 2
+  },
+  {
+   "kind": "embed_html",
+   "url": "html/a30e59_48bc1bd52f2cc3a563a53aeadeb017d5.html",
+   "srcType": "htmlEmbedded",
+   "title": null,
+   "compId": "comp-mphgkjk9",
+   "depth": 2
+  },
+  {
+   "kind": "embed_html",
+   "url": "html/a30e59_bd26f55ab41a76de389391eee7cfa82c.html",
+   "srcType": "htmlEmbedded",
+   "title": "Interactive pricing table for 2026 private guided fishing trips in Detroit Lakes, Minnesota. Lists rates for 3, 4, 5, 6, and 8-hour trips starting from $385 to $900, covering walleye, bass, pike, and crappie.",
+   "compId": "comp-mo2lghym",
+   "depth": 2
+  },
+  {
+   "kind": "embed_html",
+   "url": "html/a30e59_5b6c3641083cec33cebd4bda198a4523.html",
+   "srcType": "htmlEmbedded",
+   "title": null,
+   "compId": "comp-mptgd1wp",
+   "depth": 2
+  },
+  {
+   "kind": "embed_html",
+   "url": "html/a30e59_65583ade5ca518325df9310859017a5d.html",
+   "srcType": "htmlEmbedded",
+   "title": null,
+   "compId": "comp-mo2lkyoi",
+   "depth": 2
+  },
+  {
+   "kind": "embed_html",
+   "url": "html/a30e59_882b3034f78ce1e88d2b02fb49103a69.html",
+   "srcType": "htmlEmbedded",
+   "title": null,
+   "compId": "comp-moavg92f",
+   "depth": 2
+  }
+ ]
+}

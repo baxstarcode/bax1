@@ -1,0 +1,29 @@
+{
+ "pageId": "oyp67",
+ "slug": "search",
+ "title": "Search Results",
+ "jsonFile": "a30e59_6575da778180e5d38fd140deee3cacb2_5374",
+ "blocks": [
+  {
+   "kind": "text",
+   "level": "H1",
+   "text": "Search Results",
+   "compId": "comp-lf8eyw2r",
+   "depth": 2
+  },
+  {
+   "kind": "wix_app",
+   "appId": "1484cb44-49cd-5b39-9681-75188ab429de",
+   "widget": "TPASection_lf8eyviv",
+   "compId": "TPASection_lf8eyviv",
+   "depth": 2
+  },
+  {
+   "kind": "wix_app",
+   "appId": "1380b703-ce81-ff05-f115-39571d94dfcd",
+   "widget": "comp-mhtue29k",
+   "compId": "comp-mhtue29k",
+   "depth": 3
+  }
+ ]
+}

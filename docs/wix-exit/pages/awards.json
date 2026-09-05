@@ -1,0 +1,132 @@
+{
+ "pageId": "p5xej",
+ "slug": "awards",
+ "title": "Awards",
+ "jsonFile": "a30e59_1e2cb8e1053d426302e7c66c7fbc2671_5374",
+ "blocks": [
+  {
+   "kind": "image",
+   "uri": "a30e59_eff1bf4577a943689f1dfc06b65de6a7~mv2_d_3600_1800_s_2.png",
+   "alt": "White Baxstar Logo Shirt 10in x 5in.png",
+   "title": "",
+   "w": 3600,
+   "h": 1800,
+   "compId": "comp-k7nkjple",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Awards",
+   "compId": "comp-k7nltson",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "When you fish with Baxstar, you are fishing with an award winning angler!\u00a0 Baxstar Owner, and fishing guide Brady Baxter is recognized as a Master Angler by the Minnesota Fishing Hall of Fame.\u00a0 Brady has been awarded 5 times, for a 29\" & 32\" Walleye, a 51\" and 53\" Musky, and a 55\" Lake Surgeon.\u00a0 Check out his pages on the Hall of Fame website by clicking or tapping on each certificate below.",
+   "compId": "comp-k7nkkm81",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_5494bf2ae2f1497abb00ede307144ee2~mv2.jpg",
+   "alt": "Brady Baxter Master Angler- Muskie.jpg",
+   "title": "",
+   "w": 3000,
+   "h": 2400,
+   "compId": "comp-k7nkhdq3",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_dd15adbb521b4e91be574996373d6a35~mv2_d_2320_3088_s_2.jpg",
+   "alt": "51_ Muskie.JPG",
+   "title": "",
+   "w": 2320,
+   "h": 3088,
+   "compId": "comp-k7nlcjte",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_77a15909342d49b2a325dc64ed27ed06~mv2.jpeg",
+   "alt": "Master Angler Certificate 2021 - Walleye.jpeg",
+   "title": "",
+   "w": 3000,
+   "h": 2400,
+   "compId": "comp-kwxmusck",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_190e650ce5db45e1958048d71339f823~mv2.jpeg",
+   "alt": "Monster Walleyes.jpeg",
+   "title": "",
+   "w": 2320,
+   "h": 3088,
+   "compId": "comp-kwxmsyhq",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_52e5f3e8a3d6430eab74cda6dcad3e23~mv2.jpg",
+   "alt": "Brady Baxter Master Angler- Walleye.jpg",
+   "title": "",
+   "w": 3000,
+   "h": 2400,
+   "compId": "comp-k7nkhdpr",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_9aa0681d1bda40caa7f2d7f1e5c5b1c8~mv2_d_2320_3088_s_2.jpg",
+   "alt": "Lake Pelican Walleye 8.JPG",
+   "title": "",
+   "w": 2320,
+   "h": 3088,
+   "compId": "comp-k7nlgkb7",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_1ef28d9ab62c409ea87d6dc8b959d45e~mv2.jpeg",
+   "alt": "Master Angler Certificate 2021 - Musky.jpeg",
+   "title": "",
+   "w": 3000,
+   "h": 2400,
+   "compId": "comp-kwxmusce",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_3b4fd8ec3b344f9b95b95438f65f9f52~mv2.jpeg",
+   "alt": "Big Muskie.jpeg",
+   "title": "",
+   "w": 1125,
+   "h": 1591,
+   "compId": "comp-kwxmsyhj",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_0d8b7b9990f3479fbf1091f4eb0ede17~mv2.jpeg",
+   "alt": "Master Angler Certificate - 2022 Sturgeon.jpeg",
+   "title": "",
+   "w": 3000,
+   "h": 2400,
+   "compId": "comp-l51eh3kh",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_fc80b2441f404131a9f87ecf73edc17a~mv2.jpeg",
+   "alt": "Master Angler 55\" Sturgeon.jpeg",
+   "title": "",
+   "w": 4032,
+   "h": 3024,
+   "compId": "comp-l51elnyk",
+   "depth": 2
+  }
+ ]
+}

@@ -1,0 +1,132 @@
+{
+ "pageId": "obtg0",
+ "slug": "lodging",
+ "title": "Lodging",
+ "jsonFile": "a30e59_1ff54ae149b51e1a13de307b1fe88a9a_5374",
+ "blocks": [
+  {
+   "kind": "text",
+   "level": "H3",
+   "text": "If you're planning a fishing trip, you will need a place to stay.\u00a0 The following businesses and rental homes have partnered with Baxstar to provide our customers with the best possible experience when visiting lakes country.\u00a0 Click business name or image to go to their website.",
+   "compId": "comp-jy7b9uns",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_cc76120f944041558fcf43d40449f477~mv2.png",
+   "alt": "Best-Western-Premier-Logo_Vertical_dha-R",
+   "title": "",
+   "w": 308,
+   "h": 180,
+   "compId": "comp-kf63pwr6",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "The Lodge on Detroit\n\nEnjoy luxury amenities and an incredible view of Detroit Lake when you stay at the Best Western Premier Lodge.\u00a0 When you're done fishing, get a deep tissue massage at the Spa Within , a full functioning day Spa located on the lower level!\u00a0 What's more, if you bring your own boat you can moor your boat to their dock for the duration of your stay.",
+   "compId": "comp-kf63kfco",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_6293c60eb1494df19429f9500003a570~mv2.png",
+   "alt": "Lake Inn at Dunvilla.png",
+   "title": "",
+   "w": 435,
+   "h": 410,
+   "compId": "comp-k7faudtx",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Lakes Inn at Dunvilla\n\nThis is a local gem!\u00a0 For those looking for peace and quiet with all the luxuries of a modern hotel, look no further!\u00a0 The Lakes Inn at Dunvilla offers spacious rooms, a pool and hot tub, and a hot breakfast in the morning.\u00a0 Located near Pelican Lake, plus lakes Lizzie, Franklin, and Lida, you're only a stone's throw from great fishing and recreation.",
+   "compId": "comp-k7favdb5",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_3c8e0b5a59064301bd0e18593c936c63~mv2.png",
+   "alt": "Screen Shot 2020-03-05 at 4.05.46 PM.png",
+   "title": "",
+   "w": 214,
+   "h": 106,
+   "compId": "comp-lhgnhawa",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "218 ESCAPES\n\nOur first recommendation when it comes to finding a vacation home rental in the Lakes Area.\u00a0 218 Escapes offers 3 cabins on Lake Sallie in Detroit Lakes.\u00a0 Call Paul today to book your very own lake cabin!",
+   "compId": "comp-lhgnhawi",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_b7a2476e1f9344859f9863d1e0fe689c~mv2.jpeg",
+   "alt": "Jason's Cabin.jpeg",
+   "title": "",
+   "w": 1200,
+   "h": 900,
+   "compId": "comp-kyao7855",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H4",
+   "text": "Save $45/day when you book through HOUFY\n\n(Click here)",
+   "compId": "comp-l3m0jlrs",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Cotton Lake Airbnb\n\nJason rents out his cabin on Cotton Lake year-round.\u00a0 Located 9 miles from Detroit Lakes, Cotton Lake is an excellent fishing lake.\u00a0 With 4 bedrooms, 9 beds, and 2 baths and Jason's cabin has room for 11 guests.\u00a0 Oh, and did we mention there is a hot tub?\u00a0 Click on the picture to see more information.",
+   "compId": "comp-kyao7y5p",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_ddc50eb559bb482e82a57ebe2491b7ef~mv2.jpg",
+   "alt": "Country campground.jpg",
+   "title": "",
+   "w": 974,
+   "h": 592,
+   "compId": "comp-jy7bifrl",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Country Campground\n\nA family oriented campground located in the heart of lakes country, just 4 miles south of Detroit Lakes.",
+   "compId": "comp-jy7bix07",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_299287b16d094da8b6057f6b996bf015~mv2.png",
+   "alt": "Karinallestate.png",
+   "title": "",
+   "w": 957,
+   "h": 632,
+   "compId": "comp-jy7bqlhd",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Karinall Estate on The Lake\n\nA year-round Bed and Breakfast located 2 miles south of Frazee on Wymer Lake.",
+   "compId": "comp-jy7brpu6",
+   "depth": 2
+  },
+  {
+   "kind": "button",
+   "label": "More Lodging Options",
+   "href": "https://www.visitdetroitlakes.com/lodging/",
+   "target": "_blank",
+   "compId": "comp-jyhaqy75",
+   "depth": 2
+  }
+ ]
+}
