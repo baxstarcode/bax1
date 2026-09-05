@@ -78,7 +78,7 @@ if __name__ == "__main__":
         if u in done:
             recs.append(done[u]); continue
         recs.append(parse(u))
-        time.sleep(1.5)
+        time.sleep(2.2)
         if (i + 1) % 10 == 0:
             print(f"  {i+1}/{len(urls)}", flush=True)
     recs.sort(key=lambda r: r["url"])

@@ -90,10 +90,10 @@ this in Wix now would need a 301; on a rebuilt site it simply becomes `/`.
 
 ### 3.3 SEO gaps to fix before or during a move
 
-- **4 pages have no meta description:** `/basstomouth`, `/inquiry-services-page`,
-  `/jandk`, `/muscatell`.
-- **13 of 26 pages carry JSON-LD**, matching the schema blocks in `seo/schema/`.
-  The other 13 have none.
+- **5 pages have no meta description:** `/basstomouth`, `/inquiry-services-page`,
+  `/jandk`, `/muscatell`, `/team-1`.
+- **14 of 26 pages carry JSON-LD**, matching the schema blocks in `seo/schema/`.
+  The other 12 have none.
 - No page is set to `noindex` — the whole site is indexable, so every URL needs
   a redirect.
 - No page-level custom head code was detected, so the JSON-LD is coming from the
@@ -154,11 +154,9 @@ email move first, then DNS, then the site — never the same week.
 ## 5. Known limits of this capture
 
 - Blog post *bodies* are not captured here — only titles, URLs, dates, and SEO
-  fields. Wix's API truncates bulk content responses; a full post export is a
-  separate step.
-- Two pages (`/21-ice-castle-rental`, `/team-1`) hit Wix rate limits during the
-  SEO pass. Their content is captured in `pages/`; re-run `seo_heads.py` to
-  fill in their head tags.
+  fields (`seo/blog-posts.json` covers all 136 posts, each with title,
+  description, and JSON-LD). Wix's API truncates bulk content responses; a full
+  post export is a separate step.
 - Visual design (fonts, colors, spacing) is not captured. The embeds carry
   their own styling; the Wix-native sections would be restyled in a rebuild.
 - This is a point-in-time snapshot. Re-run the tools before any cutover.
