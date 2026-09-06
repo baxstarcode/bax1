@@ -1,0 +1,127 @@
+{
+ "pageId": "cjf88",
+ "slug": "fishing-consultations",
+ "title": "Consults",
+ "jsonFile": "a30e59_1cfdd224470658e6e0a44102fe9e3759_5374",
+ "blocks": [
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Fishing\u00a0Consultation Rates",
+   "compId": "comp-mi3x8s4g",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Consultation by phone or online via Zoom\n\n3 options shown below",
+   "compId": "comp-mi3x8s4h1",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Lake Information\n\n\n\u00a0\n\n\nLake Information + Tackle, Bait & Technique Tips\n\n\n\u200b\u200b\n\n\nLake Information + Tips + GPS Pin Sharing\n\n\n\u200b\u200b\n\n\nSee prices below\u200b",
+   "compId": "comp-mi3x8s4i1",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H1",
+   "text": "1",
+   "compId": "comp-migg1075",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H3",
+   "text": "Choose the consultation that's right for you.",
+   "compId": "comp-migg107a",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "\u200b\u200b\u200b\n\n\n\n \n Lake and ice information \u00a0$150\u200b\n\n \n\n \n Lake Info, tackle, bait, & technique tips \u00a0$200\n\n \n\n \n Lake info, tackle, bait, and technique tops, and two GPS pins to good fishing spots.\u00a0$250",
+   "compId": "comp-migg107c",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H1",
+   "text": "2",
+   "compId": "comp-migg107f",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H3",
+   "text": "Book your consultation",
+   "compId": "comp-migg107i",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Click/Tap the red button on this page, and click on Fishing Consultation to choose from the options and select a date for the consultation.\u200b",
+   "compId": "comp-migg107j",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H1",
+   "text": "3",
+   "compId": "comp-migg107m",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "FISH\n\nWITH\n\nCONFIDENCE",
+   "compId": "comp-migg107o5",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "What is No-Contact Fishing Guide Service?",
+   "compId": "comp-miggqbxe",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Clients typically call Baxstar with a fish species or a lake in mind.\u00a0 They just need guidance to help them reach their goals.\u00a0 Baxstar provides each client with a customized plan to catch fish, including where to go, what time is right, and what to use.\u00a0 We even send GPS locations of fishing hot spots.",
+   "compId": "comp-migg106m",
+   "depth": 4
+  },
+  {
+   "kind": "form",
+   "id": "comp-mi3x8s5q3",
+   "compId": "comp-mi3x8s5q3",
+   "depth": 3
+  },
+  {
+   "kind": "text",
+   "level": "H5",
+   "text": "Contact Baxstar",
+   "compId": "comp-mi3x8s5s3",
+   "depth": 4
+  },
+  {
+   "kind": "button",
+   "label": "Submit",
+   "href": null,
+   "target": null,
+   "compId": "comp-mi3x8s681",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Thanks for submitting!",
+   "compId": "comp-mi3x8s6a1",
+   "depth": 4
+  }
+ ]
+}

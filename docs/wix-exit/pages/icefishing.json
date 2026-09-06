@@ -1,0 +1,36 @@
+{
+ "pageId": "foy5e",
+ "slug": "icefishing",
+ "title": "Ice Fishing",
+ "jsonFile": "a30e59_a268af5b315b1b6a798d6fe222ce1b35_5374",
+ "blocks": [
+  {
+   "kind": "text",
+   "level": "H1",
+   "text": "Ice Fishing In Detroit Lakes, MN",
+   "compId": "comp-mi3zi7og",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H3",
+   "text": "Ice Castle Sleeper Rentals \u2022 Day Houses \u2022 Guided Trips\n\n\u200b",
+   "compId": "comp-mi3ze83v",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "\u200bExperience the best ice fishing in Detroit Lakes with Baxstar Fishing \u2014 the only ice fishing service in the region owned and operated by an award-winning professional fishing guide. Whether you're booking a luxury Ice Castle sleeper, a heated day house, or a fully guided trip, we make sure you\u2019re on fish and fully taken care of from start to finish.\n\n\n\u00a0\n\n\nDetroit Lake offers incredible multi-species action just minutes from restaurants, bars, stores, and hotels \u2014 giving you the perfect blend of outdoor adventure and in-town convenience.",
+   "compId": "comp-kvzlk4ja",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Choose Your Experience",
+   "compId": "comp-m32lil02",
+   "depth": 2
+  }
+ ]
+}

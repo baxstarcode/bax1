@@ -1,0 +1,22 @@
+{
+ "pageId": "i9d8c",
+ "slug": "booking",
+ "title": "Book Online",
+ "jsonFile": "a30e59_777941ef4d28225cf1390095e50023b5_5374",
+ "blocks": [
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "How to Book A Fishing Trip and Pay online:\n\n\n\u200b\n\n\n\n \n Choose the length of your trip from the list on top.\n\n \n\n \n Read carefully and select a trip from the list below and click\u00a0Book Now.\u00a0 If you are only paying a deposit for the trip, select that choice.\u00a0 \n\n \n\n\n\n\u200b\n\n\nPlease contact us if you have any questions.\u00a0 \n\n\nThank you for your business!",
+   "compId": "comp-kbs35yz8",
+   "depth": 2
+  },
+  {
+   "kind": "wix_app",
+   "appId": "13d21c63-b5ec-5912-8397-c3a5ddb27a97",
+   "widget": "TPASection_jqeji37z",
+   "compId": "TPASection_jqeji37z",
+   "depth": 2
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "pageId": "twjjg",
+ "slug": "about",
+ "title": "About",
+ "jsonFile": "a30e59_17753f925c52d3ab4fd05e98d92baa53_5374",
+ "blocks": [
+  {
+   "kind": "text",
+   "level": "H1",
+   "text": "About Baxstar",
+   "compId": "comp-kmjz0tz7",
+   "depth": 4
+  },
+  {
+   "kind": "embed_html",
+   "url": "html/a30e59_73c7b1751b71b4d986c7006e20da6f91.html",
+   "srcType": "htmlEmbedded",
+   "title": null,
+   "compId": "comp-mpgaamdr",
+   "depth": 2
+  }
+ ]
+}

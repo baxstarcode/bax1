@@ -1,0 +1,32 @@
+{
+ "pageId": "zhgvd",
+ "slug": "shop",
+ "title": "Shop",
+ "jsonFile": "a30e59_02b6f68cec09eb4f7a80fd0a6594c5c6_5374",
+ "blocks": [
+  {
+   "kind": "image",
+   "uri": "a30e59_eff1bf4577a943689f1dfc06b65de6a7~mv2_d_3600_1800_s_2.png",
+   "alt": "White Baxstar Logo Shirt 10in x 5in.png",
+   "title": "",
+   "w": 3600,
+   "h": 1800,
+   "compId": "comp-jwqtsmdk",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Apparel",
+   "compId": "comp-jwqtx3yi",
+   "depth": 2
+  },
+  {
+   "kind": "wix_app",
+   "appId": "1380b703-ce81-ff05-f115-39571d94dfcd",
+   "widget": "TPASection_jwqm1lqt",
+   "compId": "TPASection_jwqm1lqt",
+   "depth": 2
+  }
+ ]
+}

@@ -1,0 +1,140 @@
+{
+ "pageId": "t4c15",
+ "slug": "guided-ice-fishing",
+ "title": "Guided Ice Fishing Trips",
+ "jsonFile": "a30e59_fa355d28fab3839816b8a1e0123c7f2d_5374",
+ "blocks": [
+  {
+   "kind": "image",
+   "uri": "a30e59_f445fd514566496391c9ce867073a705~mv2.png",
+   "alt": "Final Baxstar Fishing Logo White.png",
+   "title": "",
+   "w": 1920,
+   "h": 1080,
+   "compId": "comp-migbyo051",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H1",
+   "text": "Guided Ice Fishing Trips Detroit Lakes, MN",
+   "compId": "comp-mi1e87yy1",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Join Baxstar Fishing Guide Service for a fully guided, Minnesota ice fishing experience on Detroit Lake and surrounding Becker County waters. All equipment included\u2014just show up and fish in comfort!",
+   "compId": "comp-mi1e87z82",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Minnesota Guided Ice Fishing Trips",
+   "compId": "comp-mi1e87zi",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Baxstar Fishing provides professional guided ice fishing trips for anglers of all experience levels. Whether you're a first-timer, a family looking for a winter adventure, or a seasoned angler after trophy walleye, crappie, or pike, we supply the gear, expertise, and the best local fishing locations.",
+   "compId": "comp-mi1e87zj2",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Included in Your Guided Trip",
+   "compId": "comp-mi1e8818",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "\ud83d\udd25Heated portable shelters or wheel house\n\n \n\n \n \ud83c\udfa3 Rods, reels, tackle, and bait\n\n \n\n \n \ud83e\uddca Pre-drilled holes with clean ice setup\n\n \n\n \n \ud83d\udce1 Garmin Livescope sonar technology\n\n \n\n \n \ud83d\udc1f Target crappie, bluegill, pike, walleye & bass\n\n \n\n \n \u2744\ufe0f Transportation on-and-off the ice can be arranged",
+   "compId": "comp-mi1e88193",
+   "depth": 4
+  },
+  {
+   "kind": "wix_app",
+   "appId": "14271d6f-ba62-d045-549b-ab972ae1f70e",
+   "widget": "comp-mi1e881c3",
+   "compId": "comp-mi1e881c3",
+   "depth": 4
+  },
+  {
+   "kind": "wix_app",
+   "appId": "14271d6f-ba62-d045-549b-ab972ae1f70e",
+   "widget": "comp-mi1e881w3",
+   "compId": "comp-mi1e881w3",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Trip Options",
+   "compId": "comp-mi1e88203",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Whether you\u2019re new to ice fishing or a seasoned angler looking for a dialed-in winter adventure, Baxstar offers guided trips designed around your goals and experience level.\u00a0 All trips include heated shelter setups, holes drilled ahead of time, and expert instruction from a professional guide.\u00a0\n\n\n\u00a0\n\n\n4--8 hour trips start at $395.\n\n\n\u200b\n\n\nTrips take place on Detroit Lake unless prior arrangements are made \u2014 contact us anytime if you\u2019d like to fish a different lake.\u200b\u200b",
+   "compId": "comp-mi1e88221",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "What to Bring",
+   "compId": "comp-mi1epc9w",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Warm winter clothing & boots\n\n \n\n \n Snacks and drinks (optional)\n\n \n\n \n Fishing license (required for all anglers 16+)\n\n \n\n \n 4 x 4 vehicle preferred\n\n\n \n \n Transportation can be arranged otherwise\n\n \n\n \n \n\n\n\n\u200b\n\n\nWe provide everything else!",
+   "compId": "comp-mi1epc9x2",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Garmin Livescope",
+   "compId": "comp-mi1e882a1",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "All guided ice fishing trips include Garmin Livescope technology.\u00a0 Track fish in real time, watch them react to your lure, and learn advanced techniques from your guide.\u200b\n\n\n\u200b\u200b\n\n\n\n \n Real-time fish tracking\n\n \n\n \n Helps new anglers learn faster\n\n \n\n \n Increases catch rates dramatically\n\n \n\n \n Keeps kids (and adults!) engaged for hours",
+   "compId": "comp-mi1e882b4",
+   "depth": 4
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_e9da1a54628347e2b74282323a416757~mv2.gif",
+   "alt": "Garmin 2.gif",
+   "title": "",
+   "w": 910,
+   "h": 496,
+   "compId": "comp-mifeby1i",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Guided Trips Details",
+   "compId": "comp-mi1e8833",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Check your confirmation email after you book for more information.\n\n \n\n \n We will contact you the afternoon before the trip to discuss details and send you directions to the public access.\n\n \n\n \n You will meet us at the public access and follow us to the fish house.\u00a0 If you need a ride, we can accommodate that.\n\n \n\n \n Your house will be warm and ready when you arrive.",
+   "compId": "comp-mi1e88341",
+   "depth": 2
+  }
+ ]
+}

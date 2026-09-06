@@ -1,0 +1,15 @@
+{
+ "pageId": "c17mi",
+ "slug": "detroitlakesfishingreport",
+ "title": "Fishing Report",
+ "jsonFile": "a30e59_b0f597c94c402240965e1be9619de44b_5374",
+ "blocks": [
+  {
+   "kind": "wix_app",
+   "appId": "14bcded7-0066-7c35-14d7-466cb3f09103",
+   "widget": "TPASection_lr03jtil",
+   "compId": "TPASection_lr03jtil",
+   "depth": 2
+  }
+ ]
+}

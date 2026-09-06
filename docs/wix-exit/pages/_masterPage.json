@@ -1,0 +1,409 @@
+{
+ "nav": [
+  {
+   "depth": 0,
+   "label": "Home",
+   "href": "/bradybaxter",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "The Boat",
+   "href": "http://boat.baxstarfishing.com",
+   "type": "ExternalLink"
+  },
+  {
+   "depth": 0,
+   "label": "Terms & Conditions",
+   "href": "/terms",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Rates",
+   "href": "/bradybaxter",
+   "type": "AnchorLink"
+  },
+  {
+   "depth": 0,
+   "label": "Fishing Trips",
+   "href": "/fishing-trips",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Fishing Report",
+   "href": "/detroitlakesfishingreport",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Detroit Lakes Pontoon Rentals",
+   "href": "/detroit-lakes-pontoon-rentals",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Pontoons",
+   "href": "http://www.baxstaroutdoors.com",
+   "type": "ExternalLink"
+  },
+  {
+   "depth": 0,
+   "label": "Ice Castles",
+   "href": "/ice-castle-rentals",
+   "type": "PageLink"
+  },
+  {
+   "depth": 1,
+   "label": "17' Trophy Hunter",
+   "href": "/ice-castle-trophy-hunter",
+   "type": "PageLink"
+  },
+  {
+   "depth": 1,
+   "label": "17' Range Runner",
+   "href": "/ice-castle-range-runner",
+   "type": "PageLink"
+  },
+  {
+   "depth": 1,
+   "label": "17' Hybrid II RV Edition",
+   "href": "/17-hybrid-ii-ice-castle-detroit-lakes",
+   "type": "PageLink"
+  },
+  {
+   "depth": 1,
+   "label": "17' Lake of the Woods Edition",
+   "href": "/17-lake-of-the-woods-edition",
+   "type": "PageLink"
+  },
+  {
+   "depth": 1,
+   "label": "17' Luxury RV Edition",
+   "href": "/17-ice-castle-luxury-rv-edition-rental",
+   "type": "PageLink"
+  },
+  {
+   "depth": 1,
+   "label": "21' RV Extreme Edition",
+   "href": "/21-ice-castle-rental",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Ice Fishing",
+   "href": "/icefishing",
+   "type": "PageLink"
+  },
+  {
+   "depth": 1,
+   "label": "Guided Ice Fishing Trips",
+   "href": "/guided-ice-fishing",
+   "type": "PageLink"
+  },
+  {
+   "depth": 1,
+   "label": "Ice House Rentals",
+   "href": "/ice-house-rentals",
+   "type": "PageLink"
+  },
+  {
+   "depth": 1,
+   "label": "Date Night On The Ice",
+   "href": "/datenight",
+   "type": "PageLink"
+  },
+  {
+   "depth": 1,
+   "label": "Ice House Services",
+   "href": "/ice-house-services",
+   "type": "PageLink"
+  },
+  {
+   "depth": 1,
+   "label": "Ice Safety",
+   "href": "/team-1",
+   "type": "PageLink"
+  },
+  {
+   "depth": 1,
+   "label": "Family Trips",
+   "href": "/familytrips",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Buy My Boat",
+   "href": "/buymyboat",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Book Now",
+   "href": "https://fareharbor.com/embeds/book/baxstarfishing/?full-items=yes&back=https://www.baxstarfishing.com/",
+   "type": "ExternalLink"
+  },
+  {
+   "depth": 0,
+   "label": "About",
+   "href": "/about",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Awards",
+   "href": "/awards",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Gallery",
+   "href": "/fishgallery",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "FAQ",
+   "href": "/faq",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Consults",
+   "href": "/fishing-consultations",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Corporate Trips",
+   "href": "/general-1",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Summer Rates",
+   "href": "/fishing-trips",
+   "type": "AnchorLink"
+  },
+  {
+   "depth": 0,
+   "label": "Aluminum House",
+   "href": "/copy-2-of-ice-services-and-rates",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Portable Ice House",
+   "href": "/portableicehouse",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Copy of Ice Services and Rates",
+   "href": "/copy-of-ice-services-and-rates",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "3rd Party Ice Castle Rental",
+   "href": "/icecastlerental",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Lodging",
+   "href": "/lodging",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "J and K Marine",
+   "href": "/jandk",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Muscatell Automotive",
+   "href": "/muscatell",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Fishing Lessons",
+   "href": "/fishinglessons",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Fullscreen Page",
+   "href": "/fullscreen-page",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "My Account",
+   "href": "/my-account",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "My Bookings",
+   "href": "/my-bookings",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Shop",
+   "href": "/shop",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Team Bass To Mouth",
+   "href": "/basstomouth",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Book Online",
+   "href": "/booking",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Product Page",
+   "href": "/product-page",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Cart Page",
+   "href": "/cart-page",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Thank You Page",
+   "href": "/thank-you-page",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Checkout",
+   "href": "/checkout",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "My Orders",
+   "href": "/my-orders",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "My Addresses",
+   "href": "/my-addresses",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "My Wallet",
+   "href": "/my-wallet",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Followers",
+   "href": "/followers",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Profile",
+   "href": "/profile-1",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "My Subscriptions",
+   "href": "/my-subscriptions",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Search Results",
+   "href": "/search",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Service Page",
+   "href": "/service-page",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Booking Calendar",
+   "href": "/booking-calendar",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Booking Form",
+   "href": "/booking-form",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Post",
+   "href": "/post",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Notifications",
+   "href": "/notifications",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Settings",
+   "href": "/settings",
+   "type": "PageLink"
+  },
+  {
+   "depth": 0,
+   "label": "Inquiry Services Page",
+   "href": "/inquiry-services-page",
+   "type": "PageLink"
+  }
+ ],
+ "blocks": [
+  {
+   "kind": "embed_html",
+   "url": "html/a30e59_dcae30c3bcfa83477ff84b7e4ecdbf73.html",
+   "srcType": "htmlEmbedded",
+   "title": "Baxstar Fishing site footer \u2014 navigation, contact, and legal links",
+   "compId": "comp-momfg44d",
+   "depth": 2
+  },
+  {
+   "kind": "wix_app",
+   "appId": "14ce28f7-7eb0-3745-22f8-074b0e2401fb",
+   "widget": "comp-jqeji4go",
+   "compId": "comp-jqeji4go",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_eff1bf4577a943689f1dfc06b65de6a7~mv2_d_3600_1800_s_2.png",
+   "alt": "Baxstar Fishing Guide Service Detroit Lakes, Minnesota Logo",
+   "title": "Baxstar Fishing Guide Service",
+   "w": 3600,
+   "h": 1800,
+   "compId": "comp-lb2l6w6s",
+   "depth": 2
+  }
+ ]
+}

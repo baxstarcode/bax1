@@ -1,0 +1,118 @@
+{
+ "pageId": "zphln",
+ "slug": "basstomouth",
+ "title": "Team Bass To Mouth",
+ "jsonFile": "a30e59_b0aae5f1aeb4ed5e1cc39cf3fac5f291_5374",
+ "blocks": [
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "the official website for",
+   "compId": "comp-jjp38g32",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "TEAM BASS TO MOUTH",
+   "compId": "comp-jjp4hcuv",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_f2623d8a83e1452cbec7d5cd8833d39a~mv2_d_3024_4032_s_4_2.jpg",
+   "alt": "",
+   "title": "",
+   "w": 3024,
+   "h": 4032,
+   "compId": "comp-jjp4fzce",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Brady Baxter",
+   "compId": "comp-jjpwryfi",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_d7d8c47279ef4dff92de1d5a806646ad~mv2_d_3024_4032_s_4_2.jpg",
+   "alt": "",
+   "title": "",
+   "w": 3024,
+   "h": 4032,
+   "compId": "comp-jjp4fzcg",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Jason Hanson",
+   "compId": "comp-jjpwso80",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_60c1b3fae6b74955aac559652bb230a0~mv2_d_3024_4032_s_4_2.jpg",
+   "alt": "",
+   "title": "",
+   "w": 3024,
+   "h": 4032,
+   "compId": "comp-jjvg08on",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Justin Kill",
+   "compId": "comp-jjvg263x",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "OUR Bass",
+   "compId": "comp-jjpvudui",
+   "depth": 3
+  },
+  {
+   "kind": "wix_app",
+   "appId": "14271d6f-ba62-d045-549b-ab972ae1f70e",
+   "widget": "comp-jjpsf73d",
+   "compId": "comp-jjpsf73d",
+   "depth": 3
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "OUR GEAR",
+   "compId": "comp-jjpv8h6n",
+   "depth": 3
+  },
+  {
+   "kind": "wix_app",
+   "appId": "14271d6f-ba62-d045-549b-ab972ae1f70e",
+   "widget": "comp-jjptm7in",
+   "compId": "comp-jjptm7in",
+   "depth": 3
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Our Inspiration",
+   "compId": "comp-jjpwnn6u",
+   "depth": 3
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_1eb73e7dd2a042aaac3e8f068c8ce1c8~mv2.gif",
+   "alt": "",
+   "title": "",
+   "w": 480,
+   "h": 270,
+   "compId": "comp-jjpwkcy5",
+   "depth": 3
+  }
+ ]
+}

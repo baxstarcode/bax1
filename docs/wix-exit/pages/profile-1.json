@@ -1,0 +1,15 @@
+{
+ "pageId": "qx140",
+ "slug": "profile-1",
+ "title": "Profile",
+ "jsonFile": "a30e59_852ab09cf9ba18840fb9f38b4af0a0ce_5374",
+ "blocks": [
+  {
+   "kind": "wix_app",
+   "appId": "14dbef06-cc42-5583-32a7-3abd44da4908",
+   "widget": "TPASection_kfj2adk5",
+   "compId": "TPASection_kfj2adk5",
+   "depth": 2
+  }
+ ]
+}

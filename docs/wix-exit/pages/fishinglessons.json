@@ -1,0 +1,67 @@
+{
+ "pageId": "uudd5",
+ "slug": "fishinglessons",
+ "title": "Fishing Lessons",
+ "jsonFile": "a30e59_c1ebcf3944a88f99729004ba8ae3592b_5374",
+ "blocks": [
+  {
+   "kind": "button",
+   "label": ">",
+   "href": "http://www.bradybaxter.com",
+   "target": "_self",
+   "compId": "comp-jw9lp1ma",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_292c76bab266414188a0a75a3f659845~mv2.png",
+   "alt": "Baxstar Fishing Lessons Horizontal Logo ",
+   "title": "",
+   "w": 1200,
+   "h": 628,
+   "compId": "comp-jx20vkmz",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H3",
+   "text": "It's time to learn how to fish.\u00a0 Really learn.\u00a0\n\n\u00a0\n\nBaxstar Fishing lessons are guaranteed to improve your angling skills.\u00a0 Brady has been a teacher for 14 years, and he is a volunteer boat captain for the Detroit Lakes Fishing team.\u00a0 He will use his teaching skills to help you learn how to fish.\u00a0 A few hours with Brady can change the way you fish forever.",
+   "compId": "comp-jw8qp48y",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_3a72a5bc803e4c0cb694991b2a10a4cd~mv2_d_3024_4032_s_4_2.jpeg",
+   "alt": "Lake Sallie Bass.jpeg",
+   "title": "",
+   "w": 3024,
+   "h": 4032,
+   "compId": "comp-jw8pifyd",
+   "depth": 2
+  },
+  {
+   "kind": "image",
+   "uri": "a30e59_a85a368f97ef4ab5ae1abf84e7cbe077~mv2_d_1440_1425_s_2.png",
+   "alt": "Detroit Lakes Fishing Team Logo.png",
+   "title": "",
+   "w": 1440,
+   "h": 1425,
+   "compId": "comp-jw8oku60",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Individual and group lessons are available and all ages are welcome.\u00a0 Lessons are conducted from shore, in Brady's Boat, or in the comfort of your own boat.\u00a0 Ice fishing lessons also available.\u00a0 You can choose the time and place, or Brady will help you select the location that is right for your needs.",
+   "compId": "comp-jw8pm52a",
+   "depth": 2
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Contact Brady to learn more:\n\nEmail: brady@baxstarfishing.com\n\nPhone: 701-261-3703\n\nSocial:",
+   "compId": "comp-jw8ps62u",
+   "depth": 2
+  }
+ ]
+}

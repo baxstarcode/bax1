@@ -1,0 +1,64 @@
+{
+ "pageId": "ni7hj",
+ "slug": "familytrips",
+ "title": "Family Trips",
+ "jsonFile": "a30e59_39105ae7285f557dfe625ec30cb45730_5376",
+ "blocks": [
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Bring family fun to the next level.",
+   "compId": "comp-kwb7due6",
+   "depth": 5
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Baxstar guides enjoy fishing with families and with young anglers. Some of our guides are current and former teachers, so get ready to learn something new!\u00a0 You will not find a more fun-filled family activity this winter.",
+   "compId": "comp-kwb7due9",
+   "depth": 5
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Teach a Kid to Fish",
+   "compId": "comp-kyew1b691",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "That's the goal at Baxstar!\u00a0 Our guides have developed patience through their experience in the classroom, and through teaching their own children how to fish.\u00a0 Their patience and attention to detail assures that your youngest family members will not be overlooked on your trip.",
+   "compId": "comp-kyew5myp",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "Focus on Fun",
+   "compId": "comp-lohqctt61",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Our primary focus on family trips is you and your family.\u00a0 With our people first approach to family fishing trips, Baxstar clients have fun before they even put a line in the water.\u00a0 Once the fishing begins, you can trust\u00a0Baxstar guides to know what fish to target and at what times they will bite.\u00a0 We look forward to helping your family create memories that will last a lifetime!",
+   "compId": "comp-lohqctta3",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": "H2",
+   "text": "BOOK YOUR TRIP TODAY!",
+   "compId": "comp-lohq225t3",
+   "depth": 4
+  },
+  {
+   "kind": "text",
+   "level": null,
+   "text": "Booking a family fishing trip has never been easier.\u00a0 Click below to email us or to book a trip online today!",
+   "compId": "comp-lohq225z1",
+   "depth": 4
+  }
+ ]
+}
