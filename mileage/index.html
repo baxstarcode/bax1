@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Baxstar Miles</title>
+<meta name="description" content="Private mileage counter. Log miles when you feel like it; a weekly odometer check keeps the total honest.">
+<meta name="robots" content="noindex, nofollow">
+<!-- Standalone private tool, not a Wix embed — indexifembedded not applicable here. -->
+<meta name="theme-color" content="#08080a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Bax Miles">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #08080a;
+  --charcoal: #111114;
+  --dark: #18181c;
+  --mid-dark: #222228;
+  --red: #c1272d;
+  --red-bright: #e63946;
+  --cream: #f0ece4;
+  --warm-white: #faf8f4;
+  --gold: #c9a84c;
+  --gold-dim: #9a7d3a;
+  --slate: #6b6b78;
+  --light-slate: #9a9aaa;
+  --line: rgba(240,236,228,0.08);
+  --font-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  --font-body: 'Barlow', Arial, sans-serif;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100svh;
+  padding: max(18px, env(safe-area-inset-top)) 16px calc(48px + env(safe-area-inset-bottom));
+}
+
+.wrap { max-width: 560px; margin: 0 auto; }
+
+/* ---------- header ---------- */
+.hdr { text-align: center; padding: 10px 0 22px; }
+.hdr h1 {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 9vw, 44px);
+  letter-spacing: 3px;
+  line-height: 1;
+  color: var(--warm-white);
+  text-transform: uppercase;
+}
+.hdr h1 span { color: var(--red-bright); }
+.hdr .sub {
+  margin-top: 6px;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 3.5px; text-transform: uppercase;
+  color: var(--slate);
+}
+
+/* ---------- cards ---------- */
+.card {
+  background: var(--charcoal);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 14px;
+}
+.card h2 {
+  font-family: var(--font-body);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--light-slate);
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.card h2::before { content: ''; width: 18px; height: 1px; background: var(--red); flex: none; }
+
+/* ---------- big total ---------- */
+.total-card { text-align: center; padding: 28px 20px 24px; }
+.total-label {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--light-slate);
+}
+.total-num {
+  font-family: var(--font-display);
+  font-size: clamp(64px, 19vw, 96px);
+  line-height: 1;
+  color: var(--warm-white);
+  margin: 10px 0 2px;
+  font-variant-numeric: tabular-nums;
+}
+.total-num small {
+  font-size: 0.32em;
+  color: var(--red-bright);
+  letter-spacing: 3px;
+  vertical-align: 12%;
+  margin-left: 6px;
+}
+.verified {
+  font-size: 12.5px; font-weight: 500;
+  color: var(--slate);
+  margin-top: 8px;
+}
+.verified.ok { color: var(--gold); }
+.stat-row {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 8px; margin-top: 20px;
+}
+.stat {
+  background: var(--dark);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 6px 9px;
+}
+.stat b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 24px; letter-spacing: 1px;
+  color: var(--cream);
+  font-variant-numeric: tabular-nums;
+}
+.stat i {
+  font-style: normal;
+  font-size: 9.5px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--slate);
+}
+
+/* ---------- inputs & buttons ---------- */
+input[type="text"], input[type="date"], .num-in {
+  width: 100%;
+  background: var(--dark);
+  border: 1px solid rgba(240,236,228,0.14);
+  border-radius: 10px;
+  color: var(--warm-white);
+  font-family: var(--font-body);
+  font-size: 17px; font-weight: 500;
+  padding: 13px 14px;
+  outline: none;
+  transition: border-color .2s;
+}
+input:focus { border-color: rgba(230,57,70,0.55); }
+input::placeholder { color: var(--slate); font-weight: 400; }
+input[type="date"] { color-scheme: dark; }
+
+.row { display: flex; gap: 8px; }
+.row > * { min-width: 0; }
+.grow { flex: 1; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%;
+  padding: 14px 18px;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--font-body); font-weight: 600; font-size: 13px;
+  letter-spacing: 2px; text-transform: uppercase;
+  border: none; border-radius: 10px;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:active { transform: scale(0.98); }
+.btn:hover { background: var(--red-bright); }
+.btn.gold { background: var(--gold-dim); }
+.btn.gold:hover { background: var(--gold); color: var(--black); }
+.btn.ghost {
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid rgba(240,236,228,0.22);
+}
+.btn.ghost:hover { background: rgba(240,236,228,0.06); }
+.btn.mini { width: auto; padding: 9px 14px; font-size: 11px; border-radius: 8px; }
+
+.hint { font-size: 12px; color: var(--slate); margin-top: 10px; line-height: 1.5; }
+.err { color: var(--red-bright); font-size: 13px; font-weight: 500; margin-top: 8px; display: none; }
+.err.show { display: block; }
+
+/* ---------- check-in due card ---------- */
+.due { border-color: rgba(201,168,76,0.4); background: linear-gradient(180deg, rgba(201,168,76,0.07), rgba(17,17,20,0)) var(--charcoal); }
+.due h2 { color: var(--gold); }
+.due h2::before { background: var(--gold); }
+.due-msg { font-size: 14.5px; line-height: 1.55; color: var(--cream); margin-bottom: 14px; }
+.chk-result {
+  background: var(--dark);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-size: 14.5px; line-height: 1.6;
+  display: none;
+}
+.chk-result.show { display: block; }
+.chk-result b { color: var(--warm-white); }
+.chk-result .delta-plus { color: var(--gold); font-weight: 600; }
+.chk-result .delta-zero { color: var(--gold); font-weight: 600; }
+.chk-result .delta-minus { color: var(--light-slate); font-weight: 600; }
+
+/* ---------- history ---------- */
+.hist { list-style: none; }
+.hist li {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 2px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14.5px;
+}
+.hist li:last-child { border-bottom: none; }
+.h-date { color: var(--slate); font-size: 12.5px; width: 52px; flex: none; }
+.h-main { flex: 1; min-width: 0; overflow-wrap: anywhere; line-height: 1.4; }
+.h-mi { font-weight: 700; color: var(--warm-white); font-variant-numeric: tabular-nums; }
+.h-note { color: var(--light-slate); font-weight: 400; }
+.h-chk { color: var(--gold); font-weight: 500; }
+.h-chk .h-adj { color: var(--light-slate); font-weight: 400; }
+.h-del {
+  flex: none;
+  background: none; border: none; cursor: pointer;
+  color: var(--slate); font-size: 16px; line-height: 1;
+  padding: 8px 10px; border-radius: 8px;
+  font-family: var(--font-body);
+  -webkit-tap-highlight-color: transparent;
+}
+.h-del:hover { color: var(--red-bright); background: rgba(230,57,70,0.08); }
+.h-del.arm { color: #fff; background: var(--red); font-size: 11px; font-weight: 600; letter-spacing: 1px; }
+.hist-empty { color: var(--slate); font-size: 14px; padding: 6px 2px; }
+.hist-more { font-size: 12px; color: var(--slate); text-align: center; padding-top: 10px; }
+
+/* ---------- settings ---------- */
+details.settings { margin-top: 4px; }
+details.settings summary {
+  list-style: none; cursor: pointer;
+  text-align: center;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--slate);
+  padding: 12px;
+  -webkit-tap-highlight-color: transparent;
+}
+details.settings summary::-webkit-details-marker { display: none; }
+details.settings summary:hover { color: var(--light-slate); }
+.set-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+.set-note { font-size: 12px; color: var(--slate); line-height: 1.6; }
+.set-note b { color: var(--light-slate); }
+.set-block { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+.set-block h3 {
+  font-size: 10.5px; font-weight: 600; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--light-slate); margin-bottom: 10px;
+}
+
+/* ---------- toast & banner ---------- */
+#toast {
+  position: fixed; left: 50%; bottom: calc(22px + env(safe-area-inset-bottom));
+  transform: translateX(-50%) translateY(80px);
+  background: var(--warm-white); color: var(--black);
+  font-size: 13.5px; font-weight: 600;
+  padding: 12px 20px; border-radius: 999px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  opacity: 0; pointer-events: none;
+  transition: transform .3s ease, opacity .3s ease;
+  max-width: 90vw; text-align: center;
+  z-index: 50;
+}
+#toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+#savefail {
+  display: none;
+  background: var(--red); color: #fff;
+  border-radius: 10px; padding: 12px 16px;
+  font-size: 13.5px; font-weight: 600; line-height: 1.5;
+  margin-bottom: 14px;
+}
+#savefail.show { display: block; }
+
+.foot {
+  text-align: center; margin-top: 26px;
+  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(240,236,228,0.22);
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hdr">
+    <h1>Baxstar <span>Miles</span></h1>
+    <div class="sub">Simple Mileage Counter</div>
+  </header>
+
+  <div id="savefail">Couldn't save to this browser's storage. Don't close the tab — hit Backup in Settings below to save your data to a file.</div>
+
+  <!-- ============ ONBOARDING ============ -->
+  <section class="card" id="onboard" hidden>
+    <h2>Start Here</h2>
+    <p style="font-size:14.5px; line-height:1.6; margin-bottom:14px;">
+      Type in what your odometer reads <b>right now</b>. That's mile zero —
+      everything counts up from here.
+    </p>
+    <div class="row">
+      <input class="num-in grow" id="ob-odo" inputmode="decimal" placeholder="Odometer right now" aria-label="Current odometer reading">
+      <input type="date" id="ob-date" style="width:158px" aria-label="As of date">
+    </div>
+    <div class="err" id="ob-err">Enter the odometer number to get going.</div>
+    <div style="margin-top:12px"><button class="btn" id="ob-go">Start Tracking</button></div>
+    <div style="margin-top:8px"><button class="btn ghost" id="ob-restore">Restore From a Backup File</button></div>
+  </section>
+
+  <div id="app" hidden>
+
+    <!-- ============ TOTAL ============ -->
+    <section class="card total-card">
+      <div class="total-label">Total Miles</div>
+      <div class="total-num" id="total">0<small>MI</small></div>
+      <div class="verified" id="verified"></div>
+      <div class="stat-row">
+        <div class="stat"><b id="st-week">0</b><i>This Week</i></div>
+        <div class="stat"><b id="st-month">0</b><i>This Month</i></div>
+        <div class="stat"><b id="st-year">0</b><i>This Year</i></div>
+      </div>
+    </section>
+
+    <!-- ============ ODOMETER CHECK ============ -->
+    <section class="card" id="chk-card">
+      <h2 id="chk-title">Odometer Check</h2>
+      <div class="due-msg" id="chk-msg"></div>
+      <div class="row">
+        <input class="num-in grow" id="chk-odo" inputmode="decimal" placeholder="Odometer reads…" aria-label="Current odometer reading">
+        <button class="btn gold mini" id="chk-go" style="flex:none">Check It</button>
+      </div>
+      <div class="err" id="chk-err"></div>
+      <div class="chk-result" id="chk-result"></div>
+      <div class="row" id="chk-actions" style="display:none; margin-top:2px;">
+        <button class="btn gold grow" id="chk-true"></button>
+        <button class="btn ghost grow" id="chk-keep">Save As-Is</button>
+      </div>
+    </section>
+
+    <!-- ============ QUICK ADD ============ -->
+    <section class="card">
+      <h2>Add Miles</h2>
+      <div class="row">
+        <input class="num-in grow" id="add-mi" inputmode="decimal" placeholder="Miles" aria-label="Miles to add">
+        <input type="date" id="add-date" style="width:158px" aria-label="Date">
+      </div>
+      <div style="margin-top:8px">
+        <input type="text" id="add-note" placeholder="Note (optional)" maxlength="80" aria-label="Note">
+      </div>
+      <div class="err" id="add-err">Miles has to be a number above zero.</div>
+      <div style="margin-top:12px"><button class="btn" id="add-go">Add It</button></div>
+      <div class="hint">Toss miles in whenever — daily, weekly, ballpark is fine.
+        The odometer check trues it all up.</div>
+    </section>
+
+    <!-- ============ HISTORY ============ -->
+    <section class="card">
+      <h2>History</h2>
+      <ul class="hist" id="hist"></ul>
+      <div class="hist-more" id="hist-more" hidden></div>
+    </section>
+
+    <!-- ============ SETTINGS ============ -->
+    <details class="settings">
+      <summary>Backup &amp; Settings</summary>
+      <div class="card">
+        <div class="set-grid">
+          <button class="btn ghost" id="s-backup">Backup</button>
+          <button class="btn ghost" id="s-restore">Restore</button>
+          <button class="btn ghost" id="s-csv">Export CSV</button>
+          <button class="btn ghost" id="s-erase">Erase All</button>
+        </div>
+        <div class="set-note" id="s-note"></div>
+        <div class="set-block">
+          <h3>Fix Starting Odometer</h3>
+          <div class="row">
+            <input class="num-in grow" id="s-start" inputmode="decimal" placeholder="Starting odometer" aria-label="Starting odometer">
+            <button class="btn ghost mini" id="s-start-go" style="flex:none">Update</button>
+          </div>
+          <div class="set-note" style="margin-top:8px">Only for fixing a typo in your day-one reading. Your total doesn't change.</div>
+        </div>
+      </div>
+    </details>
+
+  </div>
+
+  <div class="foot">Baxstar Fishing &middot; Detroit Lakes MN</div>
+</div>
+
+<input type="file" id="s-file" accept=".json,application/json" hidden>
+
+<div id="toast" role="status"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  var KEY = 'baxstar_miles_v1';
+  var CHECK_EVERY_DAYS = 7;
+  var HIST_CAP = 100;
+
+  /* ---------- state ---------- */
+  var S = load();
+
+  function blank() {
+    return { v: 1, startOdo: null, startDate: null, lastExport: null, entries: [] };
+  }
+  function load() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (!raw) return blank();
+      var d = JSON.parse(raw);
+      if (!d || d.v !== 1 || !Array.isArray(d.entries)) return blank();
+      return d;
+    } catch (e) { return blank(); }
+  }
+  function save() {
+    try {
+      var raw = JSON.stringify(S);
+      localStorage.setItem(KEY, raw);
+      var back = localStorage.getItem(KEY);
+      var ok = back !== null && back.length === raw.length;
+      document.getElementById('savefail').classList.toggle('show', !ok);
+      return ok;
+    } catch (e) {
+      document.getElementById('savefail').classList.add('show');
+      return false;
+    }
+  }
+
+  /* ---------- date helpers (local, no UTC drift) ---------- */
+  function todayStr() {
+    var n = new Date();
+    return n.getFullYear() + '-' + pad(n.getMonth() + 1) + '-' + pad(n.getDate());
+  }
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function parseD(s) {
+    var p = String(s || '').split('-');
+    return new Date(+p[0], (+p[1] || 1) - 1, +p[2] || 1);
+  }
+  function daysBetween(a, b) { return Math.round((parseD(b) - parseD(a)) / 86400000); }
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function shortDate(s) {
+    var d = parseD(s);
+    var out = MONTHS[d.getMonth()] + ' ' + d.getDate();
+    if (d.getFullYear() !== new Date().getFullYear()) out += " '" + String(d.getFullYear()).slice(2);
+    return out;
+  }
+  function mondayOf(d) {
+    var x = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    var dow = (x.getDay() + 6) % 7;
+    x.setDate(x.getDate() - dow);
+    return x;
+  }
+
+  /* ---------- numbers ---------- */
+  function num(v) {
+    var n = parseFloat(String(v).replace(/,/g, '').trim());
+    return isFinite(n) ? n : NaN;
+  }
+  function r1(n) { return Math.round(n * 10) / 10; }
+  function fmt(n) {
+    n = r1(n);
+    return n.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 1 });
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function uid() {
+    return 'e' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+  }
+
+  /* ---------- derived ---------- */
+  function total() {
+    var t = 0;
+    for (var i = 0; i < S.entries.length; i++) {
+      var e = S.entries[i];
+      t += e.t === 'add' ? e.mi : (e.adj || 0);
+    }
+    return r1(t);
+  }
+  function lastCheck() {
+    var best = null;
+    for (var i = 0; i < S.entries.length; i++) {
+      if (S.entries[i].t === 'chk' && (!best || S.entries[i].odo >= best.odo)) best = S.entries[i];
+    }
+    return best;
+  }
+  function lastOdo() {
+    var c = lastCheck();
+    return c ? c.odo : S.startOdo;
+  }
+  function lastCheckDate() {
+    var c = lastCheck();
+    return c ? c.d : S.startDate;
+  }
+  function loggedSinceLastCheck() {
+    var idx = -1;
+    for (var i = S.entries.length - 1; i >= 0; i--) {
+      if (S.entries[i].t === 'chk') { idx = i; break; }
+    }
+    var t = 0;
+    for (var j = idx + 1; j < S.entries.length; j++) {
+      if (S.entries[j].t === 'add') t += S.entries[j].mi;
+    }
+    return r1(t);
+  }
+  function sumRange(from) {
+    var t = 0;
+    for (var i = 0; i < S.entries.length; i++) {
+      var e = S.entries[i];
+      if (parseD(e.d) >= from) t += e.t === 'add' ? e.mi : (e.adj || 0);
+    }
+    return r1(t);
+  }
+
+  /* ---------- render ---------- */
+  var $ = function (id) { return document.getElementById(id); };
+
+  function render() {
+    var started = S.startOdo !== null;
+    $('onboard').hidden = started;
+    $('app').hidden = !started;
+    if (!started) { $('ob-date').value = todayStr(); return; }
+
+    var t = total();
+    $('total').innerHTML = fmt(t) + '<small>MI</small>';
+
+    var c = lastCheck();
+    var v = $('verified');
+    if (c) {
+      v.className = 'verified ok';
+      v.textContent = 'Odometer-verified through ' + shortDate(c.d) + ' · ' + fmt(c.odo);
+    } else {
+      v.className = 'verified';
+      v.textContent = 'Not odometer-verified yet — do your first check below.';
+    }
+
+    var now = new Date();
+    $('st-week').textContent = fmt(sumRange(mondayOf(now)));
+    $('st-month').textContent = fmt(sumRange(new Date(now.getFullYear(), now.getMonth(), 1)));
+    $('st-year').textContent = fmt(sumRange(new Date(now.getFullYear(), 0, 1)));
+
+    renderCheckCard();
+    renderHist();
+
+    $('add-date').value = todayStr();
+    $('s-note').innerHTML =
+      'Data lives in this browser on this device — always open the app the same way. ' +
+      'Last backup: <b>' + (S.lastExport ? shortDate(S.lastExport) : 'never') + '</b>.';
+  }
+
+  function renderCheckCard() {
+    var since = daysBetween(lastCheckDate(), todayStr());
+    var due = since >= CHECK_EVERY_DAYS;
+    var card = $('chk-card');
+    card.classList.toggle('due', due);
+    $('chk-title').textContent = due ? 'Weekly Check — Due' : 'Odometer Check';
+    var c = lastCheck();
+    var msg;
+    if (due) {
+      msg = 'It’s been ' + since + ' days. What’s the odometer actually say? ' +
+            'I’ll square the total with the truck.';
+    } else if (c) {
+      msg = 'Last check ' + shortDate(c.d) + ' at ' + fmt(c.odo) +
+            '. Next one’s due in ' + (CHECK_EVERY_DAYS - since) + ' day' +
+            ((CHECK_EVERY_DAYS - since) === 1 ? '' : 's') + ' — but any time works.';
+    } else {
+      msg = 'Whenever you’re at the truck, punch in the odometer and the count stays honest.';
+    }
+    $('chk-msg').textContent = msg;
+  }
+
+  function renderHist() {
+    var ul = $('hist');
+    ul.innerHTML = '';
+    var n = S.entries.length;
+    if (!n) {
+      ul.innerHTML = '<li class="hist-empty">Nothing yet. Add miles above or do an odometer check.</li>';
+      $('hist-more').hidden = true;
+      return;
+    }
+    var shown = 0;
+    for (var i = n - 1; i >= 0 && shown < HIST_CAP; i--, shown++) {
+      var e = S.entries[i];
+      var li = document.createElement('li');
+      var main;
+      if (e.t === 'add') {
+        main = '<span class="h-mi">+' + fmt(e.mi) + ' mi</span>' +
+               (e.note ? ' <span class="h-note">— ' + esc(e.note) + '</span>' : '');
+      } else {
+        var adj = e.adj || 0;
+        var adjTxt = adj === 0 ? 'dead on' :
+          (adj > 0 ? '+' + fmt(adj) + ' mi true-up' : fmt(adj) + ' mi true-up');
+        main = '<span class="h-chk">Odometer ' + fmt(e.odo) +
+               ' <span class="h-adj">· ' + adjTxt + '</span></span>';
+      }
+      li.innerHTML = '<span class="h-date">' + shortDate(e.d) + '</span>' +
+                     '<span class="h-main">' + main + '</span>' +
+                     '<button class="h-del" data-id="' + e.id + '" aria-label="Delete entry">✕</button>';
+      ul.appendChild(li);
+    }
+    var more = $('hist-more');
+    more.hidden = n <= HIST_CAP;
+    if (n > HIST_CAP) more.textContent = 'Showing latest ' + HIST_CAP + ' of ' + n + ' — full list lives in Backup / CSV.';
+  }
+
+  /* ---------- toast ---------- */
+  var toastTimer;
+  function toast(msg) {
+    var t = $('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { t.classList.remove('show'); }, 2600);
+  }
+
+  /* ---------- onboarding ---------- */
+  $('ob-go').addEventListener('click', function () {
+    var o = num($('ob-odo').value);
+    var bad = !(o >= 0);
+    $('ob-err').classList.toggle('show', bad);
+    if (bad) return;
+    S.startOdo = r1(o);
+    S.startDate = $('ob-date').value || todayStr();
+    save();
+    render();
+    toast('Mile zero set at ' + fmt(o) + '. Go fish.');
+    try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch (e) {}
+  });
+
+  /* ---------- quick add ---------- */
+  $('add-go').addEventListener('click', function () {
+    var m = num($('add-mi').value);
+    var bad = !(m > 0) || m > 20000;
+    $('add-err').classList.toggle('show', bad);
+    if (bad) return;
+    S.entries.push({
+      id: uid(), t: 'add', d: $('add-date').value || todayStr(),
+      mi: r1(m), note: $('add-note').value.trim()
+    });
+    save();
+    $('add-mi').value = ''; $('add-note').value = '';
+    render();
+    toast('+' + fmt(m) + ' mi — total ' + fmt(total()));
+  });
+
+  /* ---------- odometer check ---------- */
+  var pending = null;
+
+  $('chk-go').addEventListener('click', function () {
+    var o = num($('chk-odo').value);
+    var err = $('chk-err');
+    var res = $('chk-result');
+    var acts = $('chk-actions');
+    pending = null;
+    res.classList.remove('show');
+    acts.style.display = 'none';
+    var lo = lastOdo();
+    if (!(o >= 0)) {
+      err.textContent = 'Enter the odometer number.';
+      err.classList.add('show');
+      return;
+    }
+    if (o < lo) {
+      err.textContent = 'That’s lower than your last reading (' + fmt(lo) +
+        '). Double-check the number.';
+      err.classList.add('show');
+      return;
+    }
+    err.classList.remove('show');
+
+    var actual = r1(o - lo);
+    var logged = loggedSinceLastCheck();
+    var diff = r1(actual - logged);
+    pending = { odo: r1(o), actual: actual, logged: logged, diff: diff };
+
+    var html = 'Since ' + shortDate(lastCheckDate()) + ' the truck says you drove <b>' +
+               fmt(actual) + ' mi</b>. You logged <b>' + fmt(logged) + ' mi</b>. ';
+    if (Math.abs(diff) < 0.05) {
+      html += '<span class="delta-zero">Dead on.</span>';
+      $('chk-true').textContent = 'Save Check-In';
+    } else if (diff > 0) {
+      html += '<span class="delta-plus">' + fmt(diff) + ' mi missing.</span>';
+      $('chk-true').textContent = 'True Up (+' + fmt(diff) + ' mi)';
+    } else {
+      html += '<span class="delta-minus">' + fmt(-diff) + ' mi over-logged.</span>';
+      $('chk-true').textContent = 'True Up (' + fmt(diff) + ' mi)';
+    }
+    res.innerHTML = html;
+    res.classList.add('show');
+    acts.style.display = Math.abs(diff) < 0.05 ? 'none' : 'flex';
+    if (Math.abs(diff) < 0.05) {
+      saveCheck(true);
+    }
+  });
+
+  function saveCheck(trueUp) {
+    if (!pending) return;
+    S.entries.push({
+      id: uid(), t: 'chk', d: todayStr(),
+      odo: pending.odo, actual: pending.actual, logged: pending.logged,
+      adj: trueUp ? pending.diff : 0
+    });
+    save();
+    var msg = Math.abs(pending.diff) < 0.05 ? 'Checked in — dead on. 🎯' :
+      (trueUp ? 'Trued up. Total now ' + fmt(total()) + ' mi.' : 'Check-in saved, total left alone.');
+    pending = null;
+    $('chk-odo').value = '';
+    $('chk-result').classList.remove('show');
+    $('chk-actions').style.display = 'none';
+    render();
+    toast(msg);
+  }
+  $('chk-true').addEventListener('click', function () { saveCheck(true); });
+  $('chk-keep').addEventListener('click', function () { saveCheck(false); });
+
+  /* ---------- delete (two-tap) ---------- */
+  $('hist').addEventListener('click', function (ev) {
+    var b = ev.target.closest('.h-del');
+    if (!b) return;
+    if (!b.classList.contains('arm')) {
+      b.classList.add('arm');
+      b.textContent = 'Sure?';
+      setTimeout(function () {
+        if (b.isConnected) { b.classList.remove('arm'); b.textContent = '✕'; }
+      }, 2600);
+      return;
+    }
+    var id = b.getAttribute('data-id');
+    for (var i = 0; i < S.entries.length; i++) {
+      if (S.entries[i].id === id) { S.entries.splice(i, 1); break; }
+    }
+    save();
+    render();
+    toast('Entry removed. Next odometer check squares it all up.');
+  });
+
+  /* ---------- backup / restore / csv / erase ---------- */
+  function download(name, text, mime) {
+    var a = document.createElement('a');
+    var url = URL.createObjectURL(new Blob([text], { type: mime }));
+    a.href = url; a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 800);
+  }
+
+  $('s-backup').addEventListener('click', function () {
+    S.lastExport = todayStr();
+    save();
+    download('baxstar-miles-backup-' + todayStr() + '.json', JSON.stringify(S, null, 2), 'application/json');
+    render();
+    toast('Backup file saved. Stash it somewhere safe.');
+  });
+
+  $('s-restore').addEventListener('click', function () { $('s-file').click(); });
+  $('ob-restore').addEventListener('click', function () { $('s-file').click(); });
+  $('s-file').addEventListener('change', function () {
+    var f = this.files && this.files[0];
+    this.value = '';
+    if (!f) return;
+    var rd = new FileReader();
+    rd.onload = function () {
+      try {
+        var d = JSON.parse(rd.result);
+        if (!d || d.v !== 1 || !Array.isArray(d.entries)) throw new Error('bad');
+        S = d;
+        save();
+        render();
+        toast('Restored — ' + d.entries.length + ' entries, total ' + fmt(total()) + ' mi.');
+      } catch (e) {
+        toast('That file doesn’t look like a Baxstar Miles backup.');
+      }
+    };
+    rd.readAsText(f);
+  });
+
+  $('s-csv').addEventListener('click', function () {
+    var rows = [['date', 'type', 'miles', 'odometer', 'note']];
+    rows.push([S.startDate || '', 'start', '', S.startOdo === null ? '' : S.startOdo, 'starting odometer']);
+    for (var i = 0; i < S.entries.length; i++) {
+      var e = S.entries[i];
+      if (e.t === 'add') rows.push([e.d, 'miles', e.mi, '', e.note || '']);
+      else rows.push([e.d, 'odometer check', e.adj || 0, e.odo, 'truck said ' + e.actual + ', logged ' + e.logged]);
+    }
+    rows.push([todayStr(), 'total', total(), '', 'cumulative total']);
+    var csv = rows.map(function (r) {
+      return r.map(function (c) { return '"' + String(c).replace(/"/g, '""') + '"'; }).join(',');
+    }).join('\r\n');
+    download('baxstar-miles-' + todayStr() + '.csv', csv, 'text/csv');
+    toast('CSV exported.');
+  });
+
+  var eraseArmed = false;
+  $('s-erase').addEventListener('click', function () {
+    if (!eraseArmed) {
+      eraseArmed = true;
+      this.textContent = 'Tap again to erase';
+      this.style.borderColor = 'rgba(230,57,70,0.6)';
+      this.style.color = '#e63946';
+      var btn = this;
+      setTimeout(function () {
+        eraseArmed = false;
+        btn.textContent = 'Erase All';
+        btn.style.borderColor = ''; btn.style.color = '';
+      }, 3200);
+      return;
+    }
+    S = blank();
+    save();
+    eraseArmed = false;
+    this.textContent = 'Erase All';
+    this.style.borderColor = ''; this.style.color = '';
+    render();
+    toast('Wiped clean.');
+  });
+
+  $('s-start-go').addEventListener('click', function () {
+    var o = num($('s-start').value);
+    if (!(o >= 0)) { toast('Enter a number first.'); return; }
+    var lo = lastOdo();
+    var c = lastCheck();
+    if (c && o > c.odo) { toast('Start can’t be above your last check (' + fmt(lo) + ').'); return; }
+    S.startOdo = r1(o);
+    save();
+    $('s-start').value = '';
+    render();
+    toast('Starting odometer set to ' + fmt(o) + '.');
+  });
+
+  /* ---------- enter-key conveniences ---------- */
+  function onEnter(id, fn) {
+    $(id).addEventListener('keydown', function (e) { if (e.key === 'Enter') fn(); });
+  }
+  onEnter('ob-odo', function () { $('ob-go').click(); });
+  onEnter('add-mi', function () { $('add-go').click(); });
+  onEnter('add-note', function () { $('add-go').click(); });
+  onEnter('chk-odo', function () { $('chk-go').click(); });
+  onEnter('s-start', function () { $('s-start-go').click(); });
+
+  render();
+}());
+</script>
+</body>
+</html>
