@@ -73,12 +73,15 @@
   --photo-ratio: 3 / 2;
 }
 
-html { scroll-behavior: smooth; }
-/* Baxstar iframe scroll standard — bg on BOTH html and body so any
-   sub-pixel seam between Wix container and iframe blends invisibly. */
+/* Baxstar SCROLLLESS iframe standard (2026-10-16) — the embed never scrolls
+   on its own. overflow:hidden on html+body means wheel/touch inside the
+   frame passes straight through to the Wix page, so visitors can't get
+   trapped scrolling a window-within-a-window. Height still reports to Wix
+   via the reporter below; the Wix component must be at least as tall as the
+   content or the bottom is clipped (no inner scrollbar will rescue it). */
 html, body {
-  width: 100%; height: auto;
-  overflow-x: hidden; overflow-y: visible;
+  width: 100%; height: auto; margin: 0; padding: 0;
+  overflow: hidden;
   background: var(--black);
 }
 body {
@@ -387,6 +390,9 @@ img { display: block; max-width: 100%; }
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
   revs.forEach(function(el) { io.observe(el); });
+  // Safety net: the frame can't scroll itself, so if the observer never fires
+  // (older browsers, odd embed sizing) nothing is left invisible.
+  setTimeout(function() { revs.forEach(function(el) { el.classList.add('visible'); }); }, 2500);
 }());
 </script>
 
