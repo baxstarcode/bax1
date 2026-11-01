@@ -306,7 +306,7 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
     </h2>
 
     <div class="hero__cta">
-      <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/?full-items=yes&back=https://www.baxstarfishing.com/&flow=576827"
+      <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/?flow=576827&back=https://www.baxstarfishing.com/&g4=yes" target="_top"
          class="btn btn--primary">
         Book Your Trip
         <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -383,7 +383,13 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
     if (!a) return;
     var href = a.getAttribute('href') || '';
     var item = (href.match(/\/items\/(\d+)/) || [])[1];
-    if (!item) return;
+    if (!item) {
+      /* Full booking list (no item number) - shows every trip, winter and summer.
+         The link carries target=_top so it opens normally; just report the click. */
+      try { window.parent.postMessage({ type:'baxstar_event', event:'book_now_click',
+            location: a.getAttribute('data-track') || 'cta' }, '*'); } catch(err){}
+      return;
+    }
     var flow = (href.match(/[?&]flow=(\d+)/) || [])[1];
     e.preventDefault();
     var open = { type:'baxstar_open_fareharbor', shortname:'baxstarfishing', item:item };

@@ -1148,7 +1148,7 @@
       <p class="cta-final__lede reveal">The best dates do not stay open long.</p>
       <h2 class="cta-final__head reveal" id="cta-final-head">Reserve Your Day</h2>
       <a class="cta-button reveal"
-         href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/?full-items=yes&back=https://www.baxstarfishing.com/&flow=576827"
+         href="https://fareharbor.com/embeds/book/baxstarfishing/items/?flow=576827&back=https://www.baxstarfishing.com/&g4=yes" target="_top"
          rel="noopener"
          aria-label="Reserve a private guided fishing trip with Brady Baxter">
         Reserve This Day
@@ -1284,7 +1284,13 @@
     if (!a) return;
     var href = a.getAttribute('href') || '';
     var item = (href.match(/\/items\/(\d+)/) || [])[1];
-    if (!item) return;
+    if (!item) {
+      /* Full booking list (no item number) - shows every trip, winter and summer.
+         The link carries target=_top so it opens normally; just report the click. */
+      try { window.parent.postMessage({ type:'baxstar_event', event:'book_now_click',
+            location: a.getAttribute('data-track') || 'cta' }, '*'); } catch(err){}
+      return;
+    }
     var flow = (href.match(/[?&]flow=(\d+)/) || [])[1];
     e.preventDefault();
     var open = { type:'baxstar_open_fareharbor', shortname:'baxstarfishing', item:item };

@@ -257,7 +257,7 @@ img { display: block; max-width: 100%; }
   <div class="container">
     <div class="experiences__grid">
 
-      <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/?full-items=yes&back=https://www.baxstarfishing.com/&flow=576827" class="exp-card reveal" aria-label="Book guided fishing trip">
+      <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/?flow=576827&back=https://www.baxstarfishing.com/&g4=yes" target="_top" class="exp-card reveal" aria-label="Book guided fishing trip">
         <div class="exp-card__img" style="background-image: url('https://static.wixstatic.com/media/a30e59_4c1536268b9b43239f953e0ab3a6fd4c~mv2.webp');"></div>
         <div class="exp-card__overlay">
           <div class="exp-card__tag">Signature Experience</div>
@@ -413,7 +413,13 @@ img { display: block; max-width: 100%; }
     if (!a) return;
     var href = a.getAttribute('href') || '';
     var item = (href.match(/\/items\/(\d+)/) || [])[1];
-    if (!item) return;
+    if (!item) {
+      /* Full booking list (no item number) - shows every trip, winter and summer.
+         The link carries target=_top so it opens normally; just report the click. */
+      try { window.parent.postMessage({ type:'baxstar_event', event:'book_now_click',
+            location: a.getAttribute('data-track') || 'cta' }, '*'); } catch(err){}
+      return;
+    }
     var flow = (href.match(/[?&]flow=(\d+)/) || [])[1];
     e.preventDefault();
     var open = { type:'baxstar_open_fareharbor', shortname:'baxstarfishing', item:item };
