@@ -103,7 +103,7 @@ a { color: inherit; text-decoration: none; }
       <h2 class="section-title">KNOW WHEN TO <span>BOOK.</span></h2>
       <p class="seasonal-cta__sub">Around half of trips are booked within 10 days—but prime times don't last that long. Check availability now and plan accordingly.</p>
       <div class="seasonal-cta__actions">
-        <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/309836/?full-items=yes&back=https://www.baxstarfishing.com/&flow=576827" class="btn-primary" aria-label="Check live availability on FareHarbor">
+        <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/?flow=576827&back=https://www.baxstarfishing.com/&g4=yes" target="_top" class="btn-primary" aria-label="Check live availability on FareHarbor">
           <span>Check Availability</span>
           <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </a>
@@ -126,7 +126,14 @@ a { color: inherit; text-decoration: none; }
     if (!a) return;
     var href = a.getAttribute('href') || '';
     var item = (href.match(/\/items\/(\d+)/) || [])[1];
-    if (!item) return;
+    if (!item) {
+      /* Full booking list (no item number) — e.g. /items/?flow=... which shows
+         every trip, winter and summer. Let the link open normally via
+         target="_top"; just report the click so tracking still fires. */
+      try { window.parent.postMessage({ type:'baxstar_event', event:'book_now_click',
+            location: a.getAttribute('data-track') || 'cta' }, '*'); } catch(err){}
+      return;
+    }
     var flow = (href.match(/[?&]flow=(\d+)/) || [])[1];
     e.preventDefault();
     var open = { type:'baxstar_open_fareharbor', shortname:'baxstarfishing', item:item };
