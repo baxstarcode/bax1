@@ -147,9 +147,12 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
   // flips: during Wix SPA navigation the embed iframe can mount at a
   // transient tiny width, and a one-shot check at that moment is what
   // used to lock desktop onto the vertical mobile video.
-  var MOBILE_SRC       = 'https://video.wixstatic.com/video/a30e59_2950e2adfd284cc3834f438f1ab85020/720p/mp4/file.mp4';
-  var DESKTOP_SRC      = 'https://video.wixstatic.com/video/a30e59_3742ad8b857147d7a3aa06c2ec872680/1080p/mp4/file.mp4';
-  var DESKTOP_SRC_LITE = 'https://video.wixstatic.com/video/a30e59_3742ad8b857147d7a3aa06c2ec872680/720p/mp4/file.mp4';
+  // Phone master is 1080x1920; Wix's "720p" rendition of it is only
+  // 406x720, so phones get the 1080p file unless Save-Data / 2g.
+  var MOBILE_SRC       = 'https://video.wixstatic.com/video/a30e59_9e4422e6722e4f7fac234d1d4cd05d91/1080p/mp4/file.mp4';
+  var MOBILE_SRC_LITE  = 'https://video.wixstatic.com/video/a30e59_9e4422e6722e4f7fac234d1d4cd05d91/720p/mp4/file.mp4';
+  var DESKTOP_SRC      = 'https://video.wixstatic.com/video/a30e59_6797342801fd44a49b2e34422c0da4fa/1080p/mp4/file.mp4';
+  var DESKTOP_SRC_LITE = 'https://video.wixstatic.com/video/a30e59_6797342801fd44a49b2e34422c0da4fa/720p/mp4/file.mp4';
 
   var w = document.getElementById('heroVideo');
   var v = w && w.querySelector('video');
@@ -165,7 +168,11 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
   var failed = {};
 
   function pick(){
-    if (mq.matches) return MOBILE_SRC;
+    if (mq.matches) {
+      var m = netConstrained() ? MOBILE_SRC_LITE : MOBILE_SRC;
+      if (failed[m]) m = (m === MOBILE_SRC) ? MOBILE_SRC_LITE : MOBILE_SRC;
+      return m;
+    }
     var d = netConstrained() ? DESKTOP_SRC_LITE : DESKTOP_SRC;
     if (failed[d]) d = (d === DESKTOP_SRC) ? DESKTOP_SRC_LITE : DESKTOP_SRC;
     if (failed[d]) d = MOBILE_SRC; // last resort: wrong art beats a dark hero
