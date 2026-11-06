@@ -32,15 +32,15 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
 .bracket--bl{bottom:24px;left:24px;border-bottom:1.5px solid var(--red);border-left:1.5px solid var(--red);animation-delay:0.54s}
 .bracket--br{bottom:24px;right:24px;border-bottom:1.5px solid var(--red);border-right:1.5px solid var(--red);animation-delay:0.66s}
 @keyframes bIn{to{opacity:1}}
-.hero__inner{position:relative;z-index:10;width:100%;max-width:820px;padding:clamp(80px,10vh,120px) clamp(32px,5vw,72px) clamp(60px,8vh,100px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
-.hero__eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.42em;text-transform:uppercase;color:var(--red);margin-bottom:20px;opacity:0;animation:fU 0.6s ease forwards;animation-delay:0.18s}
+.hero__inner{position:relative;z-index:10;width:100%;max-width:820px;padding:clamp(44px,7vh,72px) clamp(32px,5vw,72px) clamp(36px,6vh,60px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.hero__eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.42em;text-transform:uppercase;color:var(--red);margin-bottom:14px;opacity:0;animation:fU 0.6s ease forwards;animation-delay:0.18s}
 .hero__eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--red)}
-.hero__headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(58px,7.5vw,108px);line-height:0.9;letter-spacing:0.01em;color:var(--white);opacity:0;animation:fU 0.7s cubic-bezier(0.2,0,0,1) forwards;animation-delay:0.3s}
+.hero__headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(54px,6.2vw,88px);line-height:0.9;letter-spacing:0.01em;color:var(--white);opacity:0;animation:fU 0.7s cubic-bezier(0.2,0,0,1) forwards;animation-delay:0.3s}
 .hero__headline .accent{color:var(--red);display:block}
 .hero__headline .line{display:block}
 @media(min-width:769px){.hero__headline .line,.hero__headline .accent{white-space:nowrap}}
 .hero__headline .ghost{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,0.22);display:block}
-.hero__divider{display:flex;align-items:center;gap:14px;margin:22px 0 26px;opacity:0;animation:fU 0.5s ease forwards;animation-delay:0.45s}
+.hero__divider{display:flex;align-items:center;gap:14px;margin:16px 0 18px;opacity:0;animation:fU 0.5s ease forwards;animation-delay:0.45s}
 .hero__divider-line{height:1px;width:60px;background:linear-gradient(90deg,var(--red),transparent)}
 .hero__divider-dot{width:5px;height:5px;background:var(--red);transform:rotate(45deg);box-shadow:0 0 8px 2px var(--red-glow)}
 /*
@@ -49,9 +49,9 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
   bone token would visually muddy the contrast. Bone/pearl tokens are
   still declared in :root so the rest of the page can pull them.
 */
-.hero__body{font-weight:300;font-size:clamp(14px,1.5vw,17px);line-height:1.75;color:var(--white-60);max-width:480px;margin-bottom:40px;letter-spacing:0.025em;opacity:0;animation:fU 0.6s ease forwards;animation-delay:0.55s}
+.hero__body{font-weight:300;font-size:clamp(14px,1.5vw,17px);line-height:1.6;color:var(--white-60);max-width:480px;margin-bottom:26px;letter-spacing:0.025em;opacity:0;animation:fU 0.6s ease forwards;animation-delay:0.55s}
 .hero__body strong{color:var(--white);font-weight:500;}
-.hero__cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px;opacity:0;animation:fU 0.6s ease forwards;animation-delay:0.7s}
+.hero__cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px;opacity:0;animation:fU 0.6s ease forwards;animation-delay:0.7s}
 .btn{font-family:'Barlow Condensed',sans-serif;font-size:12.65px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;text-decoration:none;padding:16px 38px;display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:none;position:relative;overflow:hidden;transition:background 0.25s ease,box-shadow 0.25s ease,border-color 0.25s ease;white-space:nowrap}
 .btn svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2.5;transition:transform 0.25s ease}
 .btn:hover svg{transform:translateX(4px)}
@@ -149,10 +149,10 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
   // used to lock desktop onto the vertical mobile video.
   // Phone master is 1080x1920; Wix's "720p" rendition of it is only
   // 406x720, so phones get the 1080p file unless Save-Data / 2g.
-  var MOBILE_SRC       = 'https://video.wixstatic.com/video/a30e59_0f692a65ea834e629856d29695ab43f3/1080p/mp4/file.mp4';
-  var MOBILE_SRC_LITE  = 'https://video.wixstatic.com/video/a30e59_0f692a65ea834e629856d29695ab43f3/720p/mp4/file.mp4';
-  var DESKTOP_SRC      = 'https://video.wixstatic.com/video/a30e59_be59683ec02d4ba3a89ab9c273c914fa/1080p/mp4/file.mp4';
-  var DESKTOP_SRC_LITE = 'https://video.wixstatic.com/video/a30e59_be59683ec02d4ba3a89ab9c273c914fa/720p/mp4/file.mp4';
+  var MOBILE_SRC       = 'https://video.wixstatic.com/video/a30e59_f280e393300b4f6386cdf40eb3d231ed/1080p/mp4/file.mp4';
+  var MOBILE_SRC_LITE  = 'https://video.wixstatic.com/video/a30e59_f280e393300b4f6386cdf40eb3d231ed/720p/mp4/file.mp4';
+  var DESKTOP_SRC      = 'https://video.wixstatic.com/video/a30e59_bb6a6c13f9f741438e8acede046391e7/1080p/mp4/file.mp4';
+  var DESKTOP_SRC_LITE = 'https://video.wixstatic.com/video/a30e59_bb6a6c13f9f741438e8acede046391e7/720p/mp4/file.mp4';
 
   var w = document.getElementById('heroVideo');
   var v = w && w.querySelector('video');
