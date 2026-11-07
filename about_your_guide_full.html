@@ -266,6 +266,10 @@
   }
   .hero__bluf strong { color: var(--bx-pearl); font-weight: 500; }
 
+  .hero__cta {
+    margin: clamp(32px, 3.5vw, 48px) 0 0;
+  }
+
   /* Hero portrait frame */
   .hero__portrait {
     position: relative;
@@ -633,7 +637,7 @@
   .connect__inner {
     max-width: 1100px;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
   }
   .connect__title {
     font-family: var(--font-display);
@@ -660,7 +664,7 @@
     line-height: 1.65;
     color: var(--bx-bone);
     max-width: 64ch;
-    margin: 0 auto;
+    margin: 0;
   }
   .connect__copy strong { color: var(--bx-pearl); font-weight: 500; }
 
@@ -866,6 +870,16 @@
       <p class="hero__bluf reveal">
         <strong>Fishing skill matters. So does the person running the boat.</strong>
       </p>
+
+      <div class="hero__cta reveal">
+        <a class="cta-button"
+           href="https://fareharbor.com/embeds/book/baxstarfishing/items/?flow=576827&back=https://www.baxstarfishing.com/&g4=yes" target="_top"
+           rel="noopener"
+           data-track="cta-hero"
+           aria-label="Check availability and reserve a private guided fishing trip with Brady Baxter">
+          Check Availability
+        </a>
+      </div>
     </div>
 
     <figure class="hero__portrait reveal" aria-label="Brady Baxter — Master Angler, Detroit Lakes Minnesota">
@@ -1106,11 +1120,7 @@
         <em>The hidden value of a guide who has lived more than one life.</em>
       </h2>
       <p class="connect__copy reveal">
-        <strong>The best clients do not just book guides.</strong>
-      </p>
-
-      <p class="connect__copy reveal">
-        They book days.
+        <strong>The smartest clients don't just book guides, they book days.</strong>
       </p>
 
       <p class="connect__copy reveal">
@@ -1150,8 +1160,9 @@
       <a class="cta-button reveal"
          href="https://fareharbor.com/embeds/book/baxstarfishing/items/?flow=576827&back=https://www.baxstarfishing.com/&g4=yes" target="_top"
          rel="noopener"
-         aria-label="Reserve a private guided fishing trip with Brady Baxter">
-        Reserve This Day
+         data-track="cta-final"
+         aria-label="Check availability and reserve a private guided fishing trip with Brady Baxter">
+        Check Availability
       </a>
       <p class="cta-final__sub reveal">One group per trip · One boat · One standard</p>
     </div>
@@ -1285,12 +1296,13 @@
     var href = a.getAttribute('href') || '';
     var item = (href.match(/\/items\/(\d+)/) || [])[1];
     if (!item) {
-      /* Full booking list (no item number) - shows every trip, winter and summer.
-         The link carries target=_top so it opens normally; just report the click. */
-      try { window.parent.postMessage({ type:'baxstar_event', event:'book_now_click',
-            location: a.getAttribute('data-track') || 'cta' }, '*'); } catch(err){}
-      return;
-    }
+    /* Full booking list (no item number) — e.g. /items/?flow=... which shows
+       every trip, winter and summer. Let the link open normally via
+       target="_top"; just report the click so tracking still fires. */
+    try { window.parent.postMessage({ type:'baxstar_event', event:'book_now_click',
+      location: a.getAttribute('data-track') || 'cta' }, '*'); } catch(err){}
+    return;
+  }
     var flow = (href.match(/[?&]flow=(\d+)/) || [])[1];
     e.preventDefault();
     var open = { type:'baxstar_open_fareharbor', shortname:'baxstarfishing', item:item };
