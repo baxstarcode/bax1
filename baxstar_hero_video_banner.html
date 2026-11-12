@@ -22,9 +22,16 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
 }
 .hero{position:relative;width:100%;min-height:100svh;overflow:hidden;display:flex;background:var(--bg);font-family:'Barlow',sans-serif}
 .hero__video{position:absolute;inset:0;z-index:1;opacity:0;transition:opacity 0.6s cubic-bezier(0.4,0,0.2,1);pointer-events:none;transform:translateZ(0);backface-visibility:hidden;background:var(--bg)}
-.hero__video video{width:100%;height:100%;object-fit:cover;object-position:center 25%;transform:translateZ(0);display:block}
+/* Anchored to the top: on wide screens only the bottom of the frame is
+   cropped, so heads in the group shot are never cut (Brady 2026-11-06). */
+.hero__video video{width:100%;height:100%;object-fit:cover;object-position:center 0%;transform:translateZ(0);display:block}
 .hero__video.is-ready{opacity:1}
-.hero__veil{position:absolute;inset:0;z-index:3;background:linear-gradient(105deg,rgba(8,8,10,0.93) 0%,rgba(8,8,10,0.78) 35%,rgba(8,8,10,0.35) 62%,rgba(8,8,10,0.08) 100%)}
+.hero__veil{position:absolute;inset:0;z-index:3;background:linear-gradient(105deg,rgba(8,8,10,0.95) 0%,rgba(8,8,10,0.86) 38%,rgba(8,8,10,0.45) 62%,rgba(8,8,10,0.12) 100%)}
+/* Cool dark tint over the whole video so the white headline and body
+   copy hold contrast on bright snow and sky frames (Brady 2026-11-06:
+   "make the hero text more visible by darkening, or tinting"). */
+.hero__tint{position:absolute;inset:0;z-index:2;background:rgba(6,12,22,0.32);pointer-events:none}
+.hero__headline{text-shadow:0 2px 18px rgba(0,0,0,0.45)}
 .hero__vignette{position:absolute;bottom:0;left:0;right:0;height:220px;z-index:4;background:linear-gradient(to bottom,transparent,rgba(8,8,10,0.9));pointer-events:none}
 .bracket{position:absolute;width:48px;height:48px;z-index:8;pointer-events:none;opacity:0;animation:bIn 0.5s cubic-bezier(0.4,0,0.2,1) forwards}
 .bracket--tl{top:24px;left:24px;border-top:1.5px solid var(--red);border-left:1.5px solid var(--red);animation-delay:0.3s}
@@ -39,6 +46,10 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
 .hero__headline .accent{color:var(--red);display:block}
 .hero__headline .line{display:block}
 @media(min-width:769px){.hero__headline .line,.hero__headline .accent{white-space:nowrap}}
+/* Desktop hero is a fixed 780px (was 720 = the Wix box height via 100svh;
+   Brady 2026-11-06: "make the hero section 60 px taller"). A fixed px
+   value, not 100svh + 60px, so the auto-resizing embed cannot grow in a loop. */
+@media(min-width:769px){.hero{min-height:780px}}
 .hero__headline .ghost{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,0.22);display:block}
 .hero__divider{display:flex;align-items:center;gap:14px;margin:16px 0 18px;opacity:0;animation:fU 0.5s ease forwards;animation-delay:0.45s}
 .hero__divider-line{height:1px;width:60px;background:linear-gradient(90deg,var(--red),transparent)}
@@ -49,7 +60,7 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
   bone token would visually muddy the contrast. Bone/pearl tokens are
   still declared in :root so the rest of the page can pull them.
 */
-.hero__body{font-weight:300;font-size:clamp(14px,1.5vw,17px);line-height:1.6;color:var(--white-60);max-width:480px;margin-bottom:26px;letter-spacing:0.025em;opacity:0;animation:fU 0.6s ease forwards;animation-delay:0.55s}
+.hero__body{font-weight:300;font-size:clamp(14px,1.5vw,17px);line-height:1.6;color:rgba(255,255,255,0.82);text-shadow:0 1px 8px rgba(0,0,0,0.6);max-width:480px;margin-bottom:26px;letter-spacing:0.025em;opacity:0;animation:fU 0.6s ease forwards;animation-delay:0.55s}
 .hero__body strong{color:var(--white);font-weight:500;}
 .hero__cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px;opacity:0;animation:fU 0.6s ease forwards;animation-delay:0.7s}
 .btn{font-family:'Barlow Condensed',sans-serif;font-size:12.65px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;text-decoration:none;padding:16px 38px;display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:none;position:relative;overflow:hidden;transition:background 0.25s ease,box-shadow 0.25s ease,border-color 0.25s ease;white-space:nowrap}
@@ -65,19 +76,26 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
 .stat+.stat::before{content:'';position:absolute;left:0;top:10%;bottom:10%;width:1px;background:var(--white-14)}
 .stat__num{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(28px,3.2vw,42px);line-height:1;color:var(--white)}
 .stat__num em{color:var(--red);font-style:normal}
-.stat__lbl{font-size:9px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:5px}
+.stat__lbl{font-size:9px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:5px}
 @keyframes fU{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
 }
 @media(max-width:768px){
-  .hero{min-height:auto;padding-bottom:20px}
-  .hero__video video{object-position:50% 30%}
-  .hero__veil{background:linear-gradient(180deg,rgba(8,8,10,0.55) 0%,rgba(8,8,10,0.35) 30%,rgba(8,8,10,0.7) 55%,rgba(8,8,10,0.95) 78%,rgba(8,8,10,0.98) 100%)}
+  /* Phones: the hero is at least as tall as the 9:16 clip is at this
+     width (177.78vw), so the vertical video shows whole -- nothing
+     cropped off the top, where the walleye's head sits. Copy sits at the
+     bottom over a dark fade; the top stays nearly clear so the fish and
+     the angler read. */
+  .hero{min-height:177.78vw;padding-bottom:20px}
+  .hero__video video{object-position:50% 0%}
+  .hero__veil{background:linear-gradient(180deg,rgba(8,8,10,0.30) 0%,rgba(8,8,10,0.40) 22%,rgba(8,8,10,0.62) 42%,rgba(8,8,10,0.88) 60%,rgba(8,8,10,0.97) 100%)}
+  .hero__tint{background:rgba(6,12,22,0.18)}
+  .hero__headline{text-shadow:0 2px 16px rgba(0,0,0,0.75)}
   /* Compact vertical rhythm so both CTAs land above the first-load fold
      on phones (incl. iPhone SE): the old 18svh top pad alone pushed the
      buttons off-screen. */
-  .hero__inner{max-width:100%;padding:clamp(24px,4.5svh,40px) 22px 28px;justify-content:flex-start;align-items:center;text-align:center;min-height:auto}
+  .hero__inner{max-width:100%;padding:clamp(24px,4.5svh,40px) 22px 28px;justify-content:flex-end;align-items:center;text-align:center;min-height:auto}
   .hero__eyebrow{display:none}
   .hero__headline{font-size:clamp(48px,10vw,58px)}
   .hero__divider{margin:16px 0 18px}
@@ -104,6 +122,7 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
   <div class="hero__video" id="heroVideo" aria-hidden="true">
     <video autoplay muted loop playsinline preload="auto" width="1920" height="1080"></video>
   </div>
+  <div class="hero__tint" aria-hidden="true"></div>
   <div class="hero__veil" aria-hidden="true"></div>
   <div class="hero__vignette" aria-hidden="true"></div>
   <div class="bracket bracket--tl" aria-hidden="true"></div>
@@ -147,13 +166,14 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
   // flips: during Wix SPA navigation the embed iframe can mount at a
   // transient tiny width, and a one-shot check at that moment is what
   // used to lock desktop onto the vertical mobile video.
-  // Phone art is the Higgsfield vertical clip (1080x1920, 5s loop) — the
-  // 9:16 twin of the desktop dusk-walleye scene. Served from Higgsfield's
-  // immutable CDN; no lighter rendition exists there, so Save-Data / 2g
-  // phones get the same file. Swap both lines to a video.wixstatic.com URL
-  // if the clip is re-hosted in Wix Media.
-  var MOBILE_SRC       = 'https://d8j0ntlcm91z4.cloudfront.net/user_3GLLKAKKGGwcHKgXCQ5QlDo0yJ5/hf_20261102_061352_0a739a9d-0fe2-4157-897f-69e1d293fa73.mp4';
-  var MOBILE_SRC_LITE  = MOBILE_SRC;
+  // v10 (2026-11-06). Phone ONLY: Brady's woman-with-pike clip (3:4,
+  // side-cropped to 9:16) -> the vertical walleye clip -> steady Polarfest
+  // fireworks, 12.6s seamless loop. Desktop: the all-horizontal v6 loop (pike, dusk walleye group,
+  // fireworks) -- Brady: no vertical footage on desktop.
+  // Wix's "720p" of a 1080x1920 file is 406x720, so phones only drop to
+  // it on Save-Data / 2g.
+  var MOBILE_SRC       = 'https://video.wixstatic.com/video/a30e59_a056a27a11b14210a2280cda15d8b8d2/1080p/mp4/file.mp4';
+  var MOBILE_SRC_LITE  = 'https://video.wixstatic.com/video/a30e59_a056a27a11b14210a2280cda15d8b8d2/720p/mp4/file.mp4';
   var DESKTOP_SRC      = 'https://video.wixstatic.com/video/a30e59_bb6a6c13f9f741438e8acede046391e7/1080p/mp4/file.mp4';
   var DESKTOP_SRC_LITE = 'https://video.wixstatic.com/video/a30e59_bb6a6c13f9f741438e8acede046391e7/720p/mp4/file.mp4';
 
@@ -264,25 +284,45 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
 <script>
 (function(){
   'use strict';
+  /* FareHarbor Lightframe bridge.
+     The Wix page loads FareHarbor's Lightframe script and listens for
+     baxstar_open_fareharbor. It answers every ping, and every open it
+     actually hands to FareHarbor, with baxstar_lightframe_ready. So a
+     booking link in this embed opens as an overlay on top of the page
+     (same as the Ice Castle pages) instead of leaving the site.
+     Works with or without an item number: no item = the full booking
+     list for the flow (every trip, winter and summer).
+     Fallbacks: if the page never answered a ping, the click is left alone
+     and the link opens FareHarbor full-page via target="_top"; if the page
+     answered pings but does not confirm the open, the same full-page link
+     is opened after a short wait. */
+  var bridgeReady = false, lastAck = 0;
+  window.addEventListener('message', function(e){
+    if (e.data && e.data.type === 'baxstar_lightframe_ready') { bridgeReady = true; lastAck = Date.now(); }
+  }, false);
+  function ping(){
+    try { window.parent.postMessage({ type:'baxstar_lightframe_ping' }, '*'); } catch(err){}
+  }
+  if (window.parent !== window) { ping(); window.addEventListener('load', ping); }
+
   document.addEventListener('click', function(e){
     var a = e.target.closest && e.target.closest('a[href*="fareharbor.com/embeds/book"]');
     if (!a) return;
     var href = a.getAttribute('href') || '';
     var item = (href.match(/\/items\/(\d+)/) || [])[1];
-    if (!item) {
-      /* Full booking list (no item number) - shows every trip, winter and summer.
-         The link carries target=_top so it opens normally; just report the click. */
-      try { window.parent.postMessage({ type:'baxstar_event', event:'book_now_click',
-            location: a.getAttribute('data-track') || 'cta' }, '*'); } catch(err){}
-      return;
-    }
     var flow = (href.match(/[?&]flow=(\d+)/) || [])[1];
-    e.preventDefault();
-    var open = { type:'baxstar_open_fareharbor', shortname:'baxstarfishing', item:item };
-    if (flow) open.flow = flow;
-    try { window.parent.postMessage(open, '*'); } catch(err){}
     try { window.parent.postMessage({ type:'baxstar_event', event:'book_now_click',
           location: a.getAttribute('data-track') || 'cta' }, '*'); } catch(err){}
+    if (window.parent === window || !bridgeReady) return;   // no bridge: the link navigates normally
+    e.preventDefault();
+    var open = { type:'baxstar_open_fareharbor', shortname:'baxstarfishing' };
+    if (item) open.item = item;
+    if (flow) open.flow = flow;
+    var sentAt = Date.now();
+    try { window.parent.postMessage(open, '*'); } catch(err){}
+    setTimeout(function(){
+      if (lastAck < sentAt) { try { window.open(href, '_top'); } catch(err){} }
+    }, 700);
   }, false);
 })();
 </script>
