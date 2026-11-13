@@ -733,25 +733,52 @@ body {
 <script>
 (function(){
   'use strict';
+  /* FareHarbor Lightframe bridge.
+     The Wix page loads FareHarbor's Lightframe script and listens for
+     baxstar_open_fareharbor. It answers every ping, and every open it
+     actually hands to FareHarbor, with baxstar_lightframe_ready. So a
+     booking link in this embed opens as an overlay on top of the page
+     (same as the Ice Castle pages) instead of leaving the site.
+     Works with or without an item number: no item = the full booking
+     list for the flow (every trip, winter and summer).
+     Fallbacks: if the page never answered a ping, the click is left alone
+     and the link opens FareHarbor full-page via target=_top; if the page
+     answered pings but does not confirm the open, the same full-page link
+     is opened after a short wait. */
+  var bridgeReady = false, lastAck = 0;
+  window.addEventListener('message', function(e){
+    if (e.data && e.data.type === 'baxstar_lightframe_ready') { bridgeReady = true; lastAck = Date.now(); }
+  }, false);
+  function ping(){
+    if (bridgeReady || window.parent === window) return;
+    try { window.parent.postMessage({ type:'baxstar_lightframe_ping' }, '*'); } catch(err){}
+  }
+  ping();
+  window.addEventListener('load', ping);
+  setTimeout(ping, 1000);
+  setTimeout(ping, 3000);
+  /* Last-chance handshake as the finger or mouse goes down, before the click. */
+  document.addEventListener('pointerdown', ping, true);
+  document.addEventListener('touchstart', ping, { capture:true, passive:true });
+
   document.addEventListener('click', function(e){
     var a = e.target.closest && e.target.closest('a[href*="fareharbor.com/embeds/book"]');
     if (!a) return;
     var href = a.getAttribute('href') || '';
     var item = (href.match(/\/items\/(\d+)/) || [])[1];
-    if (!item) {
-      /* Full booking list (no item number) - shows every trip, winter and summer.
-         The link carries target=_top so it opens normally; just report the click. */
-      try { window.parent.postMessage({ type:'baxstar_event', event:'book_now_click',
-            location: a.getAttribute('data-track') || 'cta' }, '*'); } catch(err){}
-      return;
-    }
     var flow = (href.match(/[?&]flow=(\d+)/) || [])[1];
-    e.preventDefault();
-    var open = { type:'baxstar_open_fareharbor', shortname:'baxstarfishing', item:item };
-    if (flow) open.flow = flow;
-    try { window.parent.postMessage(open, '*'); } catch(err){}
     try { window.parent.postMessage({ type:'baxstar_event', event:'book_now_click',
           location: a.getAttribute('data-track') || 'cta' }, '*'); } catch(err){}
+    if (window.parent === window || !bridgeReady) return;   // no bridge: the link navigates normally
+    e.preventDefault();
+    var open = { type:'baxstar_open_fareharbor', shortname:'baxstarfishing' };
+    if (item) open.item = item;
+    if (flow) open.flow = flow;
+    var sentAt = Date.now();
+    try { window.parent.postMessage(open, '*'); } catch(err){}
+    setTimeout(function(){
+      if (lastAck < sentAt) { try { window.open(href, '_top'); } catch(err){} }
+    }, 700);
   }, false);
 })();
 </script>
