@@ -1673,9 +1673,10 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
   'use strict';
 
   /* ═══════════════════════════════════════════════════════════
-     PRICING DATA — sourced from Baxstar Pricing Engine 2026 v2
-     (Settings tab, &quot;SEASON TIER ADJUSTMENT PERCENTAGES&quot;,
-      reconciled 2026-05-21)
+     PRICING DATA — sourced from Pricing Engine 2026 – LIVE
+     (13_Z2AiVk2sVT6RdoELd1RJo2nFgVt0KWPgDD--tyAjI,
+      Settings: shared fishing tiers and dedicated 3-hour tiers).
+     Verified 2026-11-14. Keep aligned with baxstar_pricing.html.
   ═══════════════════════════════════════════════════════════ */
   var TRIPS = {
     3: {
@@ -1683,6 +1684,7 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
       sub: 'A streamlined trip designed around active low-light feeding periods and after-work flexibility.',
       perAddOn: [50, 50, 100],
       allowedSeasons: ['off_peak', 'shoulder'],
+      tierOverride: { off_peak: { all: 0.03 }, shoulder: { mon_thu: 0.07, fri_sun: 0.08 } },
       note: 'Limited availability. Select 5–6 PM evening windows only. Offered during spring, fall, and early-season Sundays.'
     },
     4: { base: 425, sub: 'Half-day on the water — perfect for an early bite or evening run.',     perAddOn: [50, 50, 100] },
@@ -1691,18 +1693,13 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     8: { base: 900, sub: 'Not for the meek — 1pm start time recommended.',                            perAddOn: [100, 100, 200] }
   };
 
-  /* SEASONS percentages reconciled against Pricing Engine v2 (2026-05-20)
-     Changes from prior values:
-       high.fri_sun:  0.11 → 0.10
-       peak.mon_thu:  0.14 → 0.10
-       peak.fri_sun:  0.17 → 0.13
-       peak.sat:      0.20 → 0.15
-       holiday.all:   0.20 → 0.12 */
+  /* Shared 4/5/6/8-hour tiers. The 3-hour trip overrides its offered tiers
+     from the Engine's dedicated table; guest add-ons stay static. */
   var SEASONS = {
     off_peak: { label: 'Off Peak', dates: 'Apr 1 – May 31  ·  Sep 10 – Oct 31', days: [{ key: 'all', label: 'All Days', mult: 0.00 }] },
-    shoulder: { label: 'Shoulder', dates: 'Jun 1–12  ·  Aug 21 – Sep 9', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: 0.03 }, { key: 'fri_sun', label: 'Fri–Sun', mult: 0.06 }] },
-    high:     { label: 'High',     dates: 'Jun 13–30  ·  Jul 26 – Aug 20', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: 0.08 }, { key: 'fri_sun', label: 'Fri–Sun', mult: 0.10 }] },
-    peak:     { label: 'Peak',     dates: 'Jul 1 – Jul 25', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: 0.10 }, { key: 'fri_sun', label: 'Fri / Sun', mult: 0.13 }, { key: 'sat', label: 'Saturday', mult: 0.15 }] },
+    shoulder: { label: 'Shoulder', dates: 'Jun 1–12  ·  Aug 21 – Sep 9', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: 0.04 }, { key: 'fri_sun', label: 'Fri–Sun', mult: 0.06 }] },
+    high:     { label: 'High',     dates: 'Jun 13–30  ·  Jul 26 – Aug 20', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: 0.06 }, { key: 'fri_sun', label: 'Fri–Sun', mult: 0.10 }] },
+    peak:     { label: 'Peak',     dates: 'Jul 1 – Jul 25', days: [{ key: 'mon_thu', label: 'Mon–Thu', mult: 0.08 }, { key: 'fri_sun', label: 'Fri / Sun', mult: 0.10 }, { key: 'sat', label: 'Saturday', mult: 0.14 }] },
     holiday:  { label: 'Holiday',  dates: 'May 22–25  ·  Jul 2–5  ·  Sep 4–7', days: [{ key: 'all', label: 'All Days', mult: 0.12 }] }
   };
 
@@ -1733,6 +1730,11 @@ button { font:inherit; background:none; border:none; color:inherit; cursor:point
     if (!s) return 0;
     var d = s.days.find(function(x){ return x.key === state.dayKey; });
     if (!d) d = s.days[0];
+    var t = TRIPS[state.trip];
+    if (t &amp;&amp; t.tierOverride &amp;&amp; t.tierOverride[state.season] &amp;&amp;
+        t.tierOverride[state.season][d.key] != null) {
+      return t.tierOverride[state.season][d.key];
+    }
     return d.mult;
   }
 
