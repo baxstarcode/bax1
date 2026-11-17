@@ -118,3 +118,10 @@ made the pages hard to find - recorded here for next time):
 | /datenight | Date Night On The Ice |
 | /familytrips | Family Trips |
 | /fishing-consultations | Consults |
+
+
+### 2026-11-17 — Blue Diamond rename (Handoff #749)
+
+Published through the Wix SEO API and verified in rendered HTML: the house-page title, Open Graph and Twitter titles are `Blue Diamond | Most Luxurious Ice House`; its meta description and JSON-LD use Blue Diamond. The homepage OfferCatalog names this house Blue Diamond. The per-page JSON, schema map and injector are synchronized; the URL, file names, prices and other house facts are unchanged. The homepage API required JSON minification to meet its 4096-byte tag limit; the graph otherwise changed only the house name.
+
+The Wix editor was signed out in this session. The visible H1, menu label, sibling links, body aliases and two image alt texts still require the editor pass; publishing these SEO changes does not complete those edits. Historical capture files and the install log above retain their original names.
