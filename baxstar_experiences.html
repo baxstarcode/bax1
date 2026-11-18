@@ -51,13 +51,14 @@
 
 html { scroll-behavior: smooth; }
 
-/* PATCH 1: Baxstar iframe scroll standard — bg on BOTH html and body so any
-   sub-pixel seam between Wix container and iframe blends invisibly. */
+/* Baxstar SCROLLLESS iframe standard: this embed never scrolls on its own, so
+   a touch inside the frame always moves the Wix page. bg on BOTH html and
+   body so any sub-pixel seam between Wix container and iframe blends
+   invisibly. */
 html, body {
   width: 100%;
   height: auto;
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow: hidden;
   background: var(--black);
 }
 
@@ -148,25 +149,31 @@ img { display: block; max-width: 100%; }
   overflow: hidden; cursor: pointer;
   background: var(--dark); display: block;
   flex: 0 0 calc((100% - 4px) / 3);
+  --exp-pad: clamp(16.8px, 2.1vw, 28px);
 }
 .exp-card__img {
   position: absolute; inset: 0;
   background-size: cover; background-position: center;
   transition: transform 0.8s ease, filter 0.8s ease;
 }
-.exp-card:hover .exp-card__img {
-  transform: scale(1.09); filter: brightness(0.65);
-}
 .exp-card__overlay {
   position: absolute; inset: 0;
   background: linear-gradient(180deg, transparent 35%, rgba(8,8,10,0.94) 100%);
   display: flex; flex-direction: column;
   justify-content: flex-end;
-  padding: clamp(16.8px, 2.1vw, 28px);
+  padding: var(--exp-pad);
   transition: background 0.5s ease;
 }
-.exp-card:hover .exp-card__overlay {
-  background: linear-gradient(180deg, rgba(193,39,45,0.06) 0%, rgba(8,8,10,0.96) 75%);
+/* Text block. Its scrim (open state on touchscreens) is tied to the text
+   itself, so it sits behind the title and description at any card size and
+   fades out above them, leaving the top of the photo clear. A separate layer
+   so it can fade in: a gradient background cannot be transitioned. */
+.exp-card__text { position: relative; isolation: isolate; }
+.exp-card__text::before {
+  content: ''; position: absolute; z-index: -1;
+  inset: -76px calc(-1 * var(--exp-pad)) calc(-1 * var(--exp-pad));
+  background: linear-gradient(180deg, rgba(8,8,10,0) 0, rgba(8,8,10,0.88) 64px, rgba(8,8,10,0.95) 100%);
+  opacity: 0; transition: opacity 0.45s ease;
 }
 .exp-card__tag {
   font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
@@ -190,7 +197,6 @@ img { display: block; max-width: 100%; }
   transition: all 0.45s ease 0.05s; font-weight: 300;
 }
 .exp-card__desc strong { color: var(--pearl); font-weight: 500; }
-.exp-card:hover .exp-card__desc { opacity: 1; transform: translateY(0); }
 .exp-card__price {
   font-family: var(--font-body); font-weight: 600;
   font-size: 14px; color: var(--cream);
@@ -216,7 +222,34 @@ img { display: block; max-width: 100%; }
   opacity: 0; transform: translateY(10px);
   transition: all 0.35s ease;
 }
-.exp-card:hover .exp-card__arrow { opacity: 1; transform: translateY(0); }
+
+/* OPEN STATE = description in, photo dimmed behind the text, arrow in.
+   Mouse: a card opens on hover.
+   Touchscreen: there is no hover. :hover only fired when a finger landed on
+   a card, so the description showed up by accident mid-scroll, or flashed
+   just as the tap left the page. There the script at the bottom marks the
+   page html.exp-touch and opens each card (.is-shown) as it scrolls into
+   view; a tap follows the link only once the card is open. */
+html:not(.exp-touch) .exp-card:hover .exp-card__img {
+  transform: scale(1.09); filter: brightness(0.65);
+}
+html:not(.exp-touch) .exp-card:hover .exp-card__overlay {
+  background: linear-gradient(180deg, rgba(193,39,45,0.06) 0%, rgba(8,8,10,0.96) 75%);
+}
+html:not(.exp-touch) .exp-card:hover .exp-card__desc,
+.exp-card.is-shown .exp-card__desc { opacity: 1; transform: translateY(0); }
+html:not(.exp-touch) .exp-card:hover .exp-card__arrow,
+.exp-card.is-shown .exp-card__arrow { opacity: 1; transform: translateY(0); }
+.exp-card.is-shown .exp-card__img { filter: brightness(0.86); }
+.exp-card.is-shown .exp-card__text::before { opacity: 1; }
+.exp-card.is-shown .exp-card__desc { color: var(--pearl); font-weight: 400; }
+.exp-card.is-shown .exp-card__price span { color: var(--bone); }
+.exp-card.is-shown .exp-card__arrow {
+  border-color: rgba(240,236,228,0.5); background: rgba(8,8,10,0.5);
+}
+@media (prefers-reduced-motion: reduce) {
+  .exp-card__img, .exp-card__desc, .exp-card__arrow, .exp-card__text::before { transition: none; }
+}
 @media (max-width: 1024px) { .exp-card { flex: 0 0 calc((100% - 2px) / 2); } }
 @media (max-width: 640px)  { .exp-card { flex: 0 0 100%; } }
 
@@ -260,12 +293,14 @@ img { display: block; max-width: 100%; }
       <a href="https://fareharbor.com/embeds/book/baxstarfishing/items/?flow=576827&back=https://www.baxstarfishing.com/&g4=yes" target="_top" class="exp-card reveal" aria-label="Book guided fishing trip">
         <div class="exp-card__img" style="background-image: url('https://static.wixstatic.com/media/a30e59_4c1536268b9b43239f953e0ab3a6fd4c~mv2.webp');"></div>
         <div class="exp-card__overlay">
+          <div class="exp-card__text">
           <div class="exp-card__tag">Signature Experience</div>
           <div class="exp-card__title">Guided Fishing</div>
           <div class="exp-card__desc">
             Private guided walleye, bass, pike, and crappie trips across Detroit Lake, Pelican, Sallie, Lida, Big Cormorant — and <strong>the 412 lakes within 25 miles of Detroit Lakes</strong>. Vexus boat, top electronics, and a fully private trip with Brady.
           </div>
           <div class="exp-card__price">From $451 <span>/ 4-hour trip</span></div>
+          </div>
         </div>
         <div class="exp-card__arrow">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
@@ -275,12 +310,14 @@ img { display: block; max-width: 100%; }
       <a href="https://www.baxstarfishing.com/icefishing" target="_top" class="exp-card reveal" aria-label="Explore ice fishing — day houses, sleepers, and guided trips">
         <div class="exp-card__img" style="background-image: url('https://static.wixstatic.com/media/a30e59_02edfd9fd4eb4d3db01fa3856cccc1d8~mv2.webp');"></div>
         <div class="exp-card__overlay">
+          <div class="exp-card__text">
           <div class="exp-card__tag">Winter Season</div>
           <div class="exp-card__title">Ice Fishing</div>
           <div class="exp-card__desc">
             Heated day houses, premium Ice Castle sleepers, and fully guided trips — <strong>pre-drilled, pre-heated, and placed on active fish</strong>. The only ice fishing service in the region offering this full spectrum.
           </div>
           <div class="exp-card__price">From $175 <span>/ day house</span></div>
+          </div>
         </div>
         <div class="exp-card__arrow">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
@@ -290,12 +327,14 @@ img { display: block; max-width: 100%; }
       <a href="https://www.baxstarfishing.com/ice-castle-rentals" target="_top" class="exp-card reveal" aria-label="View Ice Castle sleeper rentals">
         <div class="exp-card__img" style="background-image: url('https://static.wixstatic.com/media/a30e59_b6e35386c22e4f4488c6f4cfe26aac9e~mv2.webp');"></div>
         <div class="exp-card__overlay">
+          <div class="exp-card__text">
           <div class="exp-card__tag">Overnight On Ice</div>
           <div class="exp-card__title">Ice Castle Rentals</div>
           <div class="exp-card__desc">
             Clean, comfortable, professionally maintained Ice Castle sleeper houses — <strong>insulated heated interior, private bathroom, kitchenette, generator, and 6+ fishing holes with rattle reels</strong>.
           </div>
           <div class="exp-card__price">From $795 <span>/ multi-day</span></div>
+          </div>
         </div>
         <div class="exp-card__arrow">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
@@ -305,12 +344,14 @@ img { display: block; max-width: 100%; }
       <a href="https://www.baxstaroutdoors.com/detroit-lakes-pontoon-rentals" class="exp-card reveal" target="_blank" rel="noopener" aria-label="Pontoon rentals on Baxstar Outdoors (opens in a new tab)">
         <div class="exp-card__img" style="background-image: url('https://static.wixstatic.com/media/a30e59_78d6e531976c4c3bb6e3fc3cb9088c62~mv2.webp');"></div>
         <div class="exp-card__overlay">
+          <div class="exp-card__text">
           <div class="exp-card__tag">Summer · Baxstar Outdoors <svg class="exp-card__ext" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
           <div class="exp-card__title">Pontoon Rentals</div>
           <div class="exp-card__desc">
             22′ Sylvan Mirage with a <strong>115 hp Yamaha, electric anchor with remote, Humminbird HD mapping</strong> with fishing hot spots, and a tow swing for tubes and skis.
           </div>
           <div class="exp-card__price">From $450 <span>/ day</span></div>
+          </div>
         </div>
         <div class="exp-card__arrow">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
@@ -320,12 +361,14 @@ img { display: block; max-width: 100%; }
       <a href="https://www.baxstaroutdoors.com/laketours" class="exp-card reveal" target="_blank" rel="noopener" aria-label="Guided lake tours on Baxstar Outdoors (opens in a new tab)">
         <div class="exp-card__img" style="background-image: url('https://static.wixstatic.com/media/a30e59_0c9c641a24f64a5a9b9be1af42f53635~mv2.webp');"></div>
         <div class="exp-card__overlay">
+          <div class="exp-card__text">
           <div class="exp-card__tag">All Ages · Baxstar Outdoors <svg class="exp-card__ext" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
           <div class="exp-card__title">Guided Lake Tours</div>
           <div class="exp-card__desc">
             A two-hour guided cruise with Brady — <strong>owner, fishing guide, and local history teacher</strong>. Hear the story of Detroit Lake, the town, and the area's lake country. Up to 11 guests.
           </div>
           <div class="exp-card__price">From $375 <span>/ 2-hour tour</span></div>
+          </div>
         </div>
         <div class="exp-card__arrow">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
@@ -356,6 +399,87 @@ img { display: block; max-width: 100%; }
   }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
   reveals.forEach(function(el) { io.observe(el); });
 }());
+</script>
+
+<!-- Touchscreens: cards open by SCROLL, never by touch, and only a deliberate
+     tap on an open card follows its link. -->
+<script>
+(function () {
+  var cards = [].slice.call(document.querySelectorAll('.exp-card'));
+  if (!cards.length) return;
+  var OPEN_MS = 600;            // description fade is 0.45s + 0.05s delay
+  var touchMode = false;
+
+  function open(card) {
+    if (card.classList.contains('is-shown')) return;
+    card.classList.add('is-shown');
+    setTimeout(function () { card.setAttribute('data-ready', '1'); }, OPEN_MS);
+  }
+
+  function enableTouchMode() {
+    if (touchMode) return;
+    touchMode = true;
+    document.documentElement.classList.add('exp-touch');
+    if (!('IntersectionObserver' in window)) { cards.forEach(open); return; }
+    // Inside the Wix iframe the observer still measures against the real page
+    // viewport, so this fires as the visitor scrolls the page.
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting && en.intersectionRatio >= 0.35) { open(en.target); io.unobserve(en.target); }
+      });
+    }, { threshold: [0.35] });
+    cards.forEach(function (c) { io.observe(c); });
+  }
+
+  var mm = window.matchMedia;
+  if (mm && (mm('(hover: none)').matches || mm('(pointer: coarse)').matches)) enableTouchMode();
+  // Some phones report a mouse-like pointer. The first real touch settles it.
+  document.addEventListener('touchstart', enableTouchMode, { passive: true, capture: true });
+
+  /* TAP GATE. The whole card is a link, so a finger that lands on a card to
+     scroll, to stop a scroll, or by accident must not leave the page.
+     A touch counts as a deliberate tap only if it barely moved, was short,
+     and did not come right after a scroll. */
+  var MOVE_PX = 8, AFTER_SCROLL_MS = 400, MAX_TAP_MS = 700;
+  var sx = 0, sy = 0, startedAt = 0, moved = false, afterScroll = false;
+  var lastScrollAt = 0, lastTouchEndAt = 0, lastTouchDeliberate = false;
+
+  document.addEventListener('touchstart', function (e) {
+    var t = e.touches[0];
+    sx = t.clientX; sy = t.clientY; startedAt = Date.now();
+    moved = e.touches.length > 1;
+    afterScroll = (startedAt - lastScrollAt) < AFTER_SCROLL_MS;
+  }, { passive: true, capture: true });
+
+  document.addEventListener('touchmove', function (e) {
+    var t = e.touches[0];
+    if (Math.abs(t.clientX - sx) > MOVE_PX || Math.abs(t.clientY - sy) > MOVE_PX) {
+      moved = true; lastScrollAt = Date.now();
+    }
+  }, { passive: true, capture: true });
+
+  function touchDone(cancelled) {
+    var now = Date.now();
+    if (moved || cancelled) lastScrollAt = now;
+    lastTouchDeliberate = !moved && !cancelled && !afterScroll && (now - startedAt) <= MAX_TAP_MS;
+    lastTouchEndAt = now;
+  }
+  document.addEventListener('touchend', function () { touchDone(false); }, { passive: true, capture: true });
+  document.addEventListener('touchcancel', function () { touchDone(true); }, { passive: true, capture: true });
+
+  // Capture phase, so this runs before the FareHarbor bridge below.
+  document.addEventListener('click', function (e) {
+    if (!touchMode) return;
+    var card = e.target.closest && e.target.closest('.exp-card');
+    if (!card) return;
+    var fromTouch = (Date.now() - lastTouchEndAt) < 700;
+    var ready = card.getAttribute('data-ready') === '1';
+    if (ready && (!fromTouch || lastTouchDeliberate)) return;   // open card, deliberate tap: follow the link
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    if (!fromTouch || lastTouchDeliberate) open(card);          // a tap on a closed card opens it, nothing more
+  }, true);
+})();
 </script>
 
 <!-- IFRAME HEIGHT REPORTER — multi-signal (Wix Custom Embed auto-resize)
