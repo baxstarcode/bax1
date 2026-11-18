@@ -125,3 +125,10 @@ made the pages hard to find - recorded here for next time):
 Published through the Wix SEO API and verified in rendered HTML: the house-page title, Open Graph and Twitter titles are `Blue Diamond | Most Luxurious Ice House`; its meta description and JSON-LD use Blue Diamond. The homepage OfferCatalog names this house Blue Diamond. The per-page JSON, schema map and injector are synchronized; the URL, file names, prices and other house facts are unchanged. The homepage API required JSON minification to meet its 4096-byte tag limit; the graph otherwise changed only the house name.
 
 The Wix editor was signed out in this session. The visible H1, menu label, sibling links, body aliases and two image alt texts still require the editor pass; publishing these SEO changes does not complete those edits. Historical capture files and the install log above retain their original names.
+
+
+### 2026-11-17 — The Hearth naming (Handoff #756)
+
+Brady confirmed the house: "The Hearth = 17' Ice Castle Hybrid II, FareHarbor item 681248." Published through the Wix editor and verified in rendered HTML. The page's `Baxstar Schema` markup now leads with The Hearth (WebPage name and description; Service name, serviceType and description). The title tag is `The Hearth | 17′ Ice Castle Hybrid II RV Edition Rental`; Open Graph and X titles are `The Hearth | 17′ Ice Castle Hybrid II RV Edition | Premium Ice House Rental`. The homepage OfferCatalog (Wix markup `Baxstar Homepage SEO Markup JSON`, not mirrored in this folder) names the house The Hearth. The editor page name, which is also the menu label, is now `The Hearth`. The URL /17-hybrid-ii-ice-castle-detroit-lakes, file names and offers are unchanged. The per-page JSON, schema map and injector match the published graph.
+
+Known mismatch left in place: the markup offers are $475 single night and $825 2-night weekend, while the visible page shows $500 and $875. Prices were out of scope for the rename. The "emitted twice" open item above no longer reproduces: on 2026-11-17 the page emitted one block. The install log and slug map above keep their original names.
