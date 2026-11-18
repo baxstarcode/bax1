@@ -9,7 +9,10 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@300;400&display=swap">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background:#08080a}
+/* Baxstar SCROLLLESS iframe standard: this embed never scrolls on its own, so
+   a touch inside the frame always moves the Wix page. With a scrollable root,
+   1px of copy past the frame caught a whole swipe ("sticky" hero on phones). */
+html,body{width:100%;height:auto;overflow:hidden;background:#08080a}
 :root{
   --red:#c1272d;
   --red-glow:rgba(193,39,45,0.55);
@@ -94,8 +97,10 @@ html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:visible;background
   .hero__headline{text-shadow:0 2px 16px rgba(0,0,0,0.75)}
   /* Compact vertical rhythm so both CTAs land above the first-load fold
      on phones (incl. iPhone SE): the old 18svh top pad alone pushed the
-     buttons off-screen. */
-  .hero__inner{max-width:100%;padding:clamp(24px,4.5svh,40px) 22px 28px;justify-content:flex-end;align-items:center;text-align:center;min-height:auto}
+     buttons off-screen. Top pad is fixed px, never svh: padding tied to the
+     frame height made the copy grow each time Wix grew the frame to fit it,
+     so the frame stayed 1px short and the hero caught the scroll. */
+  .hero__inner{max-width:100%;padding:26px 22px 28px;justify-content:flex-end;align-items:center;text-align:center;min-height:auto}
   .hero__eyebrow{display:none}
   .hero__headline{font-size:clamp(48px,10vw,58px)}
   .hero__divider{margin:16px 0 18px}
