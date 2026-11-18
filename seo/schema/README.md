@@ -136,3 +136,7 @@ Known mismatch left in place: the markup offers are $475 single night and $825 2
 ### 2026-11-17 — The Hearth prices $485 / $850 (Handoff #763)
 
 Brady, verbatim: "Change The Hearth to $485 and $850 anywhere and everywhere." The visible page, the page's `Baxstar Schema` markup and FareHarbor item 681248 (Base sheet, before FareHarbor's 6% fee) now say $485 single night and $850 3 Day/2 Night. The per-page JSON, schema map and injector offers were changed from 475/825 to 485/850 to match the published graph. This closes the "Known mismatch" noted in the entry above. Not changed here: the Lodge weekend offer in schema-map.json and the injector still says 975, while the live Lodge markup says 1025.
+
+### 2026-11-18 — The Lodge mirror synced to live (Handoff #764)
+
+The Lodge per-page JSON, schema map and injector now match the published /21-ice-castle-rental markup: 2-night weekend offer 975 to 1025 (live since Handoff #717) and "7 pre-drilled holes" (live; Brady confirmed 7 holes on Nov 14). This closes the Lodge mismatch noted in the entry above.
