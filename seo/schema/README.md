@@ -33,7 +33,7 @@ on all 12 URLs — see the Install log.
 | 12 | /fishing-consultations | schema-fishing-consultations.json | live 2026-08-05 |
 
 Installed earlier:
-- Homepage: schema-homepage.json (live since 2026-07-30)
+- Homepage: schema-homepage.json (live since 2026-07-30; re-synced to the live homepage block 2026-11-25, see the Install log)
 - /faq: schema-faq.json (live since 2026-07-29)
 
 ## What's inside each block
@@ -140,3 +140,7 @@ Brady, verbatim: "Change The Hearth to $485 and $850 anywhere and everywhere." T
 ### 2026-11-18 — The Lodge mirror synced to live (Handoff #764)
 
 The Lodge per-page JSON, schema map and injector now match the published /21-ice-castle-rental markup: 2-night weekend offer 975 to 1025 (live since Handoff #717) and "7 pre-drilled holes" (live; Brady confirmed 7 holes on Nov 14). This closes the Lodge mismatch noted in the entry above.
+
+### 2026-11-25 — Homepage mirror synced to live
+
+Read-only check: all 14 pages were fetched and each live JSON-LD block was compared with this folder. 13 matched exactly: the 12 page files and schema-faq.json. The schema-map.json page nodes match the page files, and the injector's embedded map equals schema-map.json. The homepage did not match. schema-homepage.json still held the 2026-07-30 fishing-only graph. The live homepage serves the ice-season graph: WebPage name `Detroit Lakes Ice Fishing Guide & Fish House Rentals | Baxstar`, an Ice Castle rentals OfferCatalog (Range Runner, The Hearth, Blue Diamond, 21' RV Extreme Edition, Date Night on the Ice) and a guided ice fishing Service. schema-homepage.json now holds the live block verbatim (3415 bytes, byte-identical to the served block), so pasting it can no longer overwrite the live homepage markup with the old graph. The homepage is not in schema-map.json, so the loader and injector are unaffected. Nothing in Wix was changed. /17-hybrid-ii-ice-castle-detroit-lakes emitted one block, as noted on 2026-11-17.
